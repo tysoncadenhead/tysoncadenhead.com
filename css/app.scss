@@ -1,0 +1,200 @@
+@import "vendor/bootstrap";
+@import "vendor/bootstrap-responsive";
+@import "vendor/highlight";
+
+#fbcomments, .fb-comments, .fb-comments iframe[style], .fb-comments span {
+    width: 100% !important;
+}
+
+body {
+    font-size: 16px;
+    line-height: 30px;
+    font-family: 'Monda', sans-serif;
+}
+
+.header {
+    height: 90px;
+    width: 100%;
+    padding: 10px 0px;
+    background: #333333;
+    margin-bottom: 30px;
+
+    #logo {
+        color: #CCC;
+        left: -35px;
+        position: relative;
+        font-family: 'Leckerli One', cursive;
+        font-weight: normal;
+        font-size: 28px;
+        top: -5px;
+    }
+
+    .tagline {
+        color: #CCC;
+        font-size: 12px;
+        position: relative;
+        left: -5px;
+        top: -25px;
+    }
+
+    @media (max-width: 767px) {
+        .logo {
+            left: 10px;
+        }
+    }
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.thumbnail img {
+    width: 170px;
+    height: 170px;
+    background: transparent;
+}
+
+.footer {
+    border-top: solid 1px #CCCCCC;
+    background: #EEEEEE;
+    width: 100%;
+    margin-top: 50px;
+    position: relative;
+    padding: 10px 0px;
+
+    .addthis_default_style .addthis_separator, .addthis_default_style .at300b, .addthis_default_style .at300bo, .addthis_default_style .at300m, .addthis_default_style .at300bs {
+        float: right !important;
+    }
+
+    .addthis_follow_label {
+        display: none;
+    }
+
+    .left {
+        margin-left: 0px;
+    }
+
+}
+
+.twitter-timeline {
+    width: 100% !important;
+    margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+    .footer {
+        .left {
+            padding-left: 10px;
+        }
+        .right {
+            padding-right: 10px;
+        }
+    }
+}
+
+article {
+    padding-bottom: 75px;
+}
+
+.share {
+    display: block;
+    padding-bottom: 25px;
+}
+
+a {
+    color: #cc6633;
+}
+
+a:hover {
+    color: #a35c1d;
+    text-decoration: none;
+}
+
+p {
+    margin: 25px 0px 25px 0px;
+}
+
+p > code {
+    background: #EEE;
+}
+
+.label a {
+    color: #FFF;
+}
+
+.clear {
+    clear: both;
+    width: 100%;
+    float: left;
+
+    .thumbnail {
+        width: 200px;
+        height: 260px;
+        margin-right: 20px;
+    }
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.presentation-item {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background: #000;
+    padding-bottom: 0px !important;
+    margin-bottom: 30px;
+    float: left;
+    margin-right: 30px;
+}
+
+article p img, .presentation-item img {
+    box-shadow: 0px 0px 9px #CCC;
+}
+
+.presentation-item img {
+    width: 100%;
+}
+
+.presentation-item:hover img {
+    opacity: 0.4;
+}
+
+.presentation-item a {
+    color: #FFF !important;
+}
+
+.presentation-item .description {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    top: 0px;
+    left: 0px;
+}
+
+.presentation-item:hover .description {
+    display: block;
+}
+
+.presentation-item h2 {
+    font-size: 22px;
+}
+
+.presentation-item h4 {
+    font-size: 16px;
+}
+
+.page-group {
+    display: none;
+}
+
+#page-group-0 {
+    display: block;
+}
+
+@import "tables";

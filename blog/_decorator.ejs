@@ -1,0 +1,66 @@
+<article>
+
+    <div class="well span2 right thumbnail">
+      <img src="<%- thumbnail %>" />
+    </div>
+
+    <h1><%- title  %></h1>
+
+    <h5><span class="label label-info"><a href="/?category=<%- category %>"><%- category %></a></span> | <%- date %></h5>
+
+    <%- yield  %>
+
+    <h5>Tags: 
+    <% for(var i = 0; i < tags.length; i++) { %>
+        <span class="label">
+            <a href="/?tag=<%- tags[i] %>"><%- tags[i] %></a>
+        </span>
+    <% } %>
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="<%- url %>/<%- current.path[0] %>/<%- current.path[1] %>" data-num-posts="10" data-colorscheme="light"></div>

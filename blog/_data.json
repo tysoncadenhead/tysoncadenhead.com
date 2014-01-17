@@ -1,0 +1,93 @@
+{
+    "authentication-in-meteor": {
+        "title": "Authentication in Meteor",
+        "tags": [ "Meteor", "Node", "Authentication" ],
+        "category": "code",
+        "date": "11-14-2013",
+        "thumbnail": "/images/blog/meteor-authentication.png"
+    },
+    "creating-sprites-with-compass": {
+        "title": "Creating Sprites with Compass",
+        "tags": [ "Compass", "SASS", "CSS" ],
+        "category": "code",
+        "date": "9-20-2013",
+        "thumbnail": "/images/blog/sprite.png"
+    },
+    "compiling-sass-and-compass-with-grunt": {
+        "title": "Compiling SASS and Compass with Grunt",
+        "tags": [ "SASS", "Compass", "Grunt" ],
+        "category": "code",
+        "date": "8-30-2013",
+        "thumbnail": "/images/blog/grunt-sass.png"
+    },
+    "client-side-dependency-management-with-bower": {
+        "title": "Client-Side Dependency Management with Bower",
+        "tags": [ "Bower" ],
+        "category": "code",
+        "date": "8-2-2013",
+        "thumbnail": "/images/blog/bower.png"
+    },
+    "bing-translate-a-new-grunt-task-to-internationalize-your-apps-programmatically": {
+        "title": "Bing Translate: A New Grunt Task to Internationalize Your Apps Programmatically",
+        "tags": [ "Grunt", "Bing", "Bing Translator", "i18n" ],
+        "category": "code",
+        "date": "6-21-2013",
+        "thumbnail": "/images/blog/grunt.png"
+    },
+    "compound-js-presentation-in-nashville": {
+        "title": "Compound JS Presentation in Nashville",
+        "tags": [ "Compound", "Presentation" ],
+        "category": "code",
+        "date": "5-22-2013",
+        "thumbnail": "/images/blog/testtubes.png"
+    },
+    "creating-mobile-apps-with-sencha-touch-2": {
+        "title": "Book Review: Creating Mobile Apps With Sencha Touch 2",
+        "tags": [ "Book", "Sencha" ],
+        "category": "code",
+        "date": "5-16-2013",
+        "thumbnail": "/images/blog/senchabook.png"
+    },
+    "authentication-with-compound-passport": {
+        "title": "Authentication with Compound-Passport",
+        "tags": [ "Compound", "Node", "Authentication" ],
+        "category": "code",
+        "date": "4-3-2013",
+        "thumbnail": "/images/blog/passport.png"
+    },
+    "compoundjs-routes": {
+        "title": "Compound.js Routes",
+        "tags": [ "Compound" ],
+        "category": "code",
+        "date": "3-12-2013",
+        "thumbnail": "/images/blog/car.png"
+    },
+    "underscore-fire": {
+        "title": "_.fire(): A Plugin for Underscore",
+        "tags": [ "Underscore", "JavaScript", "Open Source" ],
+        "category": "code",
+        "date": "1-9-2013",
+        "thumbnail": "/images/blog/fire.png"
+    },
+    "resolutions-2013": {
+        "title": "2013 Resolutions",
+        "tags": [ "Goals" ],
+        "category": "productivity",
+        "date": "1-1-2013",
+        "thumbnail": "/images/blog/setgoals.png"
+    },
+    "book-review-html5-for-web-designers": {
+        "title": "Book Review: HTML5 for Web Designers",
+        "tags": [ "Book", "HTML" ],
+        "category": "code",
+        "date": "1-23-2012",
+        "thumbnail": "/images/blog/reading.png"
+    },
+    "code-seperation": {
+        "title": "Code Separation",
+        "tags": [ "Architecture" ],
+        "category": "code",
+        "date": "1-28-2010",
+        "thumbnail": "/images/blog/seperation.png"
+    }
+}

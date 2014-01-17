@@ -1,0 +1,26 @@
+{{{
+    "title": "Do You Need a College Degree to Be a Web Developer?",
+    "tags": [ "College", "Coding" ],
+    "category": "code",
+    "date": "5-25-2013",
+    "thumbnail": "/images/blog/graduate.jpg"
+}}}
+
+Software development is a really exciting field to be in. Technology is constantly changing and improving. The demand for people who can read and write code is constantly expanding. The laws of supply and demand work in the developer's favor since all of the companies are forced to compete for the limited number of people who can write code well.
+
+So, if you want to get into the development field, you may be tempted to enroll in a nearby college and get a four-year degree in computer science. After all, [everyone with a college degree does better in life](http://www.youtube.com/watch?v=kXpwAOHJsxg), right?
+
+In the interest of full disclosure, I'll start off by saying that I do have a college degree. College was a good experience for me. I made many friends I still keep in touch with today, I met my wife at college and I was able to learn under some really good professors. However, I have to ask myself whether I would encourage my kids to enroll in college if they were pursuing a career as a software engineer. It might be surprising, but my answer would be "no." Here are my reasons:
+
+-   **College is expensive.** This should be obvious, but college can cost an arm and a leg. When I went to college at a small private university, the tuition was about $10,000 a semester. The cost of college is rising at a rate that far exceeds the rate of inflation. There is literally no way a college student can pay for that out of pocket. As an 18-year-old, you can't understand the burden of debt or the way that interest works on loans. What's even worse is that many of my friends are unemployed or underemployed with the same debt load. Our family is on the [Dave Ramsey](http:/daveramsey.com) plan trying to get out from under the weight of student loan debt. The one lesson we have learned is that it is never worth it to borrow money.
+-   **Missed opportunity.** Four years is a long time. It's impossible to calculate what you may have missed in terms of lost opportunity. If I had been working, even for minimum wage, I would have had enough money to buy a house at the end of four years.
+-   **Technology moves too fast.** Other than basic principles of coding, everything that you learn in college will be obsolete by the time you get your degree. As a rule, colleges are typically a year or two behind because they are waiting to determine whether the technologies will stick. There's no reason to teach a class on a language that turns out to be a passing trend.
+
+So, if you don't go to college, how can you get a job writing code? Here a few ideas.
+
+-   **Learn as much as you can.** Pick a language and commit to thoroughly learning it. If you're looking for a language that will make good money, some solid choices are JavaScript, C#, PHP and Java. I would personally recommend learning JavaScript because it has a bright future. Books are a good place to start. There are also tons of blogs that can be invaluable resources. There are also weekly newsletters like [JavaScript Weekly](http://javascriptweekly.com/) that keep a running update of what is hot in the development world. To get started on a language, I would recommend just creating an application. You will learn really fast if you are actually writing functional code.
+-   **Meet other developers.** If you live in or near a major city, there are probably several meetups and conferences you can attend. They are a great place to meet people. Ask them about what they are doing and where they work. Create relationships with people who are doing what you want to be doing. The odds of getting a job by filling out resumes are terrible. Almost all of the professional jobs I've gotten were a result of networking.
+-   **Get an internship writing code.** Since there is such a high demand for software engineers, many companies will gladly take interns under their wings. The benefits for the company are that they have the potential to eventually hire you on as a full-time employee, they get free or cheap work and they are able to look good in their community because they are teaching upcoming engineers.
+-   **Look into cheaper alternatives.** Here in Nashville, we have a program called "[Nashville Software School](http://nashvillesoftwareschool.com/)" that just costs $1,000 a semester. My guess is that there are similar programs springing up in other areas as well.
+
+As you should be able to see, college is probably not the right choice for an aspiring developer. Sure, there are some companies that require a bachelor's degree, but the vast majority would prefer four years of real-world experience to the insulated learning environment that a college provides. If you are able to land your first tech job, nobody will ever even notice whether or not you have a college degree listed on your resume. Learning to write code well is going to require a lot of hard work, but college is hard work too. In the end, you have to ask yourself what it costs compared to what you have to show for it in the end.

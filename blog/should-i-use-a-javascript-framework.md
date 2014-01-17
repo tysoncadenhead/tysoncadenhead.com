@@ -1,0 +1,21 @@
+{{{
+    "title": "Should I Use a JavaScript Framework?",
+    "tags": [ "JavaScript" ],
+    "category": "code",
+    "date": "6-12-2010",
+    "thumbnail": "/images/blog/framework.png"
+}}}
+
+There are literally tons of JavaScript frameworks out there to ease the pain of website and application development.  Obviously, the most popular one out there right now is [jQuery](http://jquery.com), but that is not to say that there are not other libraries out there.  So the question becomes, should developers use libraries or is it just a crutch that keeps them from learning real JavaScript?  Here are some thoughts on the subject.
+
+- I think that everyone should start out learning the basics of JavaScript before learning a library.  When you see some of the things that you can do with [jQuert](http://jquery.com) or [YUI](http://developer.yahoo.com/yui/) or [Prototype](http://www.prototypejs.org/), you'll probably want to jump right into the framework, but here are some benefits of learning JavaScript proper to begin with:
+
+    - When you know the basics of JavaScript such as how to loop over an array, how to write a conditional statement and how to manipulate the DOM, you'll have a better understanding of what the library your using is doing.  Contrary to popular opinion, jQuery is not magic, and it does not do anything that you couldn't do with plain JavaScript, it just makes it easier to do things that would previously have taken more code by running the variables you give it through functions.
+    - When you know the basics, you will be able to tell when something is easier to do without the library and when the library is helpful.  You won't have to trust that it's necessarily better just because it's a library method.  It may not be.
+    - Libraries have limitations.  There are things that you can do with plain JavaScript that you can't do with a library.  No JavaScript library was built to be a replacement for JavaScript, they were all written to be an addition to it.
+
+- Once you know the basics of JavaScript, using a framework or library will help you to write less code and do more with it.  Specifically with jQuery, manipulating the DOM, applying listeners and events and performing Ajax requests requires significantly less code.
+    - Frameworks and libraries extend functions that somebody else wrote, so you don't have to.  Let's just face it, [John Resig](http://ejohn.org/) and the jQuery team could probably write loops around you with their code.  They are good at what they do.  The best part is that they already did it, so you don't have to.  You can focus on other things!
+    - Don't get too attached.  If you can, try to abstract the way you interact with your framework in case you ever need to switch frameworks or the framework you use stops being supported.  These things happen.  I've been trying to find an article abstracting JavaScript frameworks to point you to, but I haven't found one yet.  Perhaps I will have to write one.
+    
+These are my thoughts on the subject.  Can you think of any arguments for or against using JavaScript frameworks?

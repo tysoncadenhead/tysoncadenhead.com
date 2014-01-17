@@ -1,0 +1,42 @@
+<% var pages = Object.keys(public.blog._data).length / 10; %>
+
+<div id="blog-posts">
+<% var i = 0; %>
+<% for(var slug in public.blog._data){ %>
+
+  <% if (i % 10 === 0) { %>
+    <% if (i) { %></div><% } %><div class="page-group" id="page-group-<%- i / 10 %>">
+  <% } %>
+
+  <article>
+
+        <div class="well span2 right thumbnail">
+          <img class="lazy" data-original="<%- public.blog._data[slug].thumbnail %>" />
+        </div>
+
+        <h2><a href="/blog/<%- slug %>"><%- public.blog._data[slug].title  %></a></h2>
+        <h5><span class="label label-info"><a href="/?category=<%- public.blog._data[slug].category %>"><%- public.blog._data[slug].category %></a></span> <%- public.blog._data[slug].date %></h5>
+
+        <% function excerpt(content) { %>
+          <% return content.split("<!-- more -->")[0]; %>
+        <% } %>
+
+        <%- excerpt(partial("blog/" + slug)) %>
+
+    </article>
+
+    <% i++; %>
+
+<% }; %>
+</div>
+</div>
+
+<div class="pagination">
+  <ul>
+    <li class="disabled" id="page-back"><a href="#top">&#171;</a></li>
+    <% for (var i = 0; i < pages; i++) { %>
+      <li id="page-number-<%- i %>" class="<% if (!i) { %>active <% } %>page-number"><a href="#top" data-page="<%- i %>"><%= i + 1 %></a></li>
+    <% } %>
+    <li id="page-forward"><a href="#top">&#187;</a></li>
+  </ul>
+</div>

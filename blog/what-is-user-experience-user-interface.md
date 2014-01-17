@@ -1,0 +1,25 @@
+{{{
+    "title": "What is UI / UX?",
+    "tags": [ "Design", "UI", "UX" ],
+    "category": "design",
+    "date": "2-11-2010",
+    "thumbnail": "/images/blog/uiux.png"
+}}}
+
+When I tell people that I'm a User Experience / User Interface Developer, I tend to get a mixture of people who say "you make website, I can't event check my e-mail" and people who aren't exactly sure what it means to be a user experience designer.  My goal through this blog is to tackle some of the relevant issues pertaining to web usability, and user experience as well as sharing some client-side and possibly a little bit of server-side code that can help other people who are trying to create user friendly websites.  Since that is my ultimate purpose here, I feel like I need to lay some groundwork by explaining what User Experience Design and what User Interface Development actually entail.  This is just laying down the tracks for some more in-depth discussion down the road, but we've got to start somewhere, right?  Let's jump into it.
+
+### What is User Experience
+
+User Experience is all about approaching applications as the user.  When a user comes to your website, how do they know what is important and where to find the things that they are looking for?  If they are filling out a form, do they know that their first name is required?  If they don't fill it out, how can they be notified that they must fill it out before moving on without losing everything in the form?  Are things that belong together grouped together in a way that makes sense?  These are the kinds of questions that user experience development asks.
+
+The answers are not always as obvious as you might think.  Why else do so many people have such a hard time using well-known web applications like Facebook and MySpace?  What is shown, what isn't shown, where they are shown, the relationship of one item to another - these decisions can make or break the ease of use for your application.
+
+There is also a level of psychology involved in the process.  A 75 year old man may interact with a website completely differently than a 7 year old girl and have completely different expectations wrapped around their actions.  The perception of how things should behave is formed by observing how other similar things have behaved in the past.  For example, when you scroll over a link, you expect the cursor for your mouse to change and become a pointing finger.  This is something that has been ingrained in our expectations from visiting thousands of other websites with the same behavior.  With a line of CSS, it's possible to make the cursor something else when you scroll over a link, but it breaks with user expectations and makes them uneasy, unsure of what their actions will result in and unable to use your application properly.  Similarly, as AJAX and AJAX-like JavaScript becomes more and more commonplace, it is important to show the user that the objects that trigger AJAX functions are "links."  This is again just a line of CSS, but it makes all the difference where the use is concerned.
+
+### What is User Interface (UI)?
+
+A user interface is what users see when they access an application.  A user interface designer may be someone who simply designs the look and feel of an application by creating wireframes and mockups of the final product or they may be heavier on the development side.  Often a user interface developer will have an array of skills in client-side technologies such as JavaScript and JavaScript libraries such as jQuery, jQuery UI, EXT JS, YUI, Prototype, or others.
+
+User interface development ties in closely with user experience development in that the user is the end-goal in both situations, which means that simplicity in design is paramount.
+
+I'm looking forward to delving into both of these subjects in much less general terms in the future, so you can look forward to seeing some actual examples and code.  I just felt that this sort of undertaking may merit some preface.
