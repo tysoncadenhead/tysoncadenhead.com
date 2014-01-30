@@ -11,11 +11,11 @@
   <article>
 
         <div class="well span2 right thumbnail">
-          <img class="lazy" data-original="<%= url %>/<%- public.blog._data[slug].thumbnail %>" />
+          <img class="lazy" data-original="<%- public.blog._data[slug].thumbnail %>" />
         </div>
 
-        <h2><a href="<%= url %>/blog/<%- slug %>"><%- public.blog._data[slug].title  %></a></h2>
-        <h5><span class="label label-info"><a href="<%= url %>/?category=<%- public.blog._data[slug].category %>"><%- public.blog._data[slug].category %></a></span> <%- public.blog._data[slug].date %></h5>
+        <h2><a href="/blog/<%- slug %>"><%- public.blog._data[slug].title  %></a></h2>
+        <h5><span class="label label-info"><a href="/?category=<%- public.blog._data[slug].category %>"><%- public.blog._data[slug].category %></a></span> <%- public.blog._data[slug].date %></h5>
 
         <% function excerpt(content) { %>
           <% return content.split("<!-- more -->")[0]; %>
