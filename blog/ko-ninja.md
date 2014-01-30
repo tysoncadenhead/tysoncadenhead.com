@@ -1,12 +1,6 @@
-{{{
-    "title": "Ko.Ninja Part 1 - A Framework For Building Awesome Knockout.js Apps",
-    "tags": [ "knockout", "ko.ninja" ],
-    "category": "code",
-    "date": "12-20-2013",
-    "thumbnail": "/images/blog/ninja1.png"
-}}}
-
 Over the past year, I have been doing a ton of work on Knockout applications. There is a lot to love about Knockout. The declarative bindings allow you to keep your UI data-driven and synced at all times, which is a huge win when you are working on large scalable applications. However, one place where the Knockout core is lacking is that it is not prescriptive about how code should be written for it. That was the beginning of the idea behind ko.ninja. If we could put some structure around our viewModels, we could do some really cool things.
+
+<!-- more -->
 
 Ko.ninja is a collaborative open-source project written by [Jonathan Creamer](http://jonathancreamer.com/) and myself. It is still in its infancy, and I would really like to get some feedback about tweaks and improvements that could be made to make it more awesome.
 

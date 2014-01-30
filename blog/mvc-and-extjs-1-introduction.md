@@ -1,12 +1,6 @@
-{{{
-    "title": "Getting Started with MVC and EXTJS",
-    "tags": [ "EXT", "Architecture" ],
-    "category": "code",
-    "date": "10-20-2010",
-    "thumbnail": "/images/blog/1.png"
-}}}
-
 If you haven't seen any of the rich interfaces that have been built with EXT JS and Sencha Touch on web applications, Adobe Air applications or native smart phone apps, you will.  The Sencha family gives us everything we need to build large applications, but it doesn't limit us on how we can write them.
+
+<!-- more -->
 
 I've seen first-hand how seemingly small amounts of Javascript grow over time to become unmanageable and monstrous. The best way to avoid that is to have some sort of framework so you know where your code will be going.  I've written in the past about the need for separating Javascript using MVC patterns.  MVC was created around server-side languages, but the same logic applies.  In Javascript, the Ajax calls and store creation are the model, the event listeners are the controllers and the display logic and DOM manipulation are the view.
 

@@ -1,12 +1,6 @@
-{{{
-    "title": "Making Browser-Specific CSS Less Intrusive with SASS",
-    "tags": [ "CSS", "SASS" ],
-    "category": "code",
-    "date": "5-30-2011",
-    "thumbnail": "/images/blog/browsers.png"
-}}}
-
 A few weeks ago, I started using SASS.  What is SASS?  It's an acrostic that stands for "Syntactically Awesome Style Sheets."  SASS is run from the command line and essentially lets you write stylesheets with things like variables, nesting and mixins (which are pretty much the equivalent of the functions in a real programming language).  
+
+<!-- more -->
 
 If you're like me and you've spent a lot of time writing CSS, you probably find yourself making a lot of style declarations that are basically the same with only some minor variations.  In the past, the only way to really make CSS maintainable was to give DOM elements a long list of classes like:
 

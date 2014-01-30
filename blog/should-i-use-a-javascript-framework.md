@@ -1,12 +1,6 @@
-{{{
-    "title": "Should I Use a JavaScript Framework?",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "6-12-2010",
-    "thumbnail": "/images/blog/framework.png"
-}}}
-
 There are literally tons of JavaScript frameworks out there to ease the pain of website and application development.  Obviously, the most popular one out there right now is [jQuery](http://jquery.com), but that is not to say that there are not other libraries out there.  So the question becomes, should developers use libraries or is it just a crutch that keeps them from learning real JavaScript?  Here are some thoughts on the subject.
+
+<!-- more -->
 
 - I think that everyone should start out learning the basics of JavaScript before learning a library.  When you see some of the things that you can do with [jQuert](http://jquery.com) or [YUI](http://developer.yahoo.com/yui/) or [Prototype](http://www.prototypejs.org/), you'll probably want to jump right into the framework, but here are some benefits of learning JavaScript proper to begin with:
 

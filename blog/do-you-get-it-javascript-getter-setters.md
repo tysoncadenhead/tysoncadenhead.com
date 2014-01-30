@@ -1,12 +1,6 @@
-{{{
-    "title": "How Do I Create My Own JavaScript Getters and Setters?",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "9-23-2011",
-    "thumbnail": "/images/blog/huh.png"
-}}}
-
 In JavaScript, it is often useful to have a place to set and get configuration options.  You can do this by just creating an object and updating it, but a global object is less secure because anyone using Firebug can log the object and see the entire thing.  A getter / setter gets around that issue because it doesn't expose any values unless they are specifically requested.
+
+<!-- more -->
 
 Another advantage of using a getter / setter is that it puts variables inside the local variable scope instead of exposing them to the global variable scope.  Keeping the variables in the local scope speeds up the execution of the code because there is less to parse through in the global scope.
 

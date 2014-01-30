@@ -1,12 +1,6 @@
-{{{
-    "title": "Sencha Application Event Listening",
-    "tags": [ "Sencha Touch", "EXT" ],
-    "category": "code",
-    "date": "7-17-2010",
-    "thumbnail": "/images/blog/senchalistening.png"
-}}}
-
 If you're like me, you are constantly looking for better ways to architect your JavaScript applications to be scalable and modular.  One of the keys to writing an application that fits the bill is to use reusable components that, instead of calling other functions or components directly, broadcast events that multiple components may be listening for.  I've been on a hunt to figure out how to do this correctly for a while now and I've finally come upon a few good solutions.
+
+<!-- more -->
 
 For those of you who don't know, [Sencha](http://sencha.com) (formerly known as EXT) is a JavaScript library that provides tons of tools for Rich Internet Application development.  If you are curious about what it can do, [check out some examples](http://www.sencha.com/deploy/dev/examples/).  If you are writing a Sencha application, a big part of the job is already done for you.  In this post, I will assume that you already have a basic knowledge of EXT / Sencha and that you know how to get it up and running.
 

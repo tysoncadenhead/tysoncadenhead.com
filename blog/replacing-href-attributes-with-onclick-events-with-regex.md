@@ -1,12 +1,6 @@
-{{{
-    "title": "Replacing href attributes with onClick events with Regex",
-    "tags": [ "JavaScript", "Regex" ],
-    "category": "code",
-    "date": "2-23-2011",
-    "thumbnail": "/images/blog/onclick.jpg"
-}}}
-
 I recently had the need to override all of my links on a Sencha Touch app with an onClick event.  I needed to be able to open the links using the ChildBrowser plugin for PhoneGap.  The problem was that I needed to grab the links before I rendered the content to the page and apply the onClick event instead of the href.
+
+<!-- more -->
 
 Essentially, I wanted to turn this:
 

@@ -1,12 +1,6 @@
-{{{
-    "title": "Hosting Multiple Websites on the Same WordPress Installation",
-    "tags": [ "Wordpress" ],
-    "category": "code",
-    "date": "1-28-2013",
-    "thumbnail": "/images/blog/wordpress.png"
-}}}
-
 I have several Wordpress websites that I've designed and developed. Perhaps a little known secret is that I have all of the sites hosted inside a single Wordpress installation instead of hosting a completely unique installation for each site. Sharing a common code-base for the heavy lifting has some great benefits.
+
+<!-- more -->
 
 - It takes up less space on my server.  Wordpress isn't huge considering what it does, but every 12.8 MB counts.
 - It makes updates easier.  When there is a new version of Wordpress available, I can update it for all of my sites at once.

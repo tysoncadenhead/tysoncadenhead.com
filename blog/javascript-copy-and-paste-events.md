@@ -1,12 +1,6 @@
-{{{
-    "title": "The JavaScript Copy and Paste Events",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "10-31-2013",
-    "thumbnail": "/images/blog/clippy.jpg"
-}}}
-
 If you have ever wanted to listen for user events like pasting, copying and cutting on the clipboard, you will be glad to know that it's not that hard. As fate would have it, there is already an event for each of the clipboard operations.
+
+<!-- more -->
 
 For example, if you want to listen for data being pasted onto your page, you can do something like this:
 

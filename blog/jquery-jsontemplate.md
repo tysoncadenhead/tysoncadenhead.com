@@ -1,14 +1,8 @@
-{{{
-    "title": "Instroducing jQuery.jsonTemplate",
-    "tags": [ "JSON", "Template" ],
-    "category": "code",
-    "date": "6-3-2013",
-    "thumbnail": "/images/blog/layout.png"
-}}}
-
 This is entirely experimental, but I've created a purely JSON-based templating system called jQuery.jsonTemplate.
 
 The idea is to have a completely JSON-based nested markup language that compiles to HTML and back again.
+
+<!-- more -->
 
 Using it is pretty simple. You just need to add all of the properties you would typically use in HTML to the JSON structure like this:
 

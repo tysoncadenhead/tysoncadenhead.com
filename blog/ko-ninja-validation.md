@@ -1,12 +1,6 @@
-{{{
-    "title": "Ko.Ninja Part 2 - Validation",
-    "tags": [ "knockout", "ko.ninja", "validation" ],
-    "category": "code",
-    "date": "12-27-2013",
-    "thumbnail": "/images/blog/ninja2.png"
-}}}
-
 This is a part of a larger series about the [ko.ninja framework](/blog/ko-ninja) that I helped to create to make Knockout development more awesome. In my last post, I introduced ko.ninja, a framework that I helped create for making awesome Knockout apps. Today, we're going to continue looking at ko.ninja, but we are going to focus on doing validation on the ko.ViewModel.
+
+<!-- more -->
 
 As an example of what ko.ninja can do, check out the validation on this form:
 

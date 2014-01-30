@@ -1,12 +1,6 @@
-{{{
-    "title": "Ko.Ninja Part 3 - LocalStorage Models",
-    "tags": [ "knockout", "ko.ninja", "model", "data", "ajax" ],
-    "category": "code",
-    "date": "1-2-2014",
-    "thumbnail": "/images/blog/ninja3.png"
-}}}
-
 This is a part of a larger series about the [ko.ninja framework](/blog/ko-ninja) that I helped to create to make Knockout development more awesome. With ko.ninja, you can add a model to your viewModel to automatically save your data as soon as it changes and validates. Ko.ninja comes with several model types including localStorage, ajax and socket.io, but we also plan to add the ability to let you define a custom model type if you have other needs that are not covered by our model types.
+
+<!-- more -->
 
 We will walk through how to use ajax and socket.io models in future posts, but we'll focus on localStorage today first since it doesn't require a server to function. Let's use this simple viewModel and template as an example:
 

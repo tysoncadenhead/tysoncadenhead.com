@@ -1,12 +1,6 @@
-{{{
-    "title": "Getting Started with Poet.js",
-    "tags": [ "NodeJS", "Blogging" ],
-    "category": "code",
-    "date": "8-9-2013",
-    "thumbnail": "/images/blog/poet.png"
-}}}
-
 I have recently moved this entire blog over from using the Wordpress CMS to running on completely on Node. The library I eventually ended up choosing is called [Poet](http://jsantell.github.io/poet/). 
+
+<!-- more -->
 
 Poet is a light-weight blogging platform that runs on top of [Express](http://expressjs.com/). It doesn't require a database, and allows you to write all of your posts in static [Markdown](http://daringfireball.net/projects/markdown/) files. For me, the database-free approach makes sense because if I want to totally move to a different programing language ten years from now, the transition should be seamless. Don't worry though, I have no plans to abandon Node any time soon.
 
@@ -55,11 +49,3 @@ The only weird thing about the actual posts is that they can include metadata at
   "tags": ["blog", "fun"],
   "category": "javascript",
   "date": "7-5-2013"
-}}}
-
-Here goes the content that belongs to the post...
-```
-
-If you need further help getting started, they have some pretty solid [api documentation](http://jsantell.github.io/poet/). There is also a [sample app](https://github.com/jsantell/poet/tree/master/examples) that was really helpful to me.
-
-There were a few tricks that I employed to make working with Poet easier, and I will be posting about that soon. Until then, enjoy writing your code love poem.

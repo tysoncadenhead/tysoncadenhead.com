@@ -1,12 +1,6 @@
-{{{
-    "title": "Web Developers and Health",
-    "tags": [ "Apps", "Health" ],
-    "category": "health",
-    "date": "3-6-2011",
-    "thumbnail": "/images/blog/weights.jpg"
-}}}
-
 It's no secret that web developers don't lead a very active lifestyle. In fact, from the day I entered college until a couple of weeks ago, I had gained almost 25 pounds thanks to my lack of activity and disregard for the effects of food on my body.
+
+<!-- more -->
 
 However, a couple of weeks ago, I started to turn it all around.  Already, I've lost several pounds and I'm starting to feel healthier.  How could a web developer loose weight?  Ironically, the answer is technology.  I've been using a free iPhone app from [loseit.com](http://loseit.com) to track my calories.
 

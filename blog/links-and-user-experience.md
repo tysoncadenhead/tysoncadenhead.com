@@ -1,12 +1,6 @@
-{{{
-    "title": "Links and User Experience",
-    "tags": [ "User Experience", "Design" ],
-    "category": "design",
-    "date": "2-21-2010",
-    "thumbnail": "/images/blog/links.png"
-}}}
-
 If I haven't said this before, I am seriously planning on showing more code in some of my post in the near future.  This one is slightly related to my previous blog entry, [What is UI / UX?](/blog/what-is-user-experience-user-interface/) but I will be more focused because I'm just going to be talking about how links relate to user experience on websites.  First, we'll take a history lesson.
+
+<!-- more -->
 
 When the Internet and web browsers first became available to the public, the link was a convention that was quickly adapted to allow users to navigate multiple pages within a single site, or to even point to pages contained in different websites.  Before links, navigating the internet was practically impossible because you had to know the exact location of the information that you were looking for.  I'm sure you never would have found this blog entry, much less my website, if it weren't for links.  When links were introduced, there had to be a visual cue to show people that they could click on them.  Remember, we're still talking old-school here, websites with white backgrounds and huge blocks of white text, sometimes using frames for navigation.  The way that links looked different from the regular text was that it was blue and underlined and when you scrolled over it, the cursor for your mouse would change to an image of a finger pointing at the the link.  Who couldn't help but click on something so enticing?
 

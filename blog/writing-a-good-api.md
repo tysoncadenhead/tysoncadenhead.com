@@ -1,12 +1,6 @@
-{{{
-    "title": "Writing a Good API",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "12-17-2011",
-    "thumbnail": "/images/blog/api.png"
-}}}
-
 As a JavaScript developer, I tend to spend a lot of time getting and setting data using a server-side API.  Over the past few years, I've encountered all sorts of APIs and I've formed some opinions on what makes a good API for JavaScript interaction.  Here are some of my thoughts.
+
+<!-- more -->
 
 ### Make the API use only a single URL, if possible
 

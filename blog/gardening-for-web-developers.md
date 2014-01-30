@@ -1,12 +1,6 @@
-{{{
-    "title": "Gardening for Web Developers",
-    "tags": [ "Code" ],
-    "category": "code",
-    "date": "6-28-2013",
-    "thumbnail": "/images/blog/gardening.jpg"
-}}}
-
 This year, I started a vegetable garden in my front yard. There are several reasons I started it. We are trying to get out of debt, but I still want my family to have nutritious food that isn't full of deadly chemicals. I also think that skills like being able to grow your own food could become really valuable in the coming years of inflation that the Federal Reserve has set us up for in the United States.
+
+<!-- more -->
 
 Gardening has been a good opportunity for me to get away from more mind-intensive tasks like writing code or reading some of the heavier topics I tend to get into.
 

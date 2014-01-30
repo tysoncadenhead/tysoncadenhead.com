@@ -1,12 +1,6 @@
-{{{
-    "title": "LocalStorage with Amplify.js",
-    "tags": [ "LocalStorage", "appendTo" ],
-    "category": "code",
-    "date": "7-13-2013",
-    "thumbnail": "/images/blog/amplify.png"
-}}}
-
 [Amplify](http://amplifyjs.com/) is JavaScript component library from appendTo. It has a ton of useful features and one of them is the storage piece. If you have ever worked with storage in the browser, you probably know that there are various APIs and storage types with varying degrees of browser support.
+
+<!-- more -->
 
 Amplify store is handy because it abstracts away some of the lower-level storage API interaction so that you can focus on what really matters - storing and retrieving data.
 

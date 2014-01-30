@@ -1,12 +1,6 @@
-{{{
-    "title": "Don’t Be a User Interface Hoarder",
-    "tags": [ "User Interface" ],
-    "category": "design",
-    "date": "2-19-2011",
-    "thumbnail": "/images/blog/hoarder.jpg"
-}}}
-
 For some reason, I keep watching episodes of a television show called "Hoarders."  If you haven't seen it, it's about people who collect stuff.  Collecting stuff is one thing, but these people have no organizational system for the items that they collect.  They literally have piles of so much useless junk that their houses become essentially unlivable.  Many of them don't even have a single walkway to navigate through their homes.  They could lead better lives, but they are unwilling to let go of their material possessions.
+
+<!-- more -->
 
 I think that is exactly what happens in technology when a good user interface goes bad.  I know that there are user interfaces that are legitimately bad to start with, but that's beyond the point of this discussion.
 

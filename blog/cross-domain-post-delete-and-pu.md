@@ -1,12 +1,6 @@
-{{{
-    "title": "Cross-Domain Ajax Using POST, DELETE and PUT Methods",
-    "tags": [ "JavaScript", "Ajax" ],
-    "category": "code",
-    "date": "10-17-2012",
-    "thumbnail": "/images/blog/communication.png"
-}}}
-
 I've recently been working on a JavaScript API that interfaces with a REST-based server-side API and handles cross-domain issues while still allowing GET, POST, PUT and DELETE methods to be fired from anywhere on the web.  Due to cross-domain security issues at the browser level, making POST, PUT and DELETE requests can be a lot harder than you might think.
+
+<!-- more -->
 
 Let's say for the sake of argument that you have a domain at foo.com that needs to interact with an API at bar.com.  You can easily get around the cross domain issues using JSONP, but the limitation is that since JSONP is a hack that pretends that the ajax response is just a normal JavaScript file, it only allows for the data to be retrieved through the GET method.
 

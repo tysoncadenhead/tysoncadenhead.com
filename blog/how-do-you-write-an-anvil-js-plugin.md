@@ -1,12 +1,6 @@
-{{{
-    "title": "How Do You Write an Anvil.js Plugin?",
-    "tags": [ "Anvil", "Build" ],
-    "category": "code",
-    "date": "2-21-2013",
-    "thumbnail": "/images/blog/anvil.png"
-}}}
-
 [Anvil.js](http://anviljs.com) is a powerful "Convention over configuration" build tool that was built by [Alex Robson](http://twiiter.com/a_robson) and sponsored by [appendTo](http://appendto.com), which is incidentally where I work now.
+
+<!-- more -->
 
 One of the most powerful things about Anvil is that it has an intentionally light core. It was meant to be primarily run by plugins. Authoring Anvil plugins is a pretty painless ordeal. Today, I'm going to walk you through the process of creating an Anvil plugin. Once you see how simple it is, you'll probably find yourself writing plugins to make your own build more efficient. Let's get started.
 

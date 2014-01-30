@@ -1,12 +1,6 @@
-{{{
-    "title": "jQuery Mobile vs. Sencha Touch",
-    "tags": [ "Mobile", "jQuery Mobile", "Sencha Touch" ],
-    "category": "code",
-    "date": "2-17-2011",
-    "thumbnail": "/images/blog/mugs.jpg"
-}}}
-
 Last night, I finished re-doing the mobile version of this site using [jQuery Mobile](http://jquerymobile.com/).  The only other mobile JavaScript library I have worked with so far is [Sencha Touch](http://www.sencha.com/products/touch/) and I must say, they are vastly different.  My prognosis?  If I am going to make a mobile version of a website, I am going to use jQuery Mobile.  If I am going to make a "native" mobile application, I will be more likely use Sencha Touch.
+
+<!-- more -->
 
 So how do they stack up?
 

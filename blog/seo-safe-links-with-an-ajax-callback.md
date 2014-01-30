@@ -1,14 +1,6 @@
-{{{
-    "title": "SEO-Safe Links with an Ajax Callback",
-    "tags": [ "JavaScript", "HTML", "jQuery" ],
-    "category": "code",
-    "date": "4-8-2010",
-    "thumbnail": "/images/blog/seosafe.png"
-}}}
-
-### Ajax content is good for usability, but bad for SEO
-
 Ajax is awesome for things like rich internet applications that don't require SEO because of their internal nature, or for on-page events like form validation and submitting, but from an SEO standpoint, adding content to the DOM is illegible. But you still want the increased usability of not having to reload the page every time an element or two is changed, right?  The fact is that users don't like waiting on your page to load, and the more you can do to keep from reloading the whole thing, the better.  But still, there's the problem of JavaScript DOM manipulation not jiving with Search Engine Optimization.  What's a person to do?
+
+<!-- more -->
 
 ### Start with a normal link
 Start with a link on your page linking to the actual file you want to link to.  This version of the file should include everything that it needs to look good.  This includes the header, footer and any other page elements.  It is what your users will see if they turn off their JavaScript.  It should look something like this:

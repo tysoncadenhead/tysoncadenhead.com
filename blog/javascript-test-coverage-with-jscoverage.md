@@ -1,12 +1,6 @@
-{{{
-    "title": "Determining JavaScript Test Coverage with JSCover",
-    "tags": [ "Testing" ],
-    "category": "code",
-    "date": "7-18-2013",
-    "thumbnail": "/images/blog/cover.png"
-}}}
-
 Knowing what parts of your code to test can sometimes be tricky. If you have a large application, it can be challenging to know what has already been tested and what still needs testing. That is why the world needs JSCover.
+
+<!-- more -->
 
 JSCover is a really great tool that looks through all of your code to determine what parts have unit tests and what parts don't.
 

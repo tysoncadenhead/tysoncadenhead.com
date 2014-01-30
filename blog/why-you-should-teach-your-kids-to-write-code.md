@@ -1,12 +1,6 @@
-{{{
-    "title": "Why You Should Teach Your Kids How to Write Code",
-    "tags": [ "Rant", "Kids" ],
-    "category": "code",
-    "date": "11-08-2013",
-    "thumbnail": "/images/blog/duck.jpg"
-}}}
-
 Our kids are still really young, but as soon as they are old enough to read and do some basic math, I’m planning to teach them how to write JavaScript. We will probably have a better setup than most people because I work remotely and we are planning to homeschool our kids. That will give me ample opportunity to work with them on a regular basis.
+
+<!-- more -->
 
 There are a ton of good reasons to teach kids to program at an early age. Here are just a few that I’ve though of.
 

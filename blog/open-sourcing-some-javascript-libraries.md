@@ -1,12 +1,6 @@
-{{{
-    "title": "Open-Sourcing Various JavaScript Libraries",
-    "tags": [ "Goals" ],
-    "category": "code",
-    "date": "9-7-2012",
-    "thumbnail": "/images/blog/confused.png"
-}}}
-
 I've been working on several projects in the past year or so that have required me to write some jQuery plugins and custom JavaScript widgets and I feel like several of them could definitely be useful for other developers.  I've set a goal this year to release at least two projects to the community, but it's tough to know which ones people will find most useful. Since it takes a little work to get a library to a place where it works under multiple scenarios and that's even before the lengthy process of writing documentation, I thought I'd put it up to a vote to see what people would like to see and use.  Whatever seems to have the most positive attention is what I'll probably end up open-sourcing first.
+
+<!-- more -->
 
 Here are some of the things I've done that might make good open-source projects:
 

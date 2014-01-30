@@ -1,12 +1,6 @@
-{{{
-    "title": "Book Review: Sencha Architect App Development",
-    "tags": [ "Book" ],
-    "category": "code",
-    "date": "8-16-2013",
-    "thumbnail": "/images/blog/senchabook3.png"
-}}}
-
 If you haven't used Sencha Architect to build your Sencha applications, you are totally missing out. Sencha Architect is essentially a WYSIWYG editor that allows you to construct applications by dragging and dropping components into the stage area. `Sencha Architect App Development` from Packt publishing is a really helpful book that shows you how to construct an application in Sencha Architect from start to finish.
+
+<!-- more -->
 
 Sencha Architect App Development is a fairly quick read. It is just over a hundred pages, but there is a ton of knowledge packed in its pages.
 

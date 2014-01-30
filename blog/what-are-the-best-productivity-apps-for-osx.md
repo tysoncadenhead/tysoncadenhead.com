@@ -1,12 +1,6 @@
-{{{
-    "title": "What are the Best Productivity Apps for OSX?",
-    "tags": [ "Productivity", "OSX" ],
-    "category": "productivity",
-    "date": "3-5-2013",
-    "thumbnail": "/images/blog/multitasking.png"
-}}}
-
 I've been a huge fan of Apple since college. What's not to love? The user interface is clean and intuitive, the shell is based on Linux, which makes it easy to use and Macs hold up really well to both wear and tear and malicious software.
+
+<!-- more -->
 
 I use a Macbook Pro as my primary development machine, so I literally spend all day on it. Over the past couple of years, I've become obsessed with reaching my maximum productivity while working. Software is rarely the solution to better productivity. It is often part of the problem. However, I have found a few applications and browser extensions that actually do help to make me more productive. Here are some of the productivity tools I use on a daily basis.
 

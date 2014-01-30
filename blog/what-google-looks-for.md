@@ -1,12 +1,6 @@
-{{{
-    "title": "Search Engine Optimization 101",
-    "tags": [ "SEO" ],
-    "category": "code",
-    "date": "1-29-2010",
-    "thumbnail": "/images/blog/search.png"
-}}}
-
 SEO has been a hot topic especially in the last few years as the number of websites on the Internet has increased and being easily found on most search engines has been increasingly difficult. Everyone who has a website is looking for ways to make their site more accessible to Google and other modern search tools, so what are the basics? How can you take your website and bump it up in search engine rankings? Here are some clues.
+
+<!-- more -->
 
 ### URL
 

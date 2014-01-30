@@ -1,12 +1,6 @@
-{{{
-    "title": "How To Use Tor With Google Chrome",
-    "tags": [ "Security", "Browsers", "Tor", "Privacy" ],
-    "category": "privacy",
-    "date": "11-22-2013",
-    "thumbnail": "/images/blog/tor.png"
-}}}
-
 There are plenty of reasons to want to browse the Internet privately. Search engines and social media sites have been collecting our browsing for years in order to target marketing and advertisements to us. There are plenty of hackers out there who would love to get their hands on your data. But perhaps the most disturbing recent revelation about data collection has been the extent to which the NSA is actively gathering our personal information.
+
+<!-- more -->
 
 Many naive people might claim that if we are doing nothing wrong, then there is nothing to worry about. It should be pointed out that those same people don't live in a completely see-through glass house. Why is that? Maybe privacy is more important to them than they might claim.
 

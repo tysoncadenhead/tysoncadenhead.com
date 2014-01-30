@@ -1,12 +1,6 @@
-{{{
-    "title": "Writing JavaScript for Speed",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "4-9-2011",
-    "thumbnail": "/images/blog/running.jpg"
-}}}
-
 Has anyone ever told you that your application is too slow?  What can you do about it?   You can always point the finger at the server-side people and mumble something about the database being the problem, but is there anything you can do to speed up the loading time? Can you speed up the browser's reaction to user-activated events?
+
+<!-- more -->
 
 Here are a few things I've observed that can seriously improve application performance.
 

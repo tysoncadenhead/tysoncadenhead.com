@@ -1,12 +1,6 @@
-{{{
-    "title": "Logging Time on the Developer Console",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "7-29-2013",
-    "thumbnail": "/images/blog/time.png"
-}}}
-
 Sometimes when you are developing applications, it can be handy to know how long it takes for an operation to complete. For example, you might want to know how long an element takes to render or how long it takes for an Ajax call to resolve. Luckily, most of the modern web browsers have a `console.time` function that makes that easier.
+
+<!-- more -->
 
 As far as I can tell, `console.time` works in Chrome, Firefox and Safari. The api couldn't be simpler. You tell the console to start keeping track of the time be invoking console.time and passing in any arbitrary name you would like to call the time. In the example below, we're just calling it "my time."
 

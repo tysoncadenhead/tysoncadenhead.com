@@ -1,12 +1,6 @@
-{{{
-    "title": "Getting Started with JavaScript MVC",
-    "tags": [ "JavaScript", "JavaScriptMVC" ],
-    "category": "code",
-    "date": "3-30-2010",
-    "thumbnail": "/images/blog/mvc.png"
-}}}
-
 Nearly a year ago I was working for a company in the financial services industry that had need for a scalable, secure, AJAX application.  It was extremely large in scale and scope and it quickly became clear that I was going to have to have some sort of organizational structure to build the application upon.  My server-side experience at this point was primarily in writing C#, and I had fallen in love with the organization of the .NET MVC design pattern.  From there, I had been doing some contract work using CakePHP, which is also an MVC framework.  While I had written JavaScript for my websites, an entire application is completely different.  I looked around at frameworks and eventually settled on [JavaScript MVC](http://javascriptmvc.com) for its basis in the MVC framework as well as its rich feature set.  So what does JavascriptMVC come with "out of the box?"
+
+<!-- more -->
 
 ### A great architecture using Model-View-Controller
 
