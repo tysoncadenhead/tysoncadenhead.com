@@ -1,12 +1,6 @@
-{{{
-    "title": "How Do You Make a Compound.js Application?",
-    "tags": [ "Compound" ],
-    "category": "code",
-    "date": "2-27-2013",
-    "thumbnail": "/images/blog/compound.png"
-}}}
-
 NodeJS may still be young, but there are already several MVC frameworks popping up to run exclusively on Node. My favorite is [CompoundJS](http://compoundjs.com/).
+
+<!-- more -->
 
 Compound was written to look like to Ruby on Rails. In fact, Compound's original name was "Railway on Express." As the defunct name implies, Compound runs on top of [the ExpressJS framework](http://expressjs.com/). Some of the reasons to use Compound instead of simply running a vanilla installation of Express are that:
 

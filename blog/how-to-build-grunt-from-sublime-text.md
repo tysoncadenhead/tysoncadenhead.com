@@ -1,12 +1,6 @@
-{{{
-    "title": "How to Do a Grunt Build Using Sublime Text",
-    "tags": [ "Grunt", "Sublime" ],
-    "category": "code",
-    "date": "9-13-2013",
-    "thumbnail": "/images/blog/grunt-sublime.png"
-}}}
-
 Sublime Text is a really great editor for writing code. It is actually my editor of choice at the moment. One nice feature that comes with Sublime is the ability to specify a custom build type. Sublime comes with several built-in build systems, but I've recently discovered that rolling my own build system is really simple. Here is how I got Sublime to build my JavaScript and Node scripts using Grunt.
+
+<!-- more -->
 
 Assuming you are already running Grunt for your build, you can simply go to `Tools>Build System>New Build System` in the Sublime menu and a new JSON file will appear.
 

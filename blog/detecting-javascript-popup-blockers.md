@@ -1,12 +1,6 @@
-{{{
-    "title": "Detecting JavaScript Popup Blockers",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "10-10-2011",
-    "thumbnail": "/images/blog/popup.png"
-}}}
-
 Most of us can agree that spawning popups with JavaScript is usually a user experience FAIL.  We've all been to websites that opened several popup ads. That is always something to avoid.  Malicious and ad-happy sites have made it necessary for browser plugins and some browsers to block JavaScript popups altogether.
+
+<!-- more -->
 
 But there are some examples where popups are actually necessary. The main thing to remember when it does become necessary is to make the popup window a response to a user action.  Usually a popup should be triggered by a clicking a link or a button rather than opening it on page load.  That way the popup is not instantly perceived as an ad and closed by your user.
 

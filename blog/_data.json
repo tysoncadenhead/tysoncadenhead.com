@@ -1,10 +1,94 @@
 {
+    "ko-ninja-socket-io-model": {
+        "title": "Ko.Ninja Part 5 - Socket.io Models",
+        "tags": [ "knockout", "ko.ninja", "model", "data", "socket.io" ],
+        "category": "code",
+        "date": "1-17-2014",
+        "thumbnail": "/images/blog/ninja5.png"
+    },
+    "ko-ninja-http-models": {
+        "title": "Ko.Ninja Part 4 - HTTP Models",
+        "tags": [ "knockout", "ko.ninja", "model", "data", "ajax" ],
+        "category": "code",
+        "date": "1-9-2014",
+        "thumbnail": "/images/blog/ninja4.png"
+    },
+    "ko-ninja-model": {
+        "title": "Ko.Ninja Part 3 - LocalStorage Models",
+        "tags": [ "knockout", "ko.ninja", "model", "data", "ajax" ],
+        "category": "code",
+        "date": "1-2-2014",
+        "thumbnail": "/images/blog/ninja3.png"
+    },
+    "ko-ninja-validation": {
+        "title": "Ko.Ninja Part 2 - Validation",
+        "tags": [ "knockout", "ko.ninja", "validation" ],
+        "category": "code",
+        "date": "12-27-2013",
+        "thumbnail": "/images/blog/ninja2.png"
+    },
+    "ko-ninja": {
+        "title": "Ko.Ninja Part 1 - A Framework For Building Awesome Knockout.js Apps",
+        "tags": [ "knockout", "ko.ninja" ],
+        "category": "code",
+        "date": "12-20-2013",
+        "thumbnail": "/images/blog/ninja1.png"
+    },
+    "how-to-use-tor-with-chrome": {
+        "title": "How To Use Tor With Google Chrome",
+        "tags": [ "Security", "Browsers", "Tor", "Privacy" ],
+        "category": "privacy",
+        "date": "11-22-2013",
+        "thumbnail": "/images/blog/tor.png"
+    },
     "authentication-in-meteor": {
         "title": "Authentication in Meteor",
         "tags": [ "Meteor", "Node", "Authentication" ],
         "category": "code",
         "date": "11-14-2013",
         "thumbnail": "/images/blog/meteor-authentication.png"
+    },
+    "why-you-should-teach-your-kids-to-write-code": {
+        "title": "Why You Should Teach Your Kids How to Write Code",
+        "tags": [ "Rant", "Kids" ],
+        "category": "code",
+        "date": "11-08-2013",
+        "thumbnail": "/images/blog/duck.jpg"
+    },
+    "javascript-copy-and-paste-events": {
+        "title": "The JavaScript Copy and Paste Events",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "10-31-2013",
+        "thumbnail": "/images/blog/clippy.jpg"
+    },
+    "getting-started-with-socket-io": {
+        "title": "Getting Started with Socket.io",
+        "tags": [ "node", "socketio", "javascript" ],
+        "category": "code",
+        "date": "10-25-2013",
+        "thumbnail": "/images/blog/socket-io.jpg"
+    },
+    "working-with-meteor-data": {
+        "title": "Working with Meteor Data",
+        "tags": [ "Meteor", "Node", "JavaScript", "Data" ],
+        "category": "code",
+        "date": "10-10-2013",
+        "thumbnail": "/images/blog/meteor-data.png"
+    },
+    "why-is-test-driven-development-so-hard": {
+        "title": "Why is Test-Driven Development So Hard?",
+        "tags": [ "TDD", "Test Driven Development", "Unit Testing" ],
+        "category": "code",
+        "date": "10-4-2013",
+        "thumbnail": "/images/blog/tdd.png"
+    },
+    "getting-started-with-meteor": {
+        "title": "Getting Started with Meteor",
+        "tags": [ "Meteor", "Node", "JavaScript" ],
+        "category": "code",
+        "date": "9-26-2013",
+        "thumbnail": "/images/blog/meteor.png"
     },
     "creating-sprites-with-compass": {
         "title": "Creating Sprites with Compass",
@@ -13,12 +97,47 @@
         "date": "9-20-2013",
         "thumbnail": "/images/blog/sprite.png"
     },
+    "how-to-build-grunt-from-sublime-text": {
+        "title": "How to Do a Grunt Build Using Sublime Text",
+        "tags": [ "Grunt", "Sublime" ],
+        "category": "code",
+        "date": "9-13-2013",
+        "thumbnail": "/images/blog/grunt-sublime.png"
+    },
+    "secrets-of-the-javascript-ninja": {
+        "title": "Book Review: Secrets of the JavaScript Ninja",
+        "tags": [ "Book", "JavaScript" ],
+        "category": "code",
+        "date": "9-4-2013",
+        "thumbnail": "/images/blog/ninja.png"
+    },
     "compiling-sass-and-compass-with-grunt": {
         "title": "Compiling SASS and Compass with Grunt",
         "tags": [ "SASS", "Compass", "Grunt" ],
         "category": "code",
         "date": "8-30-2013",
         "thumbnail": "/images/blog/grunt-sass.png"
+    },
+    "how-can-you-see-the-latest-poet-js-posts-without-restarting-the-server": {
+        "title": "How Can You See the Latest Poet.js Posts Without Restarting the Server?",
+        "tags": [ "NodeJS", "Blogging" ],
+        "category": "code",
+        "date": "8-23-2013",
+        "thumbnail": "/images/blog/poet-latest.png"
+    },
+    "sencha-architect-app-development": {
+        "title": "Book Review: Sencha Architect App Development",
+        "tags": [ "Book" ],
+        "category": "code",
+        "date": "8-16-2013",
+        "thumbnail": "/images/blog/senchabook3.png"
+    },
+    "poet-js": {
+        "title": "Getting Started with Poet.js",
+        "tags": [ "NodeJS", "Blogging" ],
+        "category": "code",
+        "date": "8-9-2013",
+        "thumbnail": "/images/blog/poet.png"
     },
     "client-side-dependency-management-with-bower": {
         "title": "Client-Side Dependency Management with Bower",
@@ -27,12 +146,68 @@
         "date": "8-2-2013",
         "thumbnail": "/images/blog/bower.png"
     },
+    "logging-time-on-the-developer-console": {
+        "title": "Logging Time on the Developer Console",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "7-29-2013",
+        "thumbnail": "/images/blog/time.png"
+    },
+    "javascript-test-coverage-with-jscoverage": {
+        "title": "Determining JavaScript Test Coverage with JSCover",
+        "tags": [ "Testing" ],
+        "category": "code",
+        "date": "7-18-2013",
+        "thumbnail": "/images/blog/cover.png"
+    },
+    "localstorage-with-amplify-js": {
+        "title": "LocalStorage with Amplify.js",
+        "tags": [ "LocalStorage", "appendTo" ],
+        "category": "code",
+        "date": "7-13-2013",
+        "thumbnail": "/images/blog/amplify.png"
+    },
+    "running-node-applications-continuously-with-foreverjs": {
+        "title": "Running Node Applications Continuously with Forever.js",
+        "tags": [ "Node" ],
+        "category": "code",
+        "date": "7-5-2013",
+        "thumbnail": "/images/blog/forever.png"
+    },
+    "gardening-for-web-developers": {
+        "title": "Gardening for Web Developers",
+        "tags": [ "Code" ],
+        "category": "code",
+        "date": "6-28-2013",
+        "thumbnail": "/images/blog/gardening.jpg"
+    },
     "bing-translate-a-new-grunt-task-to-internationalize-your-apps-programmatically": {
         "title": "Bing Translate: A New Grunt Task to Internationalize Your Apps Programmatically",
         "tags": [ "Grunt", "Bing", "Bing Translator", "i18n" ],
         "category": "code",
         "date": "6-21-2013",
         "thumbnail": "/images/blog/grunt.png"
+    },
+    "what-should-i-test-when-i-write-software": {
+        "title": "What Should I Test When I Write Software?",
+        "tags": [ "Testing", "Mocha", "QUnit", "Selenium" ],
+        "category": "code",
+        "date": "6-6-2013",
+        "thumbnail": "/images/blog/test-dummy.png"
+    },
+    "jquery-jsontemplate": {
+        "title": "Instroducing jQuery.jsonTemplate",
+        "tags": [ "JSON", "Template" ],
+        "category": "code",
+        "date": "6-3-2013",
+        "thumbnail": "/images/blog/layout.png"
+    },
+    "do-you-need-a-college-degree-to-be-a-web-developer": {
+        "title": "Do You Need a College Degree to Be a Web Developer?",
+        "tags": [ "College", "Coding" ],
+        "category": "code",
+        "date": "5-25-2013",
+        "thumbnail": "/images/blog/graduate.jpg"
     },
     "compound-js-presentation-in-nashville": {
         "title": "Compound JS Presentation in Nashville",
@@ -48,6 +223,20 @@
         "date": "5-16-2013",
         "thumbnail": "/images/blog/senchabook.png"
     },
+    "using-local-storage-in-sencha-touch-2-2": {
+        "title": "Using Local Storage in Sencha Touch 2.2",
+        "tags": [ "Sencha", "LocalStorage" ],
+        "category": "code",
+        "date": "4-19-2013",
+        "thumbnail": "/images/blog/storage.jpg"
+    },
+    "knockout-observables": {
+        "title": "Knockout Observables",
+        "tags": [ "Knockout" ],
+        "category": "code",
+        "date": "4-8-2013",
+        "thumbnail": "/images/blog/observers.png"
+    },
     "authentication-with-compound-passport": {
         "title": "Authentication with Compound-Passport",
         "tags": [ "Compound", "Node", "Authentication" ],
@@ -55,12 +244,82 @@
         "date": "4-3-2013",
         "thumbnail": "/images/blog/passport.png"
     },
+    "unit-testing-with-thrill-js": {
+        "title": "Unit Testing with Thrill.js",
+        "tags": [ "Thrill", "Queen", "Testing", "QUnit" ],
+        "category": "code",
+        "date": "4-1-2013",
+        "thumbnail": "/images/blog/thrill.png"
+    },
+    "executeasyncscript-in-selenium-webdriver-for-node": {
+        "title": "executeAsyncScript() in Selenium Webdriver for Node",
+        "tags": [ "Testing", "Selenium" ],
+        "category": "code",
+        "date": "3-22-2013",
+        "thumbnail": "/images/blog/selenium.png"
+    },
     "compoundjs-routes": {
         "title": "Compound.js Routes",
         "tags": [ "Compound" ],
         "category": "code",
         "date": "3-12-2013",
         "thumbnail": "/images/blog/car.png"
+    },
+    "what-are-the-best-productivity-apps-for-osx": {
+        "title": "What are the Best Productivity Apps for OSX?",
+        "tags": [ "Productivity", "OSX" ],
+        "category": "productivity",
+        "date": "3-5-2013",
+        "thumbnail": "/images/blog/multitasking.png"
+    },
+    "how-do-yo-make-a-compoundjs-app": {
+        "title": "How Do You Make a Compound.js Application?",
+        "tags": [ "Compound" ],
+        "category": "code",
+        "date": "2-27-2013",
+        "thumbnail": "/images/blog/compound.png"
+    },
+    "how-do-you-write-an-anvil-js-plugin": {
+        "title": "How Do You Write an Anvil.js Plugin?",
+        "tags": [ "Anvil", "Build" ],
+        "category": "code",
+        "date": "2-21-2013",
+        "thumbnail": "/images/blog/anvil.png"
+    },
+    "what-is-jquery-map": {
+        "title": "What is jQuery.map?",
+        "tags": [ "jQuery", "JavaScript" ],
+        "category": "code",
+        "date": "2-15-2013",
+        "thumbnail": "/images/blog/map.png"
+    },
+    "getting-the-most-out-of-your-time": {
+        "title": "Getting the Most Out of Your Time",
+        "tags": [ "Productivity" ],
+        "category": "productivity",
+        "date": "2-4-2013",
+        "thumbnail": "/images/blog/machine.png"
+    },
+    "hosting-multiple-websites-on-the-same-wordpress-installation": {
+        "title": "Hosting Multiple Websites on the Same WordPress Installation",
+        "tags": [ "Wordpress" ],
+        "category": "code",
+        "date": "1-28-2013",
+        "thumbnail": "/images/blog/wordpress.png"
+    },
+    "top-10-backbone-plugins": {
+        "title": "Top 5 Backbone Plugins",
+        "tags": [ "Backbone", "JavaScript" ],
+        "category": "code",
+        "date": "1-22-2013",
+        "thumbnail": "/images/blog/plugin.png"
+    },
+    "how-can-i-share-ejs-templates-between-the-client-side-and-the-server-side": {
+        "title": "How Do I Share EJS Templates Between the Client-side and the Server-side?",
+        "tags": [ "EJS", "Templates", "Node", "JavaScript" ],
+        "category": "code",
+        "date": "1-15-2013",
+        "thumbnail": "/images/blog/sharing.png"
     },
     "underscore-fire": {
         "title": "_.fire(): A Plugin for Underscore",
@@ -76,6 +335,34 @@
         "date": "1-1-2013",
         "thumbnail": "/images/blog/setgoals.png"
     },
+    "off-the-charts-jquery-toastchart-plugin": {
+        "title": "Introducing the jQuery ToastChart Plugin",
+        "tags": [ "JQuery", "JavaScript", "Open Source" ],
+        "category": "code",
+        "date": "12-9-2012",
+        "thumbnail": "/images/blog/charts.png"
+    },
+    "my-new-standup-desk": {
+        "title": "My New Standup Desk",
+        "tags": [ "Health" ],
+        "category": "health",
+        "date": "11-17-2012",
+        "thumbnail": "/images/blog/standingdesk.png"
+    },
+    "cross-domain-post-delete-and-pu": {
+        "title": "Cross-Domain Ajax Using POST, DELETE and PUT Methods",
+        "tags": [ "JavaScript", "Ajax" ],
+        "category": "code",
+        "date": "10-17-2012",
+        "thumbnail": "/images/blog/communication.png"
+    },
+    "open-sourcing-some-javascript-libraries": {
+        "title": "Open-Sourcing Various JavaScript Libraries",
+        "tags": [ "Goals" ],
+        "category": "code",
+        "date": "9-7-2012",
+        "thumbnail": "/images/blog/confused.png"
+    },
     "book-review-html5-for-web-designers": {
         "title": "Book Review: HTML5 for Web Designers",
         "tags": [ "Book", "HTML" ],
@@ -83,11 +370,228 @@
         "date": "1-23-2012",
         "thumbnail": "/images/blog/reading.png"
     },
+    "writing-a-good-api": {
+        "title": "Writing a Good API",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "12-17-2011",
+        "thumbnail": "/images/blog/api.png"
+    },
+    "detecting-javascript-popup-blockers": {
+        "title": "Detecting JavaScript Popup Blockers",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "10-10-2011",
+        "thumbnail": "/images/blog/popup.png"
+    },
+    "do-javascript-libraries-need-an-abstraction-layer": {
+        "title": "How Do I Create My Own JavaScript Getters and Setters?",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "9-23-2011",
+        "thumbnail": "/images/blog/huh.png"
+    },
+    "parsing-coldfusion-json-on-the-client-side": {
+        "title": "Parsing Coldfusion JSON on the Client-side",
+        "tags": [ "JavaScript", "Coldfusion" ],
+        "category": "code",
+        "date": "8-6-2011",
+        "thumbnail": "/images/blog/eskimo.png"
+    },
+    "fat-models-and-skinny-controllers-in-javascript": {
+        "title": "Fat Models and Skinny Controllers in JavaScript",
+        "tags": [ "JavaScript", "Architecture" ],
+        "category": "code",
+        "date": "7-14-2011",
+        "thumbnail": "/images/blog/controller.png"
+    },
+    "making-browser-specific-css-less-intrusive-with-sass": {
+        "title": "Making Browser-Specific CSS Less Intrusive with SASS",
+        "tags": [ "CSS", "SASS" ],
+        "category": "code",
+        "date": "5-30-2011",
+        "thumbnail": "/images/blog/browsers.png"
+    },
+    "writing-javascript-for-speed": {
+        "title": "Writing JavaScript for Speed",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "4-9-2011",
+        "thumbnail": "/images/blog/running.jpg"
+    },
+    "jquery-event-listening": {
+        "title": "jQuery Event Listening",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "4-1-2011",
+        "thumbnail": "/images/blog/listening.jpg"
+    },
+    "writing-markup-for-future-enhancement": {
+        "title": "Writing Markup for Future Enhancement",
+        "tags": [ "HTML" ],
+        "category": "code",
+        "date": "3-24-2011",
+        "thumbnail": "/images/blog/robot.png"
+    },
+    "what-does-a-successful-ajax-application-need": {
+        "title": "What Does a Successful JavaScript Application Need?",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "3-11-2011",
+        "thumbnail": "/images/blog/success.jpg"
+    },
+    "web-developers-and-health": {
+        "title": "Web Developers and Health",
+        "tags": [ "Apps", "Health" ],
+        "category": "health",
+        "date": "3-6-2011",
+        "thumbnail": "/images/blog/weights.jpg"
+    },
+    "replacing-href-attributes-with-onclick-events-with-regex": {
+        "title": "Replacing href attributes with onClick events with Regex",
+        "tags": [ "JavaScript", "Regex" ],
+        "category": "code",
+        "date": "2-23-2011",
+        "thumbnail": "/images/blog/onclick.jpg"
+    },
+    "dont-be-a-user-interface-hoarder": {
+        "title": "Don’t Be a User Interface Hoarder",
+        "tags": [ "User Interface" ],
+        "category": "design",
+        "date": "2-19-2011",
+        "thumbnail": "/images/blog/hoarder.jpg"
+    },
+    "jquery-mobile-vs-sencha-touch": {
+        "title": "jQuery Mobile vs. Sencha Touch",
+        "tags": [ "Mobile", "jQuery Mobile", "Sencha Touch" ],
+        "category": "code",
+        "date": "2-17-2011",
+        "thumbnail": "/images/blog/mugs.jpg"
+    },
+    "javascript-variable-casing-best-practices": {
+        "title": "JavaScript Variable Casing Best Practices",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "2-8-2011",
+        "thumbnail": "/images/blog/casing.jpg"
+    },
+    "do-javascript-libraries-need-an-abstraction-layer": {
+        "title": "Do JavaScript Libraries Need an Abstraction Layer?",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "1-21-2011",
+        "thumbnail": "/images/blog/abstract.jpg"
+    },
+    "script-loaders": {
+        "title": "Script Loaders",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "1-1-2011",
+        "thumbnail": "/images/blog/loader.jpg"
+    },
+    "putting-ext-mvc-on-hold": {
+        "title": "Putting EXT MVC on Hold",
+        "tags": [ "EXT", "Architecture" ],
+        "category": "code",
+        "date": "1-1-2011",
+        "thumbnail": "/images/blog/stop.jpg"
+    },
+    "mvc-and-extjs-–-2-config": {
+        "title": "Configuration For EXTJS MVC Applications",
+        "tags": [ "EXT", "Architecture" ],
+        "category": "code",
+        "date": "11-1-2010",
+        "thumbnail": "/images/blog/2.png"
+    },
+    "mvc-and-extjs-1-introduction": {
+        "title": "Getting Started with MVC and EXTJS",
+        "tags": [ "EXT", "Architecture" ],
+        "category": "code",
+        "date": "10-20-2010",
+        "thumbnail": "/images/blog/1.png"
+    },
+    "sencha-loading-in-the-iphone-4g": {
+        "title": "Sencha Loading in the iPhone 4",
+        "tags": [ "Sencha Touch" ],
+        "category": "code",
+        "date": "10-19-2010",
+        "thumbnail": "/images/blog/loading.png"
+    },
+    "javascript-variables-accessibility": {
+        "title": "Javascript Variables' Accessibility",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "8-24-2010",
+        "thumbnail": "/images/blog/wheelchair.png"
+    },
+    "sencha-application-event-listening": {
+        "title": "Sencha Application Event Listening",
+        "tags": [ "Sencha Touch", "EXT" ],
+        "category": "code",
+        "date": "7-17-2010",
+        "thumbnail": "/images/blog/senchalistening.png"
+    },
+    "should-i-use-a-javascript-framework": {
+        "title": "Should I Use a JavaScript Framework?",
+        "tags": [ "JavaScript" ],
+        "category": "code",
+        "date": "6-12-2010",
+        "thumbnail": "/images/blog/framework.png"
+    },
+    "seo-safe-links-with-an-ajax-callback": {
+        "title": "SEO-Safe Links with an Ajax Callback",
+        "tags": [ "JavaScript", "HTML", "jQuery" ],
+        "category": "code",
+        "date": "4-8-2010",
+        "thumbnail": "/images/blog/seosafe.png"
+    },
+    "javascriptmvc": {
+        "title": "Getting Started with JavaScript MVC",
+        "tags": [ "JavaScript", "JavaScriptMVC" ],
+        "category": "code",
+        "date": "3-30-2010",
+        "thumbnail": "/images/blog/mvc.png"
+    },
+    "javascript-architecture": {
+        "title": "Javascript Architecture",
+        "tags": [ "JavaScript", "Architecture" ],
+        "category": "code",
+        "date": "3-11-2010",
+        "thumbnail": "/images/blog/architecture.png"
+    },
+    "links-and-user-experience": {
+        "title": "Links and User Experience",
+        "tags": [ "User Experience", "Design" ],
+        "category": "design",
+        "date": "2-21-2010",
+        "thumbnail": "/images/blog/links.png"
+    },
+    "what-is-user-experience-user-interface": {
+        "title": "What is UI / UX?",
+        "tags": [ "Design", "UI", "UX" ],
+        "category": "design",
+        "date": "2-11-2010",
+        "thumbnail": "/images/blog/uiux.png"
+    },
+    "what-google-looks-for": {
+        "title": "Search Engine Optimization 101",
+        "tags": [ "SEO" ],
+        "category": "code",
+        "date": "1-29-2010",
+        "thumbnail": "/images/blog/search.png"
+    },
     "code-seperation": {
         "title": "Code Separation",
         "tags": [ "Architecture" ],
         "category": "code",
         "date": "1-28-2010",
         "thumbnail": "/images/blog/seperation.png"
+    },
+    "killing-ie6": {
+        "title": "Killing IE6",
+        "tags": [ "Browsers" ],
+        "category": "code",
+        "date": "1-27-2010",
+        "thumbnail": "/images/blog/ie6.png"
     }
 }

@@ -1,12 +1,6 @@
-{{{
-    "title": "Getting the Most Out of Your Time",
-    "tags": [ "Productivity" ],
-    "category": "productivity",
-    "date": "2-4-2013",
-    "thumbnail": "/images/blog/machine.png"
-}}}
-
 A few years ago, I was working for a small startup in the financial industry. We were working against time to get an application finished before the dwindling money supply was depleted. In the end, we were not able to meet our mark. However, during my time there, I became known as "the Machine" because of my intent focus on our work.
+
+<!-- more -->
 
 Staying focused on development work can be more difficult than you might think. The very nature of our work demands that we are constantly online, almost always available for chat or quick voice conversations and sometimes even working directly in Facebook and other social networks, which have a nasty tendency to pull us in every direction but productivity.
 

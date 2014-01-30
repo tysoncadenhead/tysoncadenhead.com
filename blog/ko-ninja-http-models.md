@@ -1,12 +1,6 @@
-{{{
-    "title": "Ko.Ninja Part 4 - HTTP Models",
-    "tags": [ "knockout", "ko.ninja", "model", "data", "ajax" ],
-    "category": "code",
-    "date": "1-9-2014",
-    "thumbnail": "/images/blog/ninja4.png"
-}}}
-
 This is a part of a larger series about the [ko.ninja framework](/blog/ko-ninja) that I helped to create to make Knockout development more awesome. Previously, I showed how you can create a model to save data to localStorage. Today we are going to look at how you can save data to a server using Ajax using the ko.ninja model abstraction layer.
+
+<!-- more -->
 
 The ko.ninja HTTP model can be defined like this:
 

@@ -1,12 +1,8 @@
-{{{
-    "title": "JavaScript Variable Casing Best Practices",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "2-8-2011",
-    "thumbnail": "/images/blog/casing.jpg"
-}}}
+JavaScript is a loosely-typed case sensitive language.  Technically everything in the language is a variable.  Yes, it may be a string, a function, an array or an object, but everything is a variable at its core.  Because you can make your variables all lowercase or all uppercase or anywhere in between, it’s important for the sake of code readability to have a pattern for how the variables will be cased.
 
-JavaScript is a loosely-typed case sensitive language.  Technically everything in the language is a variable.  Yes, it may be a string, a function, an array or an object, but everything is a variable at its core.  Because you can make your variables all lowercase or all uppercase or anywhere in between, it’s important for the sake of code readability to have a pattern for how the variables will be cased.  The following is the best practices for variable casing and is useful to encourage a greater consistency in JavaScript code:
+<!-- more -->
+
+The following is the best practices for variable casing and is useful to encourage a greater consistency in JavaScript code:
 
 ### Variables
 For dynamic strings, ints, floats and arrays, use camel casing.

@@ -1,12 +1,6 @@
-{{{
-    "title": "Book Review: Secrets of the JavaScript Ninja",
-    "tags": [ "Book", "JavaScript" ],
-    "category": "code",
-    "date": "9-4-2013",
-    "thumbnail": "/images/blog/ninja.png"
-}}}
-
 When I received a copy of Secrets of a JavaScript Ninja for my birthday, I was understandably excited. As a long-time user of the jQuery, I have a great deal of respect for John Resig, who is the lead developer and creator of the useful and popular library. It should be noted that this is not a book about jQuery. This is a book about advanced JavaScript fundamentals.
+
+<!-- more -->
 
 By the time I read Secrets of the JavaScript Ninja, the playing-field for browsers and  had changed a little bit. For example, Resig only mentioned IE6, 7, 8 and 9. IE10 had obviously not been released at the time of the writing. That, of course, is the unfortunate thing about writing books on technology. As soon as a book is published, the technology has already advanced.
 

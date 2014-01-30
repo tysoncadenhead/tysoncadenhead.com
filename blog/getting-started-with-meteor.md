@@ -1,12 +1,6 @@
-{{{
-    "title": "Getting Started with Meteor",
-    "tags": [ "Meteor", "Node", "JavaScript" ],
-    "category": "code",
-    "date": "9-26-2013",
-    "thumbnail": "/images/blog/meteor.png"
-}}}
-
 When it comes to building applications quickly that share a ton of code between the client-side and server-side and that excel at real-time communication, there is nothing more awesome than Meteor. Meteor aims to remove all of the busywork from creating single-page applications, and it does a heck of a job at it.
+
+<!-- more -->
 
 The cool thing about Meteor is that it lets you share your server-side and client-side code and it makes synchronizing data a snap. Meteor has a client-side database that it syncs with the server-side database behind the scenes, which lets you actually interface with the server-side database from the client.
 

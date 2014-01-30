@@ -1,12 +1,6 @@
-{{{
-    "title": "Working with Meteor Data",
-    "tags": [ "Meteor", "Node", "JavaScript", "Data" ],
-    "category": "code",
-    "date": "10-10-2013",
-    "thumbnail": "/images/blog/meteor-data.png"
-}}}
-
 I previously introduced the [Meteor framework](/blog/getting-started-with-meteor) and showed how to create a simple application. Today we are going to look a little deeper and explore how data works in Meteor. If that isn't enough to get you excited, let me give you a teaser - Meteor literally lets you save data on the client-side without having to deal with the internals of server-side code. Have I got your attention yet?
+
+<!-- more -->
 
 Out of the box, Meteor uses MongoDB to store data, but it doesn't stop there. There is a localstorage database that the client-side works with that automatically syncs with the server if it can, which means your applications will work perfectly fine offline.
 

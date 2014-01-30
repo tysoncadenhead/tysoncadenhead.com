@@ -1,12 +1,6 @@
-{{{
-    "title": "Configuration For EXTJS MVC Applications",
-    "tags": [ "EXT", "Architecture" ],
-    "category": "code",
-    "date": "11-1-2010",
-    "thumbnail": "/images/blog/2.png"
-}}}
-
 This post is directly related to my previous post on [MVC and EXTJS](/blog/mvc-and-extjs-1-introduction/).   If you haven't read it yet, I'd suggest that you take a look at it before diving into this one.
+
+<!-- more -->
 
 For the purpose of demonstration, we'll be building a simple application that displays photos from various APIs.
 

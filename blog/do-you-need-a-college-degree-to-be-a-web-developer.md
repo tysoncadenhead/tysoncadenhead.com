@@ -1,12 +1,6 @@
-{{{
-    "title": "Do You Need a College Degree to Be a Web Developer?",
-    "tags": [ "College", "Coding" ],
-    "category": "code",
-    "date": "5-25-2013",
-    "thumbnail": "/images/blog/graduate.jpg"
-}}}
-
 Software development is a really exciting field to be in. Technology is constantly changing and improving. The demand for people who can read and write code is constantly expanding. The laws of supply and demand work in the developer's favor since all of the companies are forced to compete for the limited number of people who can write code well.
+
+<!-- more -->
 
 So, if you want to get into the development field, you may be tempted to enroll in a nearby college and get a four-year degree in computer science. After all, [everyone with a college degree does better in life](http://www.youtube.com/watch?v=kXpwAOHJsxg), right?
 

@@ -1,12 +1,6 @@
-{{{
-    "title": "What Does a Successful JavaScript Application Need?",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "3-11-2011",
-    "thumbnail": "/images/blog/success.jpg"
-}}}
-
 Having worked on several large scalable JavaScript and Ajax application over the past couple of years, I've started to form a definite opinion about what an application needs in order to be truly scalable and ultimately successful.  So what does your application need?
+
+<!-- more -->
 
 ### Multiple Files that compress down
 While you are developing and debugging your application, it is helpful to have many external JavaScript files.  You wouldn't try to make a large server-side project with just one file would you?  So why would you have a JavaScript file that is hundreds if not thousands of lines long?  Long files are harder to work with because you end up doing a lot of scrolling up and down the file rather than flipping between files.  Of course, in the end, you will want a process that minifies, combines and compresses your files because they will load faster that way.

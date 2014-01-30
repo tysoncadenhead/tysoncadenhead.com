@@ -1,14 +1,6 @@
-{{{
-    "title": "Writing Markup for Future Enhancement",
-    "tags": [ "HTML" ],
-    "category": "code",
-    "date": "3-24-2011",
-    "thumbnail": "/images/blog/robot.png"
-}}}
+We now have HTML5 and CSS3. Browsers are still racing to actually implement them, but the specs are here, whether they are fully realized in the wonderful world of browsers or not.  So the real question becomes, what should we do with the knowledge we have of things to come?
 
-We now have HTML5 and CSS3.
-
-Browsers are still racing to actually implement them, but the specs are here, whether they are fully realized in the wonderful world of browsers or not.  So the real question becomes, what should we do with the knowledge we have of things to come?
+<!-- more -->
 
 What I am going to advocate is that we should start using as much HTML5 markup as we can get away with now, because if we do, we'll be a step ahead of everyone else when people start scrambling to implement things that will become standard practice in the next few years.
 

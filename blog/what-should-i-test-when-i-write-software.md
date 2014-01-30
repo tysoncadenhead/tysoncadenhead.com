@@ -1,12 +1,6 @@
-{{{
-    "title": "What Should I Test When I Write Software?",
-    "tags": [ "Testing", "Mocha", "QUnit", "Selenium" ],
-    "category": "code",
-    "date": "6-6-2013",
-    "thumbnail": "/images/blog/test-dummy.png"
-}}}
-
 Testing is really important when you write software. That is a fact. But the real question is what you should test. The simple answer is "everything possible."
+
+<!-- more -->
 
 A more fleshed out answer is that you should also avoid testing the same things multiple times.
 

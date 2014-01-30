@@ -1,12 +1,6 @@
-{{{
-    "title": "Unit Testing with Thrill.js",
-    "tags": [ "Thrill", "Queen", "Testing", "QUnit" ],
-    "category": "code",
-    "date": "4-1-2013",
-    "thumbnail": "/images/blog/thrill.png"
-}}}
-
 Functional testing the DOM can be a daunting task. Tools like [Qunit](http://qunitjs.com/) and [Mocha](http://visionmedia.github.com/mocha/) make it easier, but the real trick is automating the testing process from the Terminal so that it can run continuous integration in the background and throw errors when a test fails.
+
+<!-- more -->
 
 [Thrill.js](http://thrilljs.com/) has turned out to be just the tool I was looking for. There are a few similar libraries out there. One of the more popular similar testing frameworks is [Karma](http://karma-runner.github.com/0.8/index.html). In my opinion, the real win for Thrill is that it can kick off and run tests in multiple browsers extremely quickly. The reason for the speed is that Thrill uses [Queen](http://queenjs.com/) which lets you open a single page in all of your browsers that sits and waits for tests to be kicked off via a hidden iframe. The Queen server communicates with Thrill using Socket.io as the tests are completed.
 

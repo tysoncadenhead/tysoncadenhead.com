@@ -1,12 +1,6 @@
-{{{
-    "title": "Fat Models and Skinny Controllers in JavaScript",
-    "tags": [ "JavaScript", "Architecture" ],
-    "category": "code",
-    "date": "7-14-2011",
-    "thumbnail": "/images/blog/controller.png"
-}}}
-
 I've recently been thinking about what it would mean to emulate the MVC best practice of skinny controllers that started in the confines of server-side development within the much more glamorous language and beautiful JavaScript. For those of you who haven't read some of my previous posts, I am a huge advocate of using Model View Controller architecture in client-side code as well as on the server-side. I've written in depth about what MVC looks like on the client-side, so I won't bother to delve into that explanation here.
+
+<!-- more -->
 
 The basic idea of skinny controllers is that the models in the MVC architecture should really do more heavy lifting than they traditionally handel because the models are more reusable than the controllers, which should really be serving their proper role of directing traffic, or in the case of client-side controllers, listening for events and responding to them.
 

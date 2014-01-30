@@ -1,12 +1,6 @@
-{{{
-    "title": "Parsing Coldfusion JSON on the Client-side",
-    "tags": [ "JavaScript", "Coldfusion" ],
-    "category": "code",
-    "date": "8-6-2011",
-    "thumbnail": "/images/blog/eskimo.png"
-}}}
-
 I tend to fall in with Coldfusion programmers from time to time and while I actually really like the language and the community, the one thing that can make working with Coldfusion and JavaScript harder is how the language returns JSON.
+
+<!-- more -->
 
 Typical JSON looks something like this:
 

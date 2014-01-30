@@ -1,14 +1,8 @@
-{{{
-    "title": "My New Standup Desk",
-    "tags": [ "Health" ],
-    "category": "health",
-    "date": "11-17-2012",
-    "thumbnail": "/images/blog/standingdesk.png"
-}}}
-
 I've been using a standup desk for nearly a year now.  It all started when I discovered [this infographic](http://dailyinfographic.com/the-harm-of-sitting-constantly-infographic).
 
 Up until last week, I was working at [Moontoast](http://moontoast.com) where I had set my Ikea desk on top of four cinder blocks to make it standing level. This week, I started working at [appendTo](http://appendto.com), which means that I'm finally able to work from home.
+
+<!-- more -->
 
 ![Standing Desk](/images/blog/standingdesk2.jpg)
 

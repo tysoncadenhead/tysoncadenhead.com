@@ -1,12 +1,6 @@
-{{{
-    "title": "Ko.Ninja Part 5 - Socket.io Models",
-    "tags": [ "knockout", "ko.ninja", "model", "data", "socket.io" ],
-    "category": "code",
-    "date": "1-17-2014",
-    "thumbnail": "/images/blog/ninja5.png"
-}}}
-
 This is a part of a larger series about the [ko.ninja framework](/blog/ko-ninja) that I helped to create to make Knockout development more awesome. Previously, we looked at how we can automatically save ko.ninja data with ajax, but today we're going to look at how to use Socket.io with ko.ninja. Since I love socket.io so much, I had to include it as one of our model options in ko.ninja. This is not a primer on how to use socket.io, so if you haven't used it before, I suggest checking out my blog post on [getting started with socket.io](/blog/getting-started-with-socket-io).
+
+<!-- more -->
 
 To use socket.io for saving your ko.ninja data, you will need to include the socket.io javaScript file in your document just like normal. Once that's done, you can set up a viewModel like this:
 

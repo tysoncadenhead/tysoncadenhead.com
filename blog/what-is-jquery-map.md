@@ -1,12 +1,6 @@
-{{{
-    "title": "What is jQuery.map?",
-    "tags": [ "jQuery", "JavaScript" ],
-    "category": "code",
-    "date": "2-15-2013",
-    "thumbnail": "/images/blog/map.png"
-}}}
-
 JQuery comes loaded with various utility methods that make manipulating elements and data easier. One really useful method is jQuery.map().
+
+<!-- more -->
 
 Map is used to manipulate array values. Behind the scenes, jQuery.map loops over any array that you feed it and gives you a callback function to modify it. In the old days before the dawn of jQuery, if you wanted to modify an array, you had to write something like this:
 

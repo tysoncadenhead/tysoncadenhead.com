@@ -1,14 +1,8 @@
-{{{
-    "title": "Do JavaScript Libraries Need an Abstraction Layer?",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "1-21-2011",
-    "thumbnail": "/images/blog/abstract.jpg"
-}}}
-
 This is something that I have been trying to make up my mind on over the past year and a half at least.  The question?  Do JavaScript libraries need an abstraction layer?
 
 Just to clear the air a little before we jump into the discussion, if you are making a small website, this doesn't apply.  I'm talking about large, scalable JavaScript applications.
+
+<!-- more -->
 
 An abstraction layer is basically code that extends the functions that do the heavy lifting.  It is used so that you don't call the code that is doing the work directly.  For example, if you are using jQuery, and you want to make an Ajax call, instead of firing the $.ajax() function, you would call a different function, like `myApplication.ajax()` which turns around and calls `$.ajax()`.
 

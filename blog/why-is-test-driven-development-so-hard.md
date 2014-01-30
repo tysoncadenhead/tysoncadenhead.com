@@ -1,12 +1,6 @@
-{{{
-    "title": "Why is Test-Driven Development So Hard?",
-    "tags": [ "TDD", "Test Driven Development", "Unit Testing" ],
-    "category": "code",
-    "date": "10-4-2013",
-    "thumbnail": "/images/blog/tdd.png"
-}}}
-
 Test driven development (or TDD for short) is the practice of writing your unit tests prior to writing the code for your application. Already having your tests in place informs your software design decisions and serves as a way to determine whether your code is accomplishing what it is supposed to. The benefits of TDD are obvious, so why is it so hard to approach writing software this way?
+
+<!-- more -->
 
 ###Non Test Driven Process
 

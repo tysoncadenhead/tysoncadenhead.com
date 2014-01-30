@@ -1,12 +1,6 @@
-{{{
-    "title": "Using Local Storage in Sencha Touch 2.2",
-    "tags": [ "Sencha", "LocalStorage" ],
-    "category": "code",
-    "date": "4-19-2013",
-    "thumbnail": "/images/blog/storage.jpg"
-}}}
-
 The Sencha Touch data model makes working with data really easy. One of the coolest things that the data model provides is an abstraction layer for HTML5 local storage. There are several types of local storage out there right now and they enjoy varying degrees of browser support. Sencha Touch opts for the simple key-value storage because it is supported in basically every relevant browser today.
+
+<!-- more -->
 
 Since the structure of key-value storage is basically flat, Sencha Touch automatically converts more complex data types like objects and arrays to strings before the data is stored. When the data is accessed later on, Sencha Touch converts it back to the data type it was originally in.
 

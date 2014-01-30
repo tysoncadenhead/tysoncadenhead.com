@@ -1,14 +1,8 @@
-{{{
-    "title": "Knockout Observables",
-    "tags": [ "Knockout" ],
-    "category": "code",
-    "date": "4-8-2013",
-    "thumbnail": "/images/blog/observers.png"
-}}}
-
 Knockout JS is a fairly simple MVVM framework that aims to make data binding easier.
 
 The cool thing about Knockout is that you can essentially subscribe an element to a piece of data. When that data is updated, the DOM magically updates as well. To be more precise, its not really magic that's happening... it's JavaScript.
+
+<!-- more -->
 
 As a simple example, lets say you want to bind an element to a variable called "randomNumber". The HTML template should look very familiar if you've been using the HTML5 data sudo-attribute.
 

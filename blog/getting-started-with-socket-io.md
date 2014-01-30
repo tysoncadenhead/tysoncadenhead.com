@@ -1,12 +1,6 @@
-{{{
-    "title": "Getting Started with Socket.io",
-    "tags": [ "node", "socketio", "javascript" ],
-    "category": "code",
-    "date": "10-25-2013",
-    "thumbnail": "/images/blog/socket-io.jpg"
-}}}
-
 In the old days, if you wanted to get up-to-date data from the sever, you would need to set an interval on the client-side and continuously make Ajax calls to see if new data was available. The problem is that the data was never exactly real time. It was just what had been fetched every fifteen seconds or so. If you pinged the server too often, you would create needless overhead and there may or may not even be new data for the client to consume. The problems with this sort of approach are obvious.
+
+<!-- more -->
 
 The answer to the old data pinging method is Socket.io. With Socket.io, the client and the server are able to communicate in real   time by sending messages back and forth. Because of its real-time nature, Socket.io has some awesome implications for chat, instant collaboration and game development. In fact, anything that could benefit from being real time would do itself a service to be using Socket.io.
 

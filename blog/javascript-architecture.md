@@ -1,12 +1,6 @@
-{{{
-    "title": "Javascript Architecture",
-    "tags": [ "JavaScript", "Architecture" ],
-    "category": "code",
-    "date": "3-11-2010",
-    "thumbnail": "/images/blog/architecture.png"
-}}}
-
 As the web has grown, the Javascript programming language has grown with it to become rich and robust.  Whereas websites used to have only a couple of lines of Javascript code used in them, Javascript has evolved to a point where it often does a large part of the heavy lifting in Internet Application development.  With the evolution of Javascript, the code typically used on a site can often grow to a point where it is bulky hard to maintain if it is not properly constructed.  That's why the topic for today is on how to architect Javascript in such a way to make it easy to maintain. Javascript is a programming language, after all, so we should treat it with the same care and respect we would treat server-side code.
+
+<!-- more -->
 
 ### Why do I need Javascript Architecture?
 

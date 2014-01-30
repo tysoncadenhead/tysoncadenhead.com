@@ -1,12 +1,6 @@
-{{{
-    "title": "Top 5 Backbone Plugins",
-    "tags": [ "Backbone", "JavaScript" ],
-    "category": "code",
-    "date": "1-22-2013",
-    "thumbnail": "/images/blog/plugin.png"
-}}}
-
 BackboneJS is a great framework for building large scalable JavaScript applications. One of the best things about Backbone is that the community has built countless amazing plugins that extend the Backbone namespace. I've compiled a list with just a few of my very favorite Backbone plugins.
+
+<!-- more -->
 
 ### [Backbone Forms](https://github.com/powmedia/backbone-forms)
 

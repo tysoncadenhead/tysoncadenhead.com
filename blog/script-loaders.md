@@ -1,12 +1,6 @@
-{{{
-    "title": "Script Loaders",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "1-1-2011",
-    "thumbnail": "/images/blog/loader.jpg"
-}}}
-
 There has been much discussion in the JavaScript community about  JavaScript loaders, whether they are needed, what they do and whether it  should be a function of the browser.  I figured while there is so much  buzz around the topic, it's a good time to put in my own thoughts.
+
+<!-- more -->
 
 ### What is a script loader?
 

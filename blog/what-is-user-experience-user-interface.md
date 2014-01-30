@@ -1,12 +1,6 @@
-{{{
-    "title": "What is UI / UX?",
-    "tags": [ "Design", "UI", "UX" ],
-    "category": "design",
-    "date": "2-11-2010",
-    "thumbnail": "/images/blog/uiux.png"
-}}}
-
 When I tell people that I'm a User Experience / User Interface Developer, I tend to get a mixture of people who say "you make website, I can't event check my e-mail" and people who aren't exactly sure what it means to be a user experience designer.  My goal through this blog is to tackle some of the relevant issues pertaining to web usability, and user experience as well as sharing some client-side and possibly a little bit of server-side code that can help other people who are trying to create user friendly websites.  Since that is my ultimate purpose here, I feel like I need to lay some groundwork by explaining what User Experience Design and what User Interface Development actually entail.  This is just laying down the tracks for some more in-depth discussion down the road, but we've got to start somewhere, right?  Let's jump into it.
+
+<!-- more -->
 
 ### What is User Experience
 

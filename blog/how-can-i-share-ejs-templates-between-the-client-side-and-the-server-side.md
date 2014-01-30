@@ -1,12 +1,6 @@
-{{{
-    "title": "How Do I Share EJS Templates Between the Client-side and the Server-side?",
-    "tags": [ "EJS", "Templates", "Node", "JavaScript" ],
-    "category": "code",
-    "date": "1-15-2013",
-    "thumbnail": "/images/blog/sharing.png"
-}}}
-
 The release of Node.js in 2009 ushered in discussions about the endless possibilities for sharing code between the client-side and the server side. While there are several good examples of entire libraries working very well on both ends, most of the projects that are written in Node tend to shy away from sharing the meat of the application with the browser. I think that the real issue is developers being stuck in our ways. We are trying to write traditional web apps in a language that can actually go beyond what traditional scripting languages were even capable of.
+
+<!-- more -->
 
 The way I am going to propose we build a Node web application isn't a typical MVC setup. However, if we are trying to be purposeful about sharing components, I feel like it really works.
 

@@ -1,12 +1,6 @@
-{{{
-    "title": "Killing IE6",
-    "tags": [ "Browsers" ],
-    "category": "code",
-    "date": "1-27-2010",
-    "thumbnail": "/images/blog/ie6.png"
-}}}
-
 Microsoft released Internet Explorer 6 nearly eight years ago in August of 2001. Since then, they have released two new versions of their web browser, IE7 and IE8 and have officially stopped supporting the outdated cousin, IE6. So why is it that most web developers are still supporting a browser that even Microsoft itself has turned its back on?
+
+<!-- more -->
 
 Here are some interesting statistics on the use of Internet Explorer 6 according to [w3schools.com](http://www.w3schools.com):
 

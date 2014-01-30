@@ -1,12 +1,6 @@
-{{{
-    "title": "executeAsyncScript() in Selenium Webdriver for Node",
-    "tags": [ "Testing", "Selenium" ],
-    "category": "code",
-    "date": "3-22-2013",
-    "thumbnail": "/images/blog/selenium.png"
-}}}
-
 If you aren't familiar with it, the [NodeJS version of the Selenium WebDriver](https://code.google.com/p/selenium/wiki/WebDriverJs) is a great way to write functional tests in JavaScript and automatically run them in your browsers.
+
+<!-- more -->
 
 The NodeJS WebDriver uses the [Selenium Server](https://code.google.com/p/selenium/downloads/list) Java jar under the covers to work its magic.
 

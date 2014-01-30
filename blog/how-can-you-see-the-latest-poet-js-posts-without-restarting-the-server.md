@@ -1,12 +1,6 @@
-{{{
-    "title": "How Can You See the Latest Poet.js Posts Without Restarting the Server?",
-    "tags": [ "NodeJS", "Blogging" ],
-    "category": "code",
-    "date": "8-23-2013",
-    "thumbnail": "/images/blog/poet-latest.png"
-}}}
-
 When I first started moving my blog over to [Poet](/blog/poet-js), one of the most frustrating things for me was the fact that all of the blog posts are cached, meaning that every time you edit a file, you literally have to restart the server to see the changes. Luckily, I have implemented a neat little trick to refresh the blog posts any time they are updated.
+
+<!-- more -->
 
 Poet gives you a `watch` method that is fired anytime the markdown files in your posts directory are changed, so I tapped into that.
 

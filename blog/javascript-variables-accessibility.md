@@ -1,12 +1,8 @@
-{{{
-    "title": "Javascript Variables' Accessibility",
-    "tags": [ "JavaScript" ],
-    "category": "code",
-    "date": "8-24-2010",
-    "thumbnail": "/images/blog/wheelchair.png"
-}}}
+When I started writing JavaScript (and code in general, for that matter), one of toughest things for me to wrap my head around was what variables and functions I could access from where.
 
-When I started writing JavaScript (and code in general, for that matter), one of toughest things for me to wrap my head around was what variables and functions I could access from where.  For example, I would try things like this:
+<!-- more -->
+
+For example, I would try things like this:
 
 ```javascript
 alert(MyVariable);
