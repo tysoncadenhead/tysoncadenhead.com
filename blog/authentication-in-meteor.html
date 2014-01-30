@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/meteor-authentication.png"/>
+        <meta property="og:title" content="Authentication in Meteor"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Authentication in Meteor</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Authentication in Meteor Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/meteor-authentication.png" />
+    </div>
+
+    <h1>Authentication in Meteor</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 11-14-2013</h5>
+
+    <p>Authentication can be something of a road-blocker in application development. I can&#39;t tell you how many times I&#39;ve had a great idea for an app, but instead of jumping in and writing the core functionality, I try to tackle the authentication layer first. The problem is that once I&#39;ve gotten authentication in place, my excitement for the project has faded because I wasn&#39;t working on the project itself, just trying to set up a login system. Meteor takes the work out of setting up authentication so that you can focus on more important things, like writing the core functionality for your app.</p>
+<!-- more -->
+
+<p>Meteor has a really robust account and password API, but we won&#39;t cover all of it here. We are just going to focus on getting something in place really fast. The reason for that is because we don&#39;t want to spend a lot of time working on authentication on the front-end, we want to work on core functionality.</p>
+<p>To work with authentication in Meteor, you will need to install the base accounts module.</p>
+<pre><code class="language-bash">meteor add accounts-base</code></pre>
+<p>Meteor also has a pre-built user interface for accounts. If you want to go back later and make the UI different, you can, but for us to take a &quot;failing forward&quot; approach to development, it makes sense to just use the default UI and then go back and refactor it as needed. Let&#39;s install the accounts user interface package.</p>
+<pre><code class="language-bash">meteor add accounts-ui</code></pre>
+<p>Next, we will need to install one of the authentication systems. Meteor comes packed with authentication through Facebook, Google, Github, Meetup, Twitter, Weibo and with a username and password. There are also third-party authentication types that were not written by the Meteor team.</p>
+<p>We will start out with just the basic username and password.</p>
+<pre><code class="language-bash">meteor add accounts-password</code></pre>
+<p>Now if you start up your site by running <code>meteor</code>, you&#39;ll notice that nothing has changed. It should still look something like this:</p>
+<p><img src="/images/blog/meteorauth.png" alt=""></p>
+<p>In order to see your login UI, you will need to add it to your template. That is as easy as adding <code>{{loginButtons}}</code> anywhere in your template. If you want the buttons to go on the right side of the screen, you can pass that in an argument like this:</p>
+<pre><code class="language-html4strict">{{loginButtons align=&quot;right&quot;}}</code></pre>
+<p>Either way, though, the login buttons should be rendered:</p>
+<p><img src="/images/blog/meteorauth2.png" alt=""></p>
+<p>When you click on the new &quot;sign in&quot; button, you should get something like this:</p>
+<p><img src="/images/blog/meteorauth3.png" alt=""></p>
+<p>You now have authentication on your app!</p>
+<p>The templates also have a <code>{{currentUser}}</code> that you can use to determine if the user has authenticated or not. For example, if you want to display a navigation only if the user is logged in, that might look like this:</p>
+<pre><code class="language-html4strict">&lt;ul&gt;
+{{#if currentUser}}
+    &lt;li&gt;&lt;a href=&quot;/account&quot;&gt;My Account&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/preferences&quot;&gt;My Preferences&lt;/a&gt;&lt;/li&gt;
+{{/if}}
+&lt;/ul&gt;</code></pre>
+<p>When a user is logged in, your client-side JavaScript has access to a <code>Meteor.userId()</code> which is just a string representing the ID of the authenticated user. You also have access to a <code>Meteor.user()</code>, which will return an object with the user information. Depending on what authentication type you use, the content of the user object my vary. Both of those are available from the console, so you can log them at any time.</p>
+<p>Each user object also has a profile that you can add your own data to. For example, if you wanted to add some data to the current user, you could do something like this:</p>
+<pre><code class="language-js">Meteor.users.update(Meteor.userId(), {
+    $set: {
+        profile: {
+            firstName: &#39;Linus&#39;,
+            lastName: &#39;Cadenhead&#39;,
+            favoriteColor: &#39;green&#39;,
+            ...
+        }
+    }
+}, function () {
+    alert(&#39;user was saved&#39;);
+});</code></pre>
+<p>If you want to listen for an event to tell you when a user logs in or out, <code>Meteor.autorun</code> is your friend. This snippet will redirect the user when they log in or out:</p>
+<pre><code class="language-js">// Keep the current user logged in state
+var loggedIn = !!Meteor.userId();
+
+// This is fired whenever the user logs in or out
+Meteor.autorun(function () {
+
+    // If the user logs in, redirect them to the profile
+    if (Meteor.userId() &amp;&amp; !loggedIn) {
+        document.location = &#39;/profile&#39;;
+
+    // If the user logs out, redirect them to the home page
+    } else if (!Meteor.userId() &amp;&amp; loggedIn) {
+        document.location = &#39;/&#39;;
+    }
+
+    // Set the current loggedIn status based on whether the userId is available or not
+    loggedIn = !!Meteor.userId();
+
+});</code></pre>
+<p>If you want to add another authentication method, just install it with Meteor. The user interface itself will walk you through the necessary steps to get things set up.</p>
+<p>As you can see, authentication with Meteor is really quick and easy. In just a few minutes, you should be all set up and ready to work on the parts of your application that you care about. Yet another way that Meteor makes wasting time on tedious tasks a thing of the past!</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Meteor">Meteor</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Node">Node</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Authentication">Authentication</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/authentication-in-meteor" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

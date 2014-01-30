@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/ninja2.png"/>
+        <meta property="og:title" content="Ko.Ninja Part 2 - Validation"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Ko.Ninja Part 2 - Validation</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Ko.Ninja Part 2 - Validation Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/ninja2.png" />
+    </div>
+
+    <h1>Ko.Ninja Part 2 - Validation</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 12-27-2013</h5>
+
+    <p>This is a part of a larger series about the <a href="/blog/ko-ninja">ko.ninja framework</a> that I helped to create to make Knockout development more awesome. In my last post, I introduced ko.ninja, a framework that I helped create for making awesome Knockout apps. Today, we&#39;re going to continue looking at ko.ninja, but we are going to focus on doing validation on the ko.ViewModel.</p>
+<!-- more -->
+
+<p>As an example of what ko.ninja can do, check out the validation on this form:</p>
+<iframe src="http://jsfiddle.net/tysoncadenhead/QUPg8/show/" style="border: 0px; width: 600px; height: 300px;"></iframe>
+
+<p>Not bad, huh? What if I told you that all of the validation logic is happening painlessly in the ViewModel and all of the display logic is happening inside the template? Is it magic? Maybe. Let&#39;s look at the template for our form:</p>
+<pre><code class="language-html">&lt;div id=&quot;form”&gt;
+
+     &lt;div style=&quot;display: none&quot; class=&quot;form-errors&quot; data-bind=&quot;visible: errors().length”&gt;
+          &lt;p&gt;There are errors. Please fix them!&lt;/p&gt;
+     &lt;/div&gt;
+
+     &lt;!-- Required --&gt;
+     &lt;p data-bind=&quot;css: { error: firstName.error }&quot;&gt;
+          &lt;label&gt;First name:&lt;/label&gt;
+          &lt;input data-bind=&quot;value: firstName, valueUpdate:&#39;afterkeydown&#39;&quot; /&gt;
+     &lt;/p&gt;
+     &lt;div class=&quot;error-message&quot; data-bind=&quot;html: firstName.error&quot;&gt;&lt;/div&gt;
+
+     &lt;!-- No Validation --&gt;
+     &lt;p data-bind=&quot;css: { error: lastName.error }”&gt;
+          &lt;label&gt;Last name:&lt;/label&gt;
+          &lt;input data-bind=&quot;value: lastName, valueUpdate:&#39;afterkeydown&#39;&quot; /&gt;
+     &lt;/p&gt;
+     &lt;div class=&quot;error-message&quot; data-bind=&quot;html: lastName.error&quot;&gt;&lt;/div&gt;
+
+     &lt;!-- Email --&gt;
+     &lt;p data-bind=&quot;css: { error: email.error }”&gt;
+          &lt;label&gt;Email:&lt;/label&gt;
+          &lt;input data-bind=&quot;value: email, valueUpdate:&#39;afterkeydown&#39;&quot; /&gt;
+     &lt;/p&gt;
+     &lt;div class=&quot;error-message&quot; data-bind=&quot;html: email.error&quot;&gt;&lt;/div&gt;
+
+     &lt;!-- Phone --&gt;
+     &lt;p data-bind=&quot;css: { error: phone.error }&quot;&gt;
+          &lt;label&gt;Phone:&lt;/label&gt;
+          &lt;input data-bind=&quot;value: phone, valueUpdate:&#39;afterkeydown&#39;&quot; /&gt;
+     &lt;/p&gt;
+     &lt;div class=&quot;error-message&quot; data-bind=&quot;html: phone.error&quot;&gt;&lt;/div&gt;
+
+     &lt;!-- Custom Validation --&gt;
+     &lt;p data-bind=&quot;css: { error: answer.error }”&gt;
+          &lt;label&gt;Type &quot;44&quot;&lt;/label&gt;
+          &lt;input data-bind=&quot;value: answer, valueUpdate:&#39;afterkeydown&#39;&quot; /&gt;
+     &lt;/p&gt;
+     &lt;div class=&quot;error-message&quot; data-bind=&quot;html: answer.error&quot;&gt;&lt;/div&gt;
+
+     &lt;input type=&quot;button&quot; data-bind=&quot;click: submitPerson&quot; value=&quot;Save&quot; /&gt;
+
+&lt;/div&gt;</code></pre>
+<p>The template is just adding an &quot;error&quot; class to any paragraphs that contain errors, displaying the error message below the field if there is one and spitting out a summary of all of the form errors at the top.</p>
+<p>There are a variety of types of validation that need to occur for a form like the one above, but there is no reason for the markup to be aware of what types of validation are happening. It just needs to display some nice error messages telling you to fix the form. The philosophy of ko.ninja is to keep all of the validation in the viewModel and out of the template.</p>
+<p>To accomplish the validation in our form, our viewModel should look like this:</p>
+<pre><code class="language-js">var PersonViewModel = ko.ViewModel.extend({
+
+    observables: {
+        firstName: &#39;&#39;,
+        lastName: &#39;&#39;,
+        email: &#39;&#39;,
+        phone: &#39;&#39;,
+        answer: &#39;&#39;
+    },
+
+    validation: {
+        firstName: {
+            required: &#39;Your first name is required&#39;,
+            minLength: {
+                message: &#39;Please make sure your name is at least 3 characters long.&#39;,
+                value: 3
+            }
+        },
+        email: {
+            required: &#39;Your email address is required&#39;,
+            email: &#39;Please enter a valid email address&#39;
+        },
+        phone: {
+            number: &#39;Please enter a valid number&#39;,
+            length: {
+                message: &#39;Please make sure your phone number has 9 digits&#39;,
+                value: 9
+            }
+        },
+        answer: {
+            maxLength: {
+                message: &#39;You have entered more than 2 characters... there is no way you are typing &quot;44&quot;!&#39;,
+                value: 2
+            },
+            custom: {
+                message: &#39;Please enter &quot;44&quot;&#39;,
+                validator: function (value) {
+                    return value !== &#39;44&#39;;
+                }
+            }
+        }
+    },
+
+    submitPerson: function () {
+        var errors = this.validate();
+        if (!errors) {
+            alert(&#39;Your form has been submitted. Just kidding!&#39;)
+        }
+    }
+
+});
+
+new PersonViewModel();</code></pre>
+<p>To do validation in ko.ninja, you just need to add the name of each observable you want to validate to the <code>validation</code> object. Any time the observables change or this.validate() is called, ko.ninja will check for errors. If there are errors, they are added to an “errors” observable array on the viewModel and they are added to the “[observableName].error” magic observable.</p>
+<p>Ko.ninja comes with &quot;required&quot;, &quot;email&quot;, &quot;length&quot;, &quot;maxLength&quot;, &quot;minLength&quot; and &quot;number&quot; validations, but you can also add your own custom validation like this:</p>
+<pre><code class="language-js">custom: {
+     message: &#39;Please enter &quot;44&quot;&#39;,
+     validator: function (value) {
+          return value !== &#39;44&#39;;
+     }
+} 
+`</code></pre>
+<p>If the validator returns a truthy value, the error will be added to the viewModel.</p>
+<p>To really take advantage of ko.ninja validation, you can automatically sync your viewModel with a model. We will be looking at the ko.ninja model in the post next week.</p>
+<p>Ready to get started? <a href="https://github.com/jcreamer898/ko.ninja">Add ko.ninja to your project</a> and make awesome applications today!</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=knockout">knockout</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=ko.ninja">ko.ninja</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=validation">validation</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/ko-ninja-validation" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

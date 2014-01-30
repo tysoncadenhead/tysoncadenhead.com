@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/uiux.png"/>
+        <meta property="og:title" content="What is UI / UX?"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>What is UI / UX?</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="What is UI / UX? Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/uiux.png" />
+    </div>
+
+    <h1>What is UI / UX?</h1>
+
+    <h5><span class="label label-info"><a href="/?category=design">design</a></span> | 2-11-2010</h5>
+
+    <p>When I tell people that I&#39;m a User Experience / User Interface Developer, I tend to get a mixture of people who say &quot;you make website, I can&#39;t event check my e-mail&quot; and people who aren&#39;t exactly sure what it means to be a user experience designer.  My goal through this blog is to tackle some of the relevant issues pertaining to web usability, and user experience as well as sharing some client-side and possibly a little bit of server-side code that can help other people who are trying to create user friendly websites.  Since that is my ultimate purpose here, I feel like I need to lay some groundwork by explaining what User Experience Design and what User Interface Development actually entail.  This is just laying down the tracks for some more in-depth discussion down the road, but we&#39;ve got to start somewhere, right?  Let&#39;s jump into it.</p>
+<!-- more -->
+
+<h3>What is User Experience</h3>
+<p>User Experience is all about approaching applications as the user.  When a user comes to your website, how do they know what is important and where to find the things that they are looking for?  If they are filling out a form, do they know that their first name is required?  If they don&#39;t fill it out, how can they be notified that they must fill it out before moving on without losing everything in the form?  Are things that belong together grouped together in a way that makes sense?  These are the kinds of questions that user experience development asks.</p>
+<p>The answers are not always as obvious as you might think.  Why else do so many people have such a hard time using well-known web applications like Facebook and MySpace?  What is shown, what isn&#39;t shown, where they are shown, the relationship of one item to another - these decisions can make or break the ease of use for your application.</p>
+<p>There is also a level of psychology involved in the process.  A 75 year old man may interact with a website completely differently than a 7 year old girl and have completely different expectations wrapped around their actions.  The perception of how things should behave is formed by observing how other similar things have behaved in the past.  For example, when you scroll over a link, you expect the cursor for your mouse to change and become a pointing finger.  This is something that has been ingrained in our expectations from visiting thousands of other websites with the same behavior.  With a line of CSS, it&#39;s possible to make the cursor something else when you scroll over a link, but it breaks with user expectations and makes them uneasy, unsure of what their actions will result in and unable to use your application properly.  Similarly, as AJAX and AJAX-like JavaScript becomes more and more commonplace, it is important to show the user that the objects that trigger AJAX functions are &quot;links.&quot;  This is again just a line of CSS, but it makes all the difference where the use is concerned.</p>
+<h3>What is User Interface (UI)?</h3>
+<p>A user interface is what users see when they access an application.  A user interface designer may be someone who simply designs the look and feel of an application by creating wireframes and mockups of the final product or they may be heavier on the development side.  Often a user interface developer will have an array of skills in client-side technologies such as JavaScript and JavaScript libraries such as jQuery, jQuery UI, EXT JS, YUI, Prototype, or others.</p>
+<p>User interface development ties in closely with user experience development in that the user is the end-goal in both situations, which means that simplicity in design is paramount.</p>
+<p>I&#39;m looking forward to delving into both of these subjects in much less general terms in the future, so you can look forward to seeing some actual examples and code.  I just felt that this sort of undertaking may merit some preface.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Design">Design</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=UI">UI</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=UX">UX</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/what-is-user-experience-user-interface" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/popup.png"/>
+        <meta property="og:title" content="Detecting JavaScript Popup Blockers"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Detecting JavaScript Popup Blockers</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Detecting JavaScript Popup Blockers Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/popup.png" />
+    </div>
+
+    <h1>Detecting JavaScript Popup Blockers</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 10-10-2011</h5>
+
+    <p>Most of us can agree that spawning popups with JavaScript is usually a user experience FAIL.  We&#39;ve all been to websites that opened several popup ads. That is always something to avoid.  Malicious and ad-happy sites have made it necessary for browser plugins and some browsers to block JavaScript popups altogether.</p>
+<!-- more -->
+
+<p>But there are some examples where popups are actually necessary. The main thing to remember when it does become necessary is to make the popup window a response to a user action.  Usually a popup should be triggered by a clicking a link or a button rather than opening it on page load.  That way the popup is not instantly perceived as an ad and closed by your user.</p>
+<p>When using a popup does become necessary and you have exhausted every other options including more attractive modal windows and nothing works for the user interaction, the next concern becomes what to do when the popup is inevitable blocked.</p>
+<p>The answer may look very similar to a progressive enhancement technique, but I wouldn&#39;t consider it one since the browsers with a popup blocker enabled are often more advanced than those without.</p>
+<p>We&#39;ll start out making a very normal-looking link that targets a blank window to open the site inside of.  That should look something like this:</p>
+<pre><code class="language-html4strict">&lt;a href=&quot;http://google.com&quot; id=&quot;googleLink&quot; target=&quot;_blank&quot;&gt;Go To Google!&lt;/a&gt;</code></pre>
+<p>The link will totally work on its own without the aid of JavaScript, it will just open in a new window instead of a popup.  Now let&#39;s add the JavaScript.  The event listener is written in jQuery, but feel free to rewrite it using your library of choice or none at all.</p>
+<pre><code class="language-javascript">$(&#39;#googleLink&#39;).bind(&#39;click&#39;, function () {
+   var popUp = window.open($(this).attr(&#39;href&#39;), &#39;googleWindow&#39;, 
+   &#39;width=600, height=300, scrollbars, resizable&#39;);
+   if (!popUp || typeof(popUp) === &#39;undefined&#39;) {
+      return true; 
+   } else {   
+     popUp.focus();
+     return false;
+   }
+});</code></pre>
+<p>Popup blockers work by redefining the window.open() function.  Part of the beauty of Javascript is that you can redefine literally any variable or object.  If you even wanted to redefine the document object or the window object, you actually could.  So the popup blockers will typically make the window.open() function return either null or undefined, which means that we can create the popup as a variable and then test to see if the variable actually returns as anything.  If it does, we can assume that the popup opened and return false so that the link doesn&#39;t fire off.  If it doesn&#39;t, we can return true to let the link do its work.</p>
+<p>Here is a working example of the code above:</p>
+<pre><code class="language-html4strict">&lt;a href=&quot;http://google.com&quot; id=&quot;googleLink&quot; target=&quot;_blank&quot;&gt;Go To Google!&lt;/a&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(&#39;#googleLink&#39;).bind(&#39;click&#39;, function () {
+   var popUp = window.open(&#39;http://google.com&#39;, &#39;googleWindow&#39;, 
+   &#39;width=600, height=300, scrollbars, resizable&#39;);
+   if (!popUp || typeof(popUp) === &#39;undefined&#39;) {
+      return true; 
+   } else {   
+     popUp.focus();
+     return false;
+   }
+});
+&lt;/script&gt;</code></pre>
+<p>As you can see, it&#39;s fairly easy to detect popup blockers and react to them.  Be careful with your new-found power.  If I haven&#39;t made myself clear, there&#39;s nothing worse than a site with a bunch of popups.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=JavaScript">JavaScript</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/detecting-javascript-popup-blockers" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

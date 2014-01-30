@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/ninja3.png"/>
+        <meta property="og:title" content="Ko.Ninja Part 3 - LocalStorage Models"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Ko.Ninja Part 3 - LocalStorage Models</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Ko.Ninja Part 3 - LocalStorage Models Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/ninja3.png" />
+    </div>
+
+    <h1>Ko.Ninja Part 3 - LocalStorage Models</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 1-2-2014</h5>
+
+    <p>This is a part of a larger series about the <a href="/blog/ko-ninja">ko.ninja framework</a> that I helped to create to make Knockout development more awesome. With ko.ninja, you can add a model to your viewModel to automatically save your data as soon as it changes and validates. Ko.ninja comes with several model types including localStorage, ajax and socket.io, but we also plan to add the ability to let you define a custom model type if you have other needs that are not covered by our model types.</p>
+<!-- more -->
+
+<p>We will walk through how to use ajax and socket.io models in future posts, but we&#39;ll focus on localStorage today first since it doesn&#39;t require a server to function. Let&#39;s use this simple viewModel and template as an example:</p>
+<iframe src="http://jsfiddle.net/tysoncadenhead/NUJ9f/3/show/" style="border: 0px; height: 200px; width: 600px;"></iframe>
+
+<p>If you change the values in the form and refresh it, the data should persist. Here is our markup:</p>
+<pre><code class="language-html">&lt;div id=&quot;form&quot;&gt;
+
+    &lt;p data-bind=&quot;css: { error: firstName.error }&quot;&gt;
+        &lt;label&gt;First name:&lt;/label&gt;
+        &lt;input data-bind=&quot;value: firstName, valueUpdate:&#39;afterkeydown&#39;&quot; /&gt;
+    &lt;/p&gt;
+    &lt;div class=&quot;error-message&quot; data-bind=&quot;html: firstName.error&quot;&gt;&lt;/div&gt;
+
+    &lt;p data-bind=&quot;css: { error: lastName.error }&quot;&gt;
+        &lt;label&gt;Last name:&lt;/label&gt;
+        &lt;input data-bind=&quot;value: lastName, valueUpdate:&#39;afterkeydown&#39;&quot; /&gt;
+    &lt;/p&gt;
+    &lt;div class=&quot;error-message&quot; data-bind=&quot;html: lastName.error&quot;&gt;&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+<p>and here is the viewModel:</p>
+<pre><code class="language-js">var Person = ko.ViewModel.extend({
+
+        el: &#39;#form&#39;,
+
+        observables: {
+            id: null,
+            firstName: &#39;&#39;,
+            lastName: &#39;&#39;,
+            fullName: function () {
+                return this.firstName() + &#39; &#39; + this.lastName()
+            }
+        },
+
+        model: {
+            name: &#39;person&#39;,
+            storage: &#39;localStorage&#39;
+        },
+
+        validation: {
+            firstName: {
+                required: &#39;Your first name is required&#39;
+            },
+            lastName: {
+                required: &#39;Your last name is required&#39;
+            }
+        }
+
+    });
+
+var person = new Person({
+    id: 1
+});</code></pre>
+<p>The model depends on there being an <code>id</code> defined in the viewModel. If it finds data with the matching id, it will update the observables to match the data it has retrieved. If no id is provided, when the viewModel is saved, it will create a new record with a randomly generated id. You can change the idAttribute to be something other than &quot;id&quot; by defining an <code>idAttribute</code> on the model like this:</p>
+<pre><code class="language-js">{
+    observables: {
+        &#39;_id&#39;: &#39;123&#39;
+    },
+    model: {
+        name: &#39;dogs&#39;,
+        idAttribute: &#39;_id&#39;
+    }
+}</code></pre>
+<p>If no idAttribute is defined, ko.ninja will assume that it is called <code>id</code>.</p>
+<p>There may be instances where you don&#39;t want the ViewModel to automatically sync with the model. To turn off the autoSync functionality, just add this to your ViewModel:</p>
+<pre><code class="language-js">ko.ViewModel.extend({
+    autoSync: false,
+    ...
+});</code></pre>
+<p>If autoSync is turned off, you will need to tap into the model methods to save and retrieve data. The methods are <code>insert(data)</code>, <code>update(id, data)</code>, <code>save(data)</code>, <code>remove(id)</code>, <code>findOne(id)</code>, and <code>find(query)</code>. These methods are all available on any model type and can be used like this inside the viewModel:</p>
+<pre><code class="language-js">ko.ViewModel.extend({
+
+    autoSync: false,
+
+    observables: {
+        id: 1,
+        firstName: &#39;Tyson&#39;,
+        lastName: &#39;Cadenhead&#39;
+    },
+
+    model: {
+        name: &#39;person&#39;
+    },
+
+    insertPerson: function () {
+        this.model.insert({
+            firstName: &#39;Jonathan&#39;,
+            lastName: &#39;Creamer&#39;
+        }, function () {
+            console.log(&#39;inserted&#39;);
+        });
+    },
+
+    updatePerson: function () {
+        this.model.update(1, {
+            lastName: &#39;The Yellow Dart&#39;
+        }, function () {
+            console.log(&#39;updated!&#39;);
+        });
+    },
+
+    removePerson: function () {
+        this.model.remove(1, function () {
+            console.log(&#39;removed!&#39;);
+        });
+    },
+
+    initialize: function () {
+
+        this.model.find({
+            firstName: &#39;Tyson&#39;    
+        }, function (data) {
+            console.log(data); // []
+        });
+
+        this.model.findOne(1, function (data) {
+            console.log(data); // {}
+        });
+    }
+
+});</code></pre>
+<p>As you can see, depending on your needs, you can sync with localStorage with pretty minimal configuration.</p>
+<p>In my next post, we&#39;ll be looking at how to use the model to sync data with the server using Ajax requests.</p>
+<p>Ready to get started? <a href="https://github.com/jcreamer898/ko.ninja">Add ko.ninja to your project</a> and make awesome applications today!</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=knockout">knockout</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=ko.ninja">ko.ninja</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=model">model</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=data">data</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=ajax">ajax</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/ko-ninja-model" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

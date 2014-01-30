@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/mvc.png"/>
+        <meta property="og:title" content="Getting Started with JavaScript MVC"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Getting Started with JavaScript MVC</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Getting Started with JavaScript MVC Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/mvc.png" />
+    </div>
+
+    <h1>Getting Started with JavaScript MVC</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 3-30-2010</h5>
+
+    <p>Nearly a year ago I was working for a company in the financial services industry that had need for a scalable, secure, AJAX application.  It was extremely large in scale and scope and it quickly became clear that I was going to have to have some sort of organizational structure to build the application upon.  My server-side experience at this point was primarily in writing C#, and I had fallen in love with the organization of the .NET MVC design pattern.  From there, I had been doing some contract work using CakePHP, which is also an MVC framework.  While I had written JavaScript for my websites, an entire application is completely different.  I looked around at frameworks and eventually settled on <a href="http://javascriptmvc.com">JavaScript MVC</a> for its basis in the MVC framework as well as its rich feature set.  So what does JavascriptMVC come with &quot;out of the box?&quot;</p>
+<!-- more -->
+
+<h3>A great architecture using Model-View-Controller</h3>
+<p>The model handles all of the AJAX calls and post requests, the controller handles all of the events and the view handles the display and DOM manipulation.  The view uses EJS templates, which look very much like XHTML, but you can actually pass JavaScript variables into them and use variables, conditionals and loops not unlike a server-side language.</p>
+<h3>Scaffolding</h3>
+<p>You can essentially create a client-side mockup of you database interactions and work independently of the server when needed.  This is especially handy if the server-side guys are working out a bug and you need to keep pushing forward.</p>
+<h3>Development, Testing and Production modes</h3>
+<p>Development is great for quick and easy modification, but when you actually launch a project, you can minimize and combine all of your files into one HTTP request just by typing a line into the command line via Rhino.  You can easily switch between modes just by changing one line of code.  There is functional and unit testing offered through <a href="http://seleniumhq.org/">Selenium</a> and <a href="http://www.mozilla.org/rhino/">Rhino</a>.</p>
+<h3>Easy Documentation</h3>
+<p>Writing documentation is a breeze because it is generated based on the comments in your code!</p>
+<h3>Error handling.</h3>
+<p>It plugs into <a href="https://damnit.jupiterit.com/">DamnIt</a> to provide error handling and reporting.</p>
+<p>I could go on and on about JavascriptMVC, and I just may end up doing that in the future.  It is incredible, after all.  It&#39;s built around jQuery, so most of the conventions should be familiar to the vast majority of JavaScript people.</p>
+<p>I would encourage you to download it and give it a try.  There is a bit of a learning curve, but there is documentation as well as an introductory video on the <a href="http://javascriptmvc.com">JavaScriptMVC</a> website to get you going.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=JavaScript">JavaScript</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=JavaScriptMVC">JavaScriptMVC</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/javascriptmvc" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

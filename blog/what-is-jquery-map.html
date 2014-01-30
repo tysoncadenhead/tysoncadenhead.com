@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/map.png"/>
+        <meta property="og:title" content="What is jQuery.map?"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>What is jQuery.map?</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="What is jQuery.map? Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/map.png" />
+    </div>
+
+    <h1>What is jQuery.map?</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 2-15-2013</h5>
+
+    <p>JQuery comes loaded with various utility methods that make manipulating elements and data easier. One really useful method is jQuery.map().</p>
+<!-- more -->
+
+<p>Map is used to manipulate array values. Behind the scenes, jQuery.map loops over any array that you feed it and gives you a callback function to modify it. In the old days before the dawn of jQuery, if you wanted to modify an array, you had to write something like this:</p>
+<pre><code class="language-javascript">var arr = [&quot;Indiana&quot;, &quot;James Earl&quot;, &quot;Casey&quot;], i;
+
+for (i = 0; i &lt; arr.length; i++) {
+   arr[i] = arr[i] + &quot; Jones&quot;;
+}
+
+// [&quot;Indian Jones&quot;, &quot;James Earl Jones&quot;, &quot;Casey Jones&quot;];
+console.log(arr);</code></pre>
+<p>JQuery.map() provides us with a much cleaner api for modifying and manipulating array data. The syntax for $.map looks like this:</p>
+<pre><code class="language-javascript">var arr = [&quot;Indiana&quot;, &quot;James Earl&quot;, &quot;Casey&quot;];
+
+arr = $.map(arr, function (value) {
+   return value + &quot; Jones&quot;;
+});
+
+// [&quot;Indian Jones&quot;, &quot;James Earl Jones&quot;, &quot;Casey Jones&quot;];
+console.log(arr);</code></pre>
+<p>As you can see, map is a function that takes two parameters. The first parameter is the array you are mapping. The second parameter is the callback function to map the array to. Whatever you return in the function will be the new value for the current array index.</p>
+<p>$.map is a much cleaner approach than iterating over the array index.</p>
+<p>The jQuery map method can be applied to an array of objects as well. For example:</p>
+<pre><code class="language-javascript">var arr = [{
+   firstName: &quot;John&quot;,
+   lastName: &quot;Lennon&quot;
+}, {
+   firstName: &quot;Paul&quot;,
+   lastName: &quot;McCartney&quot;
+}, {
+   firstName: &quot;George&quot;,
+   lastName: &quot;Harrison&quot;
+}, {
+   firstName: &quot;Ringo&quot;,
+   lastName: &quot;Starr&quot;
+}];
+
+arr = $.map(arr, function (obj) {
+   return $.extend(obj, {
+      fullName: obj.firstName + &quot; &quot; + obj.lastName
+   });
+});
+
+/* [{ 
+   firstName: &quot;John&quot;, 
+   lastName: &quot;Lennon&quot;, 
+   fullName: &quot;John Lennon&quot; 
+}, { 
+   firstName: &quot;Paul&quot;, 
+   lastName: &quot;McCartney&quot;, 
+   fullName: &quot;Paul McCartney&quot; 
+}, { 
+   firstName: &quot;George&quot;, 
+   lastName: &quot;Harrison&quot;, 
+   fullName: &quot;George Harrison&quot; 
+}, { 
+   firstName: &quot;Ringo&quot;, 
+   lastName: &quot;Starr&quot;, 
+   fullName: &quot;Ringo Starr&quot; 
+}] */
+console.log(arr);</code></pre>
+<p>Since $.map can be applied to anything that looks like an array, it can actually even be applied to jQuery dom elements. In the example below, I will grab all of the paragraph tags on the page and wrap them in a wrapper div. Notice that I wrap the entire $.map results in the jQuery function. The reason I do this is because $.map returns a real array of elements and not the jQuery object which only resembles an array.</p>
+<pre><code class="language-javascript">var $ps = $(&quot;p&quot;);
+
+var $ps = $(
+   $.map($ps, function (p) {
+      $(p).wrap(&quot;&lt;div class=&#39;p-wrapper&#39; /&gt;&quot;);
+      return p;
+   })
+);
+
+$ps.each(function () {
+   // $(&quot;&lt;div class=&#39;p-wrapper&#39; /&gt;&quot;)
+   console.log($(this).parent());
+});</code></pre>
+<p>Obviously, using $.map on an array of dom elements is not the best way to loop over them, but it is interesting  to see that it actually does work.</p>
+<p>JQuery&#39;s map method is useful in many circumstances. It helps to simplify code. Anything that makes code more simple and readible is always worth doing.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=jQuery">jQuery</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=JavaScript">JavaScript</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/what-is-jquery-map" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

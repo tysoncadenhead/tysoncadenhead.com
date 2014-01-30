@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/browsers.png"/>
+        <meta property="og:title" content="Making Browser-Specific CSS Less Intrusive with SASS"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Making Browser-Specific CSS Less Intrusive with SASS</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Making Browser-Specific CSS Less Intrusive with SASS Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/browsers.png" />
+    </div>
+
+    <h1>Making Browser-Specific CSS Less Intrusive with SASS</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 5-30-2011</h5>
+
+    <p>A few weeks ago, I started using SASS.  What is SASS?  It&#39;s an acrostic that stands for &quot;Syntactically Awesome Style Sheets.&quot;  SASS is run from the command line and essentially lets you write stylesheets with things like variables, nesting and mixins (which are pretty much the equivalent of the functions in a real programming language).  </p>
+<!-- more -->
+
+<p>If you&#39;re like me and you&#39;ve spent a lot of time writing CSS, you probably find yourself making a lot of style declarations that are basically the same with only some minor variations.  In the past, the only way to really make CSS maintainable was to give DOM elements a long list of classes like:</p>
+<pre><code class="language-html4strict">&lt;div class=&quot;yellow-background 
+round-corner-5px-radius large-text&quot;&gt; 
+   This is large text on a yellow background 
+   with rounded corners and a 5px radius! 
+&lt;/div&gt;</code></pre>
+<p>Of course, the problem with that is if you needed to make a change, say you needed to remove the 5 pixel radius on the example above, you would need to make the change to the HTML, not the CSS.  Obviously, that model is not the best, because you want to be able to style with CSS, not with HTML, right?</p>
+<p>The answer that SASS provides is that styles can inherit other styles.  That way, you can make a style declaration once and have multiple classes and ids inherit it.</p>
+<p>SASS style is compiled down to CSS, but you never have to touch the actual CSS files again, making it easier to maintain.</p>
+<p>If you haven&#39;t given SASS a shot yet, I would urge you to <a href="http://sass-lang.com">download it</a> and see how much easier it makes the styling process.</p>
+<p>Anyway, the point I&#39;ve been working my way to is that with all the cool new things that CSS3 has brought us like rounded corners, gradients and shadows, the problem is that different browsers expect them to be presented differently.</p>
+<p>For example, in the case of rounded corners, Google Chrome and Safari both look for</p>
+<pre><code class="language-css">-webkit-border-radius: 5px 5px 5px 5px;</code></pre>
+<p>while Firefox, up until Firefox 4 looked for</p>
+<pre><code class="language-css">-moz-border-radius: 5px 5px 5px 5px;</code></pre>
+<p>and Firefox 4 and IE10 along with every browser in the future will simply look for </p>
+<pre><code class="language-css">border-radius: 5px 5px 5px 5px;</code></pre>
+<p>This can create a huge mess in your stylesheets if you have a lot of rounded corners and eventually, you&#39;ll probably want to take out the Mozilla and Webkit specific declarations once they start supporting the non-specific declaration.</p>
+<p>With SASS, you can make a single mixin that will handle any rounded corner like this:</p>
+<pre><code class="language-css">@mixin rounded($top: 5px, $left: 5px, $bottom: 5px, $right: 5px) {
+   border-radius: $top $left $bottom $right;
+   -moz-border-radius: $top $left $bottom $right;
+   -webkit-border-radius: $top $left $bottom $right;
+}</code></pre>
+<p>The above example lets you pass in four variables for the top, left, bottom and right border radius.  If you don&#39;t pass anything in, it assumes each one is 5px.   When you need to have a rounded corner now, all you have to do is:</p>
+<pre><code class="language-css">.myClass { @include rounded; }</code></pre>
+<p>Or if you want to have a 10 pixel radius:</p>
+<pre><code class="language-css">.myClass { @include rounded(10px, 10px, 10px, 10px); }</code></pre>
+<p>The same principle applied to a drop shadow would look like this:</p>
+<pre><code class="language-css">@mixin shadow($type: inset, $top: 0, $left: 0, $blur: 1px, $color: #FFFFFF) {
+   box-shadow: $type $top $left $blur $color;
+   -moz-box-shadow: $type $top $left $blur $color;
+   -webkit-box-shadow: $type $top $left $blur $color;
+}</code></pre>
+<p>Gradients are a little more complicated and your mixin for a gradients really depends on your needs.  Here is what I&#39;ve been using to handle a gradient with either two stops or three stops.  It uses an if statement to determine whether a third stop has been provided.</p>
+<pre><code class="language-css">@mixin gradient($first, $second, $third: false) {
+  background: $second;
+  @if $third {
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=&#39;$first&#39;, endColorstr=&#39;$second&#39;);
+   background: -webkit-gradient(linear, 0% 0, 0% 100%, from($first), color-stop(0.5, $second), to($third));
+   background: -moz-linear-gradient(linear, 0% 0, 0% 100%,  $first,  $second, $third);
+  }
+  @else {
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=&#39;$first&#39;, endColorstr=&#39;$second&#39;);
+   background: -webkit-gradient(linear, left top, left bottom, from($first), to($second));
+   background: -moz-linear-gradient(top,  $first,  $second);
+  }
+}</code></pre>
+<p>Using the mixin above is as easy as this:</p>
+<pre><code class="language-css">.myClass { @include gradient(#cccccc, #dddddd, #cccccc) }</code></pre>
+<p>Of course, the example above doesn&#39;t provide for every possible senario with the CSS3 gradient, but it served the needs for the project I was working on at the time.</p>
+<p>As you can see, SASS can be a real life-saver as stylesheets get more and more complex and the need for browser-specific declarations becomes more of a reality in the ever-changing world of web development.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=CSS">CSS</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=SASS">SASS</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/making-browser-specific-css-less-intrusive-with-sass" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

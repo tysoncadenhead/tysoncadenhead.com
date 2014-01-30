@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/tdd.png"/>
+        <meta property="og:title" content="Why is Test-Driven Development So Hard?"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Why is Test-Driven Development So Hard?</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Why is Test-Driven Development So Hard? Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/tdd.png" />
+    </div>
+
+    <h1>Why is Test-Driven Development So Hard?</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 10-4-2013</h5>
+
+    <p>Test driven development (or TDD for short) is the practice of writing your unit tests prior to writing the code for your application. Already having your tests in place informs your software design decisions and serves as a way to determine whether your code is accomplishing what it is supposed to. The benefits of TDD are obvious, so why is it so hard to approach writing software this way?</p>
+<!-- more -->
+
+<h3>Non Test Driven Process</h3>
+<p>As a way of visualizing the process, the non test driven process will typically look something like this:</p>
+<p><img src="/images/blog/tdd1.png" alt=""></p>
+<p>Basically, you end up repeating several steps in the process because you start out by writing the code, then you give it a visual check. If you are writing JavaScript in a browser, this might involve looking at the UI, if you are writing server-side code, this might involve looking at the results that your API is returning. Once you are satisfied that everything looks good, you turn around and tack on some tests to make sure nobody breaks your code in the future. You verify the results of your tests and make sure they align with your code and then you may end up either going back to tweak your code or your tests to make the results match up.</p>
+<h3>Test Driven Process</h3>
+<p>The test driven process will look more like this:</p>
+<p><img src="/images/blog/tdd2.png" alt=""></p>
+<p>It&#39;s obvious that this is a much more streamlined approach. You start out by writing the tests, then you write your code to fulfill the requirements of the tests. Finally, you verify that the results of the tests are correctly returned by your code. If your test suite is comprehensive enough, everything should be taken care of.</p>
+<h3>If TDD is so much better, why is it so hard?</h3>
+<p>Knowing that TDD is better is one thing, but actually writing your code that way is a totally different story. I think the major thing that has personally held me back from approaching all of my code this way is a series of bad habits. When I was taught how to write code, tests weren&#39;t even an afterthought, in fact I don&#39;t remember them ever even being mentioned. After a few years of writing code, I began to see that I needed tests in place to keep my code from breaking every time I maintained it, so I appended tests to the end of my process. It was only natural because I had survived so long without writing tests that they seemed like a non-essential bonus.</p>
+<p>A few other factors may weigh in on the problem as well:</p>
+<ul>
+<li><p>Sometimes code is rushed out the door. I have often been in a place where I felt like I didn&#39;t have time to write unit tests. I promised myself I would return to them later. One could argue that I didn&#39;t have time <em>not</em> to write tests.</p>
+</li>
+<li><p>I have sometimes felt like I didn&#39;t know what to write my tests around until my code was in place. This is usually a result of either poor architecture or unclear requirements.</p>
+</li>
+<li><p>Selling TDD to managers and other developers on your team can also be a challenge at times. If you are working for someone who understands the development process, it shouldn&#39;t be too difficult to explain to them why a 20% time investment now could save you 50% of your time later, not to mention the benefit of keeping bugs out of your production code, but it can be an issue if your company tends to be shortsighted.</p>
+</li>
+</ul>
+<p>When it comes down to it, most of this is just an issue of education. When we teach newer developers how to write code, unit tests should be at the core of their learning. Since most of the problem is an issue of habit, if we train the correct habits into new coders early on before their habits are established, we are setting them up to be rock stars.</p>
+<p>In the same way, we need to train the non-developers we work with, such as management, clients and project managers about the importance of covering everything with tests. If they get why it is important, they will be more willing to see us invest time on the front-end to keep our products working better.</p>
+<p>Most importantly, we need to re-educate ourselves. This isn&#39;t necessarily just about mentally understanding why TDD is so important, but about retraining ourselves to habitually write tests first. The experts say that it takes 30 days to develop a new habit, so why don&#39;t we get started today? Maybe by this time next month, you won&#39;t even have to think about it anymore.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=TDD">TDD</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Test Driven Development">Test Driven Development</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Unit Testing">Unit Testing</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/why-is-test-driven-development-so-hard" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

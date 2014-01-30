@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/controller.png"/>
+        <meta property="og:title" content="Fat Models and Skinny Controllers in JavaScript"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Fat Models and Skinny Controllers in JavaScript</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Fat Models and Skinny Controllers in JavaScript Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/controller.png" />
+    </div>
+
+    <h1>Fat Models and Skinny Controllers in JavaScript</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 7-14-2011</h5>
+
+    <p>I&#39;ve recently been thinking about what it would mean to emulate the MVC best practice of skinny controllers that started in the confines of server-side development within the much more glamorous language and beautiful JavaScript. For those of you who haven&#39;t read some of my previous posts, I am a huge advocate of using Model View Controller architecture in client-side code as well as on the server-side. I&#39;ve written in depth about what MVC looks like on the client-side, so I won&#39;t bother to delve into that explanation here.</p>
+<!-- more -->
+
+<p>The basic idea of skinny controllers is that the models in the MVC architecture should really do more heavy lifting than they traditionally handel because the models are more reusable than the controllers, which should really be serving their proper role of directing traffic, or in the case of client-side controllers, listening for events and responding to them.</p>
+<p>Following the fat model, skinny controller mantra to its logical place in client-side code, the places where the model should do the heavy lifting are:</p>
+<ul>
+<li>Validation in the case of CRUD functionality and post methods.</li>
+<li>Type-conversions and data manipulation.</li>
+<li>Storing data in memory or in HTML5 databases to minimize server hits.</li>
+</ul>
+<p>The benefit of all of these being in the model layer rather than the controller layer, or worse yet, in the views, is that multiple events in the controller can easily tap into the same functionality, which cuts down on duplicate code and lowers the risk of making variations in type-conversion or validation.</p>
+<p>For example, if a view is hitting a JSON datasource to get information about a user, the JSON might look something like this:</p>
+<pre><code class="language-javascript">{
+   &#39;id&#39;: 1112,
+   &#39;firstname&#39;: &#39;Darth&#39;,
+   &#39;lastname&#39;: &#39;Vader&#39;,
+   &#39;birthday&#39;: 1256953732
+}</code></pre>
+<p>and our JavaScript model, which uses jQuery to make Ajax calls, might look something like this:</p>
+<pre><code class="language-javascript">myApp.Model.User = {
+
+    /**
+    * @function
+    * @param {Object} params
+    * @param {Function} success
+    * @param {Function} error
+    */
+    find: function(params, success, error) {
+
+        // This assumes that you are using a getter / setter to save data to memory
+        if (myApp.get(&#39;user_&#39; + data.id)) {
+            success(myApp.get(&#39;user_&#39; + data.id));
+
+        // Get the data via Ajax if it&#39;s not in memory
+        } else {
+
+            $.ajax({
+                url: &#39;/myapp/user/get&#39;,
+                data: params,
+                dataType: &#39;json&#39;,
+                type: &#39;get&#39;, 
+                success: function(data) {
+
+                    // Here, we do a little data manipulation so that 
+                    // we don&#39;t have to do this in the controller or the view
+
+                    data.name = data.firstname + &#39; &#39; + data.lastname;
+                    data.birthday = new Date(data.birthday);
+
+                    // Use some type of getter / setter to save the data to memory
+                    myApp.set(&#39;user_&#39; + data.id, data);
+
+                    // Fire off the success function after the data manipulation
+                    success(data);
+
+                },
+                error: error
+            });
+
+        }
+    }
+
+};</code></pre>
+<p>The model above is much larger than it could be, but all of the type-conversion and storing to local memory are now happening at the data level where it should be rather than being misplaced in the controller or the view.</p>
+<p>I have to admit, I&#39;ve only been thinking this direction for a few days when it comes to the client-side, but it has radically changed my viewpoint on what I think the model should actually be doing in an Ajax application.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=JavaScript">JavaScript</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Architecture">Architecture</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/fat-models-and-skinny-controllers-in-javascript" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

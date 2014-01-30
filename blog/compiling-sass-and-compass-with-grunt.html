@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/grunt-sass.png"/>
+        <meta property="og:title" content="Compiling SASS and Compass with Grunt"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Compiling SASS and Compass with Grunt</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Compiling SASS and Compass with Grunt Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/grunt-sass.png" />
+    </div>
+
+    <h1>Compiling SASS and Compass with Grunt</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 8-30-2013</h5>
+
+    <p>If you haven&#39;t been using <a href="http://gruntjs.com">Grunt</a> to run your JavaScript tasks, you have definitely been missing out. Grunt is really great about automating tasks that would have been very tedious otherwise. One great thing about Grunt is the ability to run <code>grunt watch</code> to monitor your files and run tasks when they are changed. We can use <code>grunt watch</code> in tandem with compass to automatically compile css files on the fly as we change our SASS files.</p>
+<!-- more -->
+
+<p>To get started, you&#39;ll need to install Grunt and then add the &quot;watch&quot; task.</p>
+<pre><code class="language-bash">npm install grunt-contrib-watch</code></pre>
+<p>Next, you can add something like this to the grunt.initConfig() function inside your Gruntfile.js:</p>
+<pre><code class="language-javascript">{
+    watch: {
+        options: {
+            livereload: 1337
+        },
+        css: {
+          files: [&#39;scss/**/*.scss&#39;],
+          tasks: [&#39;compass&#39;]
+        }
+    }
+}</code></pre>
+<p>We&#39;ve added livereload, listening to port 1337. You can add a snippet like this to listen for changes inside your html template:</p>
+<pre><code class="language-html4strict">&lt;script src=&quot;http://localhost:1337/livereload.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>We&#39;ve also told &quot;watch&quot; to listen for changes any <code>.scss</code> files inside the <code>scss</code> directory.</p>
+<p>Last, we gave &quot;watch&quot; a task to runt when a scss file is changed. That task, of course, is compass.</p>
+<p>Now, we will need to install the compass Grunt task:</p>
+<pre><code class="language-bash">npm install grunt-contrib-compass</code></pre>
+<p>Now, let&#39;s add the compass task to our Gruntfile:</p>
+<pre><code class="language-javascript">{
+    compass: {
+        dist: {
+            options: {
+                config: &#39;config.rb&#39;
+            }
+        }
+    }
+}</code></pre>
+<p>Nothing too interesting is happening here. We&#39;re just giving compass a config file to look at when it is compiling. The config.rb will typically look something like this:</p>
+<pre><code class="language-text">http_path = &quot;public/&quot;
+css_dir = &quot;public/css&quot;
+sass_dir = &quot;scss&quot;
+images_dir = &quot;public/images&quot;
+javascripts_dir = &quot;public/js&quot;
+output_style = :compressed
+relative_assets=true
+line_comments = false</code></pre>
+<p>That is really all there is to it. All told, our Gruntfile will look something like this:</p>
+<pre><code class="language-javascript">grunt.initConfig({
+
+    watch: {
+        options: {
+            livereload: 1337
+        },
+        css: {
+          files: [&#39;public/scss/**/*.scss&#39;],
+          tasks: [&#39;compass&#39;]
+        }
+    },
+
+    compass: {
+        dist: {
+            options: {
+                config: &#39;config.rb&#39;
+            }
+        }
+    }
+
+});
+
+grunt.loadNpmTasks(&#39;grunt-contrib-compass&#39;);
+grunt.loadNpmTasks(&#39;grunt-contrib-watch&#39;);</code></pre>
+<p>Now, just run:</p>
+<pre><code class="language-bash">grunt watch</code></pre>
+<p>Anytime you change a file in your <code>/scss</code> directory, it will be compressed and outputted into your <code>/public/css</code> directory.</p>
+<p>With Compass building CSS as a part of your Grunt watch task, you will have one less process to keep running in your terminal. Automatically compiling SASS files is definitely something to grunt about!</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=SASS">SASS</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Compass">Compass</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Grunt">Grunt</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/compiling-sass-and-compass-with-grunt" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

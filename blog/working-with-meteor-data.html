@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/meteor-data.png"/>
+        <meta property="og:title" content="Working with Meteor Data"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Working with Meteor Data</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Working with Meteor Data Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/meteor-data.png" />
+    </div>
+
+    <h1>Working with Meteor Data</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 10-10-2013</h5>
+
+    <p>I previously introduced the <a href="/blog/getting-started-with-meteor">Meteor framework</a> and showed how to create a simple application. Today we are going to look a little deeper and explore how data works in Meteor. If that isn&#39;t enough to get you excited, let me give you a teaser - Meteor literally lets you save data on the client-side without having to deal with the internals of server-side code. Have I got your attention yet?</p>
+<!-- more -->
+
+<p>Out of the box, Meteor uses MongoDB to store data, but it doesn&#39;t stop there. There is a localstorage database that the client-side works with that automatically syncs with the server if it can, which means your applications will work perfectly fine offline.</p>
+<p>So what does it look like to interact with storage in Meteor? Let&#39;s jump right in, shall we?</p>
+<h2>Setting up a collection</h2>
+<p>Meteor organizes its data into collections. So if you want to save a list of all of your friends, you would create a new collection that looks something like this:</p>
+<pre><code class="language-javascript">friends = new Meteor.Collection(&#39;friends&#39;);</code></pre>
+<p>Now, before you start yelling at me for not scoping the variable, Meteor will automatically detect global variables during the compiling process and scope them for us.</p>
+<p>We should put the above collection code somewhere where the client and the server can both access it, which means avoiding the <code>client</code> and <code>server</code> directories. I would put it in a file called <code>/collections/friends.js</code>.</p>
+<h2>Inserting data</h2>
+<p>Now that we have our friends collection set up, we can add data to it. To give it a shot, just open your browser console and insert the data.</p>
+<pre><code class="language-javascript">friends.insert({
+   firstName: &#39;Bugs&#39;,
+   lastName: &#39;Bunny&#39;
+});</code></pre>
+<p>Note that the <code>friends</code> variable that we are tapping into is the collection that we previously created. We should get back the id of the friend that was inserted. The id is randomly generated for us. The result should look something like this:</p>
+<p><img src="/images/blog/meteor-2-1.png" alt="Inserting Meteor data"></p>
+<h2>Finding a single record</h2>
+<p>Getting a record is simple. You just use the findOne method on your collection. The first argument is your record id. As you may recall, we got the id back when we inserted our first friend, so we can use that.</p>
+<pre><code class="language-javascript">friends.findOne(&#39;wyzkT6BPmFbnjyfDr&#39;);</code></pre>
+<p>The results should look something like this:</p>
+<p><img src="/images/blog/meteor-2-2.png" alt="Meteor findOne"></p>
+<h2>Finding multiple records</h2>
+<p>Let&#39;s go ahead and add a couple more records to our collection:</p>
+<pre><code class="language-javascript">friends.insert({ firstName: &#39;Elmer&#39;, lastName: &#39;Fudd&#39; });
+friends.insert({ firstName: &#39;Daffy&#39;, lastName: &#39;Duck&#39; });</code></pre>
+<p>Now, we can use find to get all of the records that match our criteria. The find method returns a cursor which we can use to either <code>fetch</code> the data or do a <code>forEach</code> to iterate over the data once it is returned. Let&#39;s find and fetch every record where the first name is Elmer:</p>
+<pre><code class="language-javascript">friends.find({ firstName: &#39;Elmer&#39; }).fetch();</code></pre>
+<p>That should return an array with the one record that matches or criteria:</p>
+<p><img src="/images/blog/meteor-2-3.png" alt="Meteor find and fetch"></p>
+<p>If we updated Daffy Duck to be named Elmer Duck and fetched our data again, we would get back both records:</p>
+<pre><code class="language-javascript">friends.update(&#39;Ze9vGfh3R3iTPjef7&#39;, { firstName: &#39;Elmer&#39;, lastName: &#39;Duck&#39; });
+friends.find({ firstName: &#39;Elmer&#39; }).fetch();</code></pre>
+<p>The query above would result in:</p>
+<p><img src="/images/blog/meteor-2-4.png" alt="find and fetch with meteor"></p>
+<p>Also, if you don&#39;t pass any arguments into the find method, you will get back all of your friends.</p>
+<h2>Permissions</h2>
+<p>If you&#39;ve been developing applications for a while, you may feel a little cautious about letting the client save data. Not to worry, the real work is actually happening on the server, Meteor handles everything for you automagically so you don&#39;t actually have to write most of the server-side pieces.</p>
+<p>Since the server is doing the work, you can allow or deny any database transactions you want on the server, which bubbles up to the client.</p>
+<p>Let&#39;s return to the <code>collections/friends.js</code> file that we made earlier. We can add an allow method to the friends collection and specify that we will only allow a record to be inserted if the first name of the friend is &quot;Elmer&quot;.</p>
+<pre><code class="language-javascript">friends.allow({
+    insert: function (userId, record) {
+       if (record.firstName === &#39;Elmer&#39;) {
+           return true;
+       }
+    }
+});</code></pre>
+<p>Now, when we try to insert Tweety Bird, we won&#39;t be allowed to because his first name is definitely not Elmer.</p>
+<p><img src="/images/blog/meteor-2-5.png" alt="Meteor allow"></p>
+<p>If you want to listen for failures to insert data into the database, the second argument of insert will be a callback function with an object detailing the error if there is one.</p>
+<pre><code class="language-javascript">friends.insert({
+    firstName: &#39;Tweety&#39;,
+    lastName: &#39;Bird&#39;
+}, function (err) {
+    console.log(err);
+});</code></pre>
+<p>The object that you pass into <code>allow</code> can also contain filters for &quot;update&quot; and &quot;remove&quot; in addition to insert.</p>
+<p>Meteor also adds a <code>deny</code> method to the collection that works exactly the opposite of allow. If the method in deny returns true, the client is not allowed to write data to the server.</p>
+<p>So, that covers the basics of dealing with Meteor data. As you can see, Meteor makes working with data fun again. Cool, huh?</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Meteor">Meteor</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Node">Node</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=JavaScript">JavaScript</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Data">Data</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/working-with-meteor-data" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

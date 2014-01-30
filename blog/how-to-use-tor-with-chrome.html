@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/tor.png"/>
+        <meta property="og:title" content="How To Use Tor With Google Chrome"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>How To Use Tor With Google Chrome</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="How To Use Tor With Google Chrome Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/tor.png" />
+    </div>
+
+    <h1>How To Use Tor With Google Chrome</h1>
+
+    <h5><span class="label label-info"><a href="/?category=privacy">privacy</a></span> | 11-22-2013</h5>
+
+    <p>There are plenty of reasons to want to browse the Internet privately. Search engines and social media sites have been collecting our browsing for years in order to target marketing and advertisements to us. There are plenty of hackers out there who would love to get their hands on your data. But perhaps the most disturbing recent revelation about data collection has been the extent to which the NSA is actively gathering our personal information.</p>
+<!-- more -->
+
+<p>Many naive people might claim that if we are doing nothing wrong, then there is nothing to worry about. It should be pointed out that those same people don&#39;t live in a completely see-through glass house. Why is that? Maybe privacy is more important to them than they might claim.</p>
+<p>For the sake of argument, you may have complete faith that every single person in the government is a perfect person and wouldn&#39;t ever do anything to harm you. Even then, you have to worry about identity theft, hackers getting access to your data, etc...It simply isn&#39;t something you should trust other people to take care of for you.</p>
+<p>A few months ago, I stumbled across the Tor software. If you aren&#39;t familiar with it, Tor allows you to browse the web anonymously by randomly choosing a remote proxy anywhere in the world. This means that when you go to a website, your IP address could potentially be traced to Alabama, Texas or Paris. In other words, it can&#39;t be traced to you.</p>
+<p>Initially I was a little bummed that the Tor download included a modification of the Firefox browser since Google Chrome is my current browser of choice. Luckily, I found a way to browse securely with Tor in Chrome.</p>
+<p>If you&#39;d like to get more security when you browse, here are the steps you can follow to get Tor running in Chrome.</p>
+<h3>Download and Install Tor</h3>
+<p>Tor is available for download on the <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor website</a>. Start by downloading it and installing it on your machine.</p>
+<h3>Install Proxy SwitchySharp In the Google Chrome Web Store</h3>
+<p>Proxy SwitchySharp is a Google Chrome extension that allows you to switch out your proxy on the fly. It is available <a href="https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm?utm_source=chrome-ntp-icon">in the Google Chrome Web Store</a>. Install it.</p>
+<h3>Start Tor</h3>
+<p>If you open the Tor browser that you just download, you will see a control panel that looks something like this:</p>
+<p><img src="/images/blog/tor1.png" alt="Tor Browser Control Panel"></p>
+<p>Click on the button to start the server.</p>
+<h3>Find your port</h3>
+<p>From the Tor control panel, click on the &quot;settings&quot; button. From there click on &quot;advanced&quot; and find the &quot;Edit current torrc&quot; button.</p>
+<p><img src="/images/blog/tor2.png" alt="Tor Advanced Settings"></p>
+<p>The &quot;Edit current torrc&quot; button should open a configuration file like this:</p>
+<p><img src="/images/blog/tor3.png" alt="Torrc"></p>
+<p>Copy the port number labeled &quot;SocksPort&quot;. We&#39;ll need that in a minute.</p>
+<h3>Open the SwitchySharp Options</h3>
+<p>In Chrome, the SwitchySharp options icon should look something like this:</p>
+<p><img src="/images/blog/tor4.png" alt="SwitchySharp Icon"></p>
+<p>Click on it and then click on &quot;options&quot;.</p>
+<h3>Configuration</h3>
+<p>In the SwitchySharp control panel, under &quot;manual configuration&quot;, add &quot;127.0.0.1&quot; to your &quot;SOCKS host&quot; and add the port number you copied from you Torrc file as the SOCKS host port number.</p>
+<p>Add an easy to understand profile name such as &quot;tor&quot;.</p>
+<p>Your configuration should look something like this:</p>
+<p><img src="/images/blog/tor5.png" alt="SwitchySharp Tor Configuration"></p>
+<p>Click &quot;Save&quot;.</p>
+<p>Now if you click on the icon for your SwitchySharp plugin again, you should be able to select the &quot;tor&quot; connection that you just created. Try going to an ip sniffing site like <a href="http://whatismyip.com">whatismyip.com</a>. Your IP address should now be masked.</p>
+<h3>Congratulations, you&#39;ve just become anonymous.</h3>
+<p>It should be noted that your IP Address isn&#39;t the only way your identity can become compromised. Tor has a short list of <a href="https://www.torproject.org/download/download-easy.html.en#warning">additional steps</a> you should take to ensure your privacy.</p>
+<p>For the sake of full disclosure, I haven&#39;t gotten to the point where I use Tor all the time. It can be a little slower than hitting websites with a direct connection. But the benefits definitely outweigh the drawbacks in my opinion. I&#39;ve also taken a few more steps like switching my default search engine to <a href="http://duckduckgo.com">duckduckgo</a>, which doesn&#39;t collect browsing data like Google does. Privacy is a big thing to take on, but any small steps that you can take are probably worthwhile.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Security">Security</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Browsers">Browsers</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Tor">Tor</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Privacy">Privacy</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/how-to-use-tor-with-chrome" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

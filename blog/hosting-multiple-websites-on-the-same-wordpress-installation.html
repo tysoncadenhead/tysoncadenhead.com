@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/wordpress.png"/>
+        <meta property="og:title" content="Hosting Multiple Websites on the Same WordPress Installation"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Hosting Multiple Websites on the Same WordPress Installation</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Hosting Multiple Websites on the Same WordPress Installation Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/wordpress.png" />
+    </div>
+
+    <h1>Hosting Multiple Websites on the Same WordPress Installation</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 1-28-2013</h5>
+
+    <p>I have several Wordpress websites that I&#39;ve designed and developed. Perhaps a little known secret is that I have all of the sites hosted inside a single Wordpress installation instead of hosting a completely unique installation for each site. Sharing a common code-base for the heavy lifting has some great benefits.</p>
+<!-- more -->
+
+<ul>
+<li>It takes up less space on my server.  Wordpress isn&#39;t huge considering what it does, but every 12.8 MB counts.</li>
+<li>It makes updates easier.  When there is a new version of Wordpress available, I can update it for all of my sites at once.</li>
+<li>Sharing plugins is nice.  Once you have installed a plugin for one of your sites, it&#39;s also available for all of your other sites without having to download it again for a separate Wordpress installation.</li>
+</ul>
+<p>So how do I host more than one site on the same installation?  I&#39;m glad you asked.</p>
+<p>First things first, you&#39;ll want to set up a local development environment. You&#39;ll use it to view your sites in locally so that you don&#39;t screw things up on your production server.</p>
+<p>If you haven&#39;t done this already, (download the latest version of Wordpress)[<a href="http://wordpress.org/download/">http://wordpress.org/download/</a>] and put it under your /Sites/wordpress directory. Go through the installation process.  For the sake of this tutorial, I will be using <a href="http://www.apachefriends.org/en/xampp.html">XAMPP</a> for Apache and mySQL, but feel free to use whatever Apache installation you like.</p>
+<p>Once you have Apache running and have installed Wordpress, it&#39;s time for the real fun to begin.</p>
+<p>You will need to add a few sites to your host file.  If you&#39;re on a Mac, you can get there by opening your terminal and typing</p>
+<pre><code class="language-text">sudo vim /private/etc/hosts</code></pre>
+<p>If you are on Windows, it&#39;s probably somewhere around:</p>
+<pre><code class="language-text">C:\system32\drivers\etc\hosts</code></pre>
+<p>For the sake of this tutorial, we&#39;ll say that we are hosting two Wordpress sites for now.  One of the sites is a blog about my dog, Arthur, so the URL will be <a href="http://mydogarthur.com">http://mydogarthur.com</a> and the other site is about my love of tea and will be hosted at <a href="http://teatyson.com">http://teatyson.com</a>. In order to view these sites locally, we would add these lines to our host file:</p>
+<pre><code class="language-text">127.0.0.1       mydogarthur.loc
+127.0.0.1       teatyson.loc</code></pre>
+<p>Now, whenever we go to <a href="http://mydogarthur.loc">http://mydogarthur.loc</a> or <a href="http://teatyson.loc">http://teatyson.loc</a>, it will direct us to our local machine. If you&#39;ve never done anything like this, just be aware that 127.0.0.1 is always your local IP address.</p>
+<p>Once you update your hostfile, restart your Apache server and go to one of the addresses you added. It will probably give you a message telling you that the location is not available. That&#39;s fine, because we still have work to do.</p>
+<p>Now you will need to open your virtual hosts file. If you are using XAMPP, it will be under /xamppfiles/etc/extra/httpd-vhosts.conf. You will need to add a few lines to tell Apache what directory to serve up when your domains are accessed.</p>
+<pre><code class="language-text">&lt;VirtualHost *:80&gt;
+    DocumentRoot &#39;/Users/wordpress/&#39;
+    ServerName mydogarthur.loc
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:80&gt;
+    DocumentRoot &#39;/Users/wordpress/&#39;
+    ServerName teatyson.loc
+&lt;/VirtualHost&gt;</code></pre>
+<p>The last configuration you will need to do is in the wp-config.php file directly under the Wordpress root. If you&#39;ve gone through the Wordpress installation process, there should already be a database connection set up. You can copy your database if you go to <a href="http://localhost/phpmyadmin">http://localhost/phpmyadmin</a>. We will make a copy called &quot;mydogarthurs_database&quot; and another copy called &quot;teatysons_database.&quot; Then, we will replace the database connection in wp-config.php with a switch statement like this:</p>
+<pre><code class="language-php">switch($_SERVER[&quot;HTTP_HOST&quot;]) {
+
+    // Development
+
+    case &#39;mydogarthur.loc&#39;:
+        define(&#39;DB_NAME&#39;, &#39;mydogarthurs_database&#39;);
+        define(&#39;DB_USER&#39;, &#39;mydogarthurs_database_user&#39;);
+    define(&#39;DB_PASSWORD&#39;, &#39;mydogarthurs_database_password&#39;);
+    define(&#39;DB_HOST&#39;, &#39;localhost&#39;);
+    break;
+
+    case &#39;teatyson.loc&#39;:
+        define(&#39;DB_NAME&#39;, &#39;teatysons_database&#39;);
+        define(&#39;DB_USER&#39;, &#39;teatysons_database_user&#39;);
+    define(&#39;DB_PASSWORD&#39;, &#39;teatysons_database_password&#39;);
+    define(&#39;DB_HOST&#39;, &#39;localhost&#39;);
+    break;
+
+    // Production
+
+    case &#39;mydogarthur.com&#39;:
+        define(&#39;DB_NAME&#39;, &#39;mydogarthurs_database&#39;);
+        define(&#39;DB_USER&#39;, &#39;mydogarthurs_database_user&#39;);
+    define(&#39;DB_PASSWORD&#39;, &#39;mydogarthurs_database_password&#39;);
+    define(&#39;DB_HOST&#39;, &#39;localhost&#39;);
+    break;
+
+    case &#39;teatyson.com&#39;:
+        define(&#39;DB_NAME&#39;, &#39;teatysons_database&#39;);
+        define(&#39;DB_USER&#39;, &#39;teatysons_database_user&#39;);
+    define(&#39;DB_PASSWORD&#39;, &#39;teatysons_database_password&#39;);
+    define(&#39;DB_HOST&#39;, &#39;localhost&#39;);
+    break;
+
+}</code></pre>
+<p>Finally, restart your Apache server. You should have a different database connection for <a href="http://teatyson.loc">http://teatyson.loc</a> and <a href="http://mydogarthur.com">http://mydogarthur.com</a>. Since everything, including the theme is driven from the database, you can easily serve up completely different content from each domain.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Wordpress">Wordpress</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/hosting-multiple-websites-on-the-same-wordpress-installation" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

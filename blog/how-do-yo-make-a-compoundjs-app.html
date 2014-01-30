@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/compound.png"/>
+        <meta property="og:title" content="How Do You Make a Compound.js Application?"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>How Do You Make a Compound.js Application?</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="How Do You Make a Compound.js Application? Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/compound.png" />
+    </div>
+
+    <h1>How Do You Make a Compound.js Application?</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 2-27-2013</h5>
+
+    <p>NodeJS may still be young, but there are already several MVC frameworks popping up to run exclusively on Node. My favorite is <a href="http://compoundjs.com/">CompoundJS</a>.</p>
+<!-- more -->
+
+<p>Compound was written to look like to Ruby on Rails. In fact, Compound&#39;s original name was &quot;Railway on Express.&quot; As the defunct name implies, Compound runs on top of <a href="http://expressjs.com/">the ExpressJS framework</a>. Some of the reasons to use Compound instead of simply running a vanilla installation of Express are that:</p>
+<ul>
+<li>Compound provides a structure for where things are supposed to go and how they are supposed to be used.</li>
+<li>Compound uses the MVC architecture, which makes maintaining code much easier, especially for those of us who are familiar with it.</li>
+<li>Compound provides scaffolding so you can generate portions of your application from the command line.</li>
+<li>Compound ships with a library called JugglingDB, which abstracts the database layer of your application and allows you to use MongoDB, Redis, LocalStorage and MySQL interchangeably.</li>
+</ul>
+<p>There are a few other Node MVC frameworks out there, such as <a href="http://towerjs.org/">TowerJS</a>, but one of my favorite things about Compound is that it doesn&#39;t force you to write in CoffeeScript. If you prefer CoffeeScript, you can use it, but using the JavaScript syntax is just as acceptable.</p>
+<h3>Installing Compound</h3>
+<p>Compound is registered as an npm package, so you can install it globally using:</p>
+<pre><code class="language-bash">sudo npm install compound -g</code></pre>
+<h3>Creating an App</h3>
+<p>We&#39;ll make a basic application to keep track of our monthly budget. Since we are so creative, we&#39;ll name our application &quot;budget&quot;.</p>
+<pre><code class="language-bash">compound init budget &amp;&amp; cd budget
+npm install</code></pre>
+<h3>Scaffold Categories</h3>
+<p>One of the best features of Compound is the built-in scaffolding. The scaffolding will create the ORM, controller, views, routes and tests for our budget categories:</p>
+<pre><code class="language-bash">compound generate crud category name amount:number active:boolean</code></pre>
+<p>Let&#39;s break this down. The first argument after the &quot;crud&quot; is the name of the model. All of the arguments after the model name are the fields that the model contains. The fields can be cast to a type when they are divided by a colon. If no type is provided, Compound assumes the field is a string.</p>
+<h3>Start the server</h3>
+<p>To start the server, you can run:</p>
+<pre><code class="language-bash">compound server 8080</code></pre>
+<p>Compound will start the server using the port that you specified. Since we started our server on port 8080, we should be able to go to <a href="http://localhost:8080/categories">http://localhost:8080/categories</a> and see the index page of categories that we scaffolded a moment ago.</p>
+<p>The index of categories should look like this:</p>
+<p><img src="/images/blog/compound1.png" alt="Compound"></p>
+<p>Out of the box, Compound uses Twitter Bootstrap to style the views. You can usually customize the views and get them looking pretty good with very minimal effort.</p>
+<p>Compound has generated all of the basic user interface from our one line of scaffolding instructions. You can use the interface to add new categories.</p>
+<p><img src="/images/blog/compound2.png" alt="Compound"></p>
+<p>Once a category is created it will show up in the index.</p>
+<p>The scaffolding also generates a details view that displays more information about the category.</p>
+<p><img src="/images/blog/compound3.png" alt="Compound"></p>
+<p>As you can see, Compound outputs a completely functional interface.</p>
+<p>If this introduction is useful to anyone, I&#39;d love to expand on it and get deeper into more advanced aspects of how Compound actually works.</p>
+<p>Is anyone else using Compound for application development? What have your experiences been with it?</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Compound">Compound</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/how-do-yo-make-a-compoundjs-app" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

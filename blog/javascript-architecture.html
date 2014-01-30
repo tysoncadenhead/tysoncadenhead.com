@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/architecture.png"/>
+        <meta property="og:title" content="Javascript Architecture"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Javascript Architecture</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Javascript Architecture Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/architecture.png" />
+    </div>
+
+    <h1>Javascript Architecture</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 3-11-2010</h5>
+
+    <p>As the web has grown, the Javascript programming language has grown with it to become rich and robust.  Whereas websites used to have only a couple of lines of Javascript code used in them, Javascript has evolved to a point where it often does a large part of the heavy lifting in Internet Application development.  With the evolution of Javascript, the code typically used on a site can often grow to a point where it is bulky hard to maintain if it is not properly constructed.  That&#39;s why the topic for today is on how to architect Javascript in such a way to make it easy to maintain. Javascript is a programming language, after all, so we should treat it with the same care and respect we would treat server-side code.</p>
+<!-- more -->
+
+<h3>Why do I need Javascript Architecture?</h3>
+<p>If you are the only person who will ever work with the code you are writing, you will at some point have to modify it.  It&#39;s a fact.  Code that never gets modified is a sign of a dead website.  In order to modify your code, you need to write it to be easily modified without breaking other things and it needs to be easy to find what you are looking for in order to change it.  If other people will be looking at your code, whether in a development environment or if you ever leave your current job and someone else has to pick up where you left off, it is crucial that your code be pristine.  So where do you start?  Glad you asked.</p>
+<h3>Pick a library</h3>
+<p>I recently saw a poll that said that 95% of developers were using jQuery, but there are several other Javascript libraries out there that are fast gaining popularity like DOJO, YUI, Prototype, EXTJS and Moo Tools to name just a few.  Why do you need a Javascript library?  Of course, you can do anything with plain Javascript that you can do with a library, but these libraries extend functions and methods that help you to do it using far less code.  Instead of reinventing the wheel every time you sit down to write your code, you can work have a starting place created by programmers who have devoted their time to give you the cleanest code possible.</p>
+<h3>Use a connection object</h3>
+<p>Think of the connection object as the central hub or location where your application gets, stores and updates it&#39;s data.  The key responsibilities of the connection object include initializing the modules and passing information between modules.  This creates what we call &quot;Loose Coupling&quot; between the modules, which allows the modules to be dumb to each others existence.  When a module object is updated it passes the connection object the new data and the connection object essentially shouts out to the other modules &quot;Hey!  Over here!  I&#39;ve got some new updates!&quot; The other modules may ignore the announcement or they may act on the new information, but the connection object doesn&#39;t care either way, it just takes in information and sends it out.</p>
+<h3>Think in modules</h3>
+<p>If you have a Google or Yahoo homepage, you know what I mean by modules, take any web application and imagine breaking it down into small pieces.  For example, on this website, you could break it down into a header, a sidebar and a footer.  The content portion could be broken down even further.  The comments could certainly be a module, for example.  Determine where the breakdowns occur and write your code completely separately for each individual module.  This can be broken down even further by using MVC design patterns to separate the modules even further.  The two best Javascript MVC frameworks that I have seen are <a href="http://code.google.com/p/trimpath/">Trimpath</a> and <a href="http://javascriptmvc.com">JavaScriptMVC</a>JavascriptMVC. If you spend a large amount of time talking to me about Javascript architecture, you probably hear me drooling over JavascriptMVC.  I&#39;m planning to write an entire post covering the rich complexities of the JMVC framework in the future, but for the sake of this post, just let it be known that I like it because it assists in writing large-scale ajax projects.</p>
+<p>One thing to keep in mind whether you use an MVC framework or you just write modular code individually is that modules should never interact directly with each other.  For all purposes, a module should be dumb to another modules existence.  When a module needs to apply something other modules, it should be passed to the connection object that informs all of the modules that a change has occurred.  If any of the modules need the change, they will grab it from the connection object, not from the effected module itself.  This keeps the actions separate and keeps modules from being broken due to changes in other modules.  This greatly reduces the chance that your entire application will ever be effected by changing a single element of it.</p>
+<h3>Build a library connection object</h3>
+<p>A fourth measure of separation that I have read about but have to admit I&#39;ve never used is to write an object that acts between the library and the modules create loose coupling to the library.  This object only extends methods that are used by the modules from the library.  The idea behind the library connection object is that if the library is ever replaced, (for example, if you need to switch from Moo Tools to Prototype because it offers functionality that isn&#39;t available in Prototype), you can easily transition to the new library without having to re-write all of your modules.</p>
+<p>If you&#39;re anything like me, you probably need something visual to show the work-flow I&#39;m proposing.  Here&#39;s a simplified example of what this might look like.  The arrows show what is being send in and what is being received by each object and module.</p>
+<p><img src="/images/blog/javascriptarchitecture2.jpg" alt="Illustration"></p>
+<p>As always, I&#39;m only skimming the surface of this topic.  I will try to revisit it soon.  How do you architect your Javascript applications?</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=JavaScript">JavaScript</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Architecture">Architecture</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/javascript-architecture" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/car.png"/>
+        <meta property="og:title" content="Compound.js Routes"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Compound.js Routes</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Compound.js Routes Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/car.png" />
+    </div>
+
+    <h1>Compound.js Routes</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 3-12-2013</h5>
+
+    <p><a href="/blog/how-do-yo-make-a-compoundjs-app">Previously</a>, I introduced you to Compound, an awesome MVC framework for NodeJS. Today, I am going to expound on how the routing works in Compound.</p>
+<p>If you are not familiar with how MVC work, I suggest you take a look at some of my older articles about <a href="/blog/javascript-architecture">JavaScript Architecture</a> and <a href="/blog/code-seperation/">Code Separation</a>. From here on, I will assume that you have a basic understanding of the place of controllers in the MVC paradigm so that the routing will make sense. Let&#39;s begin.</p>
+<!-- more -->
+
+<p>The CompoundJS router is built on top of the ExpressJS router, so if you are familiar with Express, the syntax should look suspiciously similar. Your router will be located in the /config/routes.js file. It should look something like this:</p>
+<pre><code class="language-javascript">exports.routes = function (map) {
+    // Generic routes. Add all your routes below this line
+    // feel free to remove generic routes
+    map.all(&#39;:controller/:action&#39;);
+    map.all(&#39;:controller/:action/:id&#39;);
+};</code></pre>
+<p>As you can see, the router above is setting some basic global rules. If we hit /users/create it will resolve to the &quot;create&quot; method of the users controller. If we hit /users/edit/12 it will resolve to the &quot;edit&quot; method of the users controller with an id of &quot;12&quot; passed into the method.</p>
+<p>To map all of the basic CRUD functionality to a Compound controller, just add:</p>
+<pre><code class="language-javascript">map.resources(&#39;users&#39;);</code></pre>
+<p>Yes, that is just one line of code, but it magically maps all of these routes:</p>
+<ul>
+<li>users GET - users#index</li>
+<li>users POST - users#create</li>
+<li>users/new GET - users#new</li>
+<li>users/:id/edit - users#edit</li>
+<li>users/:id DELETE - users#destroy</li>
+<li>users/:id PUT - users#update</li>
+<li>users/:id - users#show</li>
+</ul>
+<p>That will cover many of your routing needs, but if you need to make a route go directly to a controller method, the syntax looks like this:</p>
+<pre><code class="language-javascript">map.get(&#39;users/login&#39;, &#39;users#login&#39;);</code></pre>
+<p>With the code above, you will be able to go to the /users/login URL and it will resolve to the &quot;login&quot; method of the users controller.</p>
+<p>To map your homepage, you can use map.root like this:</p>
+<pre><code class="language-javascript">map.root(&#39;pages#home&#39;);</code></pre>
+<p>The above snippet will map to the &quot;home&quot; method of the pages controller.</p>
+<p>The Compound routing is very robust, so you may need to read through the documentation to see everything that it can do for you.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Compound">Compound</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/compoundjs-routes" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

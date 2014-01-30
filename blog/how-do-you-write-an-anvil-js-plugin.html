@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/anvil.png"/>
+        <meta property="og:title" content="How Do You Write an Anvil.js Plugin?"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>How Do You Write an Anvil.js Plugin?</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="How Do You Write an Anvil.js Plugin? Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/anvil.png" />
+    </div>
+
+    <h1>How Do You Write an Anvil.js Plugin?</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 2-21-2013</h5>
+
+    <p><a href="http://anviljs.com">Anvil.js</a> is a powerful &quot;Convention over configuration&quot; build tool that was built by <a href="http://twiiter.com/a_robson">Alex Robson</a> and sponsored by <a href="http://appendto.com">appendTo</a>, which is incidentally where I work now.</p>
+<!-- more -->
+
+<p>One of the most powerful things about Anvil is that it has an intentionally light core. It was meant to be primarily run by plugins. Authoring Anvil plugins is a pretty painless ordeal. Today, I&#39;m going to walk you through the process of creating an Anvil plugin. Once you see how simple it is, you&#39;ll probably find yourself writing plugins to make your own build more efficient. Let&#39;s get started.</p>
+<h3>1. Install Anvil</h3>
+<p>If you haven&#39;t installed <a href="http://anviljs.com">anvil</a> yet, that will be where you need to start. If you already have Node installed, you will just need to run this in the terminal:</p>
+<pre><code class="language-bash">npm install anvil.js -g</code></pre>
+<h3>2. Create a sandbox project to test your plugin in</h3>
+<p>It is usually helpful to sandbox your plugin development just in case something goes terribly wrong. The last thing you want is to run a build and have it wipe out your entire project. These things can happen. Trust me.</p>
+<p>We&#39;ll create a generic project so we can rest easy.</p>
+<pre><code class="language-bash">mkdir anvil-helloworld-sandbox
+cd anvil-helloworld-sandbox/</code></pre>
+<h3>3. Create your sandbox build.json file</h3>
+<p>Anvil uses a file called build.json to determine which Anvil plugins will be used and how they will be used. The file will go at the root of our sandbox project directory. It can be as simple as this:</p>
+<pre><code class="language-javascript">{}</code></pre>
+<p>In order to run our plugin, we&#39;ll need an extra line to pass in some configuration information. Our build.json will look like this:</p>
+<pre><code class="language-javascript">{
+    &quot;anvil.helloworld&quot;: {
+        &quot;greeting&quot;: &quot;How are you today?&quot;    
+    }
+}</code></pre>
+<p>We&#39;ll revisit how to access the greeting we passed in. For the time being, you just need to know that you can use it.</p>
+<h3>4. Create your plugin directory</h3>
+<p>We&#39;ll create a directory called &quot;anvil-helloworld&quot; where our plugin will live during development.</p>
+<pre><code class="language-bash">mkdir anvil.helloworld
+cd anvil.helloworld</code></pre>
+<p>So, what does the anvil plugin need to work? Not much, really. A typical Anvil plugin directory would look something like this:</p>
+<pre><code class="language-text">/anvil.helloworld
+    /lib
+        plugin.js
+    /spec
+        plugin.spec.js
+    /src
+        plugin.js
+    build.json
+    package.json
+    README.md</code></pre>
+<p>It&#39;s less complicated than it looks. Let&#39;s break it down.</p>
+<h4>build.json</h4>
+<p>We&#39;ll be building our plugin with Anvil, so a build.json file is needed. For our purposes, there is no need for any configuration, so the entire file can just be an empty object:</p>
+<pre><code class="language-javascript">{}</code></pre>
+<h4>package.json</h4>
+<p>This is for npm (Node Package Management) to register the plugin. It should look something like this:</p>
+<pre><code class="language-javascript">{
+  &quot;author&quot;: {
+    &quot;name&quot;: &quot;Tyson Cadenhead&quot;,
+    &quot;email&quot;: &quot;tcadenhead@appendto.com&quot;,
+    &quot;url&quot;: &quot;http://appendto.com&quot;
+  },
+  &quot;name&quot;: &quot;anvil.helloworld&quot;,
+  &quot;description&quot;: &quot;An example plugin for anvil&quot;,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;repository&quot;: {
+    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;: &quot;git://github.com/tysoncadenhead/anvil.helloworld.git&quot;
+  },
+  &quot;engines&quot;: {
+    &quot;node&quot;: &quot;~0.8.15&quot;
+  },
+  &quot;main&quot;: &quot;./lib/plugin.js&quot;,
+  &quot;dependencies&quot;: {
+  },
+  &quot;devDependencies&quot;: {
+    &quot;anvil.js&quot;: &quot;&gt;=0.9.0&quot;
+  },
+  &quot;optionalDependencies&quot;: {},
+  &quot;readme&quot;: &quot;## Anvil Helloworld Plugin\n\nThis plugin requires anvil.js version 0.9.* or greater.\n\n## Installation\n\n\tanvil install anvil.helloworld&quot;,
+  &quot;_id&quot;: &quot;anvil.helloworld@0.0.1&quot;,
+  &quot;_from&quot;: &quot;anvil.helloworld&quot;
+}</code></pre>
+<h4>/lib</h4>
+<p>You won&#39;t need to worry about creating the /lib directory because you can use Anvil to build it from the /src files. One of the cool things about Anvil is that it is a perfect tool for building its own plugins.</p>
+<h4>/spec</h4>
+<p>We won&#39;t focus much on the spec directory here, but it is for your unit tests. I would recommend writing <a href="http://visionmedia.github.com/mocha/">Mocha tests</a> for any Anvil plugins that you create.</p>
+<h4>/src</h4>
+<p>This is where the meat of the plugin is located. Our &quot;Hello World&quot; plugin.js would look like this:</p>
+<pre><code class="language-javascript">var pluginFactory = function( _, anvil ) {
+
+    return anvil.plugin({
+
+        // Name of the plugin
+        name: &quot;anvil.helloworld&quot;,
+
+        // Activity list: &quot;pre-build&quot;, &quot;identify&quot;, &quot;pull&quot;, &quot;combine&quot;, &quot;pre-process&quot;, &quot;compile&quot;, &quot;post-process&quot;, &quot;push&quot;, &quot;test&quot;, &quot;post-build&quot;
+        activity: &quot;post-process&quot;,
+
+        // [ &quot;-h, --helloworld&quot;, &quot;Run this helloworld plugin&quot; ]
+        commander: [],
+
+        // This is to configure the plugin with
+        configure: function( config, command, done ) {
+            done();
+        },
+
+        // This is always called
+        run: function( done ) {
+            console.log(&quot;HELLO WORLD!!!&quot;);
+            done();
+        }
+
+    });
+
+};
+
+module.exports = pluginFactory;</code></pre>
+<p>Anvil plugins are created using the anvil.plugin() method. Every pluginFactory gets the underscore.js library and anvil passed in as its arguments.</p>
+<h3>5. Run your plugin locally</h3>
+<p>To get anvil to use your plugin as a part of the build process, just navigate into the root of your plugin directory in the terminal and run:</p>
+<pre><code class="language-bash">anvil install .</code></pre>
+<p>Now if you go back to your plugin sandbox directory and run anvil, you should see it log &quot;HELLO WORLD!!!&quot; among the other feedback it will give you.</p>
+<h3>6. Get config data in the plugin</h3>
+<p>I told you we were going to talk about how to get our configuration data, didn&#39;t I?</p>
+<p>All of the config information is available in the this.config variable. For example, we can add the greeting that we had in the build.json file like this:</p>
+<pre><code class="language-javascript">run: function( done ) {
+    console.log(&quot;HELLO WORLD!!!! &quot; + this.config.greeting);
+    done();
+}</code></pre>
+<p>There is also plenty of helpful configuration information inside of the anvil.config object. I would advise logging the entire object like this so that you can see what is available:</p>
+<pre><code class="language-javascript">run: function( done ) {
+    console.log(anvil.config);
+    done();
+}</code></pre>
+<p>Some of the notable parameters are:</p>
+<ul>
+<li><strong>working</strong> - The path to the directory where temporary files are processed</li>
+<li><strong>source</strong> - The path where the original unbuilt project lives</li>
+<li><strong>spec</strong> - The path where unit tests live for the project</li>
+<li><strong>output</strong> - The directory where the files will live once the project is built</li>
+</ul>
+<p>The anvil.fs object also gives you access to the entire file system, which makes it easy to modify the files in your build.</p>
+<h3>7. Publish your Anvil plugin</h3>
+<p>Once you&#39;ve finished writing your plugin, you will want to publish it.  You will need an account at <a href="https://npmjs.org/">npmjs.org</a> in order to publish your plugin.</p>
+<p>After you have an account, you can just navigate to the directory of your plugin and run:</p>
+<pre><code class="language-bash">npm publish</code></pre>
+<p>Anvil automatically pulls in any plugins in the anvil namespace, so your plugin will be available if you run &quot;anvil list&quot; in your terminal:</p>
+<pre><code class="language-bash">anvil list</code></pre>
+<h3>8. Go make some awesome plugins!</h3>
+<p>The &quot;Hello World&quot; plugin that we just walked through is <a href="https://github.com/tysoncadenhead/anvil.helloworld">available on Github</a> for you to poke around with.</p>
+<p>There is really no limit to what you can do with Anvil plugins, so go fourth and conquer.</p>
+<p>If you use this tutorial to create an awesome Anvil plugin, please let me know. I&#39;d love to hear about it!</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Anvil">Anvil</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Build">Build</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/how-do-you-write-an-anvil-js-plugin" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

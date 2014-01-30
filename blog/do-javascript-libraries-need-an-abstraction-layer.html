@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/abstract.jpg"/>
+        <meta property="og:title" content="Do JavaScript Libraries Need an Abstraction Layer?"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Do JavaScript Libraries Need an Abstraction Layer?</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Do JavaScript Libraries Need an Abstraction Layer? Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/abstract.jpg" />
+    </div>
+
+    <h1>Do JavaScript Libraries Need an Abstraction Layer?</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 1-21-2011</h5>
+
+    <p>This is something that I have been trying to make up my mind on over the past year and a half at least.  The question?  Do JavaScript libraries need an abstraction layer?</p>
+<p>Just to clear the air a little before we jump into the discussion, if you are making a small website, this doesn&#39;t apply.  I&#39;m talking about large, scalable JavaScript applications.</p>
+<!-- more -->
+
+<p>An abstraction layer is basically code that extends the functions that do the heavy lifting.  It is used so that you don&#39;t call the code that is doing the work directly.  For example, if you are using jQuery, and you want to make an Ajax call, instead of firing the $.ajax() function, you would call a different function, like <code>myApplication.ajax()</code> which turns around and calls <code>$.ajax()</code>.</p>
+<p>There are obviously some drawbacks to this approach, but there are also benefits.  Here are the benefits as I see them:</p>
+<ul>
+<li>Your JavaScript modules become dumb to the JavaScript library you are using.  For all your modules know, you could be using jQuery or you could be using YUI, and frankly, they don&#39;t care.  All they care about is that they are calling <code>myApplication.ajax()</code> and they expect to do an Ajax call.</li>
+<li>Since the modules don&#39;t know what library is being used, you can easily switch out the library that you are using.  Is Prototype not cutting it for you?  Just switch out the code in the abstraction layer and you are suddenly using jQuery... and your modules are never the wiser!</li>
+<li>You get more control over individual library functions.  Let&#39;s say that the jQuery DOM manipulation is exactly what you need, but you need something a little different for Ajax calls.  You could even use the abstraction layer to point to your own homespun solutions.</li>
+<li>This approach makes your code more loosely coupled, which is typically a good thing.</li>
+</ul>
+<p>However, with the benefits come the drawbacks.  Here are some of the drawbacks I&#39;ve though of:</p>
+<ul>
+<li>In a way, JavaScript libraries are already an abstraction themselves for the native JavaScript.  How deep does it need to go?  We could be getting into a ridiculous Russian doll situation here...</li>
+<li>Speed is always a concern.  Every time you create a function, it takes another fraction of a second to execute.  That&#39;s why you should never instantiate a function inside of a loop.  This probably isn&#39;t a huge concern when it comes to JavaScript library abstraction layers.  It may not even be worth mentioning, but when you are adding a function to call another function, it raises these sorts of thoughts.</li>
+<li>There is always the chance that things will get messy.  When you write your code, you may know that myApplication.save() does an Ajax call to save the information inside a form to the server, but what about the developers who come after you?  Also, without proper training, other developers will just write code the &quot;normal&quot; way on top of yours, making you have an ugly mixture of abstracted code and direct calls to the library functions.</li>
+<li>What is the chance that you are actually going to replace your library?  It does sometimes happen, but people who write in jQuery usually stay in jQuery.  The ability to switch out the underlying library one piece at a time is pretty awesome, but it causes one to wonder how often it is really a concern.  This same sort of dilemma happens on the client-side when Coldfusion companies decide to switch to .NET, but there&#39;s no way to facilitate the change so easily as you can with a JavaScript library abstraction layer.  Is it really even necessary on the client-side</li>
+</ul>
+<p>What do you think?  Do JavaScript libraries need an abstraction layer?  You tell me.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=JavaScript">JavaScript</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/do-javascript-libraries-need-an-abstraction-layer" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

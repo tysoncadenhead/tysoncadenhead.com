@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/search.png"/>
+        <meta property="og:title" content="Search Engine Optimization 101"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Search Engine Optimization 101</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Search Engine Optimization 101 Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/search.png" />
+    </div>
+
+    <h1>Search Engine Optimization 101</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 1-29-2010</h5>
+
+    <p>SEO has been a hot topic especially in the last few years as the number of websites on the Internet has increased and being easily found on most search engines has been increasingly difficult. Everyone who has a website is looking for ways to make their site more accessible to Google and other modern search tools, so what are the basics? How can you take your website and bump it up in search engine rankings? Here are some clues.</p>
+<!-- more -->
+
+<h3>URL</h3>
+<p>This is the first thing that Google looks at.  If your URL is the same thing as what you are searching for, chances are, it will be the first result in Google.  If you don&#39;t believe me, try Googling &quot;<a href="http://www.google.com/search?hl=en&amp;q=tyson+lloyd+cadenhead&amp;aq=f&amp;aql=&amp;aqi=&amp;oq=">Tyson Lloyd Cadenhead</a>.&quot;</p>
+<h3>Keywords</h3>
+<p>The keywords found in your meta tags have become an increasingly smaller factor when it comes to optimizing your site, but they still weigh in.  If you&#39;re writing your website content with a dynamic language such as PHP, Coldfusion or C#, it&#39;s fairly easy to dynamically populate the meta tags for each page based on the content in the page.  For an example of how to implement meta tags into your site, check out this article on <a href="http://searchenginewatch.com/2167931">How to use Meta Tags</a>.  Something to remember is that only the first 200 characters of the <code>&lt;description /&gt;</code> tag and typically less than 10 words in the <code>&lt;keyword /&gt;</code> tag will be indexed by Google</p>
+<p>Another thing to consider is the actual words in your content as well as what HTML tags they are encapsulated in.  For example, an <code>&lt;h1 /&gt;</code> tag will be given higher priority than a standard <code>&lt;p /&gt;</code> tag.  Always put your page titles inside a <code>&lt;title&gt;</code> tag in your <code>&lt;head&gt;</code> section as well as inside an <code>&lt;h1&gt;</code> tag near the top of the page. Page titles are given high priority when Google is indexing your site.</p>
+<p>On a similar note, navigation and listed items should always be contained in <code>&lt;li&gt;</code> tags like this:</p>
+<pre><code class="language-html4strict">&lt;ul&gt;
+   &lt;li&gt;item 1&lt;/li&gt;
+   &lt;li&gt;item 2&lt;/li&gt;
+&lt;ul&gt;</code></pre>
+<p>When Google can tell that something is a list, it reads it like a list instead of giving a messy summary / description on the search page which will confuse and drive away potential visitors.</p>
+<h3>Images</h3>
+<p>Images should always contain an alt tag with a description of the image.  Never use images to render text (except for the case of an advertisement or logo.)  Search engines like real text.  If you need to use fonts that aren&#39;t supported on most operating systems as &quot;web fonts,&quot; try a font rendering script like <a href="http://typeface.neocracy.org/">typeface.js</a>, <a href="http://novemberborn.net/sifr3">sIFR3</a>, or my favorite, <a href="http://cufon.shoqolate.com/generate/">cufon</a>.  These lightweight scripts allow the text to be rendered traditionally and then create dynamic images and add them through the DOM, which insures that search engines only see the web text.  Another positive point about these scripts is that they allow you to use dynamic text as opposed to creating individual PNG files that may need to be painstakingly changed later on.</p>
+<h3>Announce your presence</h3>
+<p>Google actually wants your page to be indexed.  Why wouldn&#39;t they?  Having the best search results is what has made them internationally known as the preferred search engine.  Because of this, Google offers <a href="http://www.google.com/webmasters/">Google Webmaster Central</a> which makes it easy to let them know that you&#39;re out there.  If you have a site that is opened to the public, they will inevitably find you no matter what, but Google Webmaster Central allows you to get indexed faster and to have more control over how Google sees you and what they do with your site.</p>
+<p>One thing you&#39;ll definitely want to provide is an XML sitemap on your website.  This tells search engines various things about your site such as where to find your subpages, when the content was released (breaking news gets a better ranking than old news from within your site) and the frequency that your site is updated.  If your page is static, there are tons of resources such as <a href="http://www.xml-sitemaps.com/">xml-sitemaps.com</a> which dynamically generate sitemaps for you.  If your site is dynamic, look up a tutorial on how to make a sitemap that is generated dynamically in the language you use.</p>
+<p>You&#39;ll also need a robots.txt file in your website root directory.  This file tells Search Engine Spiders which sites to index and which ones to ignore.  For example, if you have an embarrassing baby picture in your website directory, you can explicitly tell search engines to ignore it here.  This isn&#39;t good security because it&#39;s still opened to the public and not all search engine crawlers use robots.txt, but it&#39;s a start.  You can also reference your sitemap in the</p>
+<pre><code class="language-text">UserAgent: *
+Disallow: /
+SITEMAP: http://www.yoursite.com/sitemap_name.extension</code></pre>
+<p>For more information about the robots.txt file, check out <a href="http://www.robotstxt.org/robotstxt.html">robotstxt.org</a>.</p>
+<h3>Allow Interaction</h3>
+<p>Your viewers and users are an invaluable resource.  They have skills, opinions and questions that could benefit your website.  Let them comment, add opinions and ask questions on your site wherever you can.  It&#39;s a little more risky than generating all of the content yourself because the control is not completely in your hands, but the benefits are great.  If your visitors are commenting on your blog, for example, Google will look for keywords within their comments.  Tap into APIs from social media and social networking sites such as Facebook, YouTube, Twitter and Flicker.  If Google sees the same content on multiple sites, it will assume that your content is relevant.</p>
+<p>Obviously this is just the tip of the iceberg when it comes to SEO.  I will try to write more on this topic in the near future because I feel like I&#39;ve barely skimmed the surface. Remember that your best tool is your content.  Make it relevant and people will be looking for it.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=SEO">SEO</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/what-google-looks-for" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

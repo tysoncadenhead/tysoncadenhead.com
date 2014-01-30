@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/meteor.png"/>
+        <meta property="og:title" content="Getting Started with Meteor"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Getting Started with Meteor</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Getting Started with Meteor Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/meteor.png" />
+    </div>
+
+    <h1>Getting Started with Meteor</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 9-26-2013</h5>
+
+    <p>When it comes to building applications quickly that share a ton of code between the client-side and server-side and that excel at real-time communication, there is nothing more awesome than Meteor. Meteor aims to remove all of the busywork from creating single-page applications, and it does a heck of a job at it.</p>
+<!-- more -->
+
+<p>The cool thing about Meteor is that it lets you share your server-side and client-side code and it makes synchronizing data a snap. Meteor has a client-side database that it syncs with the server-side database behind the scenes, which lets you actually interface with the server-side database from the client.</p>
+<p>To download Meteor and get started using it, you can simply run:</p>
+<pre><code class="language-bash">curl https://install.meteor.com | /bin/sh</code></pre>
+<p>That will install Meteor on your local machine and you&#39;ll be ready to get into the actual app building. Meteor comes with a bit of built in scaffolding, so you can actually just run:</p>
+<pre><code class="language-bash">meteor create myAppName
+cd myAppName
+meteor</code></pre>
+<p>and you&#39;ll have created an application and started the server to actually see it. By default, meteor is setup to run on port 3000, so if you navigate to <a href="http://localhost:3000">http://localhost:3000</a>, you will see a page that looks something like this:</p>
+<p><img src="/images/blog/meteor1.png" alt="Meteor Hello World"></p>
+<p>You&#39;ll probably notice that tempting little button on the page. Go ahead and open your console and click it. You should get a message telling you that you clicked the button.</p>
+<p><img src="/images/blog/meteor2.png" alt="Meteor Hello World Button Click"></p>
+<p>So what is actually happening here? If you go into the <code>myAppName</code> directory you created, you should see three files. There is a <code>myAppName.css</code>, which is actually empty when you create a new app, <code>myAppName.html</code>, which is the templates for your application and finally, the <code>myAppName.js</code> which is where both the client-side and server-side JavaScript currently live.</p>
+<p>First, let&#39;s look at the <code>myAppName.html</code> file.</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;title&gt;myAppName&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  {{&gt; hello}}
+&lt;/body&gt;
+
+&lt;template name=&quot;hello&quot;&gt;
+  &lt;h1&gt;Hello World!&lt;/h1&gt;
+  {{greeting}}
+  &lt;input type=&quot;button&quot; value=&quot;Click&quot; /&gt;
+&lt;/template&gt;</code></pre>
+<p>As you can see, it&#39;s a pretty standard handlebars template. You might be surprised if you go to the page and look at the source, though. Everything inside the <code>&lt;template /&gt;</code> tag will be missing. The reason is that Meteor automatically parses all of the html files in your project and pulls out all of the templates and stuffs them into a single concatenated JavaScript file. This means that you can actually put as many html files as you need anywhere in your project and they will be available for the JavaScript api to access quickly on the client-side.</p>
+<p>Now, let&#39;s look at the <code>myAppName.js</code>.</p>
+<pre><code class="language-javascript">if (Meteor.isClient) {
+  Template.hello.greeting = function () {
+    return &quot;Welcome to myAppName.&quot;;
+  };
+
+  Template.hello.events({
+    &#39;click input&#39; : function () {
+      // template data, if any, is available in &#39;this&#39;
+      if (typeof console !== &#39;undefined&#39;)
+        console.log(&quot;You pressed the button&quot;);
+    }
+  });
+}
+
+if (Meteor.isServer) {
+  Meteor.startup(function () {
+    // code to run on server at startup
+  });
+}</code></pre>
+<p>You might notice that this single JavaScript file is being used on the client-side and the server-side. Meteor has both a <code>Meteor.isClient</code> and a <code>Meteor.isServer</code> boolean that you can check to see if you are running the code in the browser or on the server. Alternatively, if you put code in a directory called &quot;client&quot;, it will only be available in the browser. Code inside of a directory named &quot;server&quot; will only be available to the server-side. Any files in any other folders will be available in both the client-side and the server-side.</p>
+<p>The code inside of the <code>Meteor.isServer</code> conditional actually isn&#39;t doing anything. However, it does show that there is a <code>Meteor.startup</code> method. It&#39;s worth noting that the client-side has the same method, but it acts like the jQuery <code>document.ready</code> function - it just fires when the DOM is finished loading.</p>
+<p>Another thing to note is the Template object. Every template automatically gets an object named after it that is namespaced under Template. For example, since we have a template in our html file called hello, there is a <code>Template.hello</code> object. We can access any events that happen inside the hello template using <code>Templated.hello.events</code>. The events object expects the names to be structured as an event followed by the selector associated with the event.</p>
+<p>We can also add any parameters that we want to pass into our template on the <code>Template.hello</code> object. For example, there is a greeting defined in our JavaScript file that will be rendered in our &quot;hello&quot; template.</p>
+<p>That is the basic setup for Meteor. In my blog post next week, I&#39;ll show you how you can deal with data in Meteor.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Meteor">Meteor</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Node">Node</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=JavaScript">JavaScript</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/getting-started-with-meteor" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

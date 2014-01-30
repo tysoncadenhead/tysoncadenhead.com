@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/links.png"/>
+        <meta property="og:title" content="Links and User Experience"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Links and User Experience</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Links and User Experience Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/links.png" />
+    </div>
+
+    <h1>Links and User Experience</h1>
+
+    <h5><span class="label label-info"><a href="/?category=design">design</a></span> | 2-21-2010</h5>
+
+    <p>If I haven&#39;t said this before, I am seriously planning on showing more code in some of my post in the near future.  This one is slightly related to my previous blog entry, <a href="/blog/what-is-user-experience-user-interface/">What is UI / UX?</a> but I will be more focused because I&#39;m just going to be talking about how links relate to user experience on websites.  First, we&#39;ll take a history lesson.</p>
+<!-- more -->
+
+<p>When the Internet and web browsers first became available to the public, the link was a convention that was quickly adapted to allow users to navigate multiple pages within a single site, or to even point to pages contained in different websites.  Before links, navigating the internet was practically impossible because you had to know the exact location of the information that you were looking for.  I&#39;m sure you never would have found this blog entry, much less my website, if it weren&#39;t for links.  When links were introduced, there had to be a visual cue to show people that they could click on them.  Remember, we&#39;re still talking old-school here, websites with white backgrounds and huge blocks of white text, sometimes using frames for navigation.  The way that links looked different from the regular text was that it was blue and underlined and when you scrolled over it, the cursor for your mouse would change to an image of a finger pointing at the the link.  Who couldn&#39;t help but click on something so enticing?</p>
+<p>Things have changed a little now and users have become increasingly perceptive to what a link will be.  The way that development is done has changed also.  In the beginning, when you clicked on a link, the expectation was that the link would take you to a different page containing the information you would like to see.  Now, a link could be in the form of an AJAX request that simply appends a string of HTML to an existing element, or it could be contained within Flash or Silverlight.  With CSS, the way that links are displayed can be completely customized, so the days of being tied down to underlined blue text is no more.  So what do users expect a link to look like now?</p>
+<p>First of all, they expect for it to stand apart from everything else.  Users are increasingly forgiving in case of navigation when they see links grouped together, but when it comes to links within the body copy, they expect to have some sort of visual feedback that tells them that an element is clickable.  Always use the pointing finger cursor on links.  This is especially important to remember if you&#39;re using JavaScript to make something clickable that isn&#39;t technically a link.  It&#39;s as easy as adding this line to your stylesheet:</p>
+<pre><code class="language-css">.myElement { cursor: pointer; }</code></pre>
+<p>Underlining links is another great way to show people that an element is clickable.  Never ever underline something that isn&#39;t a link on a web page.  Make it bold or italic if you need to create emphasis, but underlining should be exclusive to links.  There are certain cases where a link doesn&#39;t have to be underlined, but be very cautious about these exceptions because they are rare.  For example, in the navigation or the footer or sometimes within special elements of a page such as an image gallery where navigation is implied.</p>
+<p>Links don&#39;t necessarily have to be blue anymore, as the Internet users have become increasingly savvy, but it is important to make them a different color than the other text.  This creates visual separation.  Also, be aware of who your main audience is, if they are in a demographic that isn&#39;t as familiar with modern web browsing (I&#39;m thinking specifically of the elderly or people in areas that have only recently gotten connected to the Internet), you should maintain the classic link style.  I know it isn&#39;t as pretty from a design standpoint, but where usability is concerned, it&#39;s important to make content as accessible as possible to your audience.</p>
+<p>This is something I actually need to improve on, but especially on larger websites, it&#39;s helpful to the user to know what links they have already clicked.  This can be as simple as changing the color slightly for visited links in your stylesheet like this:</p>
+<pre><code class="language-css">a:visited { color: #myNewColor; }</code></pre>
+<p>The good thing about providing feedback for visited links is that it shows visitors where they have already been so that they can return to that location if they need to revisit it or so that they can continue on to new information that hasn&#39;t been marked as visited yet.</p>
+<p>Hover states for links are another good way to give added emphasis that an action will result from the element being clicked.  This can be as simple as turning the link more vibrant with CSS.</p>
+<p>Last of all, never target a page to open in a new window unless it is on a different website.  For example, if your website is linking to a video on YouTube, open it in a new window.  If it is linking to another page on your site, keep it in the same window.  I should say though, that there are two separate schools of though on this one.  Some people say that you should never target a new window because it interferes with the user&#39;s browsing experience.  If they don&#39;t realize that a new window or tab has been opened, they may attempt to use the back button on their browser and be unable to return to your page not knowing that it was actually never accessed in their current window.  So, use the target=&quot;_blank&quot; attribute or it&#39;s JavaScript equivalent at your own risk.</p>
+<p>I hope I&#39;ve covered some of the basics for user experience when it comes to links.  If you have any questions, comments or corrections, don&#39;t hesitate to let me know.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=User Experience">User Experience</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Design">Design</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/links-and-user-experience" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

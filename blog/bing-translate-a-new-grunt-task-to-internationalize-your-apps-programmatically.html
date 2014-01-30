@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/grunt.png"/>
+        <meta property="og:title" content="Bing Translate: A New Grunt Task to Internationalize Your Apps Programmatically"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Bing Translate: A New Grunt Task to Internationalize Your Apps Programmatically</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Bing Translate: A New Grunt Task to Internationalize Your Apps Programmatically Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/grunt.png" />
+    </div>
+
+    <h1>Bing Translate: A New Grunt Task to Internationalize Your Apps Programmatically</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 6-21-2013</h5>
+
+    <p>Internationalizing an application can be a tedious process if you are translating your app into different languages manually. Every time you add a new value to be translated, you have to add that value for all of your  translation files. It can become a real pain.</p>
+<!-- more -->
+
+<p>To ease the pain, I&#39;ve written a Grunt task that translates all of your language files from a common Grunt config location using the Bing Translator api.</p>
+<p>Why did I use Bing Translator instead of Google Translator? Unfortunately, the Google Translator API is no longer free. Don&#39;t worry, nobody will make you take a test that reveals that you prefer Bing to Google. After you create your Bing account, you&#39;ll barely even notice you&#39;re using it.</p>
+<p>So how can you get started?</p>
+<p>First you&#39;ll need to download the Grunt Bing Translate task from NPM:</p>
+<pre><code class="language-bash">npm install grunt-bing-translate</code></pre>
+<p>Once that is done, you just need to modify your Gruntfile. Inside of your grunt.initConfig(), you&#39;ll want to add something like this:</p>
+<pre><code class="language-javascript">grunt.initConfig({
+  bing_translate: {
+    options: {
+      // Task-specific options go here.
+    }
+  }
+});</code></pre>
+<p>For a full list of options, check out the <a href="https://github.com/tysoncadenhead/grunt-bing-translate/">documentation on Github</a></p>
+<p>Here is an example of how you might configure your bing_translate options:</p>
+<pre><code class="language-javascript">module.exports = function(grunt) {
+
+  // Project configuration.
+  grunt.initConfig({
+
+    &quot;bing_translate&quot;: {
+      &quot;options&quot;: {
+        &quot;clientId&quot;: require(&quot;./config.json&quot;).clientId, // Replace this with your Bing Translate Client ID
+        &quot;clientSecret&quot;: require(&quot;./config.json&quot;).clientSecret, // Replace this with your Bing Translate Client Secret
+        &quot;defaultLanguage&quot;: &quot;en&quot;,
+        &quot;languages&quot;: [&quot;ar&quot;, &quot;bg&quot;, &quot;cs&quot;, &quot;da&quot;, &quot;nl&quot;, &quot;en&quot;, &quot;et&quot;, &quot;fi&quot;, &quot;fr&quot;, &quot;de&quot;, &quot;el&quot;, &quot;hu&quot;, &quot;it&quot;, &quot;lv&quot;, &quot;lt&quot;, &quot;pl&quot;, &quot;pt&quot;, &quot;ro&quot;, &quot;ru&quot;, &quot;sk&quot;, &quot;sl&quot;, &quot;es&quot;, &quot;sv&quot;],
+        &quot;files&quot;: {
+            &quot;test/lang&quot;: {
+                &quot;template&quot;: &quot;console.log(&#39;&lt;%- language %&gt;&#39;, &lt;%- values %&gt;);&quot;,
+                &quot;fileNameEnding&quot;: &quot;/translation.js&quot;,
+                &quot;values&quot;: {
+                    &quot;hello&quot;: &quot;Hello&quot;,
+                    &quot;world&quot;: &quot;World&quot;
+                }
+            }
+        }
+      }
+    }
+
+  });
+
+};</code></pre>
+<p>Once all of your options are specified, you can run:</p>
+<pre><code class="language-bash">grunt bing_translate</code></pre>
+<p>to translate all of your files. It&#39;s like magic.</p>
+<p>One important thing to note is that the Bing translate API does have a monthly limit per account. I haven&#39;t hit it yet and my understanding is that it is pretty large, but it&#39;s still there. This task will only translate each word once even if it appears in multiple language files, so that will hopefully reduce the amount of calls you have to make each month.</p>
+<p>So, far I&#39;ve used this to generate language files for <a href="http://ckeditor.com/">CKEditor</a> plugins and to generate language files for use with <a href="http://i18next.com/">i18next</a>. The ability to put a template around the contents of the file should make this easily work with any project.</p>
+<p>What do you think?</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=Grunt">Grunt</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Bing">Bing</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=Bing Translator">Bing Translator</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=i18n">i18n</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/bing-translate-a-new-grunt-task-to-internationalize-your-apps-programmatically" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>
