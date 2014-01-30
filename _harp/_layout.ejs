@@ -21,8 +21,8 @@
         <meta property="og:site_name" content="<%- siteName %>"/>
         <meta property="og:description" content="<%- description %>" />
         <title><%- title %></title>
-        <link rel="shortcut icon" href="/images/favicon.ico" /> 
-        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="shortcut icon" href="<%- url %>/images/favicon.ico" /> 
+        <link rel="stylesheet" href="<%- url %>/css/app.css" />
         <link rel="alternate" type="application/rss+xml" title="<%-title %> <%- description %>" href="<%- url %>/feed.xml" />
     </head>
     <body>
@@ -72,7 +72,7 @@
                 <% } %>
             </div>
         </div>
-        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <script data-main="<%- url %>/js/app.js" src="<%- url %>/js/vendor/require.js"></script>
         <div class="footer container-fluid">
                 <div class="span10 offset1">
                     <div class="addthis_default_style span3 offset1 addthis_32x32_style right">

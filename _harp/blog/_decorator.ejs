@@ -1,19 +1,19 @@
 <article>
 
     <div class="well span2 right thumbnail">
-      <img src="<%- thumbnail %>" />
+      <img src="<%= url %>/<%- thumbnail %>" />
     </div>
 
     <h1><%- title  %></h1>
 
-    <h5><span class="label label-info"><a href="/?category=<%- category %>"><%- category %></a></span> | <%- date %></h5>
+    <h5><span class="label label-info"><a href="<%= url %>/?category=<%- category %>"><%- category %></a></span> | <%- date %></h5>
 
     <%- yield  %>
 
     <h5>Tags: 
     <% for(var i = 0; i < tags.length; i++) { %>
         <span class="label">
-            <a href="/?tag=<%- tags[i] %>"><%- tags[i] %></a>
+            <a href="<%= url %>/?tag=<%- tags[i] %>"><%- tags[i] %></a>
         </span>
     <% } %>
     </h5>

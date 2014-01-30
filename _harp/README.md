@@ -9,4 +9,11 @@ harp server myproject
 ```
 
 ### Deploying
-...
+
+```bash
+harp compile _harp ./
+cp -r _harp/images images
+cp -r _harp/js js
+```
+
+then push to the `gh-pages` branch.
