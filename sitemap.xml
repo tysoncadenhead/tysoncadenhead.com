@@ -24,6 +24,13 @@
 
     
         <url>
+            <loc>http://tysoncadenhead.com/blog/dom-manipulation-is-so-early-2000s</loc>
+            <lastmod>1-31-2014</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
             <loc>http://tysoncadenhead.com/blog/ko-ninja-socket-io-model</loc>
             <lastmod>1-17-2014</lastmod>
             <changefreq>daily</changefreq>

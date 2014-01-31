@@ -1,4 +1,11 @@
 {
+    "dom-manipulation-is-so-early-2000s": {
+        "title": "DOM Manipulation is so early 2000s",
+        "tags": ["jQuery", "Knockout"],
+        "category": "code",
+        "date": "1-31-2014",
+        "thumbnail": "/images/blog/listening.jpg"
+    },
     "ko-ninja-socket-io-model": {
         "title": "Ko.Ninja Part 5 - Socket.io Models",
         "tags": [ "knockout", "ko.ninja", "model", "data", "socket.io" ],
