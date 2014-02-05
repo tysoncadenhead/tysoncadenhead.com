@@ -1,4 +1,11 @@
 {
+    "dependency-injection-with-squire-and-sinon": {
+        "title": "Dependency Injection With Squire and Sinon",
+        "tags": ["testing", "squire"],
+        "category": "code",
+        "date": "2-7-2014",
+        "thumbnail": "/images/blog/test-dummy.png"
+    },
     "dom-manipulation-is-so-early-2000s": {
         "title": "DOM Manipulation is so early 2000s",
         "tags": ["jQuery", "Knockout"],
