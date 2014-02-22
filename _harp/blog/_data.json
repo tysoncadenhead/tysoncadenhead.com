@@ -1,4 +1,11 @@
 {
+    "there-is-more-than-one-way-to-loop-a-cat": {
+        "title": "There Is More Than One Way To Loop Over A Cat",
+        "tags": ["looping", "underscore", "jquery"],
+        "category": "code",
+        "date": "2-22-2014",
+        "thumbnail": "/images/blog/architecture.png"
+    },
     "dependency-injection-with-squire-and-sinon": {
         "title": "Dependency Injection With Squire and Sinon",
         "tags": ["testing", "squire"],
@@ -7,7 +14,7 @@
         "thumbnail": "/images/blog/test-dummy.png"
     },
     "dom-manipulation-is-so-early-2000s": {
-        "title": "DOM Manipulation is so early 2000s",
+        "title": "DOM Manipulation Is So Early 2000s",
         "tags": ["jQuery", "Knockout"],
         "category": "code",
         "date": "1-31-2014",
