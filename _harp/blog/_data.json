@@ -1,4 +1,11 @@
 {
+    "how-to-organize-a-meteor-app": {
+        "title": "How To Organize A Meteor App",
+        "tags": ["meteor"],
+        "category": "code",
+        "date": "3-6-2014",
+        "thumbnail": "/images/blog/meteor.png"
+    },
     "there-is-more-than-one-way-to-loop-a-cat": {
         "title": "There Is More Than One Way To Loop Over A Cat",
         "tags": ["looping", "underscore", "jquery"],

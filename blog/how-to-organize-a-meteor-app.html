@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/meteor.png"/>
+        <meta property="og:title" content="How To Organize A Meteor App"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>How To Organize A Meteor App</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="How To Organize A Meteor App Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/meteor.png" />
+    </div>
+
+    <h1>How To Organize A Meteor App</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 3-6-2014</h5>
+
+    <p>Meteor is a really nice framework for building real-time applications. The example application shows off how easy it is to share code between the server and client by putting the code inside a single JavaScript file at the root of the project. Running the example app from a single file definitely shows off how awesome sharing code is, but it also made me scratch my head trying to figure out how to organize a larger application. After reading through the documentation and a lot of trail and error, here is the organization that I have landed on.</p>
+<!-- more -->
+
+<ul>
+<li>app<ul>
+<li>client<ul>
+<li>stylesheets</li>
+<li>lib<ul>
+<li>meteor</li>
+<li>vendor</li>
+</ul>
+</li>
+<li>views</li>
+</ul>
+</li>
+<li>lib<ul>
+<li>collections</li>
+<li>meteor</li>
+<li>models</li>
+</ul>
+</li>
+<li>packages</li>
+<li>private</li>
+<li>public</li>
+<li>server<ul>
+<li>api</li>
+<li>models</li>
+<li>publications</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tests<ul>
+<li>integration</li>
+<li>spec</li>
+</ul>
+</li>
+</ul>
+<p>If you are confused about what any of these directories should contain, don&#39;t worry. Let me break it down:</p>
+<hr />
+
+<ul>
+<li><h4>app</h4>
+This is where the entire application lives<ul>
+<li><h4>client</h4>
+  This is where put any code that you only want to be used on the client-side and not the server-side. This will typically include:<ul>
+<li><h4>stylesheets</h4>
+Your css files go here</li>
+<li><h4>lib</h4>
+Anything in this folder will be executed first. You will want to put things such as shared libraries and things here. Inside of this directory, you may want to split things up a little more, such as:<ul>
+<li><h5>meteor</h5>
+The application core. This might include the router.js and a startup.js files</li>
+<li><h5>vendor</h5>
+Client-side libraries, etc...</li>
+</ul>
+</li>
+<li><h4>views</h4>
+Your views and templates can go in this folder. I typically arrange them as modules such as:<ul>
+<li><h5>myModuleName</h5>
+<ul>
+<li><h5>myController.js</h5>
+</li>
+<li><h5>myTemplate.html</h5>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h4>lib</h4>
+<ul>
+<li><h4>collections</h4>
+Meteor collections should be shared, so they go here</li>
+<li><h4>meteor</h4>
+Any application-specific code</li>
+<li><h4>models</h4>
+Meteor doesn&#39;t really have a concept of models, but it&#39;s pretty simple to set them up as an extension of the collections</li>
+</ul>
+</li>
+<li><h4>packages</h4>
+Meteor packages. You shouldn&#39;t need to touch this directly.</li>
+<li><h4>private</h4>
+Any static files that you only want to be available to the server</li>
+<li><h4>public</h4>
+The /public root for the client-side. This would typically have images and any other static assets.</li>
+<li><h4>server</h4>
+This is the code that only gets executed on the server-side<ul>
+<li><h4>api</h4>
+If you need to have an http api, it can go here</li>
+<li><h4>models</h4>
+Models that you only want to be available on the server</li>
+<li><h4>publications</h4>
+Messaging for the server-side to the client</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h4>tests</h4>
+I&#39;ve found that it is easier to put the tests completely outside of the app itself because the build process can be problematic<ul>
+<li><h4>integration</h4>
+Selenium or Webdriver tests</li>
+<li><h4>spec</h4>
+Mocha or QUnit tests</li>
+</ul>
+</li>
+</ul>
+<hr />
+
+<p>It&#39;s taken a lot of trail and error to get to the structure above, and every application will have different needs, but it serves as a good reference for me. How do you organize your Meteor apps?</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=meteor">meteor</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/how-to-organize-a-meteor-app" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>
