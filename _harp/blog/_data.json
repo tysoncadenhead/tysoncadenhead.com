@@ -1,4 +1,11 @@
 {
+    "the-business-case-for-having-an-all-remote-organization": {
+        "title": "The Business Case For Having An All-Remote Organization",
+        "tags": ["remote"],
+        "category": "productivity",
+        "date": "3-7-2014",
+        "thumbnail": "/images/blog/uiux.png"
+    },
     "how-to-organize-a-meteor-app": {
         "title": "How To Organize A Meteor App",
         "tags": ["meteor"],
