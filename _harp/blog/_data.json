@@ -1,4 +1,11 @@
 {
+    "the-correct-way-to-use-jquery-with-knockout-js": {
+        "title": "The Correct Way To Use JQuery With Knockout",
+        "tags": ["knockout", "jquery", "javascript"],
+        "category": "code",
+        "date": "3-15-2014",
+        "thumbnail": "/images/blog/observers.png"
+    },
     "the-business-case-for-having-an-all-remote-organization": {
         "title": "The Business Case For Having An All-Remote Organization",
         "tags": ["remote"],
