@@ -1,9 +1,16 @@
 {
+    "javascript-life-ko-ninja-example-app": {
+        "title": "Ko.Ninja Example App - JavaScript Life",
+        "tags": ["knockout", "javascript", "ko.ninja"],
+        "category": "code",
+        "date": "3-14-2014",
+        "thumbnail": "/images/blog/ninja1.png"
+    },
     "the-correct-way-to-use-jquery-with-knockout-js": {
         "title": "The Correct Way To Use JQuery With Knockout",
         "tags": ["knockout", "jquery", "javascript"],
         "category": "code",
-        "date": "3-15-2014",
+        "date": "3-12-2014",
         "thumbnail": "/images/blog/observers.png"
     },
     "the-business-case-for-having-an-all-remote-organization": {

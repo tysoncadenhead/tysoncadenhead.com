@@ -15,15 +15,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
-        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/observers.png"/>
-        <meta property="og:title" content="The Correct Way To Use JQuery With Knockout"/>
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/ninja1.png"/>
+        <meta property="og:title" content="Ko.Ninja Example App - JavaScript Life"/>
         <meta property="og:url" content="http://tysoncadenhead.com"/>
         <meta property="og:site_name" content="Tyson Cadenhead"/>
         <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
-        <title>The Correct Way To Use JQuery With Knockout</title>
+        <title>Ko.Ninja Example App - JavaScript Life</title>
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
-        <link rel="alternate" type="application/rss+xml" title="The Correct Way To Use JQuery With Knockout Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Ko.Ninja Example App - JavaScript Life Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
     </head>
     <body>
         <script type="text/javascript">
@@ -69,78 +69,21 @@
                     <article>
 
     <div class="well span2 right thumbnail">
-      <img src="/images/blog/observers.png" />
+      <img src="/images/blog/ninja1.png" />
     </div>
 
-    <h1>The Correct Way To Use JQuery With Knockout</h1>
+    <h1>Ko.Ninja Example App - JavaScript Life</h1>
 
-    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 3-12-2014</h5>
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 3-14-2014</h5>
 
-    <p>There has been a lot of buzz around whether or not jQuery is needed for building web applications anymore. Many blog posts have sprung up about how to do common things that are typically done with jQuery just using vanilla JavaScript. While it is important to know where jQuery is needed and where a leaner solution could provide a quicker load time and less complexity, for most large-scale projects, the last thing you want to be worrying about is optimizing against various browser types and nuances.</p>
-<p>Reactive frameworks such as Knockout may seem on the surface to work pretty well without needing jQuery at all, but as you get deeper into complex interfaces, you might find yourself needing something such as a jQuery UI component. So where should jQuery and DOM interaction go in a well-structured Knockout application?</p>
+    <p>If you haven&#39;t used <a href="https://github.com/jcreamer898/ko.ninja">ko.ninja</a> yet, it is a great little framework for building awesome Knockout applications.</p>
+<p>I&#39;ve built a sample app to show how easy it is to build something with Ninja. The application is based off of Conway&#39;s Game of Life, which was devised by the British mathematician John Horton Conway in 1970.</p>
 <!-- more -->
 
-<h2>Don&#39;t Do DOM Manipulation On Observables</h2>
-<p>A rookie mistake is to treat Knockout like other frameworks and try to change the DOM elements without it. For example:</p>
-<pre><code class="language-js">var person = {
-    name: ko.observable(&#39;Tyson Cadenhead&#39;)
-};
-var $person = $(&#39;&lt;div /&gt;&#39;, {
-    &#39;data-bind&#39;: &#39;{ text: name }&#39;
-})
-ko.applyBindings(person, $person[0]);</code></pre>
-<p>Will work fine, but if you do something like:</p>
-<pre><code class="language-js">$person.html(&#39;Batman&#39;);</code></pre>
-<p>you are basically overwriting the Knockout functionality. That is no good.</p>
-<h2>jQuery Doesn&#39;t Belong In Your ViewModels, Models or Collections</h2>
-<p>One of the best selling points of Knockout besides getting developers out of the humdrum of repetitive DOM manipulation is that when it is written well, it is very easy to unit test. As you probably know, unit testing the DOM is not just difficult, it is also slow and unproductive. A viewModel like this would be easy to test:</p>
-<pre><code class="language-js">var person = {
-    firstName: ko.observable(&#39;Tyson&#39;),
-    lastName: ko.observable(&#39;Cadenhead&#39;),
-    save: function () {
-        var json = {
-            firstName: this.firstName(),
-            lastName: this.lastName()
-        };
-        return json;
-    }
-};</code></pre>
-<p>However, this is difficult to test:</p>
-<pre><code class="language-js">var person = {
-    firstName: ko.observable(&#39;Tyson&#39;),
-    lastName: ko.observable(&#39;Cadenhead&#39;),
-    openDate: function () {
-        $(&#39;#datepicker&#39;).datepicker();
-    }
-};</code></pre>
-<p>The only way to test whether the datepicker was opened or not is to query the DOM. There must be a better way!</p>
-<h2>Custom Bindings To The Rescue!!!</h2>
-<p>Knockout allows you to write your own custom bindings. These bindings work just like any of the bindings Knockout gives you out of the box such as <code>text</code>, <code>value</code>, etc...</p>
-<p>It might seem a little intimidating to write your own bindings, but let me assure you that it is actually a breeze. So, let&#39;s take our datepicker example above and refactor it into a custom binding. The binding itself would be as simple as this:</p>
-<pre><code class="language-js">ko.bindingHandlers.datepicker = {
-
-    init: function(el, valueAccessor, allBindings, data, context) {
-        $(el).datepicker(data.modalOptions);
-    }
-
-};</code></pre>
-<p>Now, you just need to update your template to use the new datepicker custom binding:</p>
-<pre><code class="language-html">&lt;div&gt;
-    &lt;input data-bind=&quot;{
-        datapicker: {}
-    }&quot; /&gt;
-&lt;/div&gt;</code></pre>
-<p>You can also pass in data to the custom binding like this:</p>
-<pre><code class="language-html">&lt;div&gt;
-    &lt;input data-bind=&quot;{
-        datapicker: {
-            numberOfMonths: 3
-        }
-    }&quot; /&gt;
-&lt;/div&gt;</code></pre>
-<p>That&#39;s really all there is to it. Using this approach, you can get the jQuery out of your viewModels and make your viewModels more testable and more clean.</p>
-<p>As it turns out, jQuery works really well with Knockout as long as it is done right.</p>
-<p>If you want to see an example of this, checkout this <a href="http://jsfiddle.net/22f2z/">JSFiddle</a>.</p>
+<p>The idea is that each cell either lives, dies or multiplies based on the cells around it as you proceed from one step to the next. You can even set up a pattern to start with and push play and let the game take over.</p>
+<p><img src="/images/blog/life.png" alt="JavaScript Life"></p>
+<p>My plan is to maintain this app as ko.ninja develops to use the latest advances and show how to create a well-structured application using ko.ninja.</p>
+<p>If any of this sparks your imagination, check out <a href="https://github.com/tysoncadenhead/javascript-life">JavaScript Life</a> on github.</p>
 
 
     <h5>Tags: 
@@ -150,11 +93,11 @@ ko.applyBindings(person, $person[0]);</code></pre>
         </span>
     
         <span class="label">
-            <a href="/?tag=jquery">jquery</a>
+            <a href="/?tag=javascript">javascript</a>
         </span>
     
         <span class="label">
-            <a href="/?tag=javascript">javascript</a>
+            <a href="/?tag=ko.ninja">ko.ninja</a>
         </span>
     
     </h5>
@@ -204,7 +147,7 @@ ko.applyBindings(person, $person[0]);</code></pre>
     </div>
 </div>
 
-<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/the-correct-way-to-use-jquery-with-knockout-js" data-num-posts="10" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/javascript-life-ko-ninja-example-app" data-num-posts="10" data-colorscheme="light"></div>
                 
             </div>
         </div>
