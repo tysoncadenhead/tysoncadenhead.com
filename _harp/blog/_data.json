@@ -1,6 +1,6 @@
 {
     "exporting-canvas-animation-to-mov": {
-        "title": "Exporting Three JS Canvas Animations To MOV or mp4 Format With Socket.io",
+        "title": "Exporting Three JS Canvas Animations To MOV or MP4 Format With Socket.io",
         "tags": ["node", "javascript", "animation"],
         "category": "code",
         "date": "3-17-2014",
