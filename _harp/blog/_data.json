@@ -1,4 +1,11 @@
 {
+    "how-to-abstract-pub-sub-in-your-application": {
+        "title": "How To Abstract Pub / Sub Methods In Your Application",
+        "tags": ["javascript", "pubsub"],
+        "category": "code",
+        "date": "3-18-2014",
+        "thumbnail": "/images/blog/listening.jpg"
+    },
     "exporting-canvas-animation-to-mov": {
         "title": "Exporting Three JS Canvas Animations To MOV or MP4 Format With Socket.io",
         "tags": ["node", "javascript", "animation"],
