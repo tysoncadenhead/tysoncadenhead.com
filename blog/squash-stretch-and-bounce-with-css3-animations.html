@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://tysoncadenhead.com/images/blog/stop.jpg"/>
+        <meta property="og:title" content="Squash, Stretch and Bounce With CSS3 Animations"/>
+        <meta property="og:url" content="http://tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Squash, Stretch and Bounce With CSS3 Animations</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Squash, Stretch and Bounce With CSS3 Animations Thoughts on productivity, web apps and JavaScript" href="http://tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                    <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/stop.jpg" />
+    </div>
+
+    <h1>Squash, Stretch and Bounce With CSS3 Animations</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 3-19-2014</h5>
+
+    <p>One of the best parts of CSS3 is the ability to do keyframe animation. Once upon a time, if you wanted to animate DOM elements in the browser, you had to do it with JavaScript. CSS3 animations are generally smoother and perform better than moving elements around with JavaScript. They also do really well on mobile devices.</p>
+<p>With a little bit of working knowledge, it&#39;s really not hard to make some nice looking CSS3 animations, and that is what we are going to do today. If you have ever studied animation, you probably know that one of the first things you need to learn is how to do squash, stretch and bounce, which are the cornerstones of exaggerated animation physics. Today, I&#39;m going to walk you through how you can handle those basics just using CSS3.</p>
+<!-- more -->
+
+<style type="text/css">
+.stage {
+    background: #EEE;
+    width: 800px;
+    height: 400px;
+    position: relative;
+}
+
+.ball {
+    background: #CCC;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.ball-container {
+    height: 150px;
+}
+
+.animate {
+    -webkit-animation-name: squash;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-delay: 0;
+
+    animation-name: squash;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 0;
+}
+
+.stretch {
+    -webkit-animation-name: stretch;
+    animation-name: stretch;
+}
+
+.bounce {
+    position: absolute;
+    -webkit-animation-name: bounce;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-direction: normal;
+    -webkit-timing-function: ease-out;
+
+    animation-name: bounce;
+    animation-duration: 3s;
+    animation-direction: normal;
+    timing-function: ease-out;
+}
+
+@-webkit-keyframes bounce {
+    from { left: 100px; bottom: 300px; height: 150px; }
+    10% { left: 150px; bottom: 0px; height: 50px; }
+    20% { left: 200px; bottom: 250px; height: 140px; }
+    30% { left: 250px; bottom: 0px; height: 60px; }
+    40% { left: 300px; bottom: 200px; height: 130px; }
+    50% { left: 350px; bottom: 0px; height: 70px; }
+    60% { left: 400px; bottom: 150px; height: 120px; }
+    70% { left: 450px; bottom: 0px; height: 80px; }
+    80% { left: 500px; bottom: 100px; height: 110px; }
+    90% { left: 550px; bottom: 0px; height: 90px; }
+    100% { left: 600px; bottom: 50px; height: 100px; }
+}
+
+@-webkit-keyframes squash {
+    from { height: 100px; }
+    to  { height: 50px; }
+}
+
+@-webkit-keyframes stretch {
+    from { height: 150px; }
+    to { height: 50px; }
+}
+</style>
+
+<h3>Squash</h3>
+<p>To squash in the animation world means to take an object and compress it to be shorter and wider. Take this ball for example:</p>
+<div class="ball"></div>
+
+<p>When we drop it on the ground, we can show the impact by squashing it:</p>
+<div class="ball" style="height: 50px;"></div>
+
+<p>With CSS3, we can animate between the two states like this:</p>
+<div class="ball-container">
+    <div class="ball animate"></div>
+</div>
+
+<p>The CSS for that would look like this:</p>
+<pre><code class="language-css">.animate {
+    -webkit-animation-name: squash;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-delay: 0;
+    -webkit-animation-timing-function: ease-out;
+
+    animation-name: squash;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 0;
+    timing-function: ease-out;
+}
+
+@-webkit-keyframes squash {
+    from { height: 100px; }
+    to  { height: 50px; }
+}</code></pre>
+<p>If that looks intimidating, let me just say that the amount of code this takes can be almost cut in half using a CSS processor like SASS so you don&#39;t have to use the <code>-webkit</code> vendor prefixes.</p>
+<p>What we are doing is creating an keyframe animation name &quot;squash&quot;. It starts with a height of 100px and ends with a height of 50px. We also set some information about the animation on the element itself. The <code>animation-duration</code> tells us how long the animation will take from start to finish. The <code>animation-iteration-count</code> tells us how many times the animation should repeat. The <code>animation-direction</code> tells us whether to start from the beginning or end of the keyframes. Since we are using &quot;alternate&quot;, the animation will go from the start of the keyframes to the end and then run the animation backwards.</p>
+<h3>Stretch</h3>
+<p>Stretch is the opposite of squash. When a ball or a character bounces back up, they stretch out while they are in motion. Adding a stretch to our ball would look something like this:</p>
+<div class="ball-container">
+    <div class="ball animate stretch"></div>
+</div>
+
+<p>To get that, we&#39;ll just want to expand the height to get taller than the width, like this:</p>
+<pre><code class="language-css">@-webkit-keyframes squash {
+    from { height: 150px; }
+    to  { height: 50px; }
+}</code></pre>
+<h3>Bounce</h3>
+<p>Squashing and stretching are pretty useless without a bounce. The basic principle of a bounce is that every time it hits the ground, it should bounce up a little less until it comes to a stop.</p>
+<p>All said, our bouncing ball should look like this:</p>
+<div class="stage">
+    <div class="ball animate bounce"></div>
+</div>
+
+<p>To get to that point, we will need to update our keyframes:</p>
+<pre><code class="language-css">@-webkit-keyframes sqaush {
+    from { left: 100px; bottom: 300px; height: 150px; }
+    10% { left: 150px; bottom: 0px; height: 50px; }
+    20% { left: 200px; bottom: 250px; height: 140px; }
+    30% { left: 250px; bottom: 0px; height: 60px; }
+    40% { left: 300px; bottom: 200px; height: 130px; }
+    50% { left: 350px; bottom: 0px; height: 70px; }
+    60% { left: 400px; bottom: 150px; height: 120px; }
+    70% { left: 450px; bottom: 0px; height: 80px; }
+    80% { left: 500px; bottom: 100px; height: 110px; }
+    90% { left: 550px; bottom: 0px; height: 90px; }
+    100% { left: 600px; bottom: 50px; height: 100px; }
+}</code></pre>
+<p>Basically, we&#39;re just animating the left and bottom positions of the element to slowly come to a halt.</p>
+<p>If you want to see a fiddle of the whole thing, check it out <a href="http://jsfiddle.net/tysoncadenhead/bFEU3/">here</a>. Enjoy the fun of CSS animation!</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=css">css</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://tysoncadenhead.com/blog/squash-stretch-and-bounce-with-css3-animations" data-num-posts="10" data-colorscheme="light"></div>
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

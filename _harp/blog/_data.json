@@ -1,4 +1,11 @@
 {
+    "squash-stretch-and-bounce-with-css3-animations": {
+        "title": "Squash, Stretch and Bounce With CSS3 Animations",
+        "tags": ["css"],
+        "category": "code",
+        "date": "3-19-2014",
+        "thumbnail": "/images/blog/stop.jpg"
+    },
     "how-to-abstract-pub-sub-in-your-application": {
         "title": "How To Abstract Pub / Sub Methods In Your Application",
         "tags": ["javascript", "pubsub"],
