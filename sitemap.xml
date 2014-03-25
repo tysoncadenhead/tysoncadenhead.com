@@ -24,6 +24,13 @@
 
     
         <url>
+            <loc>http://tysoncadenhead.com/blog/deploying-harp-builds-to-github-pages</loc>
+            <lastmod>2014-3-25 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
             <loc>http://tysoncadenhead.com/blog/squash-stretch-and-bounce-with-css3-animations</loc>
             <lastmod>2014-3-19 12:12</lastmod>
             <changefreq>daily</changefreq>

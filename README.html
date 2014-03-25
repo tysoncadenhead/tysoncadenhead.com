@@ -69,11 +69,19 @@
 <h3>Starting the harp server</h3>
 <pre><code class="language-bash">harp server myproject</code></pre>
 <h3>Deploying</h3>
-<pre><code class="language-bash">harp compile _harp ./
-cp -r _harp/images images
-cp -r _harp/js js
-cp _harp/CNAME CNAME</code></pre>
-<p>then push to the <code>gh-pages</code> branch.</p>
+<p>Add this to your <code>.profile</code></p>
+<pre><code class="language-bash">function tyson_deploy () {
+        cd ~/Sites/apps/tysoncadenhead.com; # This is the project root
+        harp compile _harp ./;
+        cp -r _harp/images images;
+        cp -r _harp/js js;
+        cp _harp/CNAME CNAME;
+        git add -u;
+        git commit -m &quot;$1&quot;;
+        git push origin gh-pages;
+}</code></pre>
+<p>then you can run:</p>
+<pre><code class="language-bash">tyson_deploy &quot;{Commit Message}&quot;</code></pre>
 
                 
             </div>

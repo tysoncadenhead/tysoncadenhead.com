@@ -1,4 +1,11 @@
 {
+    "deploying-harp-builds-to-github-pages": {
+        "title": "Deploying Harp.js Builds To Github Pages",
+        "tags": ["html", "node", "terminal"],
+        "category": "code",
+        "date": "3-25-2014",
+        "thumbnail": "/images/blog/sharing.png"
+    },
     "squash-stretch-and-bounce-with-css3-animations": {
         "title": "Squash, Stretch and Bounce With CSS3 Animations",
         "tags": ["css"],
