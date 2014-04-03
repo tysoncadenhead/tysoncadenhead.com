@@ -1,4 +1,11 @@
 {
+    "unit-testing-sails-js-applications-with-mocha": {
+        "title": "Unit Testing Sails.js Applications With Mocha",
+        "tags": ["sailsjs", "testing", "mocha"],
+        "category": "code",
+        "date": "4-04-2014",
+        "thumbnail": "/images/blog/tdd.png"
+    },
     "deploying-harp-builds-to-github-pages": {
         "title": "Deploying Harp.js Builds To Github Pages",
         "tags": ["html", "node", "terminal"],
