@@ -1,4 +1,11 @@
 {
+    "using-facebook-authentication-on-a-sails-js-app": {
+        "title": "Facebook Authentication With Sails.js and Passport",
+        "tags": ["sailsjs", "facebook", "authentication"],
+        "category": "code",
+        "date": "4-10-2014",
+        "thumbnail": "/images/blog/passport.png"
+    },
     "unit-testing-sails-js-applications-with-mocha": {
         "title": "Unit Testing Sails.js Applications With Mocha",
         "tags": ["sailsjs", "testing", "mocha"],
