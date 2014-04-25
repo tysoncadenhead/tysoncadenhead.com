@@ -1,94 +1,101 @@
 {
+    "sails-ninja-intro": {
+        "title": "Creating An Application With Sails, Ko.Ninja and Require.js Part 1 - Introduction",
+        "tags": ["sailsjs", "ko-ninja", "knockout"],
+        "category": "code",
+        "date": "4-25-2014",
+        "thumbnail": "/images/blog/sails-ninja-intro.jpg"
+    },
     "using-facebook-authentication-on-a-sails-js-app": {
         "title": "Facebook Authentication With Sails.js and Passport",
         "tags": ["sailsjs", "facebook", "authentication"],
         "category": "code",
         "date": "4-10-2014",
-        "thumbnail": "/images/blog/passport.png"
+        "thumbnail": "/images/blog/using-facebook-authentication-on-a-sails-js-app.jpg"
     },
     "unit-testing-sails-js-applications-with-mocha": {
         "title": "Unit Testing Sails.js Applications With Mocha",
         "tags": ["sailsjs", "testing", "mocha"],
         "category": "code",
         "date": "4-04-2014",
-        "thumbnail": "/images/blog/tdd.png"
+        "thumbnail": "/images/blog/unit-testing-sails-js-applications-with-mocha.jpg"
     },
     "deploying-harp-builds-to-github-pages": {
         "title": "Deploying Harp.js Builds To Github Pages",
         "tags": ["html", "node", "terminal"],
         "category": "code",
         "date": "3-25-2014",
-        "thumbnail": "/images/blog/sharing.png"
+        "thumbnail": "/images/blog/deploying-harp-builds-to-github-pages.jpg"
     },
     "squash-stretch-and-bounce-with-css3-animations": {
         "title": "Squash, Stretch and Bounce With CSS3 Animations",
         "tags": ["css"],
         "category": "code",
         "date": "3-19-2014",
-        "thumbnail": "/images/blog/stop.jpg"
+        "thumbnail": "/images/blog/squash-stretch-and-bounce-with-css3-animations.jpg"
     },
     "how-to-abstract-pub-sub-in-your-application": {
         "title": "How To Abstract Pub / Sub Methods In Your Application",
         "tags": ["javascript", "pubsub"],
         "category": "code",
         "date": "3-18-2014",
-        "thumbnail": "/images/blog/listening.jpg"
+        "thumbnail": "/images/blog/how-to-abstract-pub-sub-in-your-application.jpg"
     },
     "exporting-canvas-animation-to-mov": {
         "title": "Exporting Three JS Canvas Animations To MOV or MP4 Format With Socket.io",
         "tags": ["node", "javascript", "animation"],
         "category": "code",
         "date": "3-17-2014",
-        "thumbnail": "/images/blog/popup.png"
+        "thumbnail": "/images/blog/exporting-canvas-animation-to-mov.jpg"
     },
     "javascript-life-ko-ninja-example-app": {
         "title": "Ko.Ninja Example App - JavaScript Life",
         "tags": ["knockout", "javascript", "ko.ninja"],
         "category": "code",
         "date": "3-14-2014",
-        "thumbnail": "/images/blog/ninja1.png"
+        "thumbnail": "/images/blog/javascript-life-ko-ninja-example-app.jpg"
     },
     "the-correct-way-to-use-jquery-with-knockout-js": {
         "title": "The Correct Way To Use JQuery With Knockout",
         "tags": ["knockout", "jquery", "javascript"],
         "category": "code",
         "date": "3-12-2014",
-        "thumbnail": "/images/blog/observers.png"
+        "thumbnail": "/images/blog/the-correct-way-to-use-jquery-with-knockout-js.jpg"
     },
     "the-business-case-for-having-an-all-remote-organization": {
         "title": "The Business Case For Having An All-Remote Organization",
         "tags": ["remote"],
         "category": "productivity",
         "date": "3-7-2014",
-        "thumbnail": "/images/blog/uiux.png"
+        "thumbnail": "/images/blog/the-business-case-for-having-an-all-remote-organization.jpg"
     },
     "how-to-organize-a-meteor-app": {
         "title": "How To Organize A Meteor App",
         "tags": ["meteor"],
         "category": "code",
         "date": "3-6-2014",
-        "thumbnail": "/images/blog/meteor.png"
+        "thumbnail": "/images/blog/how-to-organize-a-meteor-app.jpg"
     },
     "there-is-more-than-one-way-to-loop-a-cat": {
         "title": "There Is More Than One Way To Loop Over A Cat",
         "tags": ["looping", "underscore", "jquery"],
         "category": "code",
         "date": "2-22-2014",
-        "thumbnail": "/images/blog/architecture.png"
+        "thumbnail": "/images/blog/there-is-more-than-one-way-to-loop-a-cat.jpg"
     },
     "dependency-injection-with-squire-and-sinon": {
         "title": "Dependency Injection With Squire and Sinon",
         "tags": ["testing", "squire"],
         "category": "code",
         "date": "2-7-2014",
-        "thumbnail": "/images/blog/test-dummy.png"
+        "thumbnail": "/images/blog/dependency-injection-with-squire-and-sinon.jpg"
     },
     "dom-manipulation-is-so-early-2000s": {
         "title": "DOM Manipulation Is So Early 2000s",
         "tags": ["jQuery", "Knockout"],
         "category": "code",
         "date": "1-31-2014",
-        "thumbnail": "/images/blog/listening.jpg"
+        "thumbnail": "/images/blog/dom-manipulation-is-so-early-2000s.jpg"
     },
     "ko-ninja-socket-io-model": {
         "title": "Ko.Ninja Part 5 - Socket.io Models",
