@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.google.com/schemas/sitemap/0.84 http://www.google.com/schemas/sitemap/0.84/sitemap.xsd">
+
+        <url>
+            <loc>http://www.tysoncadenhead.com</loc>
+            <lastmod>2014-3-25 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+
+        <url>
+            <loc>http://www.tysoncadenhead.com/about</loc>
+            <lastmod>2014-3-25 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+
+        <url>
+            <loc>http://www.tysoncadenhead.com/presentations</loc>
+            <lastmod>2014-3-25 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/sails-ninja-intro</loc>
+            <lastmod>2014-4-25 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/using-facebook-authentication-on-a-sails-js-app</loc>
+            <lastmod>2014-4-10 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/unit-testing-sails-js-applications-with-mocha</loc>
+            <lastmod>2014-4-04 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/deploying-harp-builds-to-github-pages</loc>
+            <lastmod>2014-3-25 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/squash-stretch-and-bounce-with-css3-animations</loc>
+            <lastmod>2014-3-19 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/how-to-abstract-pub-sub-in-your-application</loc>
+            <lastmod>2014-3-18 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/exporting-canvas-animation-to-mov</loc>
+            <lastmod>2014-3-17 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/javascript-life-ko-ninja-example-app</loc>
+            <lastmod>2014-3-14 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/the-correct-way-to-use-jquery-with-knockout-js</loc>
+            <lastmod>2014-3-12 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/the-business-case-for-having-an-all-remote-organization</loc>
+            <lastmod>2014-3-7 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/how-to-organize-a-meteor-app</loc>
+            <lastmod>2014-3-6 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/there-is-more-than-one-way-to-loop-a-cat</loc>
+            <lastmod>2014-2-22 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/dependency-injection-with-squire-and-sinon</loc>
+            <lastmod>2014-2-7 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/dom-manipulation-is-so-early-2000s</loc>
+            <lastmod>2014-1-31 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/ko-ninja-socket-io-model</loc>
+            <lastmod>2014-1-17 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/ko-ninja-http-models</loc>
+            <lastmod>2014-1-9 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/ko-ninja-model</loc>
+            <lastmod>2014-1-2 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/ko-ninja-validation</loc>
+            <lastmod>2013-12-27 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/ko-ninja</loc>
+            <lastmod>2013-12-20 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/how-to-use-tor-with-chrome</loc>
+            <lastmod>2013-11-22 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/authentication-in-meteor</loc>
+            <lastmod>2013-11-14 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/why-you-should-teach-your-kids-to-write-code</loc>
+            <lastmod>2013-11-08 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/javascript-copy-and-paste-events</loc>
+            <lastmod>2013-10-31 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/getting-started-with-socket-io</loc>
+            <lastmod>2013-10-25 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/working-with-meteor-data</loc>
+            <lastmod>2013-10-10 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/why-is-test-driven-development-so-hard</loc>
+            <lastmod>2013-10-4 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/getting-started-with-meteor</loc>
+            <lastmod>2013-9-26 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/creating-sprites-with-compass</loc>
+            <lastmod>2013-9-20 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/how-to-build-grunt-from-sublime-text</loc>
+            <lastmod>2013-9-13 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/secrets-of-the-javascript-ninja</loc>
+            <lastmod>2013-9-4 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/compiling-sass-and-compass-with-grunt</loc>
+            <lastmod>2013-8-30 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/how-can-you-see-the-latest-poet-js-posts-without-restarting-the-server</loc>
+            <lastmod>2013-8-23 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/sencha-architect-app-development</loc>
+            <lastmod>2013-8-16 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/poet-js</loc>
+            <lastmod>2013-8-9 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/client-side-dependency-management-with-bower</loc>
+            <lastmod>2013-8-2 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/logging-time-on-the-developer-console</loc>
+            <lastmod>2013-7-29 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/javascript-test-coverage-with-jscoverage</loc>
+            <lastmod>2013-7-18 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/localstorage-with-amplify-js</loc>
+            <lastmod>2013-7-13 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/running-node-applications-continuously-with-foreverjs</loc>
+            <lastmod>2013-7-5 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/gardening-for-web-developers</loc>
+            <lastmod>2013-6-28 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/bing-translate-a-new-grunt-task-to-internationalize-your-apps-programmatically</loc>
+            <lastmod>2013-6-21 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/what-should-i-test-when-i-write-software</loc>
+            <lastmod>2013-6-6 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/jquery-jsontemplate</loc>
+            <lastmod>2013-6-3 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/do-you-need-a-college-degree-to-be-a-web-developer</loc>
+            <lastmod>2013-5-25 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/compound-js-presentation-in-nashville</loc>
+            <lastmod>2013-5-22 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/creating-mobile-apps-with-sencha-touch-2</loc>
+            <lastmod>2013-5-16 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/using-local-storage-in-sencha-touch-2-2</loc>
+            <lastmod>2013-4-19 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/knockout-observables</loc>
+            <lastmod>2013-4-8 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/authentication-with-compound-passport</loc>
+            <lastmod>2013-4-3 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/unit-testing-with-thrill-js</loc>
+            <lastmod>2013-4-1 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/executeasyncscript-in-selenium-webdriver-for-node</loc>
+            <lastmod>2013-3-22 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/compoundjs-routes</loc>
+            <lastmod>2013-3-12 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/what-are-the-best-productivity-apps-for-osx</loc>
+            <lastmod>2013-3-5 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/how-do-yo-make-a-compoundjs-app</loc>
+            <lastmod>2013-2-27 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/how-do-you-write-an-anvil-js-plugin</loc>
+            <lastmod>2013-2-21 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/what-is-jquery-map</loc>
+            <lastmod>2013-2-15 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/getting-the-most-out-of-your-time</loc>
+            <lastmod>2013-2-4 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/hosting-multiple-websites-on-the-same-wordpress-installation</loc>
+            <lastmod>2013-1-28 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/top-10-backbone-plugins</loc>
+            <lastmod>2013-1-22 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/how-can-i-share-ejs-templates-between-the-client-side-and-the-server-side</loc>
+            <lastmod>2013-1-15 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/underscore-fire</loc>
+            <lastmod>2013-1-9 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/resolutions-2013</loc>
+            <lastmod>2013-1-1 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/off-the-charts-jquery-toastchart-plugin</loc>
+            <lastmod>2012-12-9 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/my-new-standup-desk</loc>
+            <lastmod>2012-11-17 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/cross-domain-post-delete-and-pu</loc>
+            <lastmod>2012-10-17 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/open-sourcing-some-javascript-libraries</loc>
+            <lastmod>2012-9-7 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/book-review-html5-for-web-designers</loc>
+            <lastmod>2012-1-23 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/writing-a-good-api</loc>
+            <lastmod>2011-12-17 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/detecting-javascript-popup-blockers</loc>
+            <lastmod>2011-10-10 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/do-javascript-libraries-need-an-abstraction-layer</loc>
+            <lastmod>2011-1-21 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/parsing-coldfusion-json-on-the-client-side</loc>
+            <lastmod>2011-8-6 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/fat-models-and-skinny-controllers-in-javascript</loc>
+            <lastmod>2011-7-14 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/making-browser-specific-css-less-intrusive-with-sass</loc>
+            <lastmod>2011-5-30 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/writing-javascript-for-speed</loc>
+            <lastmod>2011-4-9 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/jquery-event-listening</loc>
+            <lastmod>2011-4-1 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/writing-markup-for-future-enhancement</loc>
+            <lastmod>2011-3-24 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/what-does-a-successful-ajax-application-need</loc>
+            <lastmod>2011-3-11 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/web-developers-and-health</loc>
+            <lastmod>2011-3-6 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/replacing-href-attributes-with-onclick-events-with-regex</loc>
+            <lastmod>2011-2-23 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/dont-be-a-user-interface-hoarder</loc>
+            <lastmod>2011-2-19 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/jquery-mobile-vs-sencha-touch</loc>
+            <lastmod>2011-2-17 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/javascript-variable-casing-best-practices</loc>
+            <lastmod>2011-2-8 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/script-loaders</loc>
+            <lastmod>2011-1-1 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/putting-ext-mvc-on-hold</loc>
+            <lastmod>2011-1-1 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/mvc-and-extjs-–-2-config</loc>
+            <lastmod>2010-11-1 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/mvc-and-extjs-1-introduction</loc>
+            <lastmod>2010-10-20 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/sencha-loading-in-the-iphone-4g</loc>
+            <lastmod>2010-10-19 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/javascript-variables-accessibility</loc>
+            <lastmod>2010-8-24 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/sencha-application-event-listening</loc>
+            <lastmod>2010-7-17 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/should-i-use-a-javascript-framework</loc>
+            <lastmod>2010-6-12 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/seo-safe-links-with-an-ajax-callback</loc>
+            <lastmod>2010-4-8 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/javascriptmvc</loc>
+            <lastmod>2010-3-30 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/javascript-architecture</loc>
+            <lastmod>2010-3-11 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/links-and-user-experience</loc>
+            <lastmod>2010-2-21 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/what-is-user-experience-user-interface</loc>
+            <lastmod>2010-2-11 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/what-google-looks-for</loc>
+            <lastmod>2010-1-29 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/code-seperation</loc>
+            <lastmod>2010-1-28 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/killing-ie6</loc>
+            <lastmod>2010-1-27 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
+    
+</urlset>

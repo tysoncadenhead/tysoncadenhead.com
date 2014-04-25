@@ -15,15 +15,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
-        <meta property="og:image" content="<%- url %><%- (typeof thumbnail !== 'undefined') ? thumbnail : '/images/blog/tyson.jpg' %>"/>
-        <meta property="og:title" content="<%- title %>"/>
-        <meta property="og:url" content="<%- url %>"/>
-        <meta property="og:site_name" content="<%- siteName %>"/>
-        <meta property="og:description" content="<%- description %>" />
-        <title><%- title %></title>
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/tyson.jpg"/>
+        <meta property="og:title" content="Tyson Cadenhead"/>
+        <meta property="og:url" content="http://www.tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Tyson Cadenhead</title>
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
-        <link rel="alternate" type="application/rss+xml" title="<%-title %> <%- description %>" href="<%- url %>/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Tyson Cadenhead Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
     </head>
     <body>
         <script type="text/javascript">
@@ -44,8 +44,8 @@
             <div class="container-fluid">
                 <div class="span10 offset1">
                     <div class="span4 left">
-                        <h1 id="logo"><a href="/"><%- siteName %></a></h1>
-                        <div class="tagline"><%- description %></div>
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
                     </div>
                     <div class="span4 right">
                         <div class="navbar navbar-inverse">
@@ -63,15 +63,27 @@
         </div>
         <div class="container-fluid">
             <div class="span10 offset1">
-                <% if (current.path[0] === 'blog') { %>
-                    <% var post = public.blog._data[current.path[1]]; %>
-                    <% if (post) { %>
-                        <% post.yield = partial('blog/' + current.path[1]); %>
-                        <%- partial("blog/_decorator", post) %>
-                    <% } %>
-                <% } else { %>
-                    <%- yield %>
-                <% } %>
+                
+                    <h1>tysoncadenhead.com</h1>
+<p>This is the code for tysoncadenhead.com. The site is generated with Harp.js into a static site.</p>
+<h3>Starting the harp server</h3>
+<pre><code class="language-bash">harp server myproject</code></pre>
+<h3>Deploying</h3>
+<p>Add this to your <code>.profile</code></p>
+<pre><code class="language-bash">function tyson_deploy () {
+        cd ~/Sites/apps/tysoncadenhead.com; # This is the project root
+        harp compile _harp ./;
+        cp -r _harp/images images;
+        cp -r _harp/js js;
+        cp _harp/CNAME CNAME;
+        git add -u;
+        git commit -m &quot;$1&quot;;
+        git push origin gh-pages;
+}</code></pre>
+<p>then you can run:</p>
+<pre><code class="language-bash">tyson_deploy &quot;{Commit Message}&quot;</code></pre>
+
+                
             </div>
         </div>
         <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
@@ -91,7 +103,7 @@
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         <script type="text/javascript">
                             window.tysonJS = {
-                                <% if (typeof post !== 'undefined') { %>slug: '<%- post.slug %>'<% } %>
+                                
                             };
                         </script>
                     </div>

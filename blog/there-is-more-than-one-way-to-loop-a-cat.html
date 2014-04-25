@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/there-is-more-than-one-way-to-loop-a-cat.jpg"/>
+        <meta property="og:title" content="There Is More Than One Way To Loop Over A Cat"/>
+        <meta property="og:url" content="http://www.tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>There Is More Than One Way To Loop Over A Cat</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="There Is More Than One Way To Loop Over A Cat Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                        
+                        <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/there-is-more-than-one-way-to-loop-a-cat.jpg" />
+    </div>
+
+    <h1>There Is More Than One Way To Loop Over A Cat</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 2-22-2014</h5>
+
+    <p>When I first started writing JavaScript, most of the libraries that are around today weren&#39;t available, which meant that there were basically a few low-level ways to loop over an array of content. Now that there are many more options, I wanted to take a moment to examine what they are and how each option might affect readability of code as well as performance.</p>
+<!-- more -->
+
+<p>We will start with the native looping that JavaScript gives you without any additional libraries or frameworks. For the rest of this discussion, we will assume that we are looping over an array that looks like this:</p>
+<pre><code class="language-js">var cats = [
+    &#39;Shy One&#39;,
+    &#39;Horatio&#39;,
+    &#39;Nestor le Freep&#39;,
+    &#39;Muon&#39;,
+    &#39;Barry Mundee&#39;,
+    &#39;Orange Juice&#39;,
+    &#39;Cali&#39;,
+    &#39;Baby Boo&#39;,
+    &#39;G Whillikers&#39;,
+    &#39;Uma&#39;,
+    &#39;Scud&#39;,
+    &#39;Mitaine&#39;,
+    &#39;Suki&#39;,
+    &#39;Mallorey&#39;,
+    &#39;Princess Sarah&#39;,
+    &#39;Pogo&#39;,
+    &#39;Baby Kitten&#39;,
+    &#39;Sweety&#39;
+];</code></pre>
+<p>These cat names all came out of a <a href="http://www.alistair.com/catname/">random cat name generator</a> so don&#39;t judge. I&#39;m sure they would be better names if they were for dogs.</p>
+<p>So, one way to loop over the cats is this:</p>
+<pre><code class="language-js">for (var i = 0; i &lt; cats.length; i++) {
+    if (cats[i].indexOf(&#39;Baby&#39;)) {
+        console.log(cats[i]);
+    }
+}</code></pre>
+<p>This is a pretty common pattern. If you&#39;ve been using JavaScript for a while, you will be familiar with it, but it might be hard for a beginner to break down that we are creating a variable called <code>i</code> that is equal to 0 and we are incrementing the number again and again until <code>i</code> is no longer less than the length of all of the cats.</p>
+<p>Another way to approach this is to use a while loop:</p>
+<pre><code class="language-js">var i = 0;
+while (cats.length &lt; i) {
+    if (cats[i].indexOf(&#39;Baby&#39;)) {
+        console.log(cats[i]);
+    }
+    i++;
+}</code></pre>
+<p>You could argue that the while loop is a little easier to read than the for loop because it doesn&#39;t handle all of the logic of the loop in the head. <a href="http://jsperf.com/while-vs-for-00001/13">Performance differences</a> are all over the board.</p>
+<p>The while loop tends to be faster in most current browsers, but there are plenty of instances where they are dead-even and even a couple of times when <code>for</code> measures marginally faster. However, if you&#39;re looking for a general rule, the while loop typically comes out ahead.</p>
+<p>To round out our discussion of native looping options, there is the <code>for-in</code> loop:</p>
+<pre><code class="language-js">cats.forEach(function (cat) {
+    if (cat.indexOf(&#39;Baby&#39;)) {
+        console.log(cat);
+    }
+});</code></pre>
+<p>Obviously, this is the most clean and readable native way to loop over an array. The <code>forEach</code> method is a prototype of the Array, which makes it very simple to use. The main issue with forEach is browser support. Any versions of Internet Explorer before IE9 do not support it. If you are supporting IE8 and below, you can easily polyfill forEach, but that is another discussion for another time.</p>
+<p>Depending on what perfs you look at, <code>forEach</code> typically comes out behind the <code>for</code> loop. I have seen instances where this is the opposite as well, so take that with a grain of salt.</p>
+<p>Now, to throw in the library looping methods. JQuery has a <code>$.each</code> method that looks like this:</p>
+<pre><code class="language-js">$.each(cats, function (cat) {
+    if (cat.indexOf(&#39;Baby&#39;)) {
+        console.log(cat);
+    } 
+});</code></pre>
+<p>The underscore and lodash version looks pretty similar:</p>
+<pre><code class="language-js">_.each(cats, function (cat) {
+    if (cat).indexOf(&#39;Baby&#39;) {
+        console.log(cat);
+    } 
+});</code></pre>
+<p><a href="http://jsperf.com/jquery-each-vs-for-loop/7">According to the perfs</a>, the underscore version is two or three times faster than the jQuery version. The lodash version, which looks exactly the same as the underscore version is about 4 times as fast as jQuery in most browsers.</p>
+<p>My personal preference is not to use jQuery for utility methods. JQuery does a great job with traversing the DOM and normalizing browser interaction, but I personally prefer to leave lower-level utilities to something else, such as lodash that only focuses on providing utility fast methods. End of rant.</p>
+<p>In the end, I would say that the native <code>forEach</code> and the lodash <code>_.each</code> method are the most readable. ForEach is problematic in the browser because of backwards compatibility. <code>_.each</code> is not quite as fast because it is not native and every level of abstraction inevitably gives you a performance hit.</p>
+<p>In most smaller apps, <code>_.each</code> should be sufficient. If you are working on something with a ton of looping where performance is vital, the while loop is a pretty solid choice, although you may take a small maintainability hit with it. When I&#39;m working on a server-side service, I usually go with <code>forEach</code> because it works everywhere and it is readable and pretty fast.</p>
+<p>In the end, the main thing is consistency. All of these options have their pros and cons, but the last thing you want is to randomly select different choices throughout a project. When you use one of these methods, make sure you know why one is better than the others.</p>
+<p>What do you think? How do you weigh the options when it comes to deciding between maintainability, performance and browser support?</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=looping">looping</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=underscore">underscore</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=jquery">jquery</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://www.tysoncadenhead.com/blog/there-is-more-than-one-way-to-loop-a-cat" data-num-posts="10" data-colorscheme="light"></div>
+                    
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

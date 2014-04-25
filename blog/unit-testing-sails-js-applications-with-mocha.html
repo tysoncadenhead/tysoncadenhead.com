@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/unit-testing-sails-js-applications-with-mocha.jpg"/>
+        <meta property="og:title" content="Unit Testing Sails.js Applications With Mocha"/>
+        <meta property="og:url" content="http://www.tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Unit Testing Sails.js Applications With Mocha</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Unit Testing Sails.js Applications With Mocha Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                        
+                        <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/unit-testing-sails-js-applications-with-mocha.jpg" />
+    </div>
+
+    <h1>Unit Testing Sails.js Applications With Mocha</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 4-04-2014</h5>
+
+    <p>In my opinion, <a href="http://sailsjs.org/">Sails</a> is one of the best Node MVC frameworks out there. It provides a really clean architecture and is completely customizable. The Socket.io integration also gives it an edge over many of the competitors.</p>
+<p>I only recently started playing around with Sails, and I wanted to add a unit testing suite to the application I was working on. I searched for other people who were doing test driven development in Sails, but I wasn&#39;t satisfied with the results. As it turns out, getting tests in place for Sails was one of the easier things I&#39;ve done in my life and I was able to get a few unit tests running withing 30 minutes of sitting down to do it.</p>
+<!-- more -->
+
+<p>To get my tests running, I used NPM to install Mocha, Grunt Mocha Test, Sinon and the Assert library:</p>
+<pre><code class="language-bash">npm install mocha --save-dev
+npm install grunt-mocha-test --save-dev
+npm install sinon --save-dev
+npm install assert --save-dev</code></pre>
+<p>That being done, I modified the Gruntfile.js at the root of the project to use Grunt Mocha Tests. Sails uses Grunt in the background, so when you open the Gruntfile, you&#39;ll notice that there is already quite a bit of code in there. I just added three lines.</p>
+<p>Inside of the <code>grunt.initConfig</code> object, I added:</p>
+<pre><code class="language-js">grunt.initConfig({
+
+    mochaTest: {
+      test: {
+        options: {
+          reporter: &#39;spec&#39;
+        },
+        src: [&#39;tests/**/*.spec.js&#39;]
+      }
+    },
+
+    ...
+
+});</code></pre>
+<p>Next, I added this line after all of the Sails tasks are loaded:</p>
+<pre><code class="language-js">grunt.loadNpmTasks(&#39;grunt-mocha-test&#39;);</code></pre>
+<p>Last of all, I registered a task to run the tests:</p>
+<pre><code class="language-js">grunt.registerTask(&#39;test&#39;, [&#39;mochaTest&#39;]);</code></pre>
+<p>That being done, I created a <code>tests</code> directory in the root of the project. The grunt task will grab any JavaScript files in that directory that include &quot;spec.js&quot; in the filename, but this is how I organized it:</p>
+<ul>
+<li>tests<ul>
+<li>adapters</li>
+<li>controllers</li>
+<li>models</li>
+<li>policies</li>
+<li>services</li>
+</ul>
+</li>
+</ul>
+<p>If you run <code>grunt test</code> at this point, it will run and should even pass, but there are no actual assertions being made, which means we need to write some tests.</p>
+<p>As a contrived example, let&#39;s say we have a basic controller that just renders a view (obviously there are better ways to handle rendering a view that no data is being passed to than even dealing with a controller, but this is just an example.) Our controller <code>AboutController.js</code> might look like this:</p>
+<pre><code class="language-js">module.exports = {
+
+    index: function (req, res) {
+        return res.view();
+    },
+
+    _config: {}
+
+};</code></pre>
+<p>If we put our test inside <code>tests/controllers</code> and name it <code>about.spec.js</code>, the path to load the controller should be <code>../../api/controllers/AboutController</code>.</p>
+<p>We will use Sinon.js to add a spy and determine whether the view method has been called. We will also import the assert library so that we can make assertions and see if our tests pass.</p>
+<p>Once we get everything in place, the actual test might look something like this:</p>
+<pre><code class="language-js">var AboutController = require(&#39;../../api/controllers/AboutController&#39;),
+    sinon = require(&#39;sinon&#39;),
+    assert = require(&#39;assert&#39;);
+
+describe(&#39;The About Controller&#39;, function () {
+    describe(&#39;when we load the about page&#39;, function () {
+        it (&#39;should render the view&#39;, function () {
+            var view = sinon.spy();
+            AboutController.index(null, {
+                view: view
+            });
+            assert.ok(view.called);
+        });
+    });
+});</code></pre>
+<p>But that example was a little simplistic. Let&#39;s take something more complex like a method on a model that hashes the password before the user can be saved. Our User.js model looks like this:</p>
+<pre><code class="language-js">var bcrypt = require(&#39;bcrypt&#39;);
+
+module.exports = {
+
+  attributes: {
+    username: {
+      type: &#39;string&#39;,
+      required: true,
+      unique: true
+    },
+    password: {
+      type: &#39;string&#39;,
+      required: true
+    }
+  },
+
+  beforeCreate: function(user, cb) {
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(user.password, salt, function(err, hash) {
+        if (err) {
+          console.log(err);
+          cb(err);
+        }else{
+          user.password = hash;
+          cb(null, user);
+        }
+      });
+    });
+  }
+
+};</code></pre>
+<p>So, how would we test that the password that is passed into the beforeCreate method is getting hashed? It is as easy as making an asynchronous test that compares the user&#39;s password against the password that is passed in. If they are different, we can assume that the password was hashed. We could definitely do more to make sure that the password is not null and that the length seems to be right for a bcrypt-encoded password, but this will at least guarantee that the password created is different.</p>
+<pre><code class="language-js">var User = require(&#39;../../api/models/User&#39;),
+    sinon = require(&#39;sinon&#39;),
+    assert = require(&#39;assert&#39;);
+
+describe(&#39;The User Model&#39;, function () {
+    describe(&#39;before the user is created&#39;, function () {
+        it (&#39;should hash the password&#39;, function (done) {
+            User.beforeCreate({
+                password: &#39;password&#39;
+            }, function (err, user) {
+                assert.notEqual(user.password, &#39;password&#39;);
+                done();
+            });
+        });
+    });
+});</code></pre>
+<p>As you can see, unit testing Sails applications is really easy and straightforward. As long as you are just testing the units themselves and not the framework, this approach works really flawlessly.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=sailsjs">sailsjs</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=testing">testing</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=mocha">mocha</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://www.tysoncadenhead.com/blog/unit-testing-sails-js-applications-with-mocha" data-num-posts="10" data-colorscheme="light"></div>
+                    
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

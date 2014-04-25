@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/sails-ninja-intro.jpg"/>
+        <meta property="og:title" content="Creating An Application With Sails, Ko.Ninja and Require.js Part 1 - Introduction"/>
+        <meta property="og:url" content="http://www.tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Creating An Application With Sails, Ko.Ninja and Require.js Part 1 - Introduction</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Creating An Application With Sails, Ko.Ninja and Require.js Part 1 - Introduction Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                        
+                        <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/sails-ninja-intro.jpg" />
+    </div>
+
+    <h1>Creating An Application With Sails, Ko.Ninja and Require.js Part 1 - Introduction</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 4-25-2014</h5>
+
+    <p>Since I tend to be a glutton for punishment, I have decided to devote the next several blog post to a series on making a scalable application using Sails.js on the back-end and Knockout with ko.Ninja on the front-end.</p>
+<!-- more -->
+
+<h3>So, Why Make A Series On This?</h3>
+<p>There are a lot of really good client-side and server-side JavaScript frameworks popping up, but there are not many in-depth articles on how they fit together. This series will look at a very specific stack and how it can be used to create an application. Let me break down the main components of the stack.</p>
+<p><img src="https://31.media.tumblr.com/7601a16f1e970bad6717ba5f386466d0/tumblr_inline_mz51cb9Ezv1qfxp6j.jpg" alt="Sails.js"></p>
+<h5>Sails.js</h5>
+<p>Sails is a server-side MVC framework for Node. The architecture is very similar to Ruby on Rails, which is probably why they chose a name that rhymes with Rails. One of the coolest things about Sails is that it has Socket.io built into it, which makes communicated with the client-side in real time much easier.</p>
+<p><img src="http://learn.knockoutjs.com/Content/App/icon.png" alt="Knockout"></p>
+<h5>Knockout</h5>
+<p>Knockout is a MVVM binding framework for the client-side. It does a great job of observing data and updating the DOM when the data changes.</p>
+<p><img src="https://raw.github.com/jcreamer898/ko.ninja/master/ko-ninja.gif" width="200px" /></p>
+<h5>Ko.Ninja</h5>
+<p>Ko.Ninja is a framework for Knockout that abstracts away some things and makes it easy to create structured applications with Models, Collections and ViewModels. In the interest of full disclosure, I have been one of the major contributors to Ninja, but it is still an awesome framework worth using.</p>
+<p><img src="http://ianreah.com/img/requirejs-logo.png" alt="RequireJS"></p>
+<h5>Requirejs</h5>
+<p>Require is a framework that lets you write modular code for the client-side. All of your modules pull in the modules that they need to function properly and the best part is that you only need to include one JavaScript file in your HTML template, everything else is retrieved with JavaScript.</p>
+<p><img src="http://penangmonthly.com/wp-content/uploads/2013/07/chalk-outline.jpg" alt=""></p>
+<h3>The Outline</h3>
+<p>As I post the new articles, the links on this outline will be filled in, so this post can serve as a jumping off point for everything else. In the meantime, here is what we will cover:</p>
+<ul>
+<li>Starting The Sails Project</li>
+<li>Adding dependencies</li>
+<li>Scaffolding</li>
+<li>Requesting Client-Side Modules Through The Controller</li>
+<li>Serving Modules With RequireJS</li>
+<li>Ninja Architecture</li>
+<li>Unit Testing Sails</li>
+<li>Unit Testing Ko.Ninja Modules</li>
+<li>Server-Side Views</li>
+<li>Client-Side Views</li>
+<li>Sails Models</li>
+<li>Ninja Collections</li>
+<li>Ninja Models</li>
+<li>Username / Password Authentication</li>
+<li>Facebook Authentication</li>
+<li>Form Validation</li>
+<li>Making Ajax Calls</li>
+<li>Using Socket.io</li>
+<li>Integration Testing</li>
+<li>Building and Deploying</li>
+</ul>
+<p>This is going to be a fun series to write and I hope you have as much fun as me reading it!</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=sailsjs">sailsjs</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=ko-ninja">ko-ninja</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=knockout">knockout</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://www.tysoncadenhead.com/blog/sails-ninja-intro" data-num-posts="10" data-colorscheme="light"></div>
+                    
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

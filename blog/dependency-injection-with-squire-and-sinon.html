@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/dependency-injection-with-squire-and-sinon.jpg"/>
+        <meta property="og:title" content="Dependency Injection With Squire and Sinon"/>
+        <meta property="og:url" content="http://www.tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Dependency Injection With Squire and Sinon</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Dependency Injection With Squire and Sinon Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container-fluid">
+                <div class="span10 offset1">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/">Tyson Cadenhead</a></h1>
+                        <div class="tagline">Thoughts on productivity, web apps and JavaScript</div>
+                    </div>
+                    <div class="span4 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="span10 offset1">
+                
+                    
+                    
+                        
+                        <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/dependency-injection-with-squire-and-sinon.jpg" />
+    </div>
+
+    <h1>Dependency Injection With Squire and Sinon</h1>
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 2-7-2014</h5>
+
+    <p>Unit testing in JavaScript can be difficult sometimes. Typically, you only want to test the behavior of a single module, but if you are using an AMD loader like RequireJS, you may be pulling in several other libraries and modules just to test a single module. The point of the unit test is to test an individual unit, not to test how it works with other dependencies.</p>
+<p>If only there was a way to trick the test runner into thinking that the other modules were loaded by providing simplified stubs of the methods they actually performed! Good news, that is totally possible using <a href="https://github.com/iammerrick/Squire.js/">Squire</a>. Don&#39;t run away when you see the creepy looking mascot on the GitHub page, Squire is totally worth your time.</p>
+<!-- more -->
+
+<p>If you have used Angular, you are familiar with how dependency injection can work in JavaScript. Squire has extended this ability to work with any AMD module. The basic idea is that the module says that it needs &quot;x dependency&quot;, but Squire steps in and says &quot;well, actually I&#39;m going to give you y dependency instead, but you can still go on believing that it is x dependency. Silly you.&quot;</p>
+<p>Let&#39;s say that you have a module that looks like this:</p>
+<pre><code class="language-js">// Person Module
+
+define([
+    &#39;underscore&#39;,
+    &#39;friends&#39;
+], function (_, Friends) {
+
+    var Person = function (data) {
+        this.init(data);
+    };
+
+    _.extend(Person.prototype, {
+
+        addFriend: function (data) {
+            this.friends.add(data);
+        },
+
+        getId: function () {
+            return this._id;
+        },
+
+        init: function (data) {
+            this.friends = new Friends(data.id);
+            this.addFriend({ id: 223 });
+        }
+
+    });
+
+    return Person;
+
+});</code></pre>
+<p>Obviously, it would have a friends dependency. That might look something like this:</p>
+<pre><code class="language-js">// Friends Module
+
+define([
+    &#39;underscore&#39;
+], function () {
+
+    var Friends = function (id) {
+        this.init(id);
+    };
+
+    _.extend(Friends.prototype, {
+
+        add: function (friend) {
+            this._friends.push(friend);
+        },
+
+        init: function (id) {
+            this._friends = [];
+            this._id = id;
+        }
+
+    });
+
+});</code></pre>
+<p>Now, lets say we want to test the Person module, but we want to test Friends separately. First lets look at how that might be done without dependency injection:</p>
+<pre><code class="language-js">define([
+    &#39;person&#39;
+], function (Person) {
+
+    describe(&#39;the person module&#39;, function () {
+
+        beforeEach(function () {
+            this.person = new Person({
+                id: 213
+            });
+        });
+
+        describe(&#39;when adding a new friend&#39;, function () {
+            it (&#39;should add the friend to the the person&#39;, function () {
+                assert.equal(this.person.getId(), 213);
+            });
+        });
+
+    });
+
+});</code></pre>
+<p>Not too terrible, but we are just requiring one module from the person and there aren&#39;t any weird side effects like there might be in a real-world example.</p>
+<p>To stop actually using the friends module, we can do this:</p>
+<pre><code class="language-js">define([
+    &#39;squire&#39;,
+    &#39;sinon&#39;
+], function (Squire, sinon) {
+
+    var injector = new Squire();
+
+    injector.mock({
+        &#39;friends&#39;: {
+            add: sinon.stub()
+        }
+    });
+
+    injector.require([
+        &#39;person&#39;
+    ], function (Person) {
+
+        describe(&#39;the person module&#39;, function () {
+
+            beforeEach(function () {
+                this.person = new Person({
+                    id: 213
+                });
+            });
+
+            describe(&#39;when adding a new friend&#39;, function () {
+                it (&#39;should add the friend to the the person&#39;, function () {
+                    this.person.addFriend(new Person({
+                        id: 222
+                    }));
+                    assert.equal(this.person.find().length, 1);
+                });
+            });
+
+        });
+
+    });
+
+});</code></pre>
+<p>Sure, it is a little more code, but here is what we have gained:</p>
+<ul>
+<li>We are no longer loading the friends dependency, so the test will run faster</li>
+<li>We are testing the person module in isolation</li>
+</ul>
+<p>Not bad, huh?</p>
+<p>Let&#39;s walk through how we did that.</p>
+<p>First of all, we created a new injector by instantiating Squire. </p>
+<p>Next, we gave Squire an object of dependencies that we wanted it to replace by using <code>injector.mock</code>. You might also noticed that we used a library called <a href="http://sinonjs.org/">Sinon</a> to create an empty function that could take the place of friends.add(). If you haven&#39;t used Sinon, you are missing out, it allows you to fake methods and return anything you want from them, which makes it a perfect companion for Squire.</p>
+<p>Last, we required our module using <code>inject.require()</code>. While the API does look exactly like RequireJS, it is passing the call through Squire for dependency injection instead of requiring the dependencies.</p>
+<p>Pretty cool, huh?</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=testing">testing</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=squire">squire</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <style>
+        .responsive-unit { width: 320px; height: 50px; }
+        @media(min-width: 500px) { .responsive-unit { width: 468px; height: 60px; } }
+        @media(min-width: 800px) { .responsive-unit { width: 728px; height: 90px; } }
+        </style>
+        <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive unit -->
+        <ins class="adsbygoogle responsive-unit"
+             style="display:inline-block"
+             data-ad-client="ca-pub-5130799763611680"
+             data-ad-slot="1789954798"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+
+    <br />
+
+    <!--
+    <h4>Related Posts:</h4>
+    <div id="related-posts" class="clear">
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+        <div class="well left thumbnail"></div>
+    </div>
+    -->
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://www.tysoncadenhead.com/blog/dependency-injection-with-squire-and-sinon" data-num-posts="10" data-colorscheme="light"></div>
+                    
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer container-fluid">
+                <div class="span10 offset1">
+                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span10 left">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>
