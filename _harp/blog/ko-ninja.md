@@ -10,53 +10,53 @@ Ko.ninja is a collaborative open-source project written by [Jonathan Creamer](ht
 The big win with ko.ninja is that it gives you a prescriptive framework for building well-structured applications. The Knockout documentation tells you to write your viewModels like this:
 
 ```html
-<div id=“person”>
-   <div data-bind=“text: name”></div>
+<div id="person">
+   <div data-bind="text: name"></div>
   <h5>Friends:</h5>
-  <div data-bind=“foreach: friends”>
-     <div data-bind=“text: name”></div>
+  <div data-bind="foreach: friends">
+     <div data-bind="text: name"></div>
   </div>
 </div>
 ```
 
 ```js
 var person = {
-   firstName: ko.observable(“Darth”),
-   lastName: ko.observable(“Vader”),
+   firstName: ko.observable("Darth"),
+   lastName: ko.observable("Vader"),
    name: ko.computed(function () {
-      return this.firstName() + “ “ + this.lastName()
+      return this.firstName() + " " + this.lastName()
    }),
    friends: ko.observableArray([])
 };
 
 person.friends.push(person);
 
-ko.applyBindings( document.getElementById(“person”), person );
+ko.applyBindings( document.getElementById("person"), person );
 ```
 
-The issue with this approach is that there is no inheritance. If you want to create multiple people, you have to wrap the person in a “class” that returns new people. That means that our person code will actually need to look more like this:
+The issue with this approach is that there is no inheritance. If you want to create multiple people, you have to wrap the person in a "class" that returns new people. That means that our person code will actually need to look more like this:
 
 ```js
 var Person = function (obj) {
   this.firstName = ko.observable(obj.firstName);
   this.lastName = ko.observable(obj.lastName);
   this.name = ko.computed(function () {
-     return this.firstName() + “ ” + this.lastName();
+     return this.firstName() + " " + this.lastName();
   });
   this.friends = ko.observableArray([]);
 };
 
 var person = new Person({
-   firstName: “Darth”,
-   lastName: “Vader"
+   firstName: "Darth",
+   lastName: "Vader"
 });
 
 person.friends.push(new Person({
-   firstName: “Storm”,
-   lastName: “Trooper"
+   firstName: "Storm",
+   lastName: "Trooper"
 }));
 
-ko.applyBindings( document.getElementById(“person”), person ); 
+ko.applyBindings( document.getElementById("person"), person ); 
 ```
 
 That approach is very close to what ko.ninja does, but it does most of the work for you. Here is a much cleaner version using ko.ninja:
@@ -64,25 +64,25 @@ That approach is very close to what ko.ninja does, but it does most of the work 
 ```js
 var Person = ko.ViewModel.extend({
    observables: {
-      firstName: “”,
-      lastName: “”,
+      firstName: "",
+      lastName: "",
       name: function () {
-          return this.firstName() + “ “ + this.lastName();
+          return this.firstName() + " " + this.lastName();
       }
    }
 });
 
 var person = new Person({
-   firstName: “Darth”,
-   lastName: “Vader"
+   firstName: "Darth",
+   lastName: "Vader"
 });
 
 person.friends.push(new Person({
-   firstName: “Storm”,
-   lastName: “Trooper"
+   firstName: "Storm",
+   lastName: "Trooper"
 }));
 
-ko.applyBindings( document.getElementById(“person”), person );  
+ko.applyBindings( document.getElementById("person"), person );  
 ```
 
 As you can see, instead of needing to create a new ko.observable() for each observable you want in your viewModel, you can just add all of your observable names to the `observables` object on the ko.ViewModel. Instead of referencing the `ko` namespace several times to create a new viewModel, we are now only referencing it once. Ninja is also smart enough to create a ko.observable if you pass in a string, a ko.observableArray if you pass in an array and a ko.computedObservable if you pass in a function.
@@ -93,8 +93,8 @@ Ko.ninja emits events anytime an observable changes. This is basically shorthand
 var Person = ko.ViewModel.extend({
 
    observables: {
-      firstName: “”,
-      lastName: “”
+      firstName: "",
+      lastName: ""
    },
 
    // This method is called when a viewModel is instantiated
@@ -111,11 +111,15 @@ var Person = ko.ViewModel.extend({
 });
  
 var me = new Person({
-   firstName: “Han”,
-   lastName: “Solo”
+   firstName: "Han",
+   lastName: "Solo"
 });
 ```
 
 Cleaning up the syntax and adding more inheritance is definitely nice, but the real power of ko.ninja is in the validation. We’ll look at that in my blog post next week.
 
 Ready to get started? [Add ko.ninja to your project](https://github.com/jcreamer898/ko.ninja) and make awesome applications today!
+
+#### [Next Post In This Series](/blog/ko-ninja-validation)
+
+ 

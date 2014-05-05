@@ -1,3 +1,5 @@
+#### [Previous Post In This Series](/blog/ko-ninja-model)
+
 This is a part of a larger series about the [ko.ninja framework](/blog/ko-ninja) that I helped to create to make Knockout development more awesome. Previously, I showed how you can create a model to save data to localStorage. Today we are going to look at how you can save data to a server using Ajax using the ko.ninja model abstraction layer.
 
 <!-- more -->
@@ -44,3 +46,5 @@ In a nutshell, it is the standard REST API definition. That's really all there i
 In my next post, we'll be looking at how to use ko.ninja to sync data with a server using socket.io.
 
 Ready to get started? [Add ko.ninja to your project](https://github.com/jcreamer898/ko.ninja) and make awesome applications today!
+
+#### [Next Post In This Series](/blog/ko-ninja-socket-io-model)

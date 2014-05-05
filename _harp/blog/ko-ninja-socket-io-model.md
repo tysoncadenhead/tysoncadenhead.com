@@ -1,3 +1,5 @@
+#### [Previous Post In This Series](/blog/ko-ninja-http-models)
+
 This is a part of a larger series about the [ko.ninja framework](/blog/ko-ninja) that I helped to create to make Knockout development more awesome. Previously, we looked at how we can automatically save ko.ninja data with ajax, but today we're going to look at how to use Socket.io with ko.ninja. Since I love socket.io so much, I had to include it as one of our model options in ko.ninja. This is not a primer on how to use socket.io, so if you haven't used it before, I suggest checking out my blog post on [getting started with socket.io](/blog/getting-started-with-socket-io).
 
 <!-- more -->

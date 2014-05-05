@@ -1,6 +1,19 @@
 {
+    "starting_the_sails_project": {
+        "series": "Creating An Application With Sails, Ko.Ninja and Require.js",
+        "part": 2,
+        "lastPart": true,
+        "title": "Starting a Sails Project",
+        "tags": ["sailsjs"],
+        "category": "code",
+        "date": "5-2-2014",
+        "thumbnail": "/images/blog/starting_the_sails_project.jpg"
+    },
     "sails-ninja-intro": {
-        "title": "Creating An Application With Sails, Ko.Ninja and Require.js Part 1 - Introduction",
+        "series": "Creating An Application With Sails, Ko.Ninja and Require.js",
+        "part": 1,
+        "firstPart": true,
+        "title": "Introduction",
         "tags": ["sailsjs", "ko-ninja", "knockout"],
         "category": "code",
         "date": "4-25-2014",
@@ -98,35 +111,47 @@
         "thumbnail": "/images/blog/dom-manipulation-is-so-early-2000s.jpg"
     },
     "ko-ninja-socket-io-model": {
-        "title": "Ko.Ninja Part 5 - Socket.io Models",
+        "series": "Ko.Ninja",
+        "part": 5,
+        "lastPart": true,
+        "title": " Socket.io Models",
         "tags": [ "knockout", "ko.ninja", "model", "data", "socket.io" ],
         "category": "code",
         "date": "1-17-2014",
         "thumbnail": "/images/blog/ninja5.png"
     },
     "ko-ninja-http-models": {
-        "title": "Ko.Ninja Part 4 - HTTP Models",
+        "series": "Ko.Ninja",
+        "part": 4,
+        "title": "HTTP Models",
         "tags": [ "knockout", "ko.ninja", "model", "data", "ajax" ],
         "category": "code",
         "date": "1-9-2014",
         "thumbnail": "/images/blog/ninja4.png"
     },
     "ko-ninja-model": {
-        "title": "Ko.Ninja Part 3 - LocalStorage Models",
+        "series": "Ko.Ninja",
+        "part": 3,
+        "title": "LocalStorage Models",
         "tags": [ "knockout", "ko.ninja", "model", "data", "ajax" ],
         "category": "code",
         "date": "1-2-2014",
         "thumbnail": "/images/blog/ninja3.png"
     },
     "ko-ninja-validation": {
-        "title": "Ko.Ninja Part 2 - Validation",
+        "series": "Ko.Ninja",
+        "part": 2,
+        "title": "Validation",
         "tags": [ "knockout", "ko.ninja", "validation" ],
         "category": "code",
         "date": "12-27-2013",
         "thumbnail": "/images/blog/ninja2.png"
     },
     "ko-ninja": {
-        "title": "Ko.Ninja Part 1 - A Framework For Building Awesome Knockout.js Apps",
+        "series": "Ko.Ninja",
+        "part": 1,
+        "firstPart": true,
+        "title": "A Framework For Building Awesome Knockout.js Apps",
         "tags": [ "knockout", "ko.ninja" ],
         "category": "code",
         "date": "12-20-2013",

@@ -15,6 +15,9 @@
         </div>
 
         <h2><a href="/blog/<%- slug %>"><%- public.blog._data[slug].title  %></a></h2>
+        <% if (public.blog._data[slug].series) { %>
+          <h4><%= public.blog._data[slug].series %><% if (public.blog._data[slug].part) { %> (part <%= public.blog._data[slug].part %>)<% } %></h4>
+        <% } %>
         <h5><span class="label label-info"><a href="/?category=<%- public.blog._data[slug].category %>"><%- public.blog._data[slug].category %></a></span> <%- public.blog._data[slug].date %></h5>
 
         <% function excerpt(content) { %>

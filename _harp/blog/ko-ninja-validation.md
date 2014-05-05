@@ -1,3 +1,5 @@
+#### [Previous Post In This Series](/blog/ko-ninja)
+
 This is a part of a larger series about the [ko.ninja framework](/blog/ko-ninja) that I helped to create to make Knockout development more awesome. In my last post, I introduced ko.ninja, a framework that I helped create for making awesome Knockout apps. Today, we're going to continue looking at ko.ninja, but we are going to focus on doing validation on the ko.ViewModel.
 
 <!-- more -->
@@ -135,3 +137,5 @@ If the validator returns a truthy value, the error will be added to the viewMode
 To really take advantage of ko.ninja validation, you can automatically sync your viewModel with a model. We will be looking at the ko.ninja model in the post next week.
 
 Ready to get started? [Add ko.ninja to your project](https://github.com/jcreamer898/ko.ninja) and make awesome applications today!
+
+#### [Next Post In This Series](/blog/ko-ninja-model)

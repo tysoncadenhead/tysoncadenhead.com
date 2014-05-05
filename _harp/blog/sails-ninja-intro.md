@@ -1,3 +1,11 @@
+<div class="series-placement">
+
+    This is part 1 of the Creating An Application With Sails, Ko.Ninja and Require.js blog series. It is recommended that you start here. Once you are done reading this, please navigate to the next post below:
+
+    <h4>[Next Post In This Series](/blog/starting_the_sails_project)</h4>
+
+</div>
+
 Since I tend to be a glutton for punishment, I have decided to devote the next several blog post to a series on making a scalable application using Sails.js on the back-end and Knockout with ko.Ninja on the front-end.
 
 <!-- more -->
@@ -36,25 +44,25 @@ Require is a framework that lets you write modular code for the client-side. All
 
 As I post the new articles, the links on this outline will be filled in, so this post can serve as a jumping off point for everything else. In the meantime, here is what we will cover:
 
-* Starting The Sails Project
-* Adding dependencies
-* Scaffolding
-* Requesting Client-Side Modules Through The Controller
-* Serving Modules With RequireJS
-* Ninja Architecture
-* Unit Testing Sails
-* Unit Testing Ko.Ninja Modules
-* Server-Side Views
-* Client-Side Views
-* Sails Models
-* Ninja Collections
-* Ninja Models
-* Username / Password Authentication
-* Facebook Authentication
-* Form Validation
-* Making Ajax Calls
-* Using Socket.io
-* Integration Testing
-* Building and Deploying
+1. [Starting The Sails Project](/blog/starting_the_sails_project)
+1. Adding dependencies
+1. Scaffolding
+1. Requesting Client-Side Modules Through The Controller
+1. Serving Modules With RequireJS
+1. Ninja Architecture
+1. Unit Testing Sails
+1. Unit Testing Ko.Ninja Modules
+1. Server-Side Views
+1. Client-Side Views
+1. Sails Models
+1. Ninja Collections
+1. Ninja Models
+1. Username / Password Authentication
+1. Facebook Authentication
+1. Form Validation
+1. Making Ajax Calls
+1. Using Socket.io
+1. Integration Testing
+1. Building and Deploying
 
 This is going to be a fun series to write and I hope you have as much fun as me reading it!

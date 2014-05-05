@@ -6,6 +6,12 @@
 
     <h1><%- title  %></h1>
 
+    <% if (typeof series === "string") { %>
+      <h4>
+        <%= series %><% if (typeof part === "number") { %> (part <%= part %>)<% } %>
+      </h4>
+    <% } %>
+
     <h5><span class="label label-info"><a href="/?category=<%- category %>"><%- category %></a></span> | <%- date %></h5>
 
     <%- yield  %>

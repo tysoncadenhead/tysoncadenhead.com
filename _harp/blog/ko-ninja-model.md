@@ -1,3 +1,5 @@
+#### [Previous Post In This Series](/blog/ko-ninja-validation)
+
 This is a part of a larger series about the [ko.ninja framework](/blog/ko-ninja) that I helped to create to make Knockout development more awesome. With ko.ninja, you can add a model to your viewModel to automatically save your data as soon as it changes and validates. Ko.ninja comes with several model types including localStorage, ajax and socket.io, but we also plan to add the ability to let you define a custom model type if you have other needs that are not covered by our model types.
 
 <!-- more -->
@@ -150,3 +152,5 @@ As you can see, depending on your needs, you can sync with localStorage with pre
 In my next post, we'll be looking at how to use the model to sync data with the server using Ajax requests.
 
 Ready to get started? [Add ko.ninja to your project](https://github.com/jcreamer898/ko.ninja) and make awesome applications today!
+
+#### [Next Post In This Series](/blog/ko-ninja-http-models)
