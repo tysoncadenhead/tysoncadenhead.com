@@ -16,14 +16,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
         <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/ninja1.png"/>
-        <meta property="og:title" content="Ko.Ninja Part 1 - A Framework For Building Awesome Knockout.js Apps"/>
+        <meta property="og:title" content="A Framework For Building Awesome Knockout.js Apps"/>
         <meta property="og:url" content="http://www.tysoncadenhead.com"/>
         <meta property="og:site_name" content="Tyson Cadenhead"/>
         <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
-        <title>Ko.Ninja Part 1 - A Framework For Building Awesome Knockout.js Apps</title>
+        <title>A Framework For Building Awesome Knockout.js Apps</title>
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
-        <link rel="alternate" type="application/rss+xml" title="Ko.Ninja Part 1 - A Framework For Building Awesome Knockout.js Apps Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="A Framework For Building Awesome Knockout.js Apps Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
     </head>
     <body>
         <script type="text/javascript">
@@ -41,12 +41,12 @@
         </script>
         <div id="fb-root"></div>
         <div class="header" id="top">
-            <div class="container-fluid">
-                <div class="span10 offset1">
+            <div class="container">
+                <div class="span12">
                     <div class="span4 left">
                         <h1 id="logo"><a href="/"><img src="/images/logo.png" /></a></h1>
                     </div>
-                    <div class="span4 right">
+                    <div class="span6 right">
                         <div class="navbar navbar-inverse">
                             <div class="navbar-inner right">
                                 <ul class="nav right">
@@ -60,8 +60,8 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="span10 offset1">
+        <div class="container">
+            <div class="span12">
                 
                     
                     
@@ -72,7 +72,13 @@
       <img src="/images/blog/ninja1.png" />
     </div>
 
-    <h1>Ko.Ninja Part 1 - A Framework For Building Awesome Knockout.js Apps</h1>
+    <h1>A Framework For Building Awesome Knockout.js Apps</h1>
+
+    
+      <h4>
+        Ko.Ninja (part 1)
+      </h4>
+    
 
     <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 12-20-2013</h5>
 
@@ -82,75 +88,75 @@
 <p>Ko.ninja is a collaborative open-source project written by <a href="http://jonathancreamer.com/">Jonathan Creamer</a> and myself. It is still in its infancy, and I would really like to get some feedback about tweaks and improvements that could be made to make it more awesome.</p>
 <h3>So, what does ko.ninja do?</h3>
 <p>The big win with ko.ninja is that it gives you a prescriptive framework for building well-structured applications. The Knockout documentation tells you to write your viewModels like this:</p>
-<pre><code class="language-html">&lt;div id=“person”&gt;
-   &lt;div data-bind=“text: name”&gt;&lt;/div&gt;
+<pre><code class="language-html">&lt;div id=&quot;person&quot;&gt;
+   &lt;div data-bind=&quot;text: name&quot;&gt;&lt;/div&gt;
   &lt;h5&gt;Friends:&lt;/h5&gt;
-  &lt;div data-bind=“foreach: friends”&gt;
-     &lt;div data-bind=“text: name”&gt;&lt;/div&gt;
+  &lt;div data-bind=&quot;foreach: friends&quot;&gt;
+     &lt;div data-bind=&quot;text: name&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <pre><code class="language-js">var person = {
-   firstName: ko.observable(“Darth”),
-   lastName: ko.observable(“Vader”),
+   firstName: ko.observable(&quot;Darth&quot;),
+   lastName: ko.observable(&quot;Vader&quot;),
    name: ko.computed(function () {
-      return this.firstName() + “ “ + this.lastName()
+      return this.firstName() + &quot; &quot; + this.lastName()
    }),
    friends: ko.observableArray([])
 };
 
 person.friends.push(person);
 
-ko.applyBindings( document.getElementById(“person”), person );</code></pre>
-<p>The issue with this approach is that there is no inheritance. If you want to create multiple people, you have to wrap the person in a “class” that returns new people. That means that our person code will actually need to look more like this:</p>
+ko.applyBindings( document.getElementById(&quot;person&quot;), person );</code></pre>
+<p>The issue with this approach is that there is no inheritance. If you want to create multiple people, you have to wrap the person in a &quot;class&quot; that returns new people. That means that our person code will actually need to look more like this:</p>
 <pre><code class="language-js">var Person = function (obj) {
   this.firstName = ko.observable(obj.firstName);
   this.lastName = ko.observable(obj.lastName);
   this.name = ko.computed(function () {
-     return this.firstName() + “ ” + this.lastName();
+     return this.firstName() + &quot; &quot; + this.lastName();
   });
   this.friends = ko.observableArray([]);
 };
 
 var person = new Person({
-   firstName: “Darth”,
-   lastName: “Vader&quot;
+   firstName: &quot;Darth&quot;,
+   lastName: &quot;Vader&quot;
 });
 
 person.friends.push(new Person({
-   firstName: “Storm”,
-   lastName: “Trooper&quot;
+   firstName: &quot;Storm&quot;,
+   lastName: &quot;Trooper&quot;
 }));
 
-ko.applyBindings( document.getElementById(“person”), person );</code></pre>
+ko.applyBindings( document.getElementById(&quot;person&quot;), person );</code></pre>
 <p>That approach is very close to what ko.ninja does, but it does most of the work for you. Here is a much cleaner version using ko.ninja:</p>
 <pre><code class="language-js">var Person = ko.ViewModel.extend({
    observables: {
-      firstName: “”,
-      lastName: “”,
+      firstName: &quot;&quot;,
+      lastName: &quot;&quot;,
       name: function () {
-          return this.firstName() + “ “ + this.lastName();
+          return this.firstName() + &quot; &quot; + this.lastName();
       }
    }
 });
 
 var person = new Person({
-   firstName: “Darth”,
-   lastName: “Vader&quot;
+   firstName: &quot;Darth&quot;,
+   lastName: &quot;Vader&quot;
 });
 
 person.friends.push(new Person({
-   firstName: “Storm”,
-   lastName: “Trooper&quot;
+   firstName: &quot;Storm&quot;,
+   lastName: &quot;Trooper&quot;
 }));
 
-ko.applyBindings( document.getElementById(“person”), person );</code></pre>
+ko.applyBindings( document.getElementById(&quot;person&quot;), person );</code></pre>
 <p>As you can see, instead of needing to create a new ko.observable() for each observable you want in your viewModel, you can just add all of your observable names to the <code>observables</code> object on the ko.ViewModel. Instead of referencing the <code>ko</code> namespace several times to create a new viewModel, we are now only referencing it once. Ninja is also smart enough to create a ko.observable if you pass in a string, a ko.observableArray if you pass in an array and a ko.computedObservable if you pass in a function.</p>
 <p>Ko.ninja emits events anytime an observable changes. This is basically shorthand for doing a <code>myObservable.subscribe()</code>, but it also abstracts it to the point where you could remove your observables and keep the events and the application would not break.  Events in ko.ninja work like this:</p>
 <pre><code class="language-js">var Person = ko.ViewModel.extend({
 
    observables: {
-      firstName: “”,
-      lastName: “”
+      firstName: &quot;&quot;,
+      lastName: &quot;&quot;
    },
 
    // This method is called when a viewModel is instantiated
@@ -167,11 +173,12 @@ ko.applyBindings( document.getElementById(“person”), person );</code></pre>
 });
 
 var me = new Person({
-   firstName: “Han”,
-   lastName: “Solo”
+   firstName: &quot;Han&quot;,
+   lastName: &quot;Solo&quot;
 });</code></pre>
 <p>Cleaning up the syntax and adding more inheritance is definitely nice, but the real power of ko.ninja is in the validation. We’ll look at that in my blog post next week.</p>
 <p>Ready to get started? <a href="https://github.com/jcreamer898/ko.ninja">Add ko.ninja to your project</a> and make awesome applications today!</p>
+<h4><a href="/blog/ko-ninja-validation">Next Post In This Series</a></h4>
 
 
     <h5>Tags: 
@@ -237,9 +244,9 @@ var me = new Person({
             </div>
         </div>
         <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
-        <div class="footer container-fluid">
-                <div class="span10 offset1">
-                    <div class="addthis_default_style span3 offset1 addthis_32x32_style right">
+        <div class="footer">
+                <div class="container">
+                    <div class="addthis_default_style span12 addthis_32x32_style">
                         <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
                         <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
                         <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
@@ -248,7 +255,7 @@ var me = new Person({
                         <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
                         <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
                     </div>
-                    <div class="span10 left">
+                    <div class="span12" id="twitter-feed">
                         <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         <script type="text/javascript">

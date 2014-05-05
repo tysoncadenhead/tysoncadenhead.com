@@ -3,25 +3,32 @@
 
         <url>
             <loc>http://www.tysoncadenhead.com</loc>
-            <lastmod>2014-3-25 12:12</lastmod>
+            <lastmod>2014-4-5 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/about</loc>
-            <lastmod>2014-3-25 12:12</lastmod>
+            <lastmod>2014-4-5 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/presentations</loc>
-            <lastmod>2014-3-25 12:12</lastmod>
+            <lastmod>2014-4-5 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
+    
+        <url>
+            <loc>http://www.tysoncadenhead.com/blog/starting_the_sails_project</loc>
+            <lastmod>2014-5-2 12:12</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
     
         <url>
             <loc>http://www.tysoncadenhead.com/blog/sails-ninja-intro</loc>

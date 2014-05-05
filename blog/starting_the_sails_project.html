@@ -15,15 +15,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
-        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/confused.png"/>
-        <meta property="og:title" content="Open-Sourcing Various JavaScript Libraries"/>
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/starting_the_sails_project.jpg"/>
+        <meta property="og:title" content="Starting a Sails Project"/>
         <meta property="og:url" content="http://www.tysoncadenhead.com"/>
         <meta property="og:site_name" content="Tyson Cadenhead"/>
         <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
-        <title>Open-Sourcing Various JavaScript Libraries</title>
+        <title>Starting a Sails Project</title>
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
-        <link rel="alternate" type="application/rss+xml" title="Open-Sourcing Various JavaScript Libraries Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Starting a Sails Project Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
     </head>
     <body>
         <script type="text/javascript">
@@ -69,33 +69,49 @@
                         <article>
 
     <div class="well span2 right thumbnail">
-      <img src="/images/blog/confused.png" />
+      <img src="/images/blog/starting_the_sails_project.jpg" />
     </div>
 
-    <h1>Open-Sourcing Various JavaScript Libraries</h1>
+    <h1>Starting a Sails Project</h1>
 
     
+      <h4>
+        Creating An Application With Sails, Ko.Ninja and Require.js (part 2)
+      </h4>
+    
 
-    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 9-7-2012</h5>
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 5-2-2014</h5>
 
-    <p>I&#39;ve been working on several projects in the past year or so that have required me to write some jQuery plugins and custom JavaScript widgets and I feel like several of them could definitely be useful for other developers.  I&#39;ve set a goal this year to release at least two projects to the community, but it&#39;s tough to know which ones people will find most useful. Since it takes a little work to get a library to a place where it works under multiple scenarios and that&#39;s even before the lengthy process of writing documentation, I thought I&#39;d put it up to a vote to see what people would like to see and use.  Whatever seems to have the most positive attention is what I&#39;ll probably end up open-sourcing first.</p>
+    <div class="series-placement">
+
+    This is part 2 of the <a href="/blog/sails-ninja-intro">Creating An Application With Sails, Ko.Ninja and Require.js</a> blog series. If you haven&#39;t read the introduction yet, you may want to start there.
+
+    <h4><a href="/blog/sails-ninja-intro">Previous Post In This Series</a></h4>
+
+</div>
+
+<p>Sails JS is a really cool framework for building realtime web applications. Today I am going to show you how easy it is to create a new Sails project. In many ways, Sails is similar to Ruby On Rails. It allows you to create a new application and sets enough defaults that you can run it right away.</p>
 <!-- more -->
 
-<p>Here are some of the things I&#39;ve done that might make good open-source projects:</p>
-<ul>
-<li>A minimal MVC Framework</li>
-<li>An HTML5 line chart graphing library.  <a href="http://moontoast.com">My company</a> is probably going to give me some time to get this done during the day, so you&#39;ll probably see it either way.</li>
-<li>A jQuery HTML5 audio plugin with a complete flash fallback</li>
-<li>A JavaScript loader that loads JavaScript and CSS into the DOM using JavaScript build files. It allows you to pass the mode into the query string to either serve up the compressed / minified file, the individual development files or to throw an alert with the code you would need to paste into the terminal to minify the files using YUI</li>
-<li>A basic coverflow jQuery plugin</li>
-</ul>
-<p>Those are all the ones I can think of at the moment.  Is there any interest in seeing one or more of those?  Just leave a comment and let me know.</p>
+<h4>Install Sails</h4>
+<p>Let&#39;s start by installing Sails. You will need to have Node.js installed too, but hopefully you&#39;ve already got Node running at this point. To install Sails with npm, run this in your terminal:</p>
+<pre><code class="language-bash">sudo npm -g install sails</code></pre>
+<h4>Create Your Project</h4>
+<p>Sails comes with a bunch of command-line tools. The <code>new</code> tool will help us create a new application:</p>
+<pre><code class="language-bash">sails new todo</code></pre>
+<p>Awesome! You just created an app! Now you just need to enter into the folder that the app went into and start the sails server:</p>
+<pre><code class="language-bash">cd todo
+sails lift</code></pre>
+<p>Very good. Now if you go to <a href="http://localhost:1337"><a href="http://localhost:1337">http://localhost:1337</a></a>. When you get there, you should see something like this:</p>
+<p><img src="/images/blog/sails1.png" alt=""></p>
+<p>That is basically all there is to creating a new Sails project. If you want to follow along, I&#39;m making a git repository to show the application we&#39;re building. We should currently be <a href="https://github.com/tysoncadenhead/sails-knockout-example-app/tree/c2c45a974e30f257276e253b86a857eab3381f32">at this point</a> in the process of building this out.</p>
+<p>In our next post, I&#39;ll show you how to add dependencies to the project. Stay tuned.</p>
 
 
     <h5>Tags: 
     
         <span class="label">
-            <a href="/?tag=Goals">Goals</a>
+            <a href="/?tag=sailsjs">sailsjs</a>
         </span>
     
     </h5>
@@ -145,7 +161,7 @@
     </div>
 </div>
 
-<div class="fb-comments" data-href="http://www.tysoncadenhead.com/blog/open-sourcing-some-javascript-libraries" data-num-posts="10" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://www.tysoncadenhead.com/blog/starting_the_sails_project" data-num-posts="10" data-colorscheme="light"></div>
                     
                 
             </div>
