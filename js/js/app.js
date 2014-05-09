@@ -5,9 +5,13 @@ requirejs.config({
         jquery: '../vendor/jquery',
         lazyLoad: '../vendor/jquery.lazyload',
         addthis: 'http://s7.addthis.com/js/300/addthis_widget.js#pubid=tysoncadenhead',
-        highlight: '../vendor/highlight'
+        highlight: '../vendor/highlight',
+        handlebars: '../vendor/handlebars'
     },
     shim: {
+        'handlebars': {
+            exports: 'Handlebars'
+        },
         'highlight': {
             exports: 'hljs'
         },
@@ -32,13 +36,13 @@ requirejs.config({
 });
 requirejs([
     'bootstrap',
+    'viewModels/popularPosts',
     'viewModels/share',
     'viewModels/trending',
     'viewModels/code',
-    //'viewModels/footer',
     'viewModels/relatedPosts',
     'viewModels/posts'
-], function ($) {
+], function ($, PopularPosts) {
 
     $(function () {
         $('.disabled a').click(function (e) {

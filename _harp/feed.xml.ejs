@@ -6,6 +6,7 @@
     <description><%- description %></description>
     <atom:link href="<%- url %>/feed.xml" rel="self" type="application/rss+xml" />
     <% for(post in public.blog._data) { %>
+      <% if (public.blog._data[post].published) { %>
       <item>
         <title><%- post.title %></title>
         <description><![CDATA[<%- partial("blog/" + post) %>]]></description>
@@ -13,6 +14,7 @@
         <link><%- url %>/blog/<%- post %></link>
         <guid isPermaLink="true"><%- url %>/blog/<%- post %></guid>
       </item>
+      <% } %>
     <% } %>
   </channel>
 </rss>

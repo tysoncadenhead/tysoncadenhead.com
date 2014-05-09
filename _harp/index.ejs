@@ -1,45 +1,81 @@
 <% var pages = Object.keys(public.blog._data).length / 10; %>
 
-<div id="blog-posts">
-<% var i = 0; %>
-<% for(var slug in public.blog._data){ %>
+<div class="span7">
+  <div id="blog-posts">
+  <% var i = 0; %>
+  <% for(var slug in public.blog._data){ %>
 
-  <% if (i % 10 === 0) { %>
-    <% if (i) { %></div><% } %><div class="page-group" id="page-group-<%- i / 10 %>">
-  <% } %>
+    <% if (public.blog._data[slug].published) { %>
 
-  <article>
+      <% if (i % 10 === 0) { %>
+        <% if (i) { %></div><% } %><div class="page-group" id="page-group-<%- i / 10 %>">
+      <% } %>
 
-        <div class="well span2 right thumbnail">
-          <img class="lazy" data-original="<%- public.blog._data[slug].thumbnail %>" />
-        </div>
+      <article>
 
-        <h2><a href="/blog/<%- slug %>"><%- public.blog._data[slug].title  %></a></h2>
-        <% if (public.blog._data[slug].series) { %>
-          <h4><%= public.blog._data[slug].series %><% if (public.blog._data[slug].part) { %> (part <%= public.blog._data[slug].part %>)<% } %></h4>
-        <% } %>
-        <h5><span class="label label-info"><a href="/?category=<%- public.blog._data[slug].category %>"><%- public.blog._data[slug].category %></a></span> <%- public.blog._data[slug].date %></h5>
+            <div class="well span2 right thumbnail">
+              <img class="lazy" data-original="<%- public.blog._data[slug].thumbnail %>" id="image-<%- slug %>" />
+            </div>
 
-        <% function excerpt(content) { %>
-          <% return content.split("<!-- more -->")[0]; %>
-        <% } %>
+            <h2><a href="/blog/<%- slug %>"><%- public.blog._data[slug].title  %></a></h2>
+            <% if (public.blog._data[slug].series) { %>
+              <h4><%= public.blog._data[slug].series %><% if (public.blog._data[slug].part) { %> (part <%= public.blog._data[slug].part %>)<% } %></h4>
+            <% } %>
+            <h5><span class="label label-info"><a href="/?category=<%- public.blog._data[slug].category %>"><%- public.blog._data[slug].category %></a></span> <%- public.blog._data[slug].date %></h5>
 
-        <%- excerpt(partial("blog/" + slug)) %>
+            <% function excerpt(content) { %>
+              <% return content.split("<!-- more -->")[0]; %>
+            <% } %>
 
-    </article>
+            <%- excerpt(partial("blog/" + slug)) %>
 
-    <% i++; %>
+        </article>
 
-<% }; %>
+        <% i++; %>
+
+      <% } %>
+
+  <% }; %>
+  </div>
+  </div>
+
+  <div class="pagination">
+    <ul>
+      <li class="disabled" id="page-back"><a href="#top">&#171;</a></li>
+      <% for (var i = 0; i < pages; i++) { %>
+        <li id="page-number-<%- i %>" class="<% if (!i) { %>active <% } %>page-number"><a href="#top" data-page="<%- i %>"><%= i + 1 %></a></li>
+      <% } %>
+      <li id="page-forward"><a href="#top">&#187;</a></li>
+    </ul>
+  </div>
 </div>
+
+<div class="well span3 right overflow-auto">
+  <h4>Popular Posts</h4>
+  <div id="popular-posts" class="hide-from-mobile"></div>
+
+  <br /><br />
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Sidebar -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-5130799763611680"
+       data-ad-slot="1525472392"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+  <br /><br />
+  
 </div>
 
-<div class="pagination">
-  <ul>
-    <li class="disabled" id="page-back"><a href="#top">&#171;</a></li>
-    <% for (var i = 0; i < pages; i++) { %>
-      <li id="page-number-<%- i %>" class="<% if (!i) { %>active <% } %>page-number"><a href="#top" data-page="<%- i %>"><%= i + 1 %></a></li>
-    <% } %>
-    <li id="page-forward"><a href="#top">&#187;</a></li>
-  </ul>
-</div>
+<script id="popular-posts-template" type="text/x-handlebars-template">
+  {{#each response}}
+    <div>
+      <img src="{{image}}" />
+      <a href="{{link}}">{{title}}</a>
+    </div>
+  {{/each}}
+</script>

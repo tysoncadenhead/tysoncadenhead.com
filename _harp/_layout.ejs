@@ -24,6 +24,9 @@
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
         <link rel="alternate" type="application/rss+xml" title="<%-title %> <%- description %>" href="<%- url %>/feed.xml" />
+        <% if ((typeof published === 'boolean') && !published) { %>
+            <meta http-equiv="refresh" content="0; url=<%- url %>/404.html" />
+        <% } %>
     </head>
     <body>
         <script type="text/javascript">
