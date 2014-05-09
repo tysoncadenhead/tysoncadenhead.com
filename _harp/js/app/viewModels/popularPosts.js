@@ -3,7 +3,7 @@ define([
   'handlebars'
 ], function ($, Handlebars) {
 
-  if ($('#popular-posts').length) {
+  /*if ($('#popular-posts').length) {
     $.ajax({
       dataType: 'jsonp',
       url: 'https://disqus.com/api/3.0/threads/listPopular.json',
@@ -27,6 +27,6 @@ define([
         $('#popular-posts').html(html);
       }
     });
-  }
+  }*/
 
 });

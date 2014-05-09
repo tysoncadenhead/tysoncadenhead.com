@@ -1,6 +1,6 @@
 <% var pages = Object.keys(public.blog._data).length / 10; %>
 
-<div class="span7">
+<div class="span12">
   <div id="blog-posts">
   <% var i = 0; %>
   <% for(var slug in public.blog._data){ %>
@@ -50,6 +50,7 @@
   </div>
 </div>
 
+<!--
 <div class="well span3 right overflow-auto">
   <h4>Popular Posts</h4>
   <div id="popular-posts" class="hide-from-mobile"></div>
@@ -68,14 +69,15 @@
   </script>
 
   <br /><br />
-  
+
 </div>
 
 <script id="popular-posts-template" type="text/x-handlebars-template">
   {{#each response}}
     <div>
-      <img src="{{image}}" />
+      <img class="width-100" src="{{image}}" />
       <a href="{{link}}">{{title}}</a>
     </div>
   {{/each}}
 </script>
+-->
