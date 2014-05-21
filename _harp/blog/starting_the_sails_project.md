@@ -1,8 +1,8 @@
 <div class="series-placement">
 
-    This is part 2 of the [Creating An Application With Sails, Ko.Ninja and Require.js](/blog/sails-ninja-intro) blog series. If you haven't read the introduction yet, you may want to start there.
+    This is part 2 of the [Creating An Application With Sails, Angular and Require.js](/blog/sails-ninja-intro) blog series. If you haven't read the introduction yet, you may want to start there.
 
-    <h4>[Previous Post In This Series](/blog/sails-ninja-intro)</h4>
+    <h4>[Previous Post In This Series](/blog/sails-ninja-intro) | [Next Post In This Series](/blog/server-side-views)</h4>
 
 </div>
 
@@ -37,6 +37,6 @@ Very good. Now if you go to [http://localhost:1337](http://localhost:1337). When
 
 ![](/images/blog/sails1.png)
 
-That is basically all there is to creating a new Sails project. If you want to follow along, I'm making a git repository to show the application we're building. We should currently be [at this point](https://github.com/tysoncadenhead/sails-knockout-example-app/tree/c2c45a974e30f257276e253b86a857eab3381f32) in the process of building this out.
+That is basically all there is to creating a new Sails project. If you want to follow along, I'm making a git repository to show the application we're building. We should currently be [at this point](https://github.com/tysoncadenhead/sails-angular-example-app/tree/cd5eed11dd5682656c791856886785e70b60e5bd) in the process of building this out.
 
-In our next post, I'll show you how to add dependencies to the project. Stay tuned.
+In our next post, I'll show you how to add server-side views to the project. Stay tuned.

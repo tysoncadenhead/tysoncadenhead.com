@@ -1,9 +1,30 @@
 {
+    "adding-dependencies": {
+        "published": false,
+        "series": "Creating An Application With Sails, Angular and Require.js",
+        "part": 4,
+        "lastPart": true,
+        "title": "Adding Dependencies",
+        "tags": ["sailsjs"],
+        "category": "code",
+        "date": "5-15-2014",
+        "thumbnail": "/images/blog/adding-dependencies.jpg"
+    },
+    "server-side-views": {
+        "published": true,
+        "series": "Creating An Application With Sails, Angular and Require.js",
+        "part": 3,
+        "lastPart": true,
+        "title": "Sails Server-Side Views",
+        "tags": ["sailsjs"],
+        "category": "code",
+        "date": "5-21-2014",
+        "thumbnail": "/images/blog/server-side-views.png"
+    },
     "starting_the_sails_project": {
         "published": true,
-        "series": "Creating An Application With Sails, Ko.Ninja and Require.js",
+        "series": "Creating An Application With Sails, Angular and Require.js",
         "part": 2,
-        "lastPart": true,
         "title": "Starting a Sails Project",
         "tags": ["sailsjs"],
         "category": "code",
@@ -12,11 +33,11 @@
     },
     "sails-ninja-intro": {
         "published": true,
-        "series": "Creating An Application With Sails, Ko.Ninja and Require.js",
+        "series": "Creating An Application With Sails, Angular and Require.js",
         "part": 1,
         "firstPart": true,
         "title": "Introduction",
-        "tags": ["sailsjs", "ko-ninja", "knockout"],
+        "tags": ["sailsjs", "angular"],
         "category": "code",
         "date": "4-25-2014",
         "thumbnail": "/images/blog/sails-ninja-intro.jpg"

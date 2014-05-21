@@ -3,25 +3,36 @@
 
         <url>
             <loc>http://www.tysoncadenhead.com</loc>
-            <lastmod>2014-4-12 12:12</lastmod>
+            <lastmod>2014-4-21 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/about</loc>
-            <lastmod>2014-4-12 12:12</lastmod>
+            <lastmod>2014-4-21 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/presentations</loc>
-            <lastmod>2014-4-12 12:12</lastmod>
+            <lastmod>2014-4-21 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
+    
+        
+    
+        
+            <url>
+                <loc>http://www.tysoncadenhead.com/blog/server-side-views</loc>
+                <lastmod>2014-5-21 12:12</lastmod>
+                <changefreq>daily</changefreq>
+                <priority>1.0</priority>
+            </url>
+        
     
         
             <url>

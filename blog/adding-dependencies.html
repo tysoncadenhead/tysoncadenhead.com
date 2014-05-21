@@ -15,15 +15,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=400, initial-scale=0.5">
         <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
-        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/sails-ninja-intro.jpg"/>
-        <meta property="og:title" content="Introduction"/>
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/adding-dependencies.jpg"/>
+        <meta property="og:title" content="Adding Dependencies"/>
         <meta property="og:url" content="http://www.tysoncadenhead.com"/>
         <meta property="og:site_name" content="Tyson Cadenhead"/>
         <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
-        <title>Introduction</title>
+        <title>Adding Dependencies</title>
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
-        <link rel="alternate" type="application/rss+xml" title="Introduction Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Adding Dependencies Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        
+            <meta http-equiv="refresh" content="0; url=http://www.tysoncadenhead.com/404.html" />
         
     </head>
     <body>
@@ -70,76 +72,42 @@
                         <article>
 
     <div class="well span2 right thumbnail">
-      <img src="/images/blog/sails-ninja-intro.jpg" />
+      <img src="/images/blog/adding-dependencies.jpg" />
     </div>
 
-    <h1>Introduction</h1>
+    <h1>Adding Dependencies</h1>
 
     
       <h4>
-        Creating An Application With Sails, Angular and Require.js (part 1)
+        Creating An Application With Sails, Angular and Require.js (part 4)
       </h4>
     
 
-    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 4-25-2014</h5>
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 5-15-2014</h5>
 
     <div class="series-placement">
 
-    This is part 1 of the Creating An Application With Sails, Angular and Require.js blog series. It is recommended that you start here. Once you are done reading this, please navigate to the next post below:
+    This is part 3 of the <a href="/blog/sails-ninja-intro">Creating An Application With Sails, Angular and Require.js</a> blog series. If you haven&#39;t read the introduction yet, you may want to start there.
 
-    <h4><a href="/blog/starting_the_sails_project">Next Post In This Series</a></h4>
+    <h4><a href="/blog/starting_the_sails_project">Previous Post In This Series</a></h4>
 
 </div>
 
-<p>Since I tend to be a glutton for punishment, I have decided to devote the next several blog post to a series on making a scalable application using Sails.js on the back-end and Angular on the front-end.</p>
+<p>As I promised at the beginning of this series, we are going to be using <a href="http://requirejs.org/">RequireJS</a> to manage our client-side modules. If you haven&#39;t used RequireJS or a similar AMD loader before, let me just say that you are really missing out. RequireJS lets you write your code in small modules that only expose the parts of the API that you want to show and as an added bonus, it uses JavaScript to load your JavaScript modules.</p>
 <!-- more -->
 
-<h3>So, Why Make A Series On This?</h3>
-<p>There are a lot of really good client-side and server-side JavaScript frameworks popping up, but there are not many in-depth articles on how they fit together. This series will look at a very specific stack and how it can be used to create an application. Let me break down the main components of the stack.</p>
-<p><img src="https://31.media.tumblr.com/7601a16f1e970bad6717ba5f386466d0/tumblr_inline_mz51cb9Ezv1qfxp6j.jpg" alt="Sails.js"></p>
-<h5>Sails.js</h5>
-<p>Sails is a server-side MVC framework for Node. The architecture is very similar to Ruby on Rails, which is probably why they chose a name that rhymes with Rails. One of the coolest things about Sails is that it has Socket.io built into it, which makes communicated with the client-side in real time much easier.</p>
-<p><img src="http://devgirl.org/wp-content/uploads/2013/03/angular-logo.jpeg" alt="Angular"></p>
-<h5>Angular</h5>
-<p>Angular is a client-side MVC framework created by Google. Angular is great at driving views with data and is extremely testable.</p>
-<p><img src="http://ianreah.com/img/requirejs-logo.png" alt="RequireJS"></p>
-<h5>Requirejs</h5>
-<p>Require is a framework that lets you write modular code for the client-side. All of your modules pull in the modules that they need to function properly and the best part is that you only need to include one JavaScript file in your HTML template, everything else is retrieved with JavaScript.</p>
-<p><img src="http://penangmonthly.com/wp-content/uploads/2013/07/chalk-outline.jpg" alt=""></p>
-<h3>The Outline</h3>
-<p>As I post the new articles, the links on this outline will be filled in, so this post can serve as a jumping off point for everything else. In the meantime, here is what we will cover:</p>
-<ol>
-<li><a href="/blog/starting_the_sails_project">Starting The Sails Project</a></li>
-<li><a href="/blog/server-side-views">Sails Server-Side Views</a></li>
-<li>Adding dependencies</li>
-<li>Scaffolding</li>
-<li>Requesting Client-Side Modules Through The Controller</li>
-<li>Serving Modules With RequireJS</li>
-<li>Angular Architecture</li>
-<li>Unit Testing Sails</li>
-<li>Unit Testing Angular Modules</li>
-<li>Client-Side Views</li>
-<li>Sails Models</li>
-<li>Angular Controllers</li>
-<li>Username / Password Authentication</li>
-<li>Facebook Authentication</li>
-<li>Form Validation</li>
-<li>Making Ajax Calls</li>
-<li>Using Socket.io</li>
-<li>Integration Testing</li>
-<li>Building and Deploying</li>
-</ol>
-<p>This is going to be a fun series to write and I hope you have as much fun as me reading it!</p>
+<p><img src="http://bower.io/img/bower-logo.png" alt="Bower"></p>
+<h4>We Can Use Bower, Right?</h4>
+<p>Before we get started, I wanted to give a quick rant about why using bower in a Sails project hasn&#39;t worked very well for me. Bower is a package manager for client-side JavaScript much like NPM is for server-side JavaScript. Typically, I would use bower to manage my dependencies for any project. The issue is that Sails doesn&#39;t run your assets right out of the folder you create them in. Instead, it packages them up with Grunt and runs them out of <code>.tmp/public</code>. That approach is really helpful if you have a compilation step such as converting SASS or LESS stylesheets to CSS or minifying your JavaScript. The issue is that it if you have a ton of files in your assets directory, as is often the case when you have installed bower packages, you will inevitably either get errors complaining about the number of files or it will be painfully slow. Either way, I&#39;ve come to the painful conclusion that using Bower with Sails is more trouble than it is worth.</p>
+<pre><code class="language-bash">npm install -g yo
+npm install -g generator-sails-angular generator-angular
+npm install generator-sails-angular --save-dev</code></pre>
 
 
     <h5>Tags: 
     
         <span class="label">
             <a href="/?tag=sailsjs">sailsjs</a>
-        </span>
-    
-        <span class="label">
-            <a href="/?tag=angular">angular</a>
         </span>
     
     </h5>
