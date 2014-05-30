@@ -15,7 +15,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=400, initial-scale=0.5">
         <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
-        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/adding-dependencies.jpg"/>
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/adding-the-dependencies.png"/>
         <meta property="og:title" content="Adding Dependencies"/>
         <meta property="og:url" content="http://www.tysoncadenhead.com"/>
         <meta property="og:site_name" content="Tyson Cadenhead"/>
@@ -24,8 +24,6 @@
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
         <link rel="alternate" type="application/rss+xml" title="Adding Dependencies Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
-        
-            <meta http-equiv="refresh" content="0; url=http://www.tysoncadenhead.com/404.html" />
         
     </head>
     <body>
@@ -72,7 +70,7 @@
                         <article>
 
     <div class="well span2 right thumbnail">
-      <img src="/images/blog/adding-dependencies.jpg" />
+      <img src="/images/blog/adding-the-dependencies.png" />
     </div>
 
     <h1>Adding Dependencies</h1>
@@ -83,25 +81,98 @@
       </h4>
     
 
-    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 5-15-2014</h5>
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 5-30-2014</h5>
 
     <div class="series-placement">
 
-    This is part 3 of the <a href="/blog/sails-ninja-intro">Creating An Application With Sails, Angular and Require.js</a> blog series. If you haven&#39;t read the introduction yet, you may want to start there.
+    This is part 4 of the <a href="/blog/sails-ninja-intro">Creating An Application With Sails, Angular and Require.js</a> blog series. If you haven&#39;t read the introduction yet, you may want to start there.
 
-    <h4><a href="/blog/starting_the_sails_project">Previous Post In This Series</a></h4>
+    <h4><a href="/blog/server-side-views">Previous Post In This Series</a></h4>
 
 </div>
 
 <p>As I promised at the beginning of this series, we are going to be using <a href="http://requirejs.org/">RequireJS</a> to manage our client-side modules. If you haven&#39;t used RequireJS or a similar AMD loader before, let me just say that you are really missing out. RequireJS lets you write your code in small modules that only expose the parts of the API that you want to show and as an added bonus, it uses JavaScript to load your JavaScript modules.</p>
 <!-- more -->
 
-<p><img src="http://bower.io/img/bower-logo.png" alt="Bower"></p>
+<p><img src="http://bower.io/img/bower-logo.png" width="250px" /></p>
 <h4>We Can Use Bower, Right?</h4>
-<p>Before we get started, I wanted to give a quick rant about why using bower in a Sails project hasn&#39;t worked very well for me. Bower is a package manager for client-side JavaScript much like NPM is for server-side JavaScript. Typically, I would use bower to manage my dependencies for any project. The issue is that Sails doesn&#39;t run your assets right out of the folder you create them in. Instead, it packages them up with Grunt and runs them out of <code>.tmp/public</code>. That approach is really helpful if you have a compilation step such as converting SASS or LESS stylesheets to CSS or minifying your JavaScript. The issue is that it if you have a ton of files in your assets directory, as is often the case when you have installed bower packages, you will inevitably either get errors complaining about the number of files or it will be painfully slow. Either way, I&#39;ve come to the painful conclusion that using Bower with Sails is more trouble than it is worth.</p>
-<pre><code class="language-bash">npm install -g yo
-npm install -g generator-sails-angular generator-angular
-npm install generator-sails-angular --save-dev</code></pre>
+<p>Before we get started, I wanted to give a quick rant about why using bower in a Sails project hasn&#39;t worked very well for me. <a href="http://bower.io">Bower</a> is a package manager for client-side JavaScript much like <a href="http://www.npmjs.com/">NPM</a> is for server-side JavaScript. Typically, I would use bower to manage my dependencies for any project. The issue is that Sails doesn&#39;t run your assets right out of the folder you create them in. Instead, it packages them up with Grunt and runs them out of <code>.tmp/public</code>. That approach is really helpful if you have a compilation step such as converting SASS or LESS stylesheets to CSS or minifying your JavaScript. The issue is that it if you have a ton of files in your assets directory, as is often the case when you have installed bower packages, you will inevitably either get errors complaining about the number of files being processed or it will be painfully slow. Either way, I&#39;ve come to the painful conclusion that using Bower with Sails is more trouble than it is worth.</p>
+<p>My compromise is typically to load my vendor files from a CDN whenever there is one instead of junking up my project with code that I didn&#39;t write.</p>
+<p><img src="http://ianreah.com/img/requirejs-logo.png" alt="RequireJS"></p>
+<h4>RequireJS</h4>
+<p>There is actually some debate about whether or not RequireJS has value in an Angular project. Angular has a dependency injection concept that makes running the code itself pretty modular. However, it doesn&#39;t load specific files for you out of the box. There are a few ways to leverage the Angular library to load your files for you. To me, though, it seems simpler to follow a set standard like what RequireJS provides by closely following the AMD spec. That way, developers in the future will have a clearer idea of where the code is coming from and how it is being loaded.</p>
+<p>So, let&#39;s get RequireJS working.</p>
+<p>Let&#39;s open the layout.ejs file and add a line to instantiate our Angular application. We will replace the body tag with this:</p>
+<pre><code class="language-html">&lt;body ng-app=&quot;todoIt&quot;&gt;</code></pre>
+<p>The name of the app can be whatever you want to call your application, but just be aware that you will be referencing it later in your javaScript.</p>
+<p>Next, we need to go to the bottom of the layout.ejs file and replace all of the JavaScript files with this:</p>
+<pre><code class="language-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js&quot; data-main=&quot;/js/main&quot;&gt;&lt;/script&gt;</code></pre>
+<p>That will load the require.min.js file from a CDN and then immediately require your <code>/js/main.js</code> file. Don&#39;t have a main.js file yet? No problem. Let&#39;s go ahead and build that.</p>
+<pre><code class="language-js">window.name = &#39;NG_DEFER_BOOTSTRAP!&#39;;
+
+require.config({
+  &#39;baseUrl&#39;: &#39;/js&#39;,
+  &#39;paths&#39;: {
+    &#39;angular&#39;: &#39;//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular&#39;,
+    &#39;jquery&#39;: &#39;//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min&#39;,
+    &#39;bootstrap&#39;: &#39;//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min&#39;
+  },
+  &#39;shim&#39;: {
+    &#39;angular&#39;: {
+      &#39;exports&#39;: &#39;angular&#39;
+    },
+    &#39;bootstrap&#39;: {
+      &#39;deps&#39;: [&#39;jquery&#39;]
+    },
+    &#39;socket.io&#39;: {
+      &#39;exports&#39;: &#39;io&#39;
+    },
+    &#39;sails.io&#39;: {
+      &#39;deps&#39;: [&#39;socket.io&#39;],
+      &#39;exports&#39;: &#39;io&#39;
+    }
+  }
+});
+
+require([
+  &#39;angular&#39;,
+  &#39;app&#39;,
+  &#39;bootstrap&#39;
+], function (angular, app) {
+
+  angular.element(document.getElementsByTagName(&#39;html&#39;)[0]);
+
+  angular.element().ready(function() {
+    angular.resumeBootstrap([app.name]);
+  });
+
+});</code></pre>
+<p>Notice at the top where we set the <code>window.name</code> to &quot;NG_DEFER_BOOTSTRAP!&quot;. That will keep angular from initializing until we tell it to. Near the bottom after everything is loaded, we call angular.resumeBootstrap(). That is where angular picks back up and finishes initializing.</p>
+<p>The socket.io and sails.io files that come with Sails are not wrapped as AMD modules, so we need to shim them both and export the io variable.</p>
+<p>Otherwise, the main.js is pretty standard for a requireJS config file. </p>
+<p>We will also need to update the app.js file to this:</p>
+<pre><code class="language-js">define([
+  &#39;angular&#39;,
+  &#39;sails.io&#39;
+], function (angular, io) {
+
+  var socket = io.connect(), app;
+
+  socket.on(&#39;connect&#39;, function socketConnected() {
+    console.log(&#39;Socket is now connected&#39;);
+  });
+
+  app = angular.module(&#39;todoIt&#39;, []);
+
+  return app;
+
+});</code></pre>
+<p>We are leaving the socket.io connection. We&#39;ll be working with that later on. For now, we mostly just want to return our app as a new angular module. Notice that the name &quot;todoIt&quot; is the same as the <code>ng-app</code> that we added to our layout.ejs file.</p>
+<p>Now the main.js file will take the app that is returned from app.js and create an angular application.</p>
+<p>When you look at your console at this point, you should get a message that says:</p>
+<pre><code class="language-bash">Socket is now connected</code></pre>
+<p>If you see that and don&#39;t get any errors, you have successfully added an angular application on top of Sails. Stay tuned next time when we make the application actually do something.</p>
+<p>If you want to see the code in action, check out the example repository <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/ffc98437c91b4bf154c9619fd50b103c9549a465">here</a>.</p>
 
 
     <h5>Tags: 

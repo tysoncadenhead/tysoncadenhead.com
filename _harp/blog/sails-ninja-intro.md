@@ -40,16 +40,12 @@ As I post the new articles, the links on this outline will be filled in, so this
 
 1. [Starting The Sails Project](/blog/starting_the_sails_project)
 1. [Sails Server-Side Views](/blog/server-side-views)
-1. Adding dependencies
-1. Scaffolding
-1. Requesting Client-Side Modules Through The Controller
-1. Serving Modules With RequireJS
-1. Angular Architecture
-1. Unit Testing Sails
-1. Unit Testing Angular Modules
-1. Client-Side Views
-1. Sails Models
+1. [Adding dependencies](/blog/adding-dependencies)
 1. Angular Controllers
+1. Angular Views
+1. Unit Testing Angular Modules
+1. Sails Models
+1. Unit Testing Sails
 1. Username / Password Authentication
 1. Facebook Authentication
 1. Form Validation

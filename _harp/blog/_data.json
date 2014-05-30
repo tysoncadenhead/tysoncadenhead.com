@@ -1,14 +1,14 @@
 {
     "adding-dependencies": {
-        "published": false,
+        "published": true,
         "series": "Creating An Application With Sails, Angular and Require.js",
         "part": 4,
         "lastPart": true,
         "title": "Adding Dependencies",
         "tags": ["sailsjs"],
         "category": "code",
-        "date": "5-15-2014",
-        "thumbnail": "/images/blog/adding-dependencies.jpg"
+        "date": "5-30-2014",
+        "thumbnail": "/images/blog/adding-the-dependencies.png"
     },
     "server-side-views": {
         "published": true,
