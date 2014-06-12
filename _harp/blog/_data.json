@@ -1,4 +1,15 @@
 {
+    "angular-controllers-with-sails-app": {
+        "published": true,
+        "series": "Creating An Application With Sails, Angular and Require.js",
+        "part": 5,
+        "lastPart": true,
+        "title": "Angular Controllers",
+        "tags": ["sailsjs"],
+        "category": "code",
+        "date": "6-12-2014",
+        "thumbnail": "/images/blog/angular-controllers-with-sails-app.png"
+    },
     "adding-dependencies": {
         "published": true,
         "series": "Creating An Application With Sails, Angular and Require.js",

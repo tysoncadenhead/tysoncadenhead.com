@@ -41,7 +41,7 @@ As I post the new articles, the links on this outline will be filled in, so this
 1. [Starting The Sails Project](/blog/starting_the_sails_project)
 1. [Sails Server-Side Views](/blog/server-side-views)
 1. [Adding dependencies](/blog/adding-dependencies)
-1. Angular Controllers
+1. [Angular Controllers](/blog/angular-controllers-with-sails-app)
 1. Angular Views
 1. Unit Testing Angular Modules
 1. Sails Models
