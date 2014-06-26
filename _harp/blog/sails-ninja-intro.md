@@ -42,16 +42,10 @@ As I post the new articles, the links on this outline will be filled in, so this
 1. [Sails Server-Side Views](/blog/server-side-views)
 1. [Adding dependencies](/blog/adding-dependencies)
 1. [Angular Controllers](/blog/angular-controllers-with-sails-app)
-1. Angular Views
-1. Unit Testing Angular Modules
-1. Sails Models
-1. Unit Testing Sails
-1. Username / Password Authentication
-1. Facebook Authentication
+1. [Sails Models](/blog/sails-models)
 1. Form Validation
+1. Facebook Authentication
 1. Making Ajax Calls
 1. Using Socket.io
-1. Integration Testing
-1. Building and Deploying
 
 This is going to be a fun series to write and I hope you have as much fun as me reading it!

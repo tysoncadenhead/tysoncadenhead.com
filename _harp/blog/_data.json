@@ -1,11 +1,21 @@
 {
+    "sails-models": {
+        "published": true,
+        "series": "Creating An Application With Sails, Angular and Require.js",
+        "part": 6,
+        "lastPart": true,
+        "title": "Sails Models",
+        "tags": ["sailsjs"],
+        "category": "code",
+        "date": "6-30-2014",
+        "thumbnail": "/images/blog/sails-models.png"
+    },
     "angular-controllers-with-sails-app": {
         "published": true,
         "series": "Creating An Application With Sails, Angular and Require.js",
         "part": 5,
-        "lastPart": true,
         "title": "Angular Controllers",
-        "tags": ["sailsjs"],
+        "tags": ["angular"],
         "category": "code",
         "date": "6-12-2014",
         "thumbnail": "/images/blog/angular-controllers-with-sails-app.png"
@@ -14,9 +24,8 @@
         "published": true,
         "series": "Creating An Application With Sails, Angular and Require.js",
         "part": 4,
-        "lastPart": true,
         "title": "Adding Dependencies",
-        "tags": ["sailsjs"],
+        "tags": ["sailsjs", "angular"],
         "category": "code",
         "date": "5-30-2014",
         "thumbnail": "/images/blog/adding-the-dependencies.png"
@@ -25,7 +34,6 @@
         "published": true,
         "series": "Creating An Application With Sails, Angular and Require.js",
         "part": 3,
-        "lastPart": true,
         "title": "Sails Server-Side Views",
         "tags": ["sailsjs"],
         "category": "code",

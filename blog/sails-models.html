@@ -15,15 +15,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=400, initial-scale=0.5">
         <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
-        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/framework.png"/>
-        <meta property="og:title" content="Should I Use a JavaScript Framework?"/>
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/sails-models.png"/>
+        <meta property="og:title" content="Sails Models"/>
         <meta property="og:url" content="http://www.tysoncadenhead.com"/>
         <meta property="og:site_name" content="Tyson Cadenhead"/>
         <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
-        <title>Should I Use a JavaScript Framework?</title>
+        <title>Sails Models</title>
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
-        <link rel="alternate" type="application/rss+xml" title="Should I Use a JavaScript Framework? Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Sails Models Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
         
     </head>
     <body>
@@ -70,40 +70,72 @@
                         <article>
 
     <div class="well span2 right thumbnail">
-      <img src="/images/blog/framework.png" />
+      <img src="/images/blog/sails-models.png" />
     </div>
 
-    <h1>Should I Use a JavaScript Framework?</h1>
+    <h1>Sails Models</h1>
 
     
+      <h4>
+        Creating An Application With Sails, Angular and Require.js (part 6)
+      </h4>
+    
 
-    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 6-12-2010</h5>
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 6-30-2014</h5>
 
-    <p>There are literally tons of JavaScript frameworks out there to ease the pain of website and application development.  Obviously, the most popular one out there right now is <a href="http://jquery.com">jQuery</a>, but that is not to say that there are not other libraries out there.  So the question becomes, should developers use libraries or is it just a crutch that keeps them from learning real JavaScript?  Here are some thoughts on the subject.</p>
+    <div class="series-placement">
+
+    This is part 6 of the <a href="/blog/sails-ninja-intro">Creating An Application With Sails, Angular and Require.js</a> blog series. If you haven&#39;t read the introduction yet, you may want to start there.
+
+    <h4><a href="/blog/angular-controllers-with-sails-app">Previous Post In This Series</a></h4>
+
+</div>
+
+<p>In the last few posts, we have been building an application using Sails, Angular and RequireJS. We&#39;ve got a basic UI in place now, so we should be able to get it to a point where we can actually send and receive data from the server.</p>
 <!-- more -->
 
+<p>The first thing to do is to open our <code>/api/models/List.js</code> file that we generate earlier. There shouldn&#39;t be much in it at this point. We can go ahead and a few attributes:</p>
+<pre><code class="language-js">module.exports = {
+
+  attributes: {
+    &quot;description&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;required&quot;: true
+    },
+    &quot;completed&quot;: {
+        &quot;type&quot;: &quot;boolean&quot;,
+        &quot;defaultsTo&quot;: false
+    }
+  }
+
+};</code></pre>
+<p>Now, we have a &quot;completed&quot; boolean for each record that defaults to false and a &quot;description&quot; that is required.</p>
+<h3>Sails Blueprints</h3>
+<p>Sails makes creating an API really easy by providing something called &quot;blueprints&quot;. The basic idea is that if you have a controller and model with the same name, Sails will automatically create REST and CRUD endpoints that you can easily hit with Ajax.</p>
+<p>By default, all of the paths route to the root of the root of the domain, but if we edit the <code>config/controllers.js</code> file, we can change the path that the blueprints point to so that it doesn&#39;t interfere with the rest of our application. We just need to find the option called &quot;prefix&quot; and add our own prefix like this:</p>
+<pre><code class="language-js">{
+  ...
+  prefix: &#39;/api&#39;,
+  ...
+}</code></pre>
+<p>Now our routes should look something like this:</p>
 <ul>
-<li><p>I think that everyone should start out learning the basics of JavaScript before learning a library.  When you see some of the things that you can do with <a href="http://jquery.com">jQuert</a> or <a href="http://developer.yahoo.com/yui/">YUI</a> or <a href="http://www.prototypejs.org/">Prototype</a>, you&#39;ll probably want to jump right into the framework, but here are some benefits of learning JavaScript proper to begin with:</p>
-<ul>
-<li>When you know the basics of JavaScript such as how to loop over an array, how to write a conditional statement and how to manipulate the DOM, you&#39;ll have a better understanding of what the library your using is doing.  Contrary to popular opinion, jQuery is not magic, and it does not do anything that you couldn&#39;t do with plain JavaScript, it just makes it easier to do things that would previously have taken more code by running the variables you give it through functions.</li>
-<li>When you know the basics, you will be able to tell when something is easier to do without the library and when the library is helpful.  You won&#39;t have to trust that it&#39;s necessarily better just because it&#39;s a library method.  It may not be.</li>
-<li>Libraries have limitations.  There are things that you can do with plain JavaScript that you can&#39;t do with a library.  No JavaScript library was built to be a replacement for JavaScript, they were all written to be an addition to it.</li>
+<li>POST /api/list - Inserts a record</li>
+<li>PUT: /api/list/:id - Updates the record</li>
+<li>DELETE: /api/list/:id - Deletes a record</li>
+<li>GET: /api/list/find - Returns all of the records</li>
+<li>GET: /api/list/find/:id - Returns a specific record</li>
 </ul>
-</li>
-<li><p>Once you know the basics of JavaScript, using a framework or library will help you to write less code and do more with it.  Specifically with jQuery, manipulating the DOM, applying listeners and events and performing Ajax requests requires significantly less code.</p>
-<ul>
-<li>Frameworks and libraries extend functions that somebody else wrote, so you don&#39;t have to.  Let&#39;s just face it, <a href="http://ejohn.org/">John Resig</a> and the jQuery team could probably write loops around you with their code.  They are good at what they do.  The best part is that they already did it, so you don&#39;t have to.  You can focus on other things!</li>
-<li>Don&#39;t get too attached.  If you can, try to abstract the way you interact with your framework in case you ever need to switch frameworks or the framework you use stops being supported.  These things happen.  I&#39;ve been trying to find an article abstracting JavaScript frameworks to point you to, but I haven&#39;t found one yet.  Perhaps I will have to write one.</li>
-</ul>
-</li>
-</ul>
-<p>These are my thoughts on the subject.  Can you think of any arguments for or against using JavaScript frameworks?</p>
+<p>The really cool thing is that we barely did anything to make all of this possible. It simply works.</p>
+<p>If you want to write your own methods for the API, you can add them to your controller and map them with the route config, but 90% of the time, the blueprints will give you everything you need if you have a well-written model layer.</p>
+<p>That should be enough to get us to the next post where I will talk about using Angular services to communicate with the Sails api we just created.</p>
+<p>If you are following the Github repo, we are currently at <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/89eec077b278ed12c4a18eb369e36e544e60cc84">this point</a> in the application.</p>
 
 
     <h5>Tags: 
     
         <span class="label">
-            <a href="/?tag=JavaScript">JavaScript</a>
+            <a href="/?tag=sailsjs">sailsjs</a>
         </span>
     
     </h5>
