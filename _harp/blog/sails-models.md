@@ -2,7 +2,7 @@
 
     This is part 6 of the [Creating An Application With Sails, Angular and Require.js](/blog/sails-ninja-intro) blog series. If you haven't read the introduction yet, you may want to start there.
 
-    <h4>[Previous Post In This Series](/blog/angular-controllers-with-sails-app)</h4>
+    <h4>[Previous Post In This Series](/blog/angular-controllers-with-sails-app) | [Next Post In This Series](/blog/syncing-angular-with-sails)</h4>
 
 </div>
 

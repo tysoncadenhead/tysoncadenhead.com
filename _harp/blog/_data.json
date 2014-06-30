@@ -1,13 +1,23 @@
 {
+    "syncing-angular-with-sails": {
+        "published": true,
+        "series": "Creating An Application With Sails, Angular and Require.js",
+        "part": 7,
+        "lastPart": true,
+        "title": "Syncing Angular With Sails",
+        "tags": ["sailsjs","angular"],
+        "category": "code",
+        "date": "6-30-2014",
+        "thumbnail": "/images/blog/syncing-angular-with-sails.png"
+    },
     "sails-models": {
         "published": true,
         "series": "Creating An Application With Sails, Angular and Require.js",
         "part": 6,
-        "lastPart": true,
         "title": "Sails Models",
         "tags": ["sailsjs"],
         "category": "code",
-        "date": "6-30-2014",
+        "date": "6-27-2014",
         "thumbnail": "/images/blog/sails-models.png"
     },
     "angular-controllers-with-sails-app": {

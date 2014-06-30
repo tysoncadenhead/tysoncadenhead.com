@@ -15,15 +15,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=400, initial-scale=0.5">
         <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
-        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/sails-models.png"/>
-        <meta property="og:title" content="Sails Models"/>
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/syncing-angular-with-sails.png"/>
+        <meta property="og:title" content="Syncing Angular With Sails"/>
         <meta property="og:url" content="http://www.tysoncadenhead.com"/>
         <meta property="og:site_name" content="Tyson Cadenhead"/>
         <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
-        <title>Sails Models</title>
+        <title>Syncing Angular With Sails</title>
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
-        <link rel="alternate" type="application/rss+xml" title="Sails Models Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Syncing Angular With Sails Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
         
     </head>
     <body>
@@ -70,72 +70,84 @@
                         <article>
 
     <div class="well span2 right thumbnail">
-      <img src="/images/blog/sails-models.png" />
+      <img src="/images/blog/syncing-angular-with-sails.png" />
     </div>
 
-    <h1>Sails Models</h1>
+    <h1>Syncing Angular With Sails</h1>
 
     
       <h4>
-        Creating An Application With Sails, Angular and Require.js (part 6)
+        Creating An Application With Sails, Angular and Require.js (part 7)
       </h4>
     
 
-    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 6-27-2014</h5>
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 6-30-2014</h5>
 
     <div class="series-placement">
 
-    This is part 6 of the <a href="/blog/sails-ninja-intro">Creating An Application With Sails, Angular and Require.js</a> blog series. If you haven&#39;t read the introduction yet, you may want to start there.
+    This is part 7 of the <a href="/blog/sails-ninja-intro">Creating An Application With Sails, Angular and Require.js</a> blog series. If you haven&#39;t read the introduction yet, you may want to start there.
 
-    <h4><a href="/blog/angular-controllers-with-sails-app">Previous Post In This Series</a> | <a href="/blog/syncing-angular-with-sails">Next Post In This Series</a></h4>
+    <h4><a href="/blog/sails-models">Previous Post In This Series</a></h4>
 
 </div>
 
-<p>In the last few posts, we have been building an application using Sails, Angular and RequireJS. We&#39;ve got a basic UI in place now, so we should be able to get it to a point where we can actually send and receive data from the server.</p>
+<p>Now that we&#39;ve gotten our server-side API set up, we can us it to get data into the Angular portion of our application. We&#39;ll be using the $http service that Angular gives us out of the box. The point of this is to quickly get the application running and not necessarily best practice, so please be forgiving.</p>
 <!-- more -->
 
-<p>The first thing to do is to open our <code>/api/models/List.js</code> file that we generate earlier. There shouldn&#39;t be much in it at this point. We can go ahead and a few attributes:</p>
-<pre><code class="language-js">module.exports = {
-
-  attributes: {
-    &quot;description&quot;: {
-        &quot;type&quot;: &quot;string&quot;,
-        &quot;required&quot;: true
-    },
-    &quot;completed&quot;: {
-        &quot;type&quot;: &quot;boolean&quot;,
-        &quot;defaultsTo&quot;: false
-    }
+<p>We&#39;ll start off by adding the <code>$http</code> service to our controller in <code>assets/js/controllers/ListCtrl.js</code>.</p>
+<pre><code class="language-js">define(function () {
+    return [&#39;$scope&#39;, &#39;$http&#39;, function($scope, $http) {
+        $scope.description = &#39;&#39;;
+        $scope.items = [...];
+    }];
+});</code></pre>
+<p>We also added a description to the scope for managing new items in our list. We&#39;ll get back to that in a second.</p>
+<p>Previously, we were passing an array to <code>$scope.items</code>. Now that we have an api to hit, we can get the data from the server:</p>
+<pre><code class="language-js">$http.get(&#39;/list/find&#39;).success(function(data) {
+  for (var i = 0; i &lt; data.length; i++) {
+    data[i].index = i;
   }
+  $scope.items = data;
+});</code></pre>
+<p>We can also flesh out the adding and removing of items from our list:</p>
+<pre><code class="language-js">$scope.addItem = function () {
+    $http.get(&#39;/list/create?description=&#39; + $scope.description).success(function(data) {
+      $scope.items.push(data);
+    });
+};
 
+$scope.removeItem = function (data) {
+    $http[&#39;delete&#39;](&#39;/list/&#39; + data.id).success(function() {
+      $scope.items.splice(data.index, 1);
+    });
 };</code></pre>
-<p>Now, we have a &quot;completed&quot; boolean for each record that defaults to false and a &quot;description&quot; that is required.</p>
-<h3>Sails Blueprints</h3>
-<p>Sails makes creating an API really easy by providing something called &quot;blueprints&quot;. The basic idea is that if you have a controller and model with the same name, Sails will automatically create REST and CRUD endpoints that you can easily hit with Ajax.</p>
-<p>By default, all of the paths route to the root of the root of the domain, but if we edit the <code>config/controllers.js</code> file, we can change the path that the blueprints point to so that it doesn&#39;t interfere with the rest of our application. We just need to find the option called &quot;prefix&quot; and add our own prefix like this:</p>
-<pre><code class="language-js">{
-  ...
-  prefix: &#39;/api&#39;,
-  ...
-}</code></pre>
-<p>Now our routes should look something like this:</p>
-<ul>
-<li>POST /api/list - Inserts a record</li>
-<li>PUT: /api/list/:id - Updates the record</li>
-<li>DELETE: /api/list/:id - Deletes a record</li>
-<li>GET: /api/list/find - Returns all of the records</li>
-<li>GET: /api/list/find/:id - Returns a specific record</li>
-</ul>
-<p>The really cool thing is that we barely did anything to make all of this possible. It simply works.</p>
-<p>If you want to write your own methods for the API, you can add them to your controller and map them with the route config, but 90% of the time, the blueprints will give you everything you need if you have a well-written model layer.</p>
-<p>That should be enough to get us to the next post where I will talk about using Angular services to communicate with the Sails api we just created.</p>
-<p>If you are following the Github repo, we are currently at <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/89eec077b278ed12c4a18eb369e36e544e60cc84">this point</a> in the application.</p>
+<p>Last of all, we&#39;ll add a method to trigger when an item in the list is checked:</p>
+<pre><code class="language-js">$scope.itemCheck = function (data) {
+    $http.get(&#39;/list/update?id=&#39; + data.id + &#39;&amp;completed=&#39; + ((data.completed) ? 0: 1));
+};</code></pre>
+<p>Now, we just need to make a few updates to our <code>/views/list/index.ejs</code> template:</p>
+<pre><code class="language-html">&lt;div ng-controller=&quot;ListCtrl&quot;&gt;
+    &lt;ul class=&quot;checklist&quot;&gt;
+        &lt;li ng-repeat=&quot;item in items&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; ng-model=&quot;item.completed&quot; ng-click=&quot;itemCheck(item)&quot; /&gt; &lt;span ng-bind=&quot;item.description&quot;&gt;&lt;/span&gt; &lt;button class=&quot;btn btn-sm btn-danger&quot; ng-click=&quot;removeItem(item)&quot;&gt;x&lt;/button&gt;&lt;br /&gt;&lt;br /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;input type=&quot;text&quot; ng-model=&quot;description&quot; /&gt; &lt;button class=&quot;btn btn-primary&quot; ng-click=&quot;addItem()&quot;&gt;Add&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+<p>That will do it. Angular and Sails should now be communicating with each other and your data is being saved correctly to the database.</p>
+<p>If you are following along with the Github repo, <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/75d83433e1deffee62542af877a8e7dc31a3031c">this is the place that we&#39;ve gotten to</a>.</p>
+<p>Next week, in the final post in this series, we&#39;ll look at doing client-side validation on our application.</p>
 
 
     <h5>Tags: 
     
         <span class="label">
             <a href="/?tag=sailsjs">sailsjs</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=angular">angular</a>
         </span>
     
     </h5>
