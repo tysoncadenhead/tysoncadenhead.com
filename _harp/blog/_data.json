@@ -1,4 +1,12 @@
 {
+    "how_to_not_be_a_cyborg_when_you_work_on_computers": {
+        "published": true,
+        "title": "How To Not Be A Cyborg When You Work On Computers",
+        "tags": ["sailsjs","angular"],
+        "category": "productivity",
+        "date": "7-03-2014",
+        "thumbnail": "/images/blog/cyborg.png"
+    },
     "syncing-angular-with-sails": {
         "published": true,
         "series": "Creating An Application With Sails, Angular and Require.js",
