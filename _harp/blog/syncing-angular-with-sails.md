@@ -76,4 +76,4 @@ That will do it. Angular and Sails should now be communicating with each other a
 
 If you are following along with the Github repo, [this is the place that we've gotten to](https://github.com/tysoncadenhead/sails-angular-example-app/tree/75d83433e1deffee62542af877a8e7dc31a3031c).
 
-Next week, in the final post in this series, we'll look at doing client-side validation on our application.
+Thanks for following along with this series! Now that it is over, we can get back to normal one-off posts.

@@ -44,6 +44,5 @@ As I post the new articles, the links on this outline will be filled in, so this
 1. [Angular Controllers](/blog/angular-controllers-with-sails-app)
 1. [Sails Models](/blog/sails-models)
 1. [Syncing With The Server](/blog/syncing-angular-with-sails)
-1. Form Validation
 
 This is going to be a fun series to write and I hope you have as much fun as me reading it!
