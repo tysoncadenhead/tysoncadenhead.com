@@ -7,14 +7,10 @@
 
     <% if (public.blog._data[slug].published) { %>
 
-      <% if (i % 10 === 0) { %>
-        <% if (i) { %></div><% } %><div class="page-group" id="page-group-<%- i / 10 %>">
-      <% } %>
-
-      <article>
+      <article data-tags="<%= public.blog._data[slug].tags %>">
 
             <div class="well span2 right thumbnail">
-              <img class="lazy" data-original="<%- public.blog._data[slug].thumbnail %>" id="image-<%- slug %>" />
+              <a href="/blog/<%- slug %>"><img class="lazy" data-original="<%- public.blog._data[slug].thumbnail %>" id="image-<%- slug %>" /></a>
             </div>
 
             <h2><a href="/blog/<%- slug %>"><%- public.blog._data[slug].title  %></a></h2>
@@ -37,15 +33,10 @@
 
   <% }; %>
   </div>
-  </div>
 
   <div class="pagination">
     <ul>
       <li class="disabled" id="page-back"><a href="#top">&#171;</a></li>
-      <% for (var i = 0; i < pages; i++) { %>
-        <li id="page-number-<%- i %>" class="<% if (!i) { %>active <% } %>page-number"><a href="#top" data-page="<%- i %>"><%= i + 1 %></a></li>
-      <% } %>
-      <li id="page-forward"><a href="#top">&#187;</a></li>
     </ul>
   </div>
 </div>

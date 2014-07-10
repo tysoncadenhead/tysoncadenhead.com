@@ -99,6 +99,9 @@ body {
 }
 
 @media (max-width: 767px) {
+    .thumbnail img {
+        width: 100% !important;
+    }
     .profile-image-small {
         display: block;
     }
@@ -250,7 +253,7 @@ article p img, .presentation-item img {
     display: table;
 }
 
-.page-group .series-placement {
+#blog-posts .series-placement {
     display: none;
 }
 

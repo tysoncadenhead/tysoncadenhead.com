@@ -36,13 +36,12 @@ requirejs.config({
 });
 requirejs([
     'bootstrap',
-    'viewModels/popularPosts',
     'viewModels/share',
     'viewModels/trending',
     'viewModels/code',
     'viewModels/relatedPosts',
     'viewModels/posts'
-], function ($, PopularPosts) {
+], function ($) {
 
     $(function () {
         $('.disabled a').click(function (e) {
