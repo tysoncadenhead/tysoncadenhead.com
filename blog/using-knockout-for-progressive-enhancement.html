@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=400, initial-scale=0.5">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/using-knockout-for-progressive-enhancement.jpg"/>
+        <meta property="og:title" content="Using Knockout For Progressive Enhancement"/>
+        <meta property="og:url" content="http://www.tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Using Knockout For Progressive Enhancement</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Using Knockout For Progressive Enhancement Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container">
+                <div class="span12">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/"><img src="/images/logo.png" /></a></h1>
+                    </div>
+                    <div class="span6 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="span12">
+                
+                    
+                    
+                        
+                        <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/using-knockout-for-progressive-enhancement.jpg" />
+    </div>
+
+    <h1>Using Knockout For Progressive Enhancement</h1>
+
+    
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 7-14-2014</h5>
+
+    <p>One of the great things about all of the best MV* frameworks is that they allow you to hardly render any templates on the server-side. That means that you only need to hit the server for data. Of course, that is great if your users have JavaScript enabled, but what if they don&#39;t?</p>
+<!-- more -->
+
+<p>Lately, I have been thinking about how a framework like Knockout might perform for progressive enhancement. I&#39;ve been wondering if it is possible to make a page with robust client-side validation, for example, that will work on some level whether JavaScript is enabled or not.</p>
+<p>The real challenge is with how Knockout data-bindings work. It is a very different paradigm than the old &quot;get HTML from the server and render it&quot; mentality. </p>
+<p>Let&#39;s start of with a plain form. Something like this:</p>
+<pre><code class="language-html">&lt;form action=&quot;#&quot;&gt;
+    &lt;div&gt;
+        &lt;label&gt;Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;couch&quot; name=&quot;name&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Size&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;big&quot; name=&quot;size&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Width&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;6&quot; name=&quot;width&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Height&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;2&quot; name=&quot;hegiht&quot; /&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+<p>The form already has some values set on each field as if we are on an editing page. Our mission is to use Knockout to enhance the form and maintain the current values.</p>
+<p>A well structured Knockout application typically separates the model layer from the viewModel layer, so you might have a model that looks something like this:</p>
+<pre><code class="language-js">var Chair = function (obj) {
+    if (typeof obj === &#39;object&#39;) {
+        this.name(obj.name);
+        this.type(obj.type);
+        this.width(obj.width);
+        this.height(obj.height);
+    }
+};
+
+_.extend(Chair.prototype, {
+    name: ko.observable(&#39;&#39;),
+    type: ko.observable(&#39;&#39;),
+    width: ko.observable(0),
+    height: ko.observable(0)
+});</code></pre>
+<p>To complete our tiny little application, we might have a viewModel that looks something like this:</p>
+<pre><code class="language-js">var ChairView = function () {
+    this.chair = new Chair();
+};
+
+_.extend(ChairView.prototype, {
+    submit: function () {
+        console.log(&#39;submitted the form&#39;, this.chair);
+    }
+});
+
+ko.applyBindings(new ChairView(), document.body);</code></pre>
+<p>In a typical application, you would get the model data through an ajax or websocket request. For the sake of our example application, that would be redundant because we already have the data passed in with the server-side template. It would also slow down the application because it wouldn&#39;t really work with our enhancements until the xhr request returns.</p>
+<p>This means that there are two ways we can get the data into the model to manipulate it.</p>
+<h3>Global Data Variable</h3>
+<p>The first way is to create a global variable from the server-side template that basically provides all of the data as an object. Something like this might work:</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javaScript&quot;&gt;
+window.chairData = {
+    &#39;name&#39;: &#39;couch&#39;,
+    &#39;size&#39;: &#39;big&#39;,
+    &#39;width&#39;: 6,
+    &#39;height&#39;: 2
+};
+&lt;/script&gt;</code></pre>
+<p>Then we would just modify the model instantiation in the viewModel like this:</p>
+<pre><code class="language-js">var ChairView = function () {
+    this.chair = new Chair(window.chairData);
+};</code></pre>
+<p>Finally, we will need to modify our template to accept the new bindings:</p>
+<pre><code class="language-html">&lt;form action=&quot;#&quot; data-bind=&quot;submit: submit&quot;&gt;
+    &lt;div&gt;
+        &lt;label&gt;Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;couch&quot; name=&quot;name&quot; data-bind=&quot;value: chair.name&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Size&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;big&quot; name=&quot;size&quot; data-bind=&quot;value: chair.size&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Width&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;6&quot; name=&quot;width&quot; data-bind=&quot;value: chair.width&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Height&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;2&quot; name=&quot;hegiht&quot; data-bind=&quot;value: chair.height&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;script type=&quot;text/javaScript&quot;&gt;
+    window.chairData = {
+        &#39;name&#39;: &#39;couch&#39;,
+        &#39;size&#39;: &#39;big&#39;,
+        &#39;width&#39;: 6,
+        &#39;height&#39;: 2
+    };
+&lt;/script&gt;</code></pre>
+<p>It works, but we&#39;re stuck with using a global variable, which is something we generally want to avoid as JavaScript developers. We also have to include inline JavaScript to get our data into the viewModel. There has to be a better way!</p>
+<h3>Using a Custom Binding</h3>
+<p>It finally hit me that a custom binding would make a ton of sense for this problem. If we know that the original data is in the DOM, we just need to use a binding to extract it out and apply it to the observable. Something like this should work:</p>
+<pre><code class="language-js">ko.bindingHandlers.initialValue = {
+    init: function(element, valueAccessor, allBindings) {
+        var bindings = allBindings();
+        if (bindings.value) {
+            bindings.value($(element).val());
+        }
+    }
+};</code></pre>
+<p>As you can see, we&#39;re looking to see if there is a &quot;value&quot; binding applied to the element. If there is, we are using that binding accessor to push in the current value of the element.</p>
+<p>Applying this to our template will look something like this:</p>
+<pre><code class="language-html">&lt;form action=&quot;#&quot; data-bind=&quot;submit: submit&quot;&gt;
+    &lt;div&gt;
+        &lt;label&gt;Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;couch&quot; name=&quot;name&quot; data-bind=&quot;initialValue, value: chair.name&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Size&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;big&quot; name=&quot;size&quot; data-bind=&quot;initialValue, value: chair.size&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Width&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;6&quot; name=&quot;width&quot; data-bind=&quot;initialValue, value: chair.width&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Height&lt;/label&gt;
+        &lt;input type=&quot;text&quot; value=&quot;2&quot; name=&quot;hegiht&quot; data-bind=&quot;initialValue, value: chair.height&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+<p>It looks pretty unobtrusive in the markup and it get the job done without needing to hit the server to get the data that is already available. That&#39;s pretty good mileage for a 3-line custom binding!</p>
+<p>If you want to see it in action, I put together a <a href="http://jsfiddle.net/UT73F/1/">fiddle</a> showing how it works.</p>
+<p>What do you think? Is it even worth optimizing for people who have JavaScript turned off? Is there a better approach to pass non-Ajax server-side data into a client-side model? Leave a comment and tell me what you think.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=knockout">knockout</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=progressive-enhancement">progressive-enhancement</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-5130799763611680"
+       data-ad-slot="1525472392"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+    </div>
+
+    <br />
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tysoncadenhead';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                    
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer">
+                <div class="container">
+                    <div class="addthis_default_style span12 addthis_32x32_style">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="112101485541389007178"></a>
+                    </div>
+                    <div class="span12" id="twitter-feed">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

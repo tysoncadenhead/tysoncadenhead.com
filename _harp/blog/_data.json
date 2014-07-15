@@ -1,8 +1,16 @@
 {
+    "using-knockout-for-progressive-enhancement": {
+        "published": true,
+        "title": "Using Knockout For Progressive Enhancement",
+        "tags": ["knockout", "progressive-enhancement"],
+        "category": "code",
+        "date": "7-14-2014",
+        "thumbnail": "/images/blog/using-knockout-for-progressive-enhancement.jpg"
+    },
     "how_to_not_be_a_cyborg_when_you_work_on_computers": {
         "published": true,
         "title": "How To Not Be A Cyborg When You Work On Computers",
-        "tags": ["productivity", "working from home", "work life balance"],
+        "tags": ["productivity", "working-from-home", "work-life-balance"],
         "category": "productivity",
         "date": "7-03-2014",
         "thumbnail": "/images/blog/cyborg.png"
