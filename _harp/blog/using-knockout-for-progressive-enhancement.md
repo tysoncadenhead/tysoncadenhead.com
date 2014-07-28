@@ -4,9 +4,13 @@ One of the great things about all of the best MV* frameworks is that they allow 
 
 Lately, I have been thinking about how a framework like Knockout might perform for progressive enhancement. I've been wondering if it is possible to make a page with robust client-side validation, for example, that will work on some level whether JavaScript is enabled or not.
 
-The real challenge is with how Knockout data-bindings work. It is a very different paradigm than the old "get HTML from the server and render it" mentality. 
+The real challenge is with how Knockout data-bindings work. It is a very different paradigm than the old "get HTML from the server and render it" mentality.
 
-Let's start of with a plain form. Something like this:
+![](http://i2.cdnds.net/11/41/618_movies_rocky_10.jpg)
+
+### Let's Knock It Out
+
+Let's start off with a plain form. Something like this:
 
 ```html
 <form action="#">
@@ -71,6 +75,8 @@ In a typical application, you would get the model data through an ajax or websoc
 
 This means that there are two ways we can get the data into the model to manipulate it.
 
+![](http://static.indianexpress.com/m-images/Fri%20Sep%2006%202013,%2014:38%20hrs/M_Id_417124_Planet_Earth.jpg)
+
 ### Global Data Variable
 
 The first way is to create a global variable from the server-side template that basically provides all of the data as an object. Something like this might work:
@@ -129,6 +135,8 @@ Finally, we will need to modify our template to accept the new bindings:
 ```
 
 It works, but we're stuck with using a global variable, which is something we generally want to avoid as JavaScript developers. We also have to include inline JavaScript to get our data into the viewModel. There has to be a better way!
+
+![](http://images.blog.autoshopper.com/270_125-Anonymous.jpg)
 
 ### Using a Custom Binding
 

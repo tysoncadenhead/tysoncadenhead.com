@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=400, initial-scale=0.5">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/using-knockout-for-progressive-enhancement-on-lists.jpg"/>
+        <meta property="og:title" content="Progressive Enhancement With the Knockout Foreach Binding"/>
+        <meta property="og:url" content="http://www.tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>Progressive Enhancement With the Knockout Foreach Binding</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="Progressive Enhancement With the Knockout Foreach Binding Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container">
+                <div class="span12">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/"><img src="/images/logo.png" /></a></h1>
+                    </div>
+                    <div class="span6 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="span12">
+                
+                    
+                    
+                        
+                        <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/using-knockout-for-progressive-enhancement-on-lists.jpg" />
+    </div>
+
+    <h1>Progressive Enhancement With the Knockout Foreach Binding</h1>
+
+    
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 7-28-2014</h5>
+
+    <p>In my <a href="/blog/using-knockout-for-progressive-enhancement">previous blog post</a>, I talked about how you can use Knockout to enhance forms that are rendered from the server. This led to my next challenge - creating lists that are rendered from the server and then managed with Knockout on the client-side in instances where JavaScript is enabled.</p>
+<!-- more -->
+
+<p><img src="http://elitedaily.com/wp-content/uploads/2013/04/pote2.jpg" alt=""></p>
+<h3>One Potential Approach</h3>
+<p>Okay, let&#39;s say for example that you have a list of animals that are being rendered from the server-side like this:</p>
+<pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Dog&lt;/li&gt;
+    &lt;li&gt;Cat&lt;/li&gt;
+    &lt;li&gt;Goldfish&lt;/li&gt;
+    &lt;li&gt;Chicken&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p>The problem with binding that list with a Knockout <code>foreach</code> is that there are multiple items inside the list that the server is rendering and a foreach would typically only require a single list item to represent everything in an observable array like this:</p>
+<pre><code class="language-html">&lt;ul data-bind=&quot;foreach: animals&quot;&gt;
+    &lt;li data-bind=&quot;text: name&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p>If our goal is to to create a single list that can even be used when JavaScript is disabled, but enhanced with Knockout, what we need to do involves creating a custom binding that loops over the existing elements inside the <code>&lt;ul&gt;</code> and applies the data in it to an observable array. Once our data is in the array, we can replace the <code>&lt;li&gt;</code> elements that came back from the server with our own Knockout template, which can re-render the list items from the client-side.</p>
+<pre><code class="language-js">ko.bindingHandlers.initialForEach = {
+    init: function (element, valueAccessor, allBindings) {
+        var $el = $(element);
+        $el.children().each(function () {
+            if (allBindings().foreach) {
+                allBindings().foreach.push(JSON.parse($(this).attr(&#39;data-options&#39;)));
+            }
+        });
+        $el.html(valueAccessor().template);
+    }
+};</code></pre>
+<p><img src="http://www.allure.com/beauty-trends/blogs/daily-beauty-reporter/2013/05/23/sunscreen-being-applied-to-child.jpg" alt=""></p>
+<h3>Applying My Approach</h3>
+<p>Applying our new binding would look something like this:</p>
+<pre><code class="language-html">&lt;ul data-bind=&#39;initialForEach: {
+    template: forEachTemplate
+}, foreach: animals&#39;&gt;
+    &lt;li data-options=&#39;{ &quot;id&quot;: 1, &quot;type&quot;: &quot;Mammal&quot;, &quot;name&quot;: &quot;Dog&quot; }&#39;&gt;Dog&lt;/li&gt;
+    &lt;li data-options=&#39;{ &quot;id&quot;: 2, &quot;type&quot;: &quot;Mammal&quot;, &quot;name&quot;: &quot;Cat&quot; }&#39;&gt;Cat&lt;/li&gt;
+    &lt;li data-options=&#39;{ &quot;id&quot;: 3, &quot;type&quot;: &quot;Fish&quot;, &quot;name&quot;: &quot;Goldfish&quot; }&#39;&gt;Goldfish&lt;/li&gt;
+    &lt;li data-options=&#39;{ &quot;id&quot;: 5, &quot;type&quot;: &quot;Bird&quot;, &quot;name&quot;: &quot;Chicken&quot; }&#39;&gt;Chicken&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p>You might notice that I&#39;m passing all of the data for each list item into a <code>data-options</code> attribute. I&#39;ve been thinking long and hard about how to accomplish this by looking inside the list elements and grabbing the content inside of each element, but there may be any number of properties that you&#39;ll want to pass into your observable array and to be able to keep this binding reusable and generic, passing in a string of JSON seems the most efficient.</p>
+<p>I&#39;ll go ahead and put a viewModel behind the template. The animals observableArray will hold all of the data we need. I added another animal to demonstrate how the client-side and server-side data can be merged together. We also have a string template that will replace the server-rendered list items with the ones coming from the client. Just for fun, I additionally added a click event that tells us which animal was clicked.</p>
+<pre><code class="language-js">var viewModel = {
+    animals: ko.observableArray([{
+        id: 4,
+        type: &#39;Mammal&#39;,
+        name: &#39;Mouse&#39;
+    }]),
+    clickAnimal: function (animal) {
+        alert(&#39;Name: &#39; + animal.name + &#39;, Type: &#39; + animal.type);
+    },
+    forEachTemplate: &#39;&lt;li data-bind=&quot;text: name, click: $parent.clickAnimal&quot;&gt;&lt;/li&gt;&#39;
+};</code></pre>
+<p>If you want to see this in action, I&#39;ve created a <a href="http://jsfiddle.net/QPrPW/">JSFiddle</a> that combines all of the steps together.</p>
+<p><img src="http://petapixel.com/assets/uploads/2009/07/7motivated-critique.jpg" alt=""></p>
+<h3>Criticizing My Approach</h3>
+<p>This approach is far from perfect. For one thing, you are rendering everything in the list twice. It may not be the end of the world for a short list, but if you have a ton of items complete with images or other media, you may take a performance hit. Another issue is the awkwardness of needing to write a template for the <code>&lt;li&gt;</code> tags for the server and the client. There could certainly be more room for mistake when you have to write basically the same functionality twice.</p>
+<p>If you have a better approach, I&#39;d be interested to hear it. This is the best I could come up with, but its far from ideal.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=knockout">knockout</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=progressive-enhancement">progressive-enhancement</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-5130799763611680"
+       data-ad-slot="1525472392"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+    </div>
+
+    <br />
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tysoncadenhead';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                    
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer">
+                <div class="container">
+                    <div class="addthis_default_style span12 addthis_32x32_style">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a href="http://tysoncadenhead.deviantart.com/gallery/" title="Deviant Art" target="_blank" class="deviant-art"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="tysoncadenhead"></a>
+                    </div>
+                    <div class="span12" id="twitter-feed">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

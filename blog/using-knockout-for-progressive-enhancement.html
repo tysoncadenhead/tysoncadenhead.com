@@ -83,8 +83,10 @@
 <!-- more -->
 
 <p>Lately, I have been thinking about how a framework like Knockout might perform for progressive enhancement. I&#39;ve been wondering if it is possible to make a page with robust client-side validation, for example, that will work on some level whether JavaScript is enabled or not.</p>
-<p>The real challenge is with how Knockout data-bindings work. It is a very different paradigm than the old &quot;get HTML from the server and render it&quot; mentality. </p>
-<p>Let&#39;s start of with a plain form. Something like this:</p>
+<p>The real challenge is with how Knockout data-bindings work. It is a very different paradigm than the old &quot;get HTML from the server and render it&quot; mentality.</p>
+<p><img src="http://i2.cdnds.net/11/41/618_movies_rocky_10.jpg" alt=""></p>
+<h3>Let&#39;s Knock It Out</h3>
+<p>Let&#39;s start off with a plain form. Something like this:</p>
 <pre><code class="language-html">&lt;form action=&quot;#&quot;&gt;
     &lt;div&gt;
         &lt;label&gt;Name&lt;/label&gt;
@@ -134,6 +136,7 @@ _.extend(ChairView.prototype, {
 ko.applyBindings(new ChairView(), document.body);</code></pre>
 <p>In a typical application, you would get the model data through an ajax or websocket request. For the sake of our example application, that would be redundant because we already have the data passed in with the server-side template. It would also slow down the application because it wouldn&#39;t really work with our enhancements until the xhr request returns.</p>
 <p>This means that there are two ways we can get the data into the model to manipulate it.</p>
+<p><img src="http://static.indianexpress.com/m-images/Fri%20Sep%2006%202013,%2014:38%20hrs/M_Id_417124_Planet_Earth.jpg" alt=""></p>
 <h3>Global Data Variable</h3>
 <p>The first way is to create a global variable from the server-side template that basically provides all of the data as an object. Something like this might work:</p>
 <pre><code class="language-html">&lt;script type=&quot;text/javaScript&quot;&gt;
@@ -179,6 +182,7 @@ window.chairData = {
     };
 &lt;/script&gt;</code></pre>
 <p>It works, but we&#39;re stuck with using a global variable, which is something we generally want to avoid as JavaScript developers. We also have to include inline JavaScript to get our data into the viewModel. There has to be a better way!</p>
+<p><img src="http://images.blog.autoshopper.com/270_125-Anonymous.jpg" alt=""></p>
 <h3>Using a Custom Binding</h3>
 <p>It finally hit me that a custom binding would make a ton of sense for this problem. If we know that the original data is in the DOM, we just need to use a binding to extract it out and apply it to the observable. Something like this should work:</p>
 <pre><code class="language-js">ko.bindingHandlers.initialValue = {

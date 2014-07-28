@@ -1,4 +1,12 @@
 {
+    "using-knockout-for-progressive-enhancement-on-lists": {
+        "published": true,
+        "title": "Progressive Enhancement With the Knockout Foreach Binding",
+        "tags": ["knockout", "progressive-enhancement"],
+        "category": "code",
+        "date": "7-28-2014",
+        "thumbnail": "/images/blog/using-knockout-for-progressive-enhancement-on-lists.jpg"
+    },
     "using-knockout-for-progressive-enhancement": {
         "published": true,
         "title": "Using Knockout For Progressive Enhancement",
