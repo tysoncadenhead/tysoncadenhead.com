@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+    <html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+    <html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+    <html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+    <html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=400, initial-scale=0.5">
+        <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/the-state-of-javascript-a-shift-from-imperative-to-declarative.jpg"/>
+        <meta property="og:title" content="The State Of JavaScript - A Shift From Imperative To Declarative"/>
+        <meta property="og:url" content="http://www.tysoncadenhead.com"/>
+        <meta property="og:site_name" content="Tyson Cadenhead"/>
+        <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
+        <title>The State Of JavaScript - A Shift From Imperative To Declarative</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" /> 
+        <link rel="stylesheet" href="/css/app.css" />
+        <link rel="alternate" type="application/rss+xml" title="The State Of JavaScript - A Shift From Imperative To Declarative Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        
+    </head>
+    <body>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19696495-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <div id="fb-root"></div>
+        <div class="header" id="top">
+            <div class="container">
+                <div class="span12">
+                    <div class="span4 left">
+                        <h1 id="logo"><a href="/"><img src="/images/logo.png" /></a></h1>
+                    </div>
+                    <div class="span6 right">
+                        <div class="navbar navbar-inverse">
+                            <div class="navbar-inner right">
+                                <ul class="nav right">
+                                  <li><a href="/">Blog</a></li>
+                                  <li><a href="/presentations">Presentations</a></li>
+                                  <li><a href="/about">About Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="span12">
+                
+                    
+                    
+                        
+                        <article>
+
+    <div class="well span2 right thumbnail">
+      <img src="/images/blog/the-state-of-javascript-a-shift-from-imperative-to-declarative.jpg" />
+    </div>
+
+    <h1>The State Of JavaScript - A Shift From Imperative To Declarative</h1>
+
+    
+
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 8-04-2014</h5>
+
+    <p>JavaScript has seen a ton of development even in the past 5 years. The changes haven&#39;t been so much in the language itself, but in how the language is being used. This has been a product of the host of libraries and frameworks that have been created that allow developers to consume them and do just about anything. Need a library to build robots to assist you in your evil plot to take over the world? It probably already exists.</p>
+<!-- more -->
+
+<p>If I had to pinpoint the biggest shift in the JavaScript world in the past few years, it would be the transition from imperative to declarative.</p>
+<p><img src="http://i.dailymail.co.uk/i/pix/2009/03/16/article-1162451-03BD9EBE000005DC-863_468x286.jpg" alt=""></p>
+<h3>Imperative JavaScript</h3>
+<p>Back in the day, all we had was jQuery and a handful of UI plugins. Creating a well-structured app was a very difficult task. Sure, there were well-written applications before the slew of MV* frameworks came on the scene, but for the most part, JavaScript applications were like a big bowl of jQuery spaghetti code with little or no separation between the data and the UI.</p>
+<p>I have to admit to writing code like this when I was first learning JavaScript:</p>
+<pre><code class="language-js">$(&#39;.my-buttons&#39;).click(function (e) {
+    $.ajax({
+        url: &#39;some/url&#39;,
+        data: {
+            id: $(e.target).id()
+        },
+        success: function (data) {
+            $(&#39;#my-list&#39;).append(&#39;&lt;li id=&quot;&#39; + data.id + &#39;&quot;&gt;&#39; + data.name + &#39;&lt;/li&gt;&#39;);
+        }
+    })
+});</code></pre>
+<p>I could spend an entire post critiquing the code in the snippet above, but its probably enough to say that the root of the problem is that there is no persistent model layer. All of the data is managed in the DOM itself. Because this is the case, it makes it really hard to keep the state of the DOM in sync with the data that is saved to the server. Worse yet, the JavaScript code is not testable without testing the elements in the DOM.</p>
+<p>Even closer to the root of the problem is the imperative nature of the code. Imperative programing is when your code specifies not just <em>what</em> you want to happen, but <em>how</em> you want it to happen. In other words, imperative programming means that you are dealing with many internals to make your code function properly.</p>
+<p>In the code example above, we are essentially saying &quot;when someone clicks on one of my buttons, I want to make an Ajax request to <code>some/url</code> passing in the ID of my targeted element. When the Ajax request comes back successfully, I want to update my UI by appending an item to my list with the data that is returned from my Ajax request.&quot;</p>
+<p>The process is very fragile. What if the name of the list element changes? What if we need to do something else with the data in addition to our current DOM manipulation? What if other parts of the UI need to be updated as a result of the button being clicked? How can we make the application aware of the data at a higher level? These are all important questions that could take us down a rabbit hole of complex UI changes, deeply nested callbacks and the terrible feeling of anxiety and depression each time someone wants us to update the application.</p>
+<p>There has to be a better way!</p>
+<p><img src="http://machoarts.com/wp-content/uploads/2012/08/The+Cingularity+cg+robot.jpg" alt=""></p>
+<h3>Declarative JavaScript</h3>
+<p>Fortunately, there is a better way. In contrast to imperative, with declarative programming you only describe <em>what</em> you want to happen, and leave the question of <em>how</em> it will happen up to your framework of choice.</p>
+<p>Certain frameworks do a better job of managing the internals than others, but I have found that <a href="https://angularjs.org/">Angular</a>, <a href="http://knockoutjs.com/">Knockout</a>, <a href="http://emberjs.com/">Ember</a> and <a href="https://facebook.github.io/react/">React</a> all do a good job of it thanks to their various concepts of two-way binding.</p>
+<p>With the framework of your choice, you should be able to update the data in a model layer and have the UI automatically update without ever writing any code to change anything in the DOM. Make no mistake, all of these frameworks are changing the DOM, but that has been abstracted away to the point where you should never have to manipulate it directly or with jQuery.</p>
+<p>The above example written in Angular might look something like this:</p>
+<pre><code class="language-js">var myServices = angular.module(&#39;myServices&#39;, [&#39;ngResource&#39;]);
+
+myServices.factory(&#39;List&#39;, [&#39;$resource&#39;, function ($resource) {
+    return $resource(&#39;some/url&#39;);
+}])
+
+var myControllers = angular.module(&#39;myControllers&#39;, []);
+
+myControllers.controller(&#39;MyAwesomeCtrl&#39;, [&#39;$scope&#39;, &#39;List&#39;, function ($scope, List) {
+    $scope.list = List.query();
+    $scope.buttonClick = function () {
+        $scope.list = List.query();
+    }
+}]);</code></pre>
+<p>The binding of the data to the DOM is done directly in the template. Everything is totally testable and best of all we are no longer writing imperative code. Our application doesn&#39;t need to know how the elements are being updated in the DOM. The controller doesn&#39;t even care whether or not anything in the DOM is bound to it, only that data is being set in the its scope.</p>
+<p>This is the big shift that has been occurring in JavaScript application development over the past few years and it is making JavaScript a much better environment to write in. As a JavaScript developer, I think the next few years will be an exciting renaissance as we continue to move complex internals into our libraries and frameworks, which will make life for the everyday developer a lot easier.</p>
+
+
+    <h5>Tags: 
+    
+        <span class="label">
+            <a href="/?tag=javascript">javascript</a>
+        </span>
+    
+    </h5>
+
+    <br />
+
+    <div class="google-things">
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-5130799763611680"
+       data-ad-slot="1525472392"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+    </div>
+
+    <br />
+
+</article>
+
+<div class="share">
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tysoncadenhead';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                    
+                
+            </div>
+        </div>
+        <script data-main="/js/app.js" src="/js/vendor/require.js"></script>
+        <div class="footer">
+                <div class="container">
+                    <div class="addthis_default_style span12 addthis_32x32_style">
+                        <a class="addthis_button_facebook_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_twitter_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_linkedin_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_google_follow" addthis:userid="tysoncadenhead"></a>
+                        <a class="addthis_button_youtube_follow" addthis:userid="tysoncadenhead"></a>
+                        <a href="http://tysoncadenhead.deviantart.com/gallery/" title="Deviant Art" target="_blank" class="deviant-art"></a>
+                        <a class="addthis_button_flickr_follow" addthis:userid="tysonlloydcadenhead"></a>
+                        <a class="addthis_button_instagram_follow" addthis:userid="tysoncadenhead"></a>
+                    </div>
+                    <div class="span12" id="twitter-feed">
+                        <a class="twitter-timeline" href="https://twitter.com/tysoncadenhead" data-widget-id="377141114454564864">Tweets by @tysoncadenhead</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <script type="text/javascript">
+                            window.tysonJS = {
+                                slug: ''
+                            };
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>
