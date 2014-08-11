@@ -9,6 +9,7 @@
 body {
     font-size: 16px;
     line-height: 30px;
+    max-width: 100%;
 }
 
 .span12 {
@@ -23,6 +24,8 @@ body {
     background: #333;
     margin-bottom: 65px;
     border-bottom: solid 1px #000;
+    overflow-y: hidden;
+    overflow-x: visible;
 
     #logo {
         color: #CCC;
@@ -138,7 +141,8 @@ body {
     }
     .header {
         #logo {
-            left: 35px;
+            text-align: center;
+            left: auto;
         }
         .navbar-inner {
             width: 100%;
@@ -344,11 +348,34 @@ article p img, .presentation-item img {
 }
 
 @media (max-width: 767px) {
+    .header {
+        height: auto;
+        padding-bottom: 0px;
+        margin-bottom: 25px;
+    }
     .bio {
         padding-top: 0px;
         .span8 {
             padding: 14px;
         }
+    }
+    .navbar .nav {
+        width: 100%;
+    }
+    .navbar .nav>li {
+        clear: both;
+        width: 100%;
+        text-align: center;
+        border-top: solid 1px #AAA;
+        padding: 12px 0px;
+        font-size: 1.3em;
+    }
+    .footer .container, .footer .container .span12 {
+        text-align: center;
+    }
+    .deviant-art, .footer .addthis_default_style .addthis_separator, .footer .addthis_default_style .at300b, .footer .addthis_default_style .at300bo, .footer .addthis_default_style .at300m, .footer .addthis_default_style .at300bs {
+        float: none !important;
+        display: inline-block !important;
     }
 }
 
