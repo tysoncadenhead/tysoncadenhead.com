@@ -11,6 +11,11 @@ body {
     line-height: 30px;
 }
 
+.span12 {
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
 .header {
     height: 80px;
     width: 100%;
@@ -99,6 +104,18 @@ body {
 }
 
 @media (max-width: 767px) {
+    body {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .header .container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     .thumbnail img {
         width: 100% !important;
     }
@@ -144,13 +161,21 @@ body {
     }
 }
 
-article {
-    padding-bottom: 75px;
-}
-
 .share {
     display: block;
     padding-bottom: 25px;
+    margin-top: 25px;
+    clear: both;
+    width: 100%;
+    float: left;
+}
+
+.google-things {
+    float: left;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 1170px;
 }
 
 a {
@@ -199,6 +224,37 @@ p > code {
     float: left;
     margin-right: 2%;
     max-width: 100%;
+    min-height: 0px;
+}
+
+@media (max-width: 480px) {
+    .presentation-item {
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    .page-number {
+        display: none !important;
+    }
+
+    .pagination ul {
+        width: 100%;
+        text-align: center;
+    }
+
+    .pagination li>a {
+        font-size: 3em;
+        line-height: 1em !important;
+        float: none !important;
+    }
+}
+
+article {
+    min-height: 200px;
+}
+
+#blog-posts article {
+    padding-bottom: 75px;
 }
 
 article p img, .presentation-item img {
@@ -276,6 +332,24 @@ article p img, .presentation-item img {
     background: url(http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/32/Web-DeviantART-alt-1-Metro-icon.png);
     float: right;
     margin-right: 1px;
+}
+
+.bio {
+    background: #DDD;
+    float: left;
+    padding-top: 25px;
+    width: 100%;
+    border: solid 1px #BBB;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 767px) {
+    .bio {
+        padding-top: 0px;
+        .span8 {
+            padding: 14px;
+        }
+    }
 }
 
 @import "tables";

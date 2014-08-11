@@ -1,4 +1,12 @@
 {
+    "communicating-between-controllers-in-angular": {
+        "published": true,
+        "title": "Communicating Between Controllers In Angular",
+        "tags": ["angular", "pubsub"],
+        "category": "code",
+        "date": "8-11-2014",
+        "thumbnail": "/images/blog/communicating-between-controllers-in-angular.jpg"
+    },
     "the-state-of-javascript-a-shift-from-imperative-to-declarative": {
         "published": true,
         "title": "The State Of JavaScript - A Shift From Imperative To Declarative",

@@ -15,15 +15,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=400, initial-scale=0.5">
         <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4" />
-        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/listening.jpg"/>
-        <meta property="og:title" content="jQuery Event Listening"/>
+        <meta property="og:image" content="http://www.tysoncadenhead.com/images/blog/communicating-between-controllers-in-angular.jpg"/>
+        <meta property="og:title" content="Communicating Between Controllers In Angular"/>
         <meta property="og:url" content="http://www.tysoncadenhead.com"/>
         <meta property="og:site_name" content="Tyson Cadenhead"/>
         <meta property="og:description" content="Thoughts on productivity, web apps and JavaScript" />
-        <title>jQuery Event Listening</title>
+        <title>Communicating Between Controllers In Angular</title>
         <link rel="shortcut icon" href="/images/favicon.ico" /> 
         <link rel="stylesheet" href="/css/app.css" />
-        <link rel="alternate" type="application/rss+xml" title="jQuery Event Listening Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Communicating Between Controllers In Angular Thoughts on productivity, web apps and JavaScript" href="http://www.tysoncadenhead.com/feed.xml" />
         
     </head>
     <body>
@@ -70,41 +70,60 @@
                         <article>
 
     <div class="well span2 right thumbnail">
-      <img src="/images/blog/listening.jpg" />
+      <img src="/images/blog/communicating-between-controllers-in-angular.jpg" />
     </div>
 
-    <h1>jQuery Event Listening</h1>
+    <h1>Communicating Between Controllers In Angular</h1>
 
     
 
-    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 4-1-2011</h5>
+    <h5><span class="label label-info"><a href="/?category=code">code</a></span> | 8-11-2014</h5>
 
-    <p>Several months ago I wrote about <a href="http://tysonlloydcadenhead.com/blog/sencha-application-event-listening/">event binding</a> using ExtJS or Sencha touch.  Something that you may or may not know is that you can achieve the same thing with jQuery using custom even binding.</p>
+    <p>In Angular, there are times when you will want one controller to be able to communicate with other controllers. For example, if you want your user to be able to click a button and for a different controller to be aware of the UI change.</p>
 <!-- more -->
 
-<p>In case you didn&#39;t see my Sencha post about this, or if you don&#39;t work with Sencha, let me tell you what I mean by event binding.  Event binding can be used to loosely couple actions so they never break.  Essentially, you broadcast to your entire application &quot;Hey!  I have something to say!  Does anybody want to hear it?&quot;  Your modules can either say &quot;Hey, I&#39;d like to hear what you have to say&quot; or else, they can just ignore it. Either way, nothing breaks.  You can even have several modules respond to the same event in different ways.</p>
-<p>So, on to the code... Make sure that you are using an up to date version of the jQuery library.  At some point back in time, this didn&#39;t work yet.</p>
-<p>To create a custom event with jQuery, you can use the &quot;trigger&quot; function like this:</p>
-<pre><code class="language-javascript">$(document).trigger(&#39;my-custom-event&#39;, [&#39;hi!  I am a custom variable!&#39;]);</code></pre>
-<p>You can actually bind a custom event to any DOM element, but for the sake of making it available to your entire application, the document object is usually a pretty safe choice.  As you can see, we are also passing a variable.</p>
-<p>Now you just need to have a listener at any place in your code that is executed before the trigger event, like this:</p>
-<pre><code class="language-javascript">$(document).bind(&#39;my-custom-event&#39;, function(event, v) {
-  alert(v);
-});</code></pre>
-<p>So your code ends up looking something like this:</p>
-<pre><code class="language-javascript">$(document).bind(&#39;my-custom-event&#39;, function(event, v1, v2) {
-  alert(v1);
-});
+<p>Take this markup as an example:</p>
+<pre><code class="language-html">&lt;div ng-app=&quot;myApp&quot;&gt;
+    &lt;div ng-controller=&quot;Ctrl1&quot;&gt;
+        The current number is: {{number}}
+    &lt;/div&gt;
+    &lt;div ng-controller=&quot;Ctrl2&quot;&gt;
+        &lt;button ng-click=&quot;buttonClick()&quot;&gt;Click Me&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>It&#39;s a very basic contrived example, but we have a controller called &quot;Ctrl1&quot; that has a number in its scope. We also have a totally separate controller called &quot;Ctrl2&quot; that has a button with a click event on it.</p>
+<p>Our entire application might look like this:</p>
+<pre><code class="language-js">var myApp = angular.module(&#39;myApp&#39;, []);
 
-$(document).bind(&#39;my-custom-event&#39;, function(event, v1, v2) {
-  alert(&#39;firing &#39; + v2);
-});
+myApp.controller(&#39;Ctrl1&#39;, [&#39;$scope&#39;, function ($scope) {
+    $scope.number = 1;
+}]);
 
-$(document).trigger(&#39;my-custom-event&#39;,  [
-  &#39;Hi!  I am a custom variable!&#39;, 
-  &#39;Hi! I\&#39;m a different custom variable!&#39;
-]);</code></pre>
-<p>You should now see two separate alerts fired from the same trigger.  Now all you have to do is bind custom events to your individual modules and they will never touch again.  Feel powerful yet?</p>
+myApp.controller(&#39;Ctrl2&#39;, [&#39;$scope&#39;, function ($scope) {
+    $scope.buttonClick = function () {
+        console.log(&#39;button was clicked&#39;);
+    };
+}]);</code></pre>
+<p>We obviously don&#39;t want to reference <code>Ctrl2</code> in <code>Ctrl1</code>. That is what we call &quot;tight coupling&quot; and it is a sure recipe for building an app that will  fall apart when changes are made. What we want to do is broadcast an event to let any controllers in the application know that there has been a change. That way, the controllers that are interested will react to the event, but no controller is directly communicating with any other controller. In other words, all <code>Ctrl1</code> knows is that it is broadcasting an event. All that <code>Ctrl2</code> knows is that it is listening for an event. They are completely unaware of the existence of one another.</p>
+<p>First of, we will need to modify <code>Ctrl1</code> to listen for an event. Angular gives us the ability to listen for and emit events on any module, but it won&#39;t do any good to listen for an event on the <code>$scope</code> of <code>Ctrl1</code> itself because <code>Ctrl2</code> can&#39;t send an event to it. It doesn&#39;t know that it exists. Instead, we will need to inject the $rootScope into our controller. The $rootScope is the application itself.</p>
+<p>Using the $rootScope and the <code>$on</code> method, we can listen for any events that are broadcast to the <code>$rootScope</code>.</p>
+<pre><code class="language-js">var myApp = angular.module(&#39;myApp&#39;, []);
+
+myApp.controller(&#39;Ctrl1&#39;, [&#39;$scope&#39;, &#39;$rootScope&#39;, function ($scope, $rootScope) {
+    $scope.number = 1;
+    $rootScope.$on(&#39;buttonClicked&#39;, function () {
+        $scope.number++;
+    });
+}]);</code></pre>
+<p>The <code>$on</code> event that is triggered has two arguments, the context of the event and the data that is being broadcast. This means that you could actually pass an object of data with the event.</p>
+<p>Last of all, we will need to update <code>Ctrl2</code> to broadcast an event when the button is clicked. Again, this will need to happen on the <code>$rootScope</code>.</p>
+<pre><code class="language-js">myApp.controller(&#39;Ctrl2&#39;, [&#39;$scope&#39;, &#39;$rootScope&#39;, function ($scope, $rootScope) {
+    $scope.buttonClick = function () {
+        $rootScope.$broadcast(&#39;buttonClicked&#39;);
+    };
+}]);</code></pre>
+<p>As you can see, sending messages between controllers is actually pretty simple. If you&#39;d like to see this all together, I&#39;ve created a <a href="http://jsfiddle.net/63KWh/">Fiddle</a> that you can try out. For more advanced messaging, I would recommend checking out Jonathan Creamer&#39;s article, &quot;<a href="http://jonathancreamer.com/an-angular-event-bus-with-postal-js/">An angular.js event bus with postal.js</a>&quot; where he shows how do this same thing using Postal. His approach requires another library, but it does provide a more robust API to work with.</p>
+<p>How are you handling communication between modules and controllers in Angular? I&#39;d love to hear your thoughts.</p>
 
 
     <br /><br />
@@ -122,7 +141,11 @@ $(document).trigger(&#39;my-custom-event&#39;,  [
     <h5>Tags: 
     
         <span class="label">
-            <a href="/?tag=JavaScript">JavaScript</a>
+            <a href="/?tag=angular">angular</a>
+        </span>
+    
+        <span class="label">
+            <a href="/?tag=pubsub">pubsub</a>
         </span>
     
     </h5>
