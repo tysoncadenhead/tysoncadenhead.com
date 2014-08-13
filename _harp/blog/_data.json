@@ -1,4 +1,12 @@
 {
+    "how-to-upload-remote-images-with-sails-js": {
+        "published": false,
+        "title": "How To Upload Remote Images With SailsJS",
+        "tags": ["sailsjs", "amazons3"],
+        "category": "code",
+        "date": "8-18-2014",
+        "thumbnail": "/images/blog/how-to-upload-remote-images-with-sails-js.png"
+    },
     "communicating-between-controllers-in-angular": {
         "published": true,
         "title": "Communicating Between Controllers In Angular",

@@ -347,6 +347,31 @@ article p img, .presentation-item img {
     margin-bottom: 25px;
 }
 
+.related-posts {
+    .span2 {
+        margin-left: 18px;
+        min-height: 280px;
+
+        a {
+            display: block;
+            padding: 7px;
+        }
+    }
+    .span2:first-child {
+        margin-left: 0px;
+    }
+
+    @media (max-width: 767px) {
+        .span2 {
+            width: 48%;
+            float: left;
+            min-height: 300px;
+            margin-right: 2%;
+            margin-left: 0px;
+        }
+    }
+}
+
 @media (max-width: 767px) {
     .header {
         height: auto;

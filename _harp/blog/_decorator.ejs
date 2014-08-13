@@ -1,3 +1,23 @@
+<%
+  var posts = public.blog._data;
+  var uniquePosts = Object.create(posts);
+  var numberOfPosts = Object.keys(posts).length;
+  var postAt = function (i) { return Object.keys(posts)[i]; }
+  var getRandomPost = function () {
+    var i = Math.floor(Math.random() * numberOfPosts),
+        post = postAt(i),
+        postObj = posts[post];
+    postObj.slug = post;
+    delete uniquePosts[post];
+    numberOfPosts--;
+    return postObj;
+  }
+%>
+
+<script type="text/javascript">
+var posts = <%- JSON.stringify(public.blog._data) %>;
+</script>
+
 <article>
 
     <div class="well span2 right thumbnail">
@@ -49,17 +69,31 @@
     </div>
 </div>
 
+<h3>Related Posts:</h3>
+
+<div class="span12 related-posts">
+<% for (var i = 0; i < 6; i++) { %>
+  <div class="span2 well thumbnail">
+    <% var randomPost = getRandomPost(); %>
+    <a href="/blog/<%- randomPost.slug %>"><img src="<%- randomPost.thumbnail %>" /></a>
+    <h5>
+      <a href="/blog/<%- randomPost.slug %>"><%- randomPost.title %></a>
+    </h5>
+  </div>
+<% } %>
+</div>
+
 <div class="google-things">
 
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5130799763611680"
-     data-ad-slot="1525472392"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-5130799763611680"
+       data-ad-slot="1525472392"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 
   </div>
 
