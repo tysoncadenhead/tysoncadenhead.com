@@ -94,3 +94,5 @@ React is a really cool concept. It tends to create faster and more responsive in
 On the other side of the coin, React isn't as fully featured as something like Angular. Here is a comparison of the amount of code each one requires to create a [TODO MVC application](http://www.benmccann.com/blog/todo-mvc-angular-vs-react/). Obviously, Angular is a complete library for managing front-end applications and React on focuses on the view, but it is important to note that if you use React by itself, you will end up writing more boilerplate code to glue the application together. When paired with Flux or any MV* framework, you will see the amount of boilerplate drastically reduced.
 
 I'm definitely looking forward to using React and Flux more in the future. It's a really cool and interesting approach and I've been really impressed by the responsiveness it provides. What have been your experiences with React?
+
+*edit - Many thanks to [Jim Cowart](https://twitter.com/ifandelse) for pointing out some things I said that didn't make sense. Hopefully some of the changes I made will make this a better introduction.*
