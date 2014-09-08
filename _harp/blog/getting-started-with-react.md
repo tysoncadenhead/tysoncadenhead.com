@@ -63,7 +63,7 @@ var CommentForm = React.createClass({
     }
 });
 ```
-### Flus Application Architecture
+### Flux Application Architecture
 
 Instead of the traditional data flow that you will see in MVC applications, React works best when paired with a [Flux](https://github.com/facebook/flux) architecture.
 
