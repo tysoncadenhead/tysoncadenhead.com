@@ -12,7 +12,7 @@ Here are a few things that set React apart.
 
 ### JSX
 
-React works best when it is paired with a templating library called JSX. At first glance, JSX may look a little strange. Here is an example:
+React works best when it is paired with a language extension to JavaScript called JSX. At first glance, JSX may look a little strange. Here is an example:
 
 ```
 var HelloMessage = React.createClass({
@@ -38,7 +38,7 @@ React.renderComponent(HelloMessage({name: "John"}), mountNode);
 
 If you are accustomed to writing Angular or Knockout applications, you're probably pretty familiar with the concept of two-way binding. Two-way binding is a central tenant of MVVM frameworks. It means that any data changes in the model are immediately propagated to the view or views and any changes that occur on the view are immediately propagated back to the underlying model.
 
-The creators of react argue that two-way binding is an anti-pattern. Instead, the approach with React is to bind the view to the model and then push data back into the model as needed.
+The approach with React is to bind the view to the model and then push data back into the model as needed. For more light on the subject of why React uses one-way binding instead of two-way binding, check out this discussion by [Pete Hunt](https://www.youtube.com/watch?v=h3KksH8gfcQ).
 
 Instead of data being automatically sent back to the model, you have to do the work yourself using event listeners in the JSX "markup". Here is an example of submitting a form using the `handleSubmit` event:
 
@@ -63,6 +63,25 @@ var CommentForm = React.createClass({
     }
 });
 ```
+### Flus Application Architecture
+
+Instead of the traditional data flow that you will see in MVC applications, React works best when paired with a [Flux](https://github.com/facebook/flux) architecture.
+
+The flow of a traditional MVC application would look something like this:
+
+```text
+Controller --> Model --> View
+```
+
+Whereas the flow of a Flux application would look like this:
+
+```text
+Action --> Dispatcher --> Store --> View
+```
+
+Using Flux, an action comes into the system and gets passed into the dispatcher. The dispatcher acts as a sort of traffic controller, it ensures that until the current state is rendered, another action cannot be passed into the system. The store is a data layer that updates when you get a new action, and the view, which re-render whenever the stores say something has changes. The view can throw another action into the system and restart the rendering process.
+
+Using one-way binding, the Flux architecture makes a lot more sense because everything is flowing in a single direction without any cascading effects
 
 ### Virtual DOM
 
@@ -72,6 +91,6 @@ React is very quick and responsive. It uses the virtual DOM to create a diff wit
 
 React is a really cool concept. It tends to create faster and more responsive interfaces than most of the other libraries I've worked with.
 
-On the other side of the coin, React isn't as fully featured as something like Angular. Here is a comparison of the amount of code each one requires to create a [TODO MVC application](http://www.benmccann.com/blog/todo-mvc-angular-vs-react/). Obviously, Angular is a complete library for managing front-end applications and React on focuses on the view, but it is important to note that if you use React by itself, you will end up writing more boilerplate code to glue the application together.
+On the other side of the coin, React isn't as fully featured as something like Angular. Here is a comparison of the amount of code each one requires to create a [TODO MVC application](http://www.benmccann.com/blog/todo-mvc-angular-vs-react/). Obviously, Angular is a complete library for managing front-end applications and React on focuses on the view, but it is important to note that if you use React by itself, you will end up writing more boilerplate code to glue the application together. When paired with Flux or any MV* framework, you will see the amount of boilerplate drastically reduced.
 
-I'm definitely looking forward to using React more in the future. It's a really cool and interesting approach and I've been really impressed by the responsiveness it provides. What have been your experiences with React?
+I'm definitely looking forward to using React and Flux more in the future. It's a really cool and interesting approach and I've been really impressed by the responsiveness it provides. What have been your experiences with React?
