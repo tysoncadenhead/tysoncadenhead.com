@@ -1,4 +1,12 @@
 {
+    "getting-started-with-react": {
+        "published": true,
+        "title": "Getting Started With React",
+        "tags": ["react"],
+        "category": "code",
+        "date": "9-08-2014",
+        "thumbnail": "/images/blog/react.png"
+    },
     "automatically-refresh-your-browser-when-your-code-changes-with-bowsersync": {
         "published": true,
         "title": "Automatically Refresh Your Browser When Your Code Changes With BrowserSync",
