@@ -1,4 +1,12 @@
 {
+    "new-job-at-aloompa": {
+        "published": true,
+        "title": "My New Job At Aloompa",
+        "tags": ["jobs", "life"],
+        "category": "life",
+        "date": "9-24-2014",
+        "thumbnail": "/images/blog/aloompa.png"
+    },
     "getting-started-with-react": {
         "published": true,
         "title": "Getting Started With React",
