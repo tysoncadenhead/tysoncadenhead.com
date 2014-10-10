@@ -1,4 +1,12 @@
 {
+    "testing-angular-controllers-with-karma": {
+        "published": true,
+        "title": "Testing Angular Controllers With Karma",
+        "tags": ["angular", "karma", "unit testing"],
+        "category": "code",
+        "date": "10/10/2014",
+        "thumbnail": "/images/blog/tdd.png"
+    },
     "new-job-at-aloompa": {
         "published": true,
         "title": "My New Job At Aloompa",
