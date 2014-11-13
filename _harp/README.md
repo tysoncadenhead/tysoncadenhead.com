@@ -30,3 +30,7 @@ then you can run:
 ```bash
 tyson_deploy "{Commit Message}"
 ```
+
+### Layout
+
+- [Color Scheme](http://paletton.com/#uid=35C0u0kqkjfhmrXmdnmv9eqGo9a)

@@ -40,12 +40,26 @@ requirejs([
     'viewModels/trending',
     'viewModels/code',
     'viewModels/relatedPosts',
-    'viewModels/posts'
+    'viewModels/posts',
+    'viewModels/popularPosts'
 ], function ($) {
 
     $(function () {
         $('.disabled a').click(function (e) {
             e.preventDefault();
+        });
+
+        $('#nav-toggle').click(function () {
+            var $nav = $('.navbar');
+            if($nav.height() === 1) {
+                $nav.animate({
+                    height: 180
+                });
+            } else {
+                $nav.animate({
+                    height: 1
+                });
+            }
         });
     });
     
