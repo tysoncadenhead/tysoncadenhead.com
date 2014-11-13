@@ -6,9 +6,9 @@ define([
   if ($('#popular-posts').length) {
 
     $('#popular-posts').append('<div class="popular-post"><a href="/blog/unit-testing-sails-js-applications-with-mocha"><img class="span12" src="/images/blog/unit-testing-sails-js-applications-with-mocha.jpg" /><h4>Unit Testing Sails.js Applications With Mocha</h4></a></div>');
-        $('#popular-posts').append('<div class="popular-post"><a href="/blog/cross-domain-post-delete-and-pu"><img class="span12" src="/images/blog/communication.png" /><h4>Cross-Domain Ajax Using POST, DELETE and PUT Methods</h4></a></div>');
+    $('#popular-posts').append('<div class="popular-post"><a href="/blog/cross-domain-post-delete-and-pu"><img class="span12" src="/images/blog/communication.png" /><h4>Cross-Domain Ajax Using POST, DELETE and PUT Methods</h4></a></div>');
 
-    $.ajax({
+    /*$.ajax({
       dataType: 'jsonp',
       url: 'https://disqus.com/api/3.0/threads/listPopular.json',
       data: {
@@ -31,7 +31,7 @@ define([
           $('#popular-posts').html('').append('<div class="popular-post"><a href="' + data.response[i].link + '"><img class="span12" src="' + data.response[i].image + '" /><h4>' + data.response[i].title + '</h4></a></div>');
         }
       }
-    });
+    });*/
   }
 
 });
