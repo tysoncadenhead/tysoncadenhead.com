@@ -1,11 +1,19 @@
 {
+    "angular-controller-as": {
+        "published": true,
+        "title": "Ditching $scope For ControllerAs In Angular Apps",
+        "tags": ["angular"],
+        "category": "code",
+        "date": "11/29/2014",
+        "thumbnail": "/images/blog/angular-controller-as.jpeg"
+    },
     "testing-angular-controllers-with-karma": {
         "published": true,
         "title": "Testing Angular Controllers With Karma",
         "tags": ["angular", "karma", "unit testing"],
         "category": "code",
         "date": "10/10/2014",
-        "thumbnail": "/images/blog/tdd.png"
+        "thumbnail": "/images/blog/testing-angular-controllers-with-karma.jpeg"
     },
     "new-job-at-aloompa": {
         "published": true,
