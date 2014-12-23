@@ -1,4 +1,12 @@
 {
+    "angular-promises": {
+        "published": true,
+        "title": "A Crash Course On Angular Promises",
+        "tags": ["angular", "promises"],
+        "category": "code",
+        "date": "12/22/2014",
+        "thumbnail": "/images/blog/angular-promises.png"
+    },
     "angular-controller-as": {
         "published": true,
         "title": "Ditching $scope For ControllerAs In Angular Apps",
