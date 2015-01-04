@@ -9,6 +9,40 @@
       
       <item>
         <title></title>
+        <description><![CDATA[<p>Well, it is officially a new year! I feel like every year that I&#39;ve been a JavaScript developer, there have been huge things that have happened on the library front. When it comes to a community largely driven by open-source developers, it&#39;s hard to predict what the JavaScript landscape will look like in 2015. There could be a new library or framework that gets released tomorrow that literally changes everything. However, judging by the 2014 landscape, I have put together a few predictions for 2015.</p>
+<!-- more -->
+
+<p><img width="250px" src="http://cdn.sencha.io/img/20130807-es6.png" /></p>
+<h3>ES6 Will Get Better Support</h3>
+<p>The final spec for EcmaScript 6 has been released and now it is just a matter of time before browsers offer complete support for all of the hot new JavaScript features like classes, arrow functions, native dependency injection, generators, etc.</p>
+<p>If you want to start using the next version of JavaScript now and not wait until all of the current browsers die off, you can already use a compiler like <a href="https://github.com/google/traceur-compiler">Google Traceur</a> to write with the ES6 syntax.</p>
+<p><img width="250px" src="http://mimiandeunice.com/wp-content/uploads/2011/07/ME_427_MoralImperative.png" /></p>
+<h3>Imperative Frameworks Will Continue To Dominate</h3>
+<p>Angular seemed to be a big point of discussion everywhere I went last year. Anyone who has experienced a framework like <a href="https://angularjs.org/">Angular</a>, <a href="http://emberjs.com/">Ember</a> or <a href="http://knockoutjs.com/">Knockout</a> can attest to the joy of writing imperative code. It is so much cleaner to keep the view bindings in the templates instead of the code and it makes JavaScript applications much more testable.</p>
+<p>There will be a continued emphasis on imperative MV* frameworks this year and I think there will be a lot of excitement about getting imperative frameworks to work well with ES6, especially as Angular 2.0 begins to get fleshed out.</p>
+<p><img width="250px" src="http://facebook.github.io/react/img/logo.svg" /></p>
+<h3>React and Flux Will Become Bigger</h3>
+<p>I think we&#39;ve just seen the beginnings <a href="https://facebook.github.io/react/">React</a> at this point. I still haven&#39;t written my first production-ready app in it, but just from what I&#39;ve read and seen, the structure makes a lot of sense. In one sense, a one-way binding library might seem like a step back from the ease of developing an app in something like Angular, but in another sense, keeping away from the ambiguity of two-way binding and where the data actually lives seems like a good move. I think we will see more adoption of React in the coming year and more open-source effort to create things on top of it.</p>
+<p><img width="250px" src="http://images.fineartamerica.com/images-medium-large/parallel-lines-michael-tompsett.jpg" /></p>
+<h3>The Lines Between the Client and Server Will Get Blurry</h3>
+<p>With realtime frameworks like <a href="https://www.meteor.com/">Meteor</a>, I think we will be seeing more and more ability to share modules between the client and the server-side. I&#39;m hopeful that we will keep things like server-side rendering for search engines and people with JavaScript disabled in mind, but it is definitely a difficult problem to solve. Fingers crossed for 2015.</p>
+<p><img width="250px" src="http://incitrio.com/wp-content/uploads/2014/12/mobile-apps2.jpg" /></p>
+<h3>Mobile Frameworks Will Get Better</h3>
+<p>There are already a lot of great mobile frameworks out there such as <a href="http://www.sencha.com/products/touch">Sencha Touch</a>, <a href="http://jquerymobile.com/">jQuery Mobile</a>, <a href="http://ionicframework.com">Ionic</a> and <a href="https://github.com/famous/famous">Famous</a>, but I think 2015 will see us getting new frameworks and improvements on existing libraries to make a more native experience for mobile.</p>
+<p>I am also really hopeful that we&#39;ll get some libraries that give us some less typical controls than what you might usually expect from a native experience. Currently, most of the frameworks provide pretty similar experiences and UIs. I would love to see a library or two that thinks outside of the box on the UI front.</p>
+<p><img width="250px" src="http://montyrainey.files.wordpress.com/2012/04/blog-fish-jump.jpg" /></p>
+<h3>Conclusion</h3>
+<p>Truth be told, there is no way to reliably predict what will happen in the JavaScript world this year. With probably the largest community of developers of any programming language out there, JavaScript is always an interesting community to watch. I for one am very excited to see where things go this year and how we as a group of developers can help and contribute to make working with the fantastic and quirky language of JavaScript the best experience possible.</p>
+]]></description>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
+        <link>http://www.tysoncadenhead.com/blog/what-will-javascript-be-like-in-2015</link>
+        <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/what-will-javascript-be-like-in-2015</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title></title>
         <description><![CDATA[<p>Writing complex behaviors in an asynchronous language like JavaScript can be a bit of a challenge. If you aren&#39;t careful, you can make some pretty ugly nested code in order to get things to work like you expect. To solve the problem of illegible nested callbacks, we have promises. If you are writing applications in Angular, you are in luck because Angular ships with a great promise library called &quot;Q&quot;. Today, we&#39;re going to look at a few approaches to making more readable and maintainable Angular applications with the help of the built in Q promise library.</p>
 <!-- more -->
 
@@ -136,7 +170,7 @@ function MyController ($q, $window) {
 <p>Note that the each function you are passing into the array that is the first argument of <code>$q.all</code> method needs to be wrapped in a <code>$q</code>. That might seem a little tedious, but it keeps the functions from executing without a proper callback and in turn breaking the chain.</p>
 <p>There might be a little learning curve with Angular promises, but it is well worth the effort. Promises can go a long way to make cleaner more maintainable code and I&#39;ve found that the implementation in Angular is very solid.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/angular-promises</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/angular-promises</guid>
       </item>
@@ -201,7 +235,7 @@ function MyFirstController () {
 <p>This functionally works the same as setting the controller in the template. Everything in the <code>this</code> context of the controller is namespaced to <code>myFirstCtrl</code>.</p>
 <p>I can say from my own personal experience that I ditched the use of <code>$scope</code> a few weeks ago and I haven&#39;t missed it at all. I feel good knowing that I&#39;m working towards an easier migration once Angular 2.0 is ready and my applications have honestly been much easier to read and debug.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/angular-controller-as</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/angular-controller-as</guid>
       </item>
@@ -312,7 +346,7 @@ angular.module(&#39;myApp&#39;)
 <p>Or kick it off with the build tool of your choice.</p>
 <p>In my opinion, unit testing is where dependency injection in Angular really shines through. If you have spent much time writing JavaScript tests for applications using a framework other than Angular, you probably know how much better this approach is. Happy testing!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/testing-angular-controllers-with-karma</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/testing-angular-controllers-with-karma</guid>
       </item>
@@ -333,7 +367,7 @@ angular.module(&#39;myApp&#39;)
 <p>Aloompa is a company based here in Nashville that primarily focuses on facilitating native apps for festivals like <a href="http://www.bonnaroo.com/">Bonnaroo</a> and the <a href="http://www.cmaworld.com/cma-music-festival/">CMA festival</a>. They have an awesome team and a really cool product that I&#39;m excited to be a part of.</p>
 <p>I know this is weird to say, but I can&#39;t wait to start working on Monday!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/new-job-at-aloompa</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/new-job-at-aloompa</guid>
       </item>
@@ -403,7 +437,7 @@ React.renderComponent(HelloMessage({name: &quot;John&quot;}), mountNode);</code>
 <p>I&#39;m definitely looking forward to using React and Flux more in the future. It&#39;s a really cool and interesting approach and I&#39;ve been really impressed by the responsiveness it provides. What have been your experiences with React?</p>
 <p><em>edit - Many thanks to <a href="https://twitter.com/ifandelse">Jim Cowart</a> for pointing out some things I said that didn&#39;t make sense. Hopefully some of the changes I made will make this a better introduction.</em></p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/getting-started-with-react</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/getting-started-with-react</guid>
       </item>
@@ -429,7 +463,7 @@ React.renderComponent(HelloMessage({name: &quot;John&quot;}), mountNode);</code>
 <p>BrowserSync doesn&#39;t care what backend technology you are using. I typically write in Node, but if I was using PHP or Ruby, it would work exactly the same.</p>
 <p>I have been really impressed with BrowserSync so far. Try it out, you may find yourself in a happier place.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/automatically-refresh-your-browser-when-your-code-changes-with-bowsersync</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/automatically-refresh-your-browser-when-your-code-changes-with-bowsersync</guid>
       </item>
@@ -531,7 +565,7 @@ module.exports = {
     });</code></pre>
 <p>Thanks to GraphicsMagick and the request module, downloading and resizing an image from any website using nothing more than a URL is actually not that difficult. Who would have thought?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how-to-upload-remote-images-with-sails-js</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how-to-upload-remote-images-with-sails-js</guid>
       </item>
@@ -586,7 +620,7 @@ myApp.controller(&#39;Ctrl1&#39;, [&#39;$scope&#39;, &#39;$rootScope&#39;, funct
 <p>As you can see, sending messages between controllers is actually pretty simple. If you&#39;d like to see this all together, I&#39;ve created a <a href="http://jsfiddle.net/63KWh/">Fiddle</a> that you can try out. For more advanced messaging, I would recommend checking out Jonathan Creamer&#39;s article, &quot;<a href="http://jonathancreamer.com/an-angular-event-bus-with-postal-js/">An angular.js event bus with postal.js</a>&quot; where he shows how do this same thing using Postal. His approach requires another library, but it does provide a more robust API to work with.</p>
 <p>How are you handling communication between modules and controllers in Angular? I&#39;d love to hear your thoughts.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/communicating-between-controllers-in-angular</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/communicating-between-controllers-in-angular</guid>
       </item>
@@ -642,7 +676,7 @@ myControllers.controller(&#39;MyAwesomeCtrl&#39;, [&#39;$scope&#39;, &#39;List&#
 <p>The binding of the data to the DOM is done directly in the template. Everything is totally testable and best of all we are no longer writing imperative code. Our application doesn&#39;t need to know how the elements are being updated in the DOM. The controller doesn&#39;t even care whether or not anything in the DOM is bound to it, only that data is being set in the its scope.</p>
 <p>This is the big shift that has been occurring in JavaScript application development over the past few years and it is making JavaScript a much better environment to write in. As a JavaScript developer, I think the next few years will be an exciting renaissance as we continue to move complex internals into our libraries and frameworks, which will make life for the everyday developer a lot easier.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/the-state-of-javascript-a-shift-from-imperative-to-declarative</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/the-state-of-javascript-a-shift-from-imperative-to-declarative</guid>
       </item>
@@ -709,7 +743,7 @@ myControllers.controller(&#39;MyAwesomeCtrl&#39;, [&#39;$scope&#39;, &#39;List&#
 <p>This approach is far from perfect. For one thing, you are rendering everything in the list twice. It may not be the end of the world for a short list, but if you have a ton of items complete with images or other media, you may take a performance hit. Another issue is the awkwardness of needing to write a template for the <code>&lt;li&gt;</code> tags for the server and the client. There could certainly be more room for mistake when you have to write basically the same functionality twice.</p>
 <p>If you have a better approach, I&#39;d be interested to hear it. This is the best I could come up with, but its far from ideal.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/using-knockout-for-progressive-enhancement-on-lists</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/using-knockout-for-progressive-enhancement-on-lists</guid>
       </item>
@@ -859,7 +893,7 @@ window.chairData = {
 <p>If you want to see it in action, I put together a <a href="http://jsfiddle.net/UT73F/1/">fiddle</a> showing how it works.</p>
 <p>What do you think? Is it even worth optimizing for people who have JavaScript turned off? Is there a better approach to pass non-Ajax server-side data into a client-side model? Leave a comment and tell me what you think.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/using-knockout-for-progressive-enhancement</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/using-knockout-for-progressive-enhancement</guid>
       </item>
@@ -900,7 +934,7 @@ window.chairData = {
 <p>I&#39;m sure there are a ton of things you could do in addition to this to be able to live a full life and still work on a computer, but these were just some thoughts I had on the topic.</p>
 <p>Do you think it is important to create a separation between work and non-work activities? What do you do to maintain that separation?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how_to_not_be_a_cyborg_when_you_work_on_computers</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how_to_not_be_a_cyborg_when_you_work_on_computers</guid>
       </item>
@@ -965,7 +999,7 @@ $scope.removeItem = function (data) {
 <p>If you are following along with the Github repo, <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/75d83433e1deffee62542af877a8e7dc31a3031c">this is the place that we&#39;ve gotten to</a>.</p>
 <p>Thanks for following along with this series! Now that it is over, we can get back to normal one-off posts.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/syncing-angular-with-sails</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/syncing-angular-with-sails</guid>
       </item>
@@ -1022,7 +1056,7 @@ $scope.removeItem = function (data) {
 <p>That should be enough to get us to the next post where I will talk about using Angular services to communicate with the Sails api we just created.</p>
 <p>If you are following the Github repo, we are currently at <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/89eec077b278ed12c4a18eb369e36e544e60cc84">this point</a> in the application.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/sails-models</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/sails-models</guid>
       </item>
@@ -1148,7 +1182,7 @@ $scope.removeItem = function (data) {
 <p>Next time we&#39;ll start getting real data on the app.</p>
 <p>If you want to see the point our sample app should be at by now, check out the Github repo <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/12d1e1860f0c1ae5acead7f6011059ce6b637375">at this point</a>.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/angular-controllers-with-sails-app</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/angular-controllers-with-sails-app</guid>
       </item>
@@ -1248,7 +1282,7 @@ require([
 <p>If you see that and don&#39;t get any errors, you have successfully added an angular application on top of Sails. Stay tuned next time when we make the application actually do something.</p>
 <p>If you want to see the code in action, check out the example repository <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/ffc98437c91b4bf154c9619fd50b103c9549a465">here</a>.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/adding-dependencies</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/adding-dependencies</guid>
       </item>
@@ -1408,7 +1442,7 @@ require([
 &lt;/ul&gt;</code></pre>
 <p>That is the quick rundown of Sails templates and how they work. If you want to see all of this code together, check out the repository <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/07db5eb5457b4cd2209691c5e2c32ea22c54e5f0">at this point</a>.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/server-side-views</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/server-side-views</guid>
       </item>
@@ -1442,7 +1476,7 @@ sails lift</code></pre>
 <p>That is basically all there is to creating a new Sails project. If you want to follow along, I&#39;m making a git repository to show the application we&#39;re building. We should currently be <a href="https://github.com/tysoncadenhead/sails-angular-example-app/tree/cd5eed11dd5682656c791856886785e70b60e5bd">at this point</a> in the process of building this out.</p>
 <p>In our next post, I&#39;ll show you how to add server-side views to the project. Stay tuned.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/starting_the_sails_project</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/starting_the_sails_project</guid>
       </item>
@@ -1486,7 +1520,7 @@ sails lift</code></pre>
 </ol>
 <p>This is going to be a fun series to write and I hope you have as much fun as me reading it!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/sails-ninja-intro</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/sails-ninja-intro</guid>
       </item>
@@ -1694,7 +1728,7 @@ module.exports.express = {
 <p>Okay then. Now, you can test this whole thing by running <code>sails lift</code> in your command line and going to <a href="http://localhost:1337/user/login"><a href="http://localhost:1337/user/login">http://localhost:1337/user/login</a></a>. When you click on the &quot;Login With Facebook&quot; it should authenticate and then take you to the dashboard page. If you log out and try to go to the dashboard page again without logging back in, it will actually throw an error because there is no user in the session. Not the best experience, but it shows that the user has successfully logged out and it&#39;s fairly trivial to check for the user in the session and redirect if they don&#39;t exist.</p>
 <p>So there you have it. Facebook authentication with Sails.js. Enjoy!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/using-facebook-authentication-on-a-sails-js-app</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/using-facebook-authentication-on-a-sails-js-app</guid>
       </item>
@@ -1823,7 +1857,7 @@ describe(&#39;The User Model&#39;, function () {
 });</code></pre>
 <p>As you can see, unit testing Sails applications is really easy and straightforward. As long as you are just testing the units themselves and not the framework, this approach works really flawlessly.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/unit-testing-sails-js-applications-with-mocha</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/unit-testing-sails-js-applications-with-mocha</guid>
       </item>
@@ -1863,7 +1897,7 @@ describe(&#39;The User Model&#39;, function () {
 <p>I have been really happy with harp as a solution. There are a few features I&#39;d love to see integrated, such as static paging but in the meantime, it works really well for my needs.</p>
 <p>Now, excuse me while I type &quot;tyson_deploy&quot; into my terminal...</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/deploying-harp-builds-to-github-pages</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/deploying-harp-builds-to-github-pages</guid>
       </item>
@@ -2022,7 +2056,7 @@ describe(&#39;The User Model&#39;, function () {
 <p>Basically, we&#39;re just animating the left and bottom positions of the element to slowly come to a halt.</p>
 <p>If you want to see a fiddle of the whole thing, check it out <a href="http://jsfiddle.net/tysoncadenhead/bFEU3/">here</a>. Enjoy the fun of CSS animation!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/squash-stretch-and-bounce-with-css3-animations</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/squash-stretch-and-bounce-with-css3-animations</guid>
       </item>
@@ -2118,7 +2152,7 @@ describe(&#39;The User Model&#39;, function () {
 });</code></pre>
 <p>While this example uses Backbone, it works just as well with most of the other popular frameworks. It is a great way to abstract your pub / sub calls so that you can use them when you need them to communicate messages across your application.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how-to-abstract-pub-sub-in-your-application</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how-to-abstract-pub-sub-in-your-application</guid>
       </item>
@@ -2260,7 +2294,7 @@ io.sockets.on(&#39;connection&#39;, function (socket) {
 <p>Which will output the video using the frames we&#39;ve outputted.</p>
 <p>As you can see, even if there isn&#39;t an out of the box solution to export Three JS videos from the browser, it&#39;s really not that hard. It is totally possible to make animations with JavaScript that you could put on YouTube and premier at your next nearby film festival.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/exporting-canvas-animation-to-mov</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/exporting-canvas-animation-to-mov</guid>
       </item>
@@ -2278,7 +2312,7 @@ io.sockets.on(&#39;connection&#39;, function (socket) {
 <p>My plan is to maintain this app as ko.ninja develops to use the latest advances and show how to create a well-structured application using ko.ninja.</p>
 <p>If any of this sparks your imagination, check out <a href="https://github.com/tysoncadenhead/javascript-life">JavaScript Life</a> on github.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/javascript-life-ko-ninja-example-app</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/javascript-life-ko-ninja-example-app</guid>
       </item>
@@ -2353,7 +2387,7 @@ ko.applyBindings(person, $person[0]);</code></pre>
 <p>As it turns out, jQuery works really well with Knockout as long as it is done right.</p>
 <p>If you want to see an example of this, checkout this <a href="http://jsfiddle.net/22f2z/">JSFiddle</a>.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/the-correct-way-to-use-jquery-with-knockout-js</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/the-correct-way-to-use-jquery-with-knockout-js</guid>
       </item>
@@ -2378,7 +2412,7 @@ ko.applyBindings(person, $person[0]);</code></pre>
 
 <p>I know that not every company will get on board with remote jobs. There are a lot of fears that business owners tend to have and it takes a lot of trust in your team and in your processes to pull it off. I am really lucky to be working at a company that has done such a great job at it and I hope that other places will take the plunge and reap the awesome reward.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/the-business-case-for-having-an-all-remote-organization</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/the-business-case-for-having-an-all-remote-organization</guid>
       </item>
@@ -2498,7 +2532,7 @@ Mocha or QUnit tests</li>
 
 <p>It&#39;s taken a lot of trail and error to get to the structure above, and every application will have different needs, but it serves as a good reference for me. How do you organize your Meteor apps?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how-to-organize-a-meteor-app</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how-to-organize-a-meteor-app</guid>
       </item>
@@ -2576,7 +2610,7 @@ while (cats.length &lt; i) {
 <p>In the end, the main thing is consistency. All of these options have their pros and cons, but the last thing you want is to randomly select different choices throughout a project. When you use one of these methods, make sure you know why one is better than the others.</p>
 <p>What do you think? How do you weigh the options when it comes to deciding between maintainability, performance and browser support?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/there-is-more-than-one-way-to-loop-a-cat</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/there-is-more-than-one-way-to-loop-a-cat</guid>
       </item>
@@ -2722,7 +2756,7 @@ define([
 <p>Last, we required our module using <code>inject.require()</code>. While the API does look exactly like RequireJS, it is passing the call through Squire for dependency injection instead of requiring the dependencies.</p>
 <p>Pretty cool, huh?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/dependency-injection-with-squire-and-sinon</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/dependency-injection-with-squire-and-sinon</guid>
       </item>
@@ -2765,7 +2799,7 @@ var css = ko.observable({
 console.log(css().color === &#39;red&#39;);</code></pre>
 <p>That is much better. You can spin your own abstraction layer to make testing easier or you can take advantage of framework that can handle it for you. Either way, it will make things much easier.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/dom-manipulation-is-so-early-2000s</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/dom-manipulation-is-so-early-2000s</guid>
       </item>
@@ -2854,7 +2888,7 @@ console.log(css().color === &#39;red&#39;);</code></pre>
 <p>Are you convinced yet that ko.ninja is a cool little framework? If not, what do you think it is missing that could make it better? Ko.ninja is totally open-sourced and we welcome any ideas or pull requests that might add value to the framework.</p>
 <p>Ready to get started? <a href="https://github.com/jcreamer898/ko.ninja">Add ko.ninja to your project</a> and make awesome applications today!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/ko-ninja-socket-io-model</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/ko-ninja-socket-io-model</guid>
       </item>
@@ -2904,7 +2938,7 @@ console.log(css().color === &#39;red&#39;);</code></pre>
 <p>Ready to get started? <a href="https://github.com/jcreamer898/ko.ninja">Add ko.ninja to your project</a> and make awesome applications today!</p>
 <h4><a href="/blog/ko-ninja-socket-io-model">Next Post In This Series</a></h4>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/ko-ninja-http-models</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/ko-ninja-http-models</guid>
       </item>
@@ -3042,7 +3076,7 @@ var person = new Person({
 <p>Ready to get started? <a href="https://github.com/jcreamer898/ko.ninja">Add ko.ninja to your project</a> and make awesome applications today!</p>
 <h4><a href="/blog/ko-ninja-http-models">Next Post In This Series</a></h4>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/ko-ninja-model</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/ko-ninja-model</guid>
       </item>
@@ -3173,7 +3207,7 @@ new PersonViewModel();</code></pre>
 <p>Ready to get started? <a href="https://github.com/jcreamer898/ko.ninja">Add ko.ninja to your project</a> and make awesome applications today!</p>
 <h4><a href="/blog/ko-ninja-model">Next Post In This Series</a></h4>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/ko-ninja-validation</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/ko-ninja-validation</guid>
       </item>
@@ -3280,7 +3314,7 @@ var me = new Person({
 <p>Ready to get started? <a href="https://github.com/jcreamer898/ko.ninja">Add ko.ninja to your project</a> and make awesome applications today!</p>
 <h4><a href="/blog/ko-ninja-validation">Next Post In This Series</a></h4>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/ko-ninja</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/ko-ninja</guid>
       </item>
@@ -3326,7 +3360,7 @@ var me = new Person({
 <p>It should be noted that your IP Address isn&#39;t the only way your identity can become compromised. Tor has a short list of <a href="https://www.torproject.org/download/download-easy.html.en#warning">additional steps</a> you should take to ensure your privacy.</p>
 <p>For the sake of full disclosure, I haven&#39;t gotten to the point where I use Tor all the time. It can be a little slower than hitting websites with a direct connection. But the benefits definitely outweigh the drawbacks in my opinion. I&#39;ve also taken a few more steps like switching my default search engine to <a href="http://duckduckgo.com">duckduckgo</a>, which doesn&#39;t collect browsing data like Google does. Privacy is a big thing to take on, but any small steps that you can take are probably worthwhile.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how-to-use-tor-with-chrome</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how-to-use-tor-with-chrome</guid>
       </item>
@@ -3399,7 +3433,7 @@ Meteor.autorun(function () {
 <p>If you want to add another authentication method, just install it with Meteor. The user interface itself will walk you through the necessary steps to get things set up.</p>
 <p>As you can see, authentication with Meteor is really quick and easy. In just a few minutes, you should be all set up and ready to work on the parts of your application that you care about. Yet another way that Meteor makes wasting time on tedious tasks a thing of the past!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/authentication-in-meteor</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/authentication-in-meteor</guid>
       </item>
@@ -3437,7 +3471,7 @@ Meteor.autorun(function () {
 <p>Programming is a language. Just like Spanish when you’re young is easier than when you’re older, getting a head-start on learning to program will be easier at a young age than later on.</p>
 <p>Is anyone else planning to teach programming to their kids?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/why-you-should-teach-your-kids-to-write-code</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/why-you-should-teach-your-kids-to-write-code</guid>
       </item>
@@ -3481,7 +3515,7 @@ Meteor.autorun(function () {
 <p>All of these events fire whether the user uses the <code>cmd+v/ctrl+v</code> types of keyboard shortcuts or if they select <code>edit/paste</code> from their menu. If you want to take more control over getting and setting data on the clipboard, there are some Flash hacks like <a href="https://github.com/zeroclipboard/zeroclipboard">Zero Clipboard</a> that will let you add buttons to your page to copy and paste, but then the problem is that your buttons may not work on mobile devices.</p>
 <p>These aren&#39;t necessarily JavaScript events you will need to use on a day to day basis, but they can be useful to have in your bag of tricks.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/javascript-copy-and-paste-events</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/javascript-copy-and-paste-events</guid>
       </item>
@@ -3684,7 +3718,7 @@ node server</code></pre>
 <p>Of course, one of the more interesting applications of this technology is the ability it provides for collaboration in real time. We now have the ability to write applications that give people the power to interact with content seamlessly. Socket.io has the ability to bring people together in a way that no other coding technology ever has. And at the end of the day, isn&#39;t bringing people together what good technology is all about?</p>
 <p><a href="https://github.com/tysoncadenhead/socket.io-chat-demo">Download the full demo on GitHub</a></p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/getting-started-with-socket-io</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/getting-started-with-socket-io</guid>
       </item>
@@ -3754,7 +3788,7 @@ friends.find({ firstName: &#39;Elmer&#39; }).fetch();</code></pre>
 <p>Meteor also adds a <code>deny</code> method to the collection that works exactly the opposite of allow. If the method in deny returns true, the client is not allowed to write data to the server.</p>
 <p>So, that covers the basics of dealing with Meteor data. As you can see, Meteor makes working with data fun again. Cool, huh?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/working-with-meteor-data</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/working-with-meteor-data</guid>
       </item>
@@ -3789,7 +3823,7 @@ friends.find({ firstName: &#39;Elmer&#39; }).fetch();</code></pre>
 <p>In the same way, we need to train the non-developers we work with, such as management, clients and project managers about the importance of covering everything with tests. If they get why it is important, they will be more willing to see us invest time on the front-end to keep our products working better.</p>
 <p>Most importantly, we need to re-educate ourselves. This isn&#39;t necessarily just about mentally understanding why TDD is so important, but about retraining ourselves to habitually write tests first. The experts say that it takes 30 days to develop a new habit, so why don&#39;t we get started today? Maybe by this time next month, you won&#39;t even have to think about it anymore.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/why-is-test-driven-development-so-hard</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/why-is-test-driven-development-so-hard</guid>
       </item>
@@ -3854,7 +3888,7 @@ if (Meteor.isServer) {
 <p>We can also add any parameters that we want to pass into our template on the <code>Template.hello</code> object. For example, there is a greeting defined in our JavaScript file that will be rendered in our &quot;hello&quot; template.</p>
 <p>That is the basic setup for Meteor. In my blog post next week, I&#39;ll show you how you can deal with data in Meteor.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/getting-started-with-meteor</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/getting-started-with-meteor</guid>
       </item>
@@ -3933,7 +3967,7 @@ if (Meteor.isServer) {
 }</code></pre>
 <p>You should never have to worry about where the sprite image is located or what the background position is for any of your sprite images - Compass will manage that for you. Generating sprites with Compass is simple, straightforward, and best of all, maintainable.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/creating-sprites-with-compass</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/creating-sprites-with-compass</guid>
       </item>
@@ -3961,7 +3995,7 @@ if (Meteor.isServer) {
 <p><img src="/images/blog/sublime-grunt3.jpg" alt="Running a build"></p>
 <p>To test it out, run <code>cmd+B</code> in Sublime. It should kick off Grunt and run your build like normal. Any messages will be spit out into your sublime console.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how-to-build-grunt-from-sublime-text</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how-to-build-grunt-from-sublime-text</guid>
       </item>
@@ -3982,7 +4016,7 @@ if (Meteor.isServer) {
 <p>In short, this book was not a book about how to use jQuery, but someone could easily walk away from reading it with the knowledge to create their own jQuery-like library. The techniques employed in Secrets of the JavaScript Ninja could easily be used in any JavaScript development, whether you are building a library or just an application. It has probably been the single most helpful JavaScript book I have read.</p>
 <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=tysolloycade-20&o=1&p=8&l=as1&asins=193398869X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=111111&bc1=EFEEEE&bg1=EFEEEE&f=ifr" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/secrets-of-the-javascript-ninja</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/secrets-of-the-javascript-ninja</guid>
       </item>
@@ -4063,7 +4097,7 @@ grunt.loadNpmTasks(&#39;grunt-contrib-watch&#39;);</code></pre>
 <p>Anytime you change a file in your <code>/scss</code> directory, it will be compressed and outputted into your <code>/public/css</code> directory.</p>
 <p>With Compass building CSS as a part of your Grunt watch task, you will have one less process to keep running in your terminal. Automatically compiling SASS files is definitely something to grunt about!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/compiling-sass-and-compass-with-grunt</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/compiling-sass-and-compass-with-grunt</guid>
       </item>
@@ -4085,7 +4119,7 @@ grunt.loadNpmTasks(&#39;grunt-contrib-watch&#39;);</code></pre>
 <pre><code class="language-javascript">poet.watch(poet.clearCache);</code></pre>
 <p>Now every time a blog post is changed, the clearCache method is fired, which means that the blog posts will always be up to date. It wasn&#39;t the most challenging thing to do, but it definitely made writing blog posts much more enjoyable.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how-can-you-see-the-latest-poet-js-posts-without-restarting-the-server</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how-can-you-see-the-latest-poet-js-posts-without-restarting-the-server</guid>
       </item>
@@ -4108,7 +4142,7 @@ grunt.loadNpmTasks(&#39;grunt-contrib-watch&#39;);</code></pre>
 <p>Sencha Architecture App Development is a really useful book that I wish I had read a long time ago. It packs in really useful tidbits that can make anyone a proficient user of Sencha Architect.</p>
 <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tysolloycade-20&o=1&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=1782169814" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/sencha-architect-app-development</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/sencha-architect-app-development</guid>
       </item>
@@ -4152,7 +4186,7 @@ poet.init().then(function () {
   &quot;category&quot;: &quot;javascript&quot;,
   &quot;date&quot;: &quot;7-5-2013&quot;</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/poet-js</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/poet-js</guid>
       </item>
@@ -4207,7 +4241,7 @@ poet.init().then(function () {
 <p>Simply pass in the name of the package and the path to the repository on GitHub.</p>
 <p>Needless to say, I&#39;m a big fan of Bower. Has anyone else been using Bower or something like it to manage third-party libraries on the client-side?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/client-side-dependency-management-with-bower</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/client-side-dependency-management-with-bower</guid>
       </item>
@@ -4227,7 +4261,7 @@ poet.init().then(function () {
 <pre><code>my-time: 1617.349ms</code></pre>
 <p>You can have up to 10,000 timers running at the same time, but you probably would be hard pressed to find a reason to be logging 10,000 unique times at once.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/logging-time-on-the-developer-console</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/logging-time-on-the-developer-console</guid>
       </item>
@@ -4258,7 +4292,7 @@ poet.init().then(function () {
 <p><img src="/images/blog/jscover2.png" alt="JSCover Results"></p>
 <p>As you can tell, JSCover is a really useful tool to know how awesome and unbreakable your application is. I have been really impressed with it.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/javascript-test-coverage-with-jscoverage</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/javascript-test-coverage-with-jscoverage</guid>
       </item>
@@ -4297,7 +4331,7 @@ var myName = amplify.store(&#39;name&#39;);
 console.log(myName); // undefined</code></pre>
 <p>Working cross-browser with amplify store is really that easy. Just think, you could have wasted time rolling your own abstraction layer. With all of that time I&#39;ve saved you, maybe you can have a chance to read a few more of my blog posts.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/localstorage-with-amplify-js</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/localstorage-with-amplify-js</guid>
       </item>
@@ -4319,7 +4353,7 @@ console.log(myName); // undefined</code></pre>
 <pre><code class="language-bash">forever stopall</code></pre>
 <p>It&#39;s a thing of beauty!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/running-node-applications-continuously-with-foreverjs</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/running-node-applications-continuously-with-foreverjs</guid>
       </item>
@@ -4347,7 +4381,7 @@ console.log(myName); // undefined</code></pre>
 <p>In an application, you need plenty of users working with your product on a daily basis. Otherwise you will never know what is needed to move the product forward.</p>
 <p>I&#39;m sure there are a ton of other parallels between growing food and writing software. Can anyone think of any others?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/gardening-for-web-developers</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/gardening-for-web-developers</guid>
       </item>
@@ -4408,7 +4442,7 @@ console.log(myName); // undefined</code></pre>
 <p>So, far I&#39;ve used this to generate language files for <a href="http://ckeditor.com/">CKEditor</a> plugins and to generate language files for use with <a href="http://i18next.com/">i18next</a>. The ability to put a template around the contents of the file should make this easily work with any project.</p>
 <p>What do you think?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/bing-translate-a-new-grunt-task-to-internationalize-your-apps-programmatically</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/bing-translate-a-new-grunt-task-to-internationalize-your-apps-programmatically</guid>
       </item>
@@ -4460,7 +4494,7 @@ console.log(myName); // undefined</code></pre>
 <p><br /><br />
 Getting good test coverage on your application is not a small undertaking, but I have found that it actually saves time in the long-run, because it keeps you from breaking things in the process of fixing other things.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/what-should-i-test-when-i-write-software</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/what-should-i-test-when-i-write-software</guid>
       </item>
@@ -4506,7 +4540,7 @@ Getting good test coverage on your application is not a small undertaking, but I
 <p>I&#39;d be interested to see what other people think of this little jQuery plugin and whether anyone is able to find practical uses for it.</p>
 <p>If you&#39;d like to check it out, <a href="https://github.com/tysoncadenhead/jquery.jsonTemplate">here is the project on Github</a>.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/jquery-jsontemplate</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/jquery-jsontemplate</guid>
       </item>
@@ -4534,7 +4568,7 @@ Getting good test coverage on your application is not a small undertaking, but I
 </ul>
 <p>As you should be able to see, college is probably not the right choice for an aspiring developer. Sure, there are some companies that require a bachelor&#39;s degree, but the vast majority would prefer four years of real-world experience to the insulated learning environment that a college provides. If you are able to land your first tech job, nobody will ever even notice whether or not you have a college degree listed on your resume. Learning to write code well is going to require a lot of hard work, but college is hard work too. In the end, you have to ask yourself what it costs compared to what you have to show for it in the end.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/do-you-need-a-college-degree-to-be-a-web-developer</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/do-you-need-a-college-degree-to-be-a-web-developer</guid>
       </item>
@@ -4549,7 +4583,7 @@ Getting good test coverage on your application is not a small undertaking, but I
 <p><strong>Update:</strong></p>
 <p>Now that the presentation is over, you can see my slides <a href="http://slid.es/tysoncadenhead/compoundjs">here</a>.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/compound-js-presentation-in-nashville</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/compound-js-presentation-in-nashville</guid>
       </item>
@@ -4574,7 +4608,7 @@ Getting good test coverage on your application is not a small undertaking, but I
 <p>The 10th chapter shows how you can even use Sencha Touch to create a functional mobile game. It also provides some great insights into how the Sencha Touch controller can be used.</p>
 <p>This is a really helpful book whether you are just starting out with Sencha Touch, or if you have been using it for a while, but would like to improve your skillset. If you have already been using Sencha Touch, you may want to skip over the first few chapters, but there is still plenty to learn in this book.</p>
 <iframe src="http://rcm.amazon.com/e/cm?lt1=_blank&amp;bc1=EFEEEE&amp;IS2=1&amp;bg1=EFEEEE&amp;fc1=000000&amp;lc1=111111&amp;t=tysolloycade-20&amp;o=1&amp;p=8&amp;l=as1&amp;m=amazon&amp;f=ifr&amp;ref=tf_til&amp;asins=1849518904" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/creating-mobile-apps-with-sencha-touch-2</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/creating-mobile-apps-with-sencha-touch-2</guid>
       </item>
@@ -4630,7 +4664,7 @@ people.sync();
 console.log(people.data.all); // [{ ... }]</code></pre>
 <p>If you run that in Chrome and look under &quot;Local Storage&quot;, you will see that the record has been added. The data will be maintained in the user&#39;s browser unless they clear it. Syncing Sencha Touch apps with local storage is literally that easy.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/using-local-storage-in-sencha-touch-2-2</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/using-local-storage-in-sencha-touch-2-2</guid>
       </item>
@@ -4702,7 +4736,7 @@ ko.applyBindings(new RandomNumberViewModel());</code></pre>
 ko.applyBindings(new RandomNumberViewModel());</code></pre>
 <p>Knockout is a pretty awesome tool. The observables really make it useful for building complex single-page apps. I&#39;m looking forward to digging deeper into the framework in the near future.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/knockout-observables</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/knockout-observables</guid>
       </item>
@@ -4772,7 +4806,7 @@ npm install passport-facebook</code></pre>
 <pre><code class="language-html4strict">&lt;a href=&quot;/auth/facebook&quot;&gt;Login with Facebook&lt;/a&gt;</code></pre>
 <p>Has anyone else been working with Compound-Passport? My experience has been that even though the integration is fairly straightforward, the documentation is spotty enough that it isn&#39;t as easy to do as it should be. What has your experience been?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/authentication-with-compound-passport</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/authentication-with-compound-passport</guid>
       </item>
@@ -4819,7 +4853,7 @@ npm install passport-facebook</code></pre>
 <p>Thrill will typically do fine running your existing QUnit or Mocha tests right out of the box.</p>
 <p>I&#39;ve been really happy with Thrill so far. It requires very little configuration and it just works. Have you tried Thrill.js yet? What do you think of it?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/unit-testing-with-thrill-js</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/unit-testing-with-thrill-js</guid>
       </item>
@@ -4893,7 +4927,7 @@ describe(&quot;Open the webpage&quot;, function () {
 <p>As you can see, using the executeAsyncScript() method can be invaluable.</p>
 <p>Have you played around with the Node Selenium WebDriver yet? What do you think of it?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/executeasyncscript-in-selenium-webdriver-for-node</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/executeasyncscript-in-selenium-webdriver-for-node</guid>
       </item>
@@ -4934,7 +4968,7 @@ describe(&quot;Open the webpage&quot;, function () {
 <p>The above snippet will map to the &quot;home&quot; method of the pages controller.</p>
 <p>The Compound routing is very robust, so you may need to read through the documentation to see everything that it can do for you.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/compoundjs-routes</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/compoundjs-routes</guid>
       </item>
@@ -5013,7 +5047,7 @@ describe(&quot;Open the webpage&quot;, function () {
 
 <p>There are tons of great productivity tools out there and I&#39;ve only listed the ones that work best for me. What do you use to stay on track and get things done?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/what-are-the-best-productivity-apps-for-osx</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/what-are-the-best-productivity-apps-for-osx</guid>
       </item>
@@ -5060,7 +5094,7 @@ npm install</code></pre>
 <p>If this introduction is useful to anyone, I&#39;d love to expand on it and get deeper into more advanced aspects of how Compound actually works.</p>
 <p>Is anyone else using Compound for application development? What have your experiences been with it?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how-do-yo-make-a-compoundjs-app</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how-do-yo-make-a-compoundjs-app</guid>
       </item>
@@ -5210,7 +5244,7 @@ module.exports = pluginFactory;</code></pre>
 <p>There is really no limit to what you can do with Anvil plugins, so go fourth and conquer.</p>
 <p>If you use this tutorial to create an awesome Anvil plugin, please let me know. I&#39;d love to hear about it!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how-do-you-write-an-anvil-js-plugin</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how-do-you-write-an-anvil-js-plugin</guid>
       </item>
@@ -5298,7 +5332,7 @@ $ps.each(function () {
 <p>Obviously, using $.map on an array of dom elements is not the best way to loop over them, but it is interesting  to see that it actually does work.</p>
 <p>JQuery&#39;s map method is useful in many circumstances. It helps to simplify code. Anything that makes code more simple and readible is always worth doing.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/what-is-jquery-map</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/what-is-jquery-map</guid>
       </item>
@@ -5331,7 +5365,7 @@ $ps.each(function () {
 <p>The thing that motivates me the most when my focus is waining is to think about how I will feel at the end of the day. If I let myself get easily distracted, I will accomplish less, feel less fulfilled and inevitably be exhausted at the end of the day. If I focus to the best of my ability, I will accomplish more, I will feel more fulfilled and though I might be tired at the end of the day, it will a good kind of exhaustion. I would rather feel that way any day.</p>
 <p>What do you do to stay focused and get the most out of your time? Do you use any productivity software that has become an invaluable part of your work-stream?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/getting-the-most-out-of-your-time</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/getting-the-most-out-of-your-time</guid>
       </item>
@@ -5409,7 +5443,7 @@ $ps.each(function () {
 }</code></pre>
 <p>Finally, restart your Apache server. You should have a different database connection for <a href="http://teatyson.loc">http://teatyson.loc</a> and <a href="http://mydogarthur.com">http://mydogarthur.com</a>. Since everything, including the theme is driven from the database, you can easily serve up completely different content from each domain.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/hosting-multiple-websites-on-the-same-wordpress-installation</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/hosting-multiple-websites-on-the-same-wordpress-installation</guid>
       </item>
@@ -5433,7 +5467,7 @@ $ps.each(function () {
 <p>Backbone layout manager is a layout and template manager for Backbone. It is designed to make dealing with the Backbone.View logical and simple</p>
 <p>I&#39;ve doubtlessly failed to mention even a fraction of the amazing Backbone plugins. What are some of your favorites?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/top-10-backbone-plugins</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/top-10-backbone-plugins</guid>
       </item>
@@ -5554,7 +5588,7 @@ define([
 <p>In the next few weeks, I&#39;m going to expand this discussion to address how this same concept can be applied to create a fully functional Backbone app that also shares models and collections between the client-side and the server-side. The main thing to remember when we are taking this approach is to not include anything that is sensitive in the public folder. If people can read your source code, they probably will.</p>
 <p>Has anyone else experimented with sharing code between the Node and the browser? What are your thoughts on it?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/how-can-i-share-ejs-templates-between-the-client-side-and-the-server-side</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/how-can-i-share-ejs-templates-between-the-client-side-and-the-server-side</guid>
       </item>
@@ -5690,7 +5724,7 @@ _.fire(things, function (data) {
 <p>As you can see, using underscore fire requires significantly less code and is very readable. It&#39;s available on <a href="https://github.com/tysoncadenhead/underscore-fire">GitHub</a> and <a href="https://npmjs.org/package/underscore-fire">NPM</a> and the only dependency is either <a href="http://underscorejs.com">Underscore</a> or <a href="http://lodash.com/">Lodash</a>.</p>
 <p>Check out the readme on Github to see what it can do. Let me know what you think.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/underscore-fire</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/underscore-fire</guid>
       </item>
@@ -5716,7 +5750,7 @@ _.fire(things, function (data) {
 <p>I love accomplishing goals. I usually make sub-goals on a weekly basis that help me to accomplish my long-term goals.</p>
 <p>What goals do you have for the new year?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/resolutions-2013</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/resolutions-2013</guid>
       </item>
@@ -5730,7 +5764,7 @@ _.fire(things, function (data) {
 
 <p><img src="/images/blog/charts2.png" alt="JQuery ToastChart"></p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/off-the-charts-jquery-toastchart-plugin</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/off-the-charts-jquery-toastchart-plugin</guid>
       </item>
@@ -5748,7 +5782,7 @@ _.fire(things, function (data) {
 <p><img src="/images/blog/standingdesk3.jpg" alt="Standing Desk"></p>
 <p>I was able to install the desk for under $40 in less than two hours. So far it has been perfect for my needs although I am brainstorming some ways to make my monitors more eye-level so I don&#39;t need to look down, which can be bad for your shoulders and upper-back. I think 4 to 6 inches higher would be perfect.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/my-new-standup-desk</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/my-new-standup-desk</guid>
       </item>
@@ -5767,7 +5801,7 @@ _.fire(things, function (data) {
 
 <p>In order to make the process of cross-domain Ajax calls easier, I&#39;ve written a jQuery plugin that allows you to put an HTML proxy on both your request domain and your response domain.  All of the tricky details are taken care of.  Check out the <a href="https://github.com/tysoncadenhead/jquery-ajaxproxy">GitHub Repo</a> to get started.  I&#39;ve also created a <a href="http://sandbox1.tysonlloydcadenhead.com/ajaxproxy/example.html">live demo</a> of the jQuery Ajax Proxy that shows how you can use GET, POST, PUT and DELETE across domains.  Let me know what you think.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/cross-domain-post-delete-and-pu</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/cross-domain-post-delete-and-pu</guid>
       </item>
@@ -5789,7 +5823,7 @@ _.fire(things, function (data) {
 </ul>
 <p>Those are all the ones I can think of at the moment.  Is there any interest in seeing one or more of those?  Just leave a comment and let me know.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/open-sourcing-some-javascript-libraries</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/open-sourcing-some-javascript-libraries</guid>
       </item>
@@ -5806,7 +5840,7 @@ _.fire(things, function (data) {
 <p>You get a taste of everything from video and audio and their current limitations to the canvas and the new HTML5 input types and attributes.  This book made me excited to be in the web development space because there is so much growth happening and there is sure to be a lot more to come soon.  It wasn&#39;t terribly heavy on JavaScript, which is always disappointing to me, but there are some examples of how to accomplish backwards compatibility for native HTML5 behavior using my favorite scripting language.</p>
 <p>I would recommend this book to any front-end developer wanting to cut their teeth on some more cutting-edge experiences.  It made me want to go out and write a JavaScript library to ensure backwards compatibility so we can use more HTML5 form types now, and in my book, anything that makes me want to write JavaScript was worth my time.  Unfortunately, that means that everything is worth my time.</p>
 <iframe src="http://rcm.amazon.com/e/cm?lt1=_blank&amp;bc1=FFFFFF&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=111111&amp;t=tysolloycade-20&amp;o=1&amp;p=8&amp;l=as1&amp;m=amazon&amp;f=ifr&amp;ref=qf_sp_asin_til&amp;asins=0984442502" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/book-review-html5-for-web-designers</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/book-review-html5-for-web-designers</guid>
       </item>
@@ -5835,7 +5869,7 @@ _.fire(things, function (data) {
 <p>Login credentials should be passed as infrequently as possible to avoid being compromised.  The best case scenario is to have an authentication method that passes back a session token that is maintained on the server-side for an allotted amount of time.  Once the session token is expired, the user has to log in again.  That way, the authentication information such as a username and password are only passed to the server once.</p>
 <p>There are definitely more important aspects to creating a successful API, but the basis of most of them are clarity and future-proofing.  If the API is easy to change from a server-side perspective and a client-side perspective and everything makes sense, everyone will be happier and the development process will be easier.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/writing-a-good-api</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/writing-a-good-api</guid>
       </item>
@@ -5880,7 +5914,7 @@ $(&#39;#googleLink&#39;).bind(&#39;click&#39;, function () {
 &lt;/script&gt;</code></pre>
 <p>As you can see, it&#39;s fairly easy to detect popup blockers and react to them.  Be careful with your new-found power.  If I haven&#39;t made myself clear, there&#39;s nothing worse than a site with a bunch of popups.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/detecting-javascript-popup-blockers</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/detecting-javascript-popup-blockers</guid>
       </item>
@@ -5910,7 +5944,7 @@ $(&#39;#googleLink&#39;).bind(&#39;click&#39;, function () {
 </ul>
 <p>What do you think?  Do JavaScript libraries need an abstraction layer?  You tell me.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/do-javascript-libraries-need-an-abstraction-layer</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/do-javascript-libraries-need-an-abstraction-layer</guid>
       </item>
@@ -5954,7 +5988,7 @@ $(&#39;#googleLink&#39;).bind(&#39;click&#39;, function () {
 <pre><code class="language-javascript">myData = myData.parseCFJSON();</code></pre>
 <p>There you go... easy as pie!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/parsing-coldfusion-json-on-the-client-side</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/parsing-coldfusion-json-on-the-client-side</guid>
       </item>
@@ -6029,7 +6063,7 @@ $(&#39;#googleLink&#39;).bind(&#39;click&#39;, function () {
 <p>The model above is much larger than it could be, but all of the type-conversion and storing to local memory are now happening at the data level where it should be rather than being misplaced in the controller or the view.</p>
 <p>I have to admit, I&#39;ve only been thinking this direction for a few days when it comes to the client-side, but it has radically changed my viewpoint on what I think the model should actually be doing in an Ajax application.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/fat-models-and-skinny-controllers-in-javascript</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/fat-models-and-skinny-controllers-in-javascript</guid>
       </item>
@@ -6094,7 +6128,7 @@ round-corner-5px-radius large-text&quot;&gt;
 <p>Of course, the example above doesn&#39;t provide for every possible senario with the CSS3 gradient, but it served the needs for the project I was working on at the time.</p>
 <p>As you can see, SASS can be a real life-saver as stylesheets get more and more complex and the need for browser-specific declarations becomes more of a reality in the ever-changing world of web development.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/making-browser-specific-css-less-intrusive-with-sass</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/making-browser-specific-css-less-intrusive-with-sass</guid>
       </item>
@@ -6122,7 +6156,7 @@ round-corner-5px-radius large-text&quot;&gt;
 <p>JavaScript is a very flexible language, but some choices are better than others.  There are sites out there outlining things not to do with JavaScript, so read up on them and avoid bad choices like using the eval() function or creating functions inside of a loop.  You can do better than that!</p>
 <p>This just skims the surface, but I hope that it helps to start thinking in the direction of writing JavaScript for speed.  Your users will appreciate it!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/writing-javascript-for-speed</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/writing-javascript-for-speed</guid>
       </item>
@@ -6158,7 +6192,7 @@ $(document).trigger(&#39;my-custom-event&#39;,  [
 ]);</code></pre>
 <p>You should now see two separate alerts fired from the same trigger.  Now all you have to do is bind custom events to your individual modules and they will never touch again.  Feel powerful yet?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/jquery-event-listening</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/jquery-event-listening</guid>
       </item>
@@ -6181,7 +6215,7 @@ $(document).trigger(&#39;my-custom-event&#39;,  [
 <p>There are a lot of examples like that where we can use future enhancement to prepare for whatever the future might hold without breaking the internet for users with older browsers.  We can also use browser detection and provide JavaScript alternatives for things like the input field&#39;s <a href="http://forrst.com/posts/Alternative_label_placeholder-Oih">placeholder attribute</a> even for the old browsers that don&#39;t support it natively.</p>
 <p>The point here is that HTML5 is coming and in some respects HTML5 is already here.  We can either keep writing the same markup that our parents wrote, or we can prepare for the future by writing the markup our children will be proud of.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/writing-markup-for-future-enhancement</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/writing-markup-for-future-enhancement</guid>
       </item>
@@ -6207,7 +6241,7 @@ $(document).trigger(&#39;my-custom-event&#39;,  [
 <p>I try to break my code into small modules that absolutely never call each other.  In practice, the modules should never even be aware of each others existence.  That way if something changes in one module, it will never effect the other modules.  When a module does make a change that everyone should be aware of, it announces it to the application.  The modules that are listening for that particular event react to it. Again, modules should never be aware of each other.</p>
 <p>These are a good starting point.  What do you do to make your JavaScript applications scalable?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/what-does-a-successful-ajax-application-need</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/what-does-a-successful-ajax-application-need</guid>
       </item>
@@ -6224,7 +6258,7 @@ $(document).trigger(&#39;my-custom-event&#39;,  [
 <p>Loose It, on the other hand has a very intuitive interface, both on the app and on their website.  It&#39;s so easy that my mom can use it, and she does.  But it&#39;s also an excellent tool for the tech-savy person whose idea of getting out in nature is moving their desk in front of the window.</p>
 <p>What do you do to stay in shape in the world of technology?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/web-developers-and-health</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/web-developers-and-health</guid>
       </item>
@@ -6259,7 +6293,7 @@ var myString = &#39;This is a string that contains &amp;lt;a href=&quot;myLink.h
 overrideLink(&#39;myFunctionName&#39;, myString);</code></pre>
 <p>I&#39;m still pretty new to Regex, so there may well be a better way to do this.  If you know of one, don&#39;t hesitate to put me in my place.  Enjoy!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/replacing-href-attributes-with-onclick-events-with-regex</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/replacing-href-attributes-with-onclick-events-with-regex</guid>
       </item>
@@ -6287,7 +6321,7 @@ overrideLink(&#39;myFunctionName&#39;, myString);</code></pre>
 <p>I&#39;m not here to give a lesson on graphic design, but if something is important, like a call to action, it should stand out.  The user needs to be drawn to it.  Once you start emphasizing what is extremely important, you may find that some of the less important things can be cut.</p>
 <p>Nobody is going to leave you interface or website because it is too simple.  However, if your interface is too hard too use, it will probably only take a few short seconds for your users to leave and never return.  If you want to give your users a rewarding experience with your application, you just may have to clean your house.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/dont-be-a-user-interface-hoarder</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/dont-be-a-user-interface-hoarder</guid>
       </item>
@@ -6306,7 +6340,7 @@ overrideLink(&#39;myFunctionName&#39;, myString);</code></pre>
 <p>jQuery Mobile is definitely easier to apply to an existing mobile site.  It provides great progressive enhancement though it&#39;s smooth transitions and smart navigation.  However, I would feel very limited with it if I was trying to write a sophisticated application.</p>
 <p>What are your thoughts?  Have you used jQuery Mobile or Sencha Touch?  Which do you prefer and why?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/jquery-mobile-vs-sencha-touch</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/jquery-mobile-vs-sencha-touch</guid>
       </item>
@@ -6349,7 +6383,7 @@ var getClass = new MyClass();
 getClass.alert();</code></pre>
 <p>Obviously, this isn&#39;t going to instantly fix all of the coding issues in the world, but follow these guidelines and your code <em>will</em> be just a little more legible!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/javascript-variable-casing-best-practices</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/javascript-variable-casing-best-practices</guid>
       </item>
@@ -6381,7 +6415,7 @@ getClass.alert();</code></pre>
 <p>There are definitely some uses for script loaders, but I don&#39;t think  the use of them or the lack of them is going to make or break a web  application anytime soon.</p>
 <p>﻿</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/script-loaders</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/script-loaders</guid>
       </item>
@@ -6395,7 +6429,7 @@ getClass.alert();</code></pre>
 
 <p>My plan is to restart this series when the new version of EXT comes out next year. I&#39;m sorry for the false start here, but I really think this will be even better this way.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/putting-ext-mvc-on-hold</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/putting-ext-mvc-on-hold</guid>
       </item>
@@ -6444,7 +6478,7 @@ getClass.alert();</code></pre>
 <p>Remember that the Config file is always included first.  Basically all we are doing here is creating objects to hold all of our data in.  The model will do all of the Ajax calls, the view will do display code, the controllers will do event listening, the functions will hold reusable functions for the application and the config object will hold global variables.  Notice that we have a Flickr object in the view object.  Typically any controller that you create will need to have a matching view object to hold all of it&#39;s views in.  More on that later.</p>
 <p>The next post in this series will be about building the Application.js file, which is where the fun really begins.  See you then!</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/mvc-and-extjs-–-2-config</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/mvc-and-extjs-–-2-config</guid>
       </item>
@@ -6461,7 +6495,7 @@ getClass.alert();</code></pre>
 <p><img src="/images/blog/1-folder.jpg" alt="Directory"></p>
 <p>You will never directly manipulate the production folder, it is going to be a combination of all of your JavaScript files compressed with YUI or Google Closure.  As far as the files under development, you will be working with them.  My next entry will be about setting up your Config.js (and Application.js if I get to it.)</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/mvc-and-extjs-1-introduction</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/mvc-and-extjs-1-introduction</guid>
       </item>
@@ -6487,7 +6521,7 @@ getClass.alert();</code></pre>
 &lt;/html&gt;</code></pre>
 <p>As you can see, the secret is to use a body onload function to encapsulate the Ext.onReady function so that it doesn&#39;t fire until the body is loaded.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/sencha-loading-in-the-iphone-4g</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/sencha-loading-in-the-iphone-4g</guid>
       </item>
@@ -6553,7 +6587,7 @@ MyFirstFunction();
 MySecondFunction();</code></pre>
 <p>Any questions?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/javascript-variables-accessibility</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/javascript-variables-accessibility</guid>
       </item>
@@ -6661,7 +6695,7 @@ MyApplication = Ext.Extend(Ext.Panel, {
 application = new MyApplication();
 application.render(document.body);</code></pre>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/sencha-application-event-listening</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/sencha-application-event-listening</guid>
       </item>
@@ -6690,7 +6724,7 @@ application.render(document.body);</code></pre>
 </ul>
 <p>These are my thoughts on the subject.  Can you think of any arguments for or against using JavaScript frameworks?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/should-i-use-a-javascript-framework</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/should-i-use-a-javascript-framework</guid>
       </item>
@@ -6730,7 +6764,7 @@ application.render(document.body);</code></pre>
 });</code></pre>
 <p>As you can see, with the jQuery library, it&#39;s really not hard at all to create an experience that is user-friendly and optimized for search engines.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/seo-safe-links-with-an-ajax-callback</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/seo-safe-links-with-an-ajax-callback</guid>
       </item>
@@ -6755,7 +6789,7 @@ application.render(document.body);</code></pre>
 <p>I could go on and on about JavascriptMVC, and I just may end up doing that in the future.  It is incredible, after all.  It&#39;s built around jQuery, so most of the conventions should be familiar to the vast majority of JavaScript people.</p>
 <p>I would encourage you to download it and give it a try.  There is a bit of a learning curve, but there is documentation as well as an introductory video on the <a href="http://javascriptmvc.com">JavaScriptMVC</a> website to get you going.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/javascriptmvc</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/javascriptmvc</guid>
       </item>
@@ -6782,7 +6816,7 @@ application.render(document.body);</code></pre>
 <p><img src="/images/blog/javascriptarchitecture2.jpg" alt="Illustration"></p>
 <p>As always, I&#39;m only skimming the surface of this topic.  I will try to revisit it soon.  How do you architect your Javascript applications?</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/javascript-architecture</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/javascript-architecture</guid>
       </item>
@@ -6807,7 +6841,7 @@ application.render(document.body);</code></pre>
 <p>Last of all, never target a page to open in a new window unless it is on a different website.  For example, if your website is linking to a video on YouTube, open it in a new window.  If it is linking to another page on your site, keep it in the same window.  I should say though, that there are two separate schools of though on this one.  Some people say that you should never target a new window because it interferes with the user&#39;s browsing experience.  If they don&#39;t realize that a new window or tab has been opened, they may attempt to use the back button on their browser and be unable to return to your page not knowing that it was actually never accessed in their current window.  So, use the target=&quot;_blank&quot; attribute or it&#39;s JavaScript equivalent at your own risk.</p>
 <p>I hope I&#39;ve covered some of the basics for user experience when it comes to links.  If you have any questions, comments or corrections, don&#39;t hesitate to let me know.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/links-and-user-experience</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/links-and-user-experience</guid>
       </item>
@@ -6828,7 +6862,7 @@ application.render(document.body);</code></pre>
 <p>User interface development ties in closely with user experience development in that the user is the end-goal in both situations, which means that simplicity in design is paramount.</p>
 <p>I&#39;m looking forward to delving into both of these subjects in much less general terms in the future, so you can look forward to seeing some actual examples and code.  I just felt that this sort of undertaking may merit some preface.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/what-is-user-experience-user-interface</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/what-is-user-experience-user-interface</guid>
       </item>
@@ -6865,7 +6899,7 @@ SITEMAP: http://www.yoursite.com/sitemap_name.extension</code></pre>
 <p>Your viewers and users are an invaluable resource.  They have skills, opinions and questions that could benefit your website.  Let them comment, add opinions and ask questions on your site wherever you can.  It&#39;s a little more risky than generating all of the content yourself because the control is not completely in your hands, but the benefits are great.  If your visitors are commenting on your blog, for example, Google will look for keywords within their comments.  Tap into APIs from social media and social networking sites such as Facebook, YouTube, Twitter and Flicker.  If Google sees the same content on multiple sites, it will assume that your content is relevant.</p>
 <p>Obviously this is just the tip of the iceberg when it comes to SEO.  I will try to write more on this topic in the near future because I feel like I&#39;ve barely skimmed the surface. Remember that your best tool is your content.  Make it relevant and people will be looking for it.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/what-google-looks-for</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/what-google-looks-for</guid>
       </item>
@@ -6899,7 +6933,7 @@ SITEMAP: http://www.yoursite.com/sitemap_name.extension</code></pre>
 <p>The view is the display.  The view accesses any objects that are built in the model or in the controller.  Think of this as the display.</p>
 <p>This is just the very basic beginning point to understanding code separation and MVC.  For further reading on this and many other exciting subjects, subscribe to our RSS feeds and stay tuned.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/code-seperation</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/code-seperation</guid>
       </item>
@@ -6931,7 +6965,7 @@ SITEMAP: http://www.yoursite.com/sitemap_name.extension</code></pre>
 <p>Most developers use 1/4 to 1/3 of their time fixing stylesheets and Javascript for Internet Explorer 6. Isn&#39;t there a better way to spend our time?</p>
 <p>So what should be done about the IE6 browser? How can we bring down the number of users from 14.5% to 0%? My solution is to use a simple Javascript script targeting the IE6 browser and calling the users to upgrade their browser to IE8 or Firefox. If the IE6 users begin to find that they are unable to navigate the web effectively because every other site is calling them to upgrade, they just might decide that they can spare 30 minutes and install a browser that wasn&#39;t produced eight years ago.</p>
 ]]></description>
-        <pubDate>Tue Dec 23 2014 14:10:09 GMT-0600 (CST)</pubDate>
+        <pubDate>Sat Jan 03 2015 19:27:29 GMT-0600 (CST)</pubDate>
         <link>http://www.tysoncadenhead.com/blog/killing-ie6</link>
         <guid isPermaLink="true">http://www.tysoncadenhead.com/blog/killing-ie6</guid>
       </item>

@@ -1,4 +1,12 @@
 {
+    "what-will-javascript-be-like-in-2015": {
+        "published": true,
+        "title": "What Will JavaScript Be Like In 2015?",
+        "tags": ["javascript"],
+        "category": "code",
+        "date": "01/01/2015",
+        "thumbnail": "/images/blog/uiux.png"
+    },
     "angular-promises": {
         "published": true,
         "title": "A Crash Course On Angular Promises",
