@@ -3,21 +3,21 @@
 
         <url>
             <loc>http://www.tysoncadenhead.com</loc>
-            <lastmod>2015-0-3 12:12</lastmod>
+            <lastmod>2015-2-8 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/about</loc>
-            <lastmod>2015-0-3 12:12</lastmod>
+            <lastmod>2015-2-8 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/presentations</loc>
-            <lastmod>2015-0-3 12:12</lastmod>
+            <lastmod>2015-2-8 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
@@ -25,8 +25,17 @@
     
         
             <url>
+                <loc>http://www.tysoncadenhead.com/blog/turn-your-pinterest-pins-into-a-shopping-list-with-pingredient</loc>
+                <lastmod>-03/08/2015- 12:12</lastmod>
+                <changefreq>daily</changefreq>
+                <priority>1.0</priority>
+            </url>
+        
+    
+        
+            <url>
                 <loc>http://www.tysoncadenhead.com/blog/what-will-javascript-be-like-in-2015</loc>
-                <lastmod>-01/01/2015- 12:12</lastmod>
+                <lastmod>-01/03/2015- 12:12</lastmod>
                 <changefreq>daily</changefreq>
                 <priority>1.0</priority>
             </url>
