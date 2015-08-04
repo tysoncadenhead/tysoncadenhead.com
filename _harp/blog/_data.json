@@ -1,11 +1,11 @@
 {
-    "turn-your-pinterest-pins-into-a-shopping-list-with-pingredient": {
+    "react-with-es6-classes": {
         "published": true,
-        "title": "Turn Your Pinterest Pins Into A Shopping List With Pingredient",
-        "tags": ["my-apps", "apps"],
-        "category": "apps",
-        "date": "03/08/2015",
-        "thumbnail": "/images/blog/pingredient.png"
+        "title": "React With ES6 Classes",
+        "tags": ["react", "es6"],
+        "category": "code",
+        "date": "08/03/2015",
+        "thumbnail": "/images/blog/react-es6-classes.png"
     },
     "what-will-javascript-be-like-in-2015": {
         "published": true,
@@ -13,7 +13,7 @@
         "tags": ["javascript"],
         "category": "code",
         "date": "01/03/2015",
-        "thumbnail": "/images/blog/uiux.png"
+        "thumbnail": "/images/blog/what-will-javascript-be-like-in-2015.png"
     },
     "angular-promises": {
         "published": true,
