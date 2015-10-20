@@ -1,4 +1,12 @@
 {
+    "what-are-arrow-functions": {
+        "published": true,
+        "title": "What Are Arrow Functions?",
+        "tags": ["javascript", "es6"],
+        "category": "code",
+        "date": "10/20/2015",
+        "thumbnail": "/images/blog/what-are-arrow-functions.jpg"
+    },
     "react-with-es6-classes": {
         "published": true,
         "title": "React With ES6 Classes",
