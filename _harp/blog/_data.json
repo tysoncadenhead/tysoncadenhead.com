@@ -1,4 +1,12 @@
 {
+    "how-to-organize-component-based-code": {
+        "published": true,
+        "title": "How To Organize a Component-Based Application",
+        "tags": ["javascript", "architecture", "react"],
+        "category": "code",
+        "date": "11/1/2015",
+        "thumbnail": "/images/blog/how-to-organize-component-based-code.jpg"
+    },
     "what-is-es6-destructuring": {
         "published": true,
         "title": "What Is ES6 Destructuring?",
