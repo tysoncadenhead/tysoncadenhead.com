@@ -1,4 +1,12 @@
 {
+    "pro-tip-use-consistent-spacing-between-variable-names-to-avoid-merge-conflicts": {
+        "published": true,
+        "title": "Pro-Tip: Use Consistent Spacing Between Variable Names to Avoid Merge Conflicts",
+        "tags": ["javascript"],
+        "category": "code",
+        "date": "11/13/2015",
+        "thumbnail": "/images/blog/merge.png"
+    },
     "where-should-i-put-javascript-unit-tests": {
         "published": true,
         "title": "Where Should I Put JavaScript Unit Tests?",
