@@ -1,4 +1,12 @@
 {
+    "unit-testing-react-components-with-mocha": {
+        "published": true,
+        "title": "Unit Testing React Components With Mocha",
+        "tags": ["react", "javascript", "testing", "mocha"],
+        "category": "code",
+        "date": "12/13/2015",
+        "thumbnail": "/images/blog/unit-testing-react-components-with-mocha.jpg"
+    },
     "handling-clicks-outside-an-element": {
         "published": true,
         "title": "Handling Clicks Outside An Element",
