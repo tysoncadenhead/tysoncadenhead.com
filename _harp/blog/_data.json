@@ -1,4 +1,12 @@
 {
+    "private-methods-in-javascript": {
+        "published": true,
+        "title": "Private Methods In JavaScript",
+        "tags": ["javascript", "es6"],
+        "category": "code",
+        "date": "12/21/2015",
+        "thumbnail": "/images/blog/private-methods-in-javascript.jpg"
+    },
     "unit-testing-react-components-with-mocha": {
         "published": true,
         "title": "Unit Testing React Components With Mocha",
