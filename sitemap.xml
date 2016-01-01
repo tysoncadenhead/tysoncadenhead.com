@@ -3,25 +3,34 @@
 
         <url>
             <loc>http://www.tysoncadenhead.com</loc>
-            <lastmod>2015-11-22 12:12</lastmod>
+            <lastmod>2016-0-1 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/about</loc>
-            <lastmod>2015-11-22 12:12</lastmod>
+            <lastmod>2016-0-1 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/presentations</loc>
-            <lastmod>2015-11-22 12:12</lastmod>
+            <lastmod>2016-0-1 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
+    
+        
+            <url>
+                <loc>http://www.tysoncadenhead.com/blog/what-will-2016-hold-for-tyson-cadenhead</loc>
+                <lastmod>-1/1/2016- 12:12</lastmod>
+                <changefreq>daily</changefreq>
+                <priority>1.0</priority>
+            </url>
+        
     
         
             <url>
