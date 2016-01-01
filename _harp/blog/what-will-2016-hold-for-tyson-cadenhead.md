@@ -1,4 +1,4 @@
-The new year is always a great time to start fresh. All the failures of the previous year are forgotten and you can refocus all your efforts on what you want to achieve in the coming year. I've made several big goals this year, but I wanted to specifically address the resolutions that effect this site. I hope that by sharing them here, I can get a little more accountability from the community and that will force me into action. Without further ado, here are my 2016 goals for this site.
+The new year is always a great time to start fresh. All the failures of the previous year are forgotten and you can refocus all your efforts on what you want to achieve in the coming year. I've made several big goals this year, but I wanted to specifically address the resolutions that affect this site. I hope that by sharing them here, I can get a little more accountability from the community and that will force me into action. Without further ado, here are my 2016 goals for this site.
 
 <!-- more -->
 
