@@ -18,7 +18,7 @@ I will be providing more information as I make progress on this, but I can say t
 
 I imagine there will be plenty of cool open-source projects that will come out of my online course pet project, but I'm also leading an effort to get some of Aloompa's non-business specific libraries available on [Github](https://github.com/Aloompa).
 
-The most notable project we are working on making available is an ORM that can be used in the browser or the server called "Cannery". It will provide a really pluggable adapter system so that you can literally get data from anywhere, whether it's from an Ajax request, the local state, a database, WebSockets, etc... We're using it on our front-end as the data layer for our React applications and it has been awesome to work with. I'm hoping to make a formal announcement about it in the next couple of months and I'll go into more detail about how to use Cannery as an event-driven syncronous ORM wherever you need it, but I just wanted to put a bug in your ear for that.
+The most notable project we are working on making available is an ORM that can be used in the browser or the server called "Cannery." It will provide a really pluggable adapter system so that you can literally get data from anywhere, whether it's from an Ajax request, the local state, a database, WebSockets, etc... We're using it on our front-end as the data layer for our React applications and it has been awesome to work with. I'm hoping to make a formal announcement about it in the next couple of months and I'll go into more detail about how to use Cannery as an event-driven syncronous ORM wherever you need it, but I just wanted to put a bug in your ear for that.
 
 ## Laser-Focus
 
