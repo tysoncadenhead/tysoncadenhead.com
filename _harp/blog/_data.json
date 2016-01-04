@@ -1,4 +1,12 @@
 {
+    "use-object-dot-keys-to-loop-over-objects": {
+        "published": true,
+        "title": "Use Object.keys() To Loop Over Objects",
+        "tags": ["javascript"],
+        "category": "code",
+        "date": "1/4/2016",
+        "thumbnail": "/images/blog/use-object-dot-keys-to-loop-over-objects.jpg"
+    },
     "what-will-2016-hold-for-tyson-cadenhead": {
         "published": true,
         "title": "What Will 2016 hold for tysoncadenhead.com?",
