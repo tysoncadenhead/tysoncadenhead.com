@@ -1,0 +1,25 @@
+{
+  "name": "tysoncadenhead.com",
+  "version": "1.0.0",
+  "description": "TysonCadenhead.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/harp server ./_harp",
+    "build:harp": "./node_modules/.bin/harp compile ./_harp ./",
+    "build:assets": "cp -r ./_harp/images images; cp -r ./_harp/js js; cp ./_harp/CNAME CNAME; cp ./_harp/package.json package.json",
+    "build": "npm run build:harp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tysoncadenhead/tysoncadenhead.com.git"
+  },
+  "author": "Tyson Cadenhead",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/tysoncadenhead/tysoncadenhead.com/issues"
+  },
+  "homepage": "https://github.com/tysoncadenhead/tysoncadenhead.com#readme",
+  "devDependencies": {
+    "harp": "^0.23.0"
+  }
+}
