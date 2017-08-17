@@ -1,4 +1,12 @@
 {
+    "voice-choice-aac-device": {
+        "published": true,
+        "title": "Voice Choice - A Simple AAC Device",
+        "tags": ["autism", "aac", "voicechoice"],
+        "category": "projects",
+        "date": "8/17/2017",
+        "thumbnail": "/images/blog/voicechoice.png"
+    },
     "avoid-using-lodash-defer": {
         "published": true,
         "title": "Avoid Using _.defer()",

@@ -257,6 +257,10 @@ article p img, .presentation-item img {
     box-shadow: 0px 0px 9px #CCC;
 }
 
+article p img.no-shadow, .presentation-item img.no-shadow {
+    box-shadow: none;
+}
+
 .presentation-item img {
     width: 100%;
 }
@@ -627,6 +631,10 @@ article p img, .presentation-item img {
         margin-top: 25px;
     }
 
+}
+
+.read-more a {
+    text-decoration: underline;
 }
 
 @import "tables";

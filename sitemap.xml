@@ -72,25 +72,34 @@
 
         <url>
             <loc>http://www.tysoncadenhead.com</loc>
-            <lastmod>2016-11-29 12:12</lastmod>
+            <lastmod>2017-7-17 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/about</loc>
-            <lastmod>2016-11-29 12:12</lastmod>
+            <lastmod>2017-7-17 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
             <loc>http://www.tysoncadenhead.com/presentations</loc>
-            <lastmod>2016-11-29 12:12</lastmod>
+            <lastmod>2017-7-17 12:12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
 
+    
+        
+            <url>
+                <loc>http://www.tysoncadenhead.com/blog/voice-choice-aac-device</loc>
+                <lastmod>-8/17/2017- 12:12</lastmod>
+                <changefreq>daily</changefreq>
+                <priority>1.0</priority>
+            </url>
+        
     
         
             <url>
