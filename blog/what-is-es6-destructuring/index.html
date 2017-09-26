@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>What Is ES6 Destructuring?</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css">
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://tysoncadenhead.com/what-is-es6-destructuring/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://tysoncadenhead.com/what-is-es6-destructuring/amp/">
+    
+    <meta property="og:site_name" content="Tyson Cadenhead">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What Is ES6 Destructuring?">
+    <meta property="og:description" content="One interesting new feature that ES6 brings us is something called “destructuring.“ Destructuring can be used to pull certain parts of an object out of an object and assign those parts to a new variable or multiple variables. Lest you think that this is a useless part of the ES6">
+    <meta property="og:url" content="http://tysoncadenhead.com/what-is-es6-destructuring/">
+    <meta property="og:image" content="../content/images/2017/09/1-28.jpg">
+    <meta property="article:published_time" content="2015-10-25T08:01:00.000Z">
+    <meta property="article:modified_time" content="2017-09-20T03:49:26.000Z">
+    <meta property="article:publisher" content="https://www.facebook.com/tysoncadenhead">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is ES6 Destructuring?">
+    <meta name="twitter:description" content="One interesting new feature that ES6 brings us is something called “destructuring.“ Destructuring can be used to pull certain parts of an object out of an object and assign those parts to a new variable or multiple variables. Lest you think that this is a useless part of the ES6">
+    <meta name="twitter:url" content="http://tysoncadenhead.com/what-is-es6-destructuring/">
+    <meta name="twitter:image" content="http://tysoncadenhead.com/content/images/2017/09/1-28.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Tyson Cadenhead">
+    <meta name="twitter:site" content="@tysoncadenhead">
+    <meta property="og:image:width" content="1391">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tyson Cadenhead",
+        "logo": "http://tysoncadenhead.com/content/images/2017/09/1-2.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyson Cadenhead",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "http://tysoncadenhead.com/author/tysoncadenhead/",
+        "sameAs": []
+    },
+    "headline": "What Is ES6 Destructuring?",
+    "url": "http://tysoncadenhead.com/what-is-es6-destructuring/",
+    "datePublished": "2015-10-25T08:01:00.000Z",
+    "dateModified": "2017-09-20T03:49:26.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://tysoncadenhead.com/content/images/2017/09/1-28.jpg",
+        "width": 1391,
+        "height": 800
+    },
+    "description": "One interesting new feature that ES6 brings us is something called “destructuring.“ Destructuring can be used to pull certain parts of an object out of an object and assign those parts to a new variable or multiple variables. Lest you think that this is a useless part of the ES6",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://tysoncadenhead.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "f70092546f32"
+});
+</script>
+    <meta name="generator" content="Ghost 1.8">
+    <link rel="alternate" type="application/rss+xml" title="Tyson Cadenhead" href="http://tysoncadenhead.com/rss/">
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="../"><img src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead"></a>
+            <ul class="nav">
+    <li class="nav-blog" role="presentation"><a href="../">Blog</a></li>
+    <li class="nav-about-me" role="presentation"><a href="../about/">About Me</a></li>
+</ul>
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+                <a class="social-link social-link-fb" href="https://www.facebook.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+                <a class="social-link social-link-tw" href="https://twitter.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+        </div>
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <figure class="post-full-image" style="background-image: url(../content/images/2017/09/1-28.jpg)">
+    </figure>
+    <div class="inner">
+
+        <article class="post-full post ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2015-10-25">25 October 2015</time>
+                </section>
+                <h1 class="post-full-title">What Is ES6 Destructuring?</h1>
+            </header>
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><p>One interesting new feature that ES6 brings us is something called “destructuring.“ Destructuring can be used to pull certain parts of an object out of an object and assign those parts to a new variable or multiple variables. Lest you think that this is a useless part of the ES6 spec, let me show you some examples of how destructuring can be used in a JavaScript application.</p>
+<!-- more -->
+<h3 id="usingdestructuring">Using Destructuring</h3>
+<p>Destructuring is not in most browsers yet. It is part of the ES6 spec which began to get implemented this year in browsers, but there is still a long way to go for full browser-support. To get this to work in the browser, you'll need to install a transpiler. I highly recommend <a href="https://babeljs.io/">Babel</a>. We are using it for some large production applications and it is a solid choice. If you're running Node, you'll either want to use 4.0 or up or run it with the <code>--harmony</code> flag on.</p>
+<h3 id="destructuringarrayassignments">Destructuring Array Assignments</h3>
+<p>Before we had destructuring, when we wanted to get elements out of an array, we had to individually create new variables for each item we wanted to have easier access to, like this:</p>
+<pre><code>const arr = ['Hank Rearden', 'Dagny Taggart', 'Eddie Willers'];
+
+const first = arr[0];
+const middle = arr[1];
+const last = arr[2];
+
+console.log(first); // Hank Rearden
+console.log(middle); // Dagny Taggart
+console.log(last); // Eddie Willers
+</code></pre>
+<p>The syntax for this is much easier with ES6 destructuring as you can see below:</p>
+<pre><code>const [first, middle, last] = ['Hank Rearden', 'Dagny Taggart', 'Eddie Willers'];
+
+console.log(first); // Hank Rearden
+console.log(middle); // Dagny Taggart
+console.log(last); // Eddie Willers
+</code></pre>
+<p>In the example above, we created three constants, <code>first</code>, <code>middle</code> and <code>last</code>. Since those constants are surrounded by array brackets, JavaScript knows that the item on the other side is an array and that we are getting items out of it.</p>
+<h3 id="gettingthelastiteminanarray">Getting the last item in an array</h3>
+<p>Before, to get the last item in an array, we had to create the array first so that we could get its length and return the item at the end of it, like this:</p>
+<pre><code>const arr = [1,2,3];
+const last = arr[arr.length - 1];
+</code></pre>
+<p>With destructuring, we can use the <code>...</code> syntax to pull out the last item in the array and assign it to the <code>last</code> constant name, like this:</p>
+<pre><code>const [..., last] = [1,2,3];
+</code></pre>
+<p>The <code>...</code>, basically lets us skip to the end of the array so we don't have to name every record.</p>
+<h3 id="destructuringobjectassignments">Destructuring Object Assignments</h3>
+<p>Setting variables from objects in JavaScript has always been rather tedious. Say for example, that we want to set the name and employer from the object below into their own variables for easier access:</p>
+<pre><code>const person = {
+    name: 'John Galt',
+    employer: 'Twentieth Century Motor Company'
+};
+</code></pre>
+<p>We would have to make new variables for each of the items we want to abstract from the object like this:</p>
+<pre><code>const name = person.name;
+const employer = person.employer;
+</code></pre>
+<p>This becomes much less tedious when we employ destructuring:</p>
+<pre><code>const { name, employer } = person;
+</code></pre>
+<p>The nice thing here is that we are simultaneously saying that we want to get the values of “name“ and “employer“ from the person object and that we want to create constants with those names from the extracted data.</p>
+<p>ES6 has given us another great feature by letting us set defaults on function parameters and destructuring assignments. That means that instead of doing this:</p>
+<pre><code>let { name, employer } = person;
+
+if (!employer) {
+    employer = 'Rearden Metal';
+}
+</code></pre>
+<p>We can simply do this:</p>
+<pre><code>let { name, employer = 'Rearden Metal' } = person;
+</code></pre>
+<h3 id="betterapis">Better APIs!</h3>
+<p>We learned long ago that building APIs with multiple arguments like the example below is very fragile because it is difficult to remember what order arguments should go in and it also locks the API into an un-changable structure.</p>
+<pre><code>myAPI.doSomething(id, name, place, color);
+</code></pre>
+<p>That's what most APIs expect and object to get passed in with all of the parameters as keys:</p>
+<pre><code>myAPI.doSomething({
+    id: id,
+    name: name,
+    place: place,
+    color: color
+});
+</code></pre>
+<p>As it turns out, destructuring can work directly on our method arguments, so we can easily pull out the arguments we need:</p>
+<pre><code>myAPI.doSomething = ({ id, name, place, color }) =&gt; {
+
+};
+</code></pre>
+<p>Oh, and the call to the function can become simpler if the arguments we are passing have the same name as the keys we are setting them to:</p>
+<pre><code>myAPI.doSomething({
+    id, name, place, color
+});
+</code></pre>
+<p>As you can see, using destructuring can make a lot of code more concise and easier to work with. It is definitely not a hammer for every job though. If you are going to use it, you will need to work to make sure your team knows what it is and how it works or it could be extremely confusing for other programmers to read and work with. I've started using it for certain things and I've had no issues so far, but be warned.</p>
+<p>Are you using destructuring in your code? What do you think about it?</p>
+</div>
+            </section>
+
+            <section class="subscribe-form">
+                <h3 class="subscribe-form-title">Subscribe to Tyson Cadenhead</h3>
+                <p>Get the latest posts delivered right to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+            </section>
+
+            <footer class="post-full-footer">
+
+                <section class="author-card">
+                        <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></h4>
+                            <p>Read <a href="../author/tysoncadenhead/">more posts</a> by this author.</p>
+                    </section>
+                </section>
+                <div class="post-full-footer-right">
+                    <a class="author-card-button" href="../author/tysoncadenhead/">Read More</a>
+                </div>
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post">
+        <a class="post-card-image-link" href="../how-to-organize-component-based-code/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/1-27.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../how-to-organize-component-based-code/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">How To Organize a Component-Based Application</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Like nothing else out there, React has gotten me thinking of my code as a series of modules that are glued together to make a larger application. This has always been an ideal</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post">
+        <a class="post-card-image-link" href="../what-are-arrow-functions/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/1-29.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../what-are-arrow-functions/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">What Are Arrow Functions?</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>One of my favorite parts of ES6 is arrow functions. In fact, at this point I encourage my team to always default to using them unless there is a clear reason not to.</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="../">
+            <span>Tyson Cadenhead</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">What Is ES6 Destructuring?</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=What%20Is%20ES6%20Destructuring%3F&url=http://tysoncadenhead.com/what-is-es6-destructuring/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://tysoncadenhead.com/what-is-es6-destructuring/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../">Tyson Cadenhead</a> &copy; 2017</section>
+                <nav class="site-footer-nav">
+                    <a href="../">Latest Posts</a>
+                    <a href="https://www.facebook.com/tysoncadenhead" target="_blank">Facebook</a>
+                    <a href="https://twitter.com/tysoncadenhead" target="_blank">Twitter</a>
+                    <a href="https://ghost.org" target="_blank">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+        <div class="subscribe-overlay-content">
+                <img class="subscribe-overlay-logo" src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead">
+            <h1 class="subscribe-overlay-title">Subscribe to Tyson Cadenhead</h1>
+            <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+            <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js"></script>
+
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19696495-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+</body>
+</html>

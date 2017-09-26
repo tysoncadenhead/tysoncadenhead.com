@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Getting Started with JavaScript MVC</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css">
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://tysoncadenhead.com/getting-started-with-javascript-mvc-2/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://tysoncadenhead.com/getting-started-with-javascript-mvc-2/amp/">
+    
+    <meta property="og:site_name" content="Tyson Cadenhead">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Getting Started with JavaScript MVC">
+    <meta property="og:description" content="Nearly a year ago I was working for a company in the financial services industry that had need for a scalable, secure, AJAX application.  It was extremely large in scale and scope and it quickly became clear that I was going to have to have some sort of organizational structure">
+    <meta property="og:url" content="http://tysoncadenhead.com/getting-started-with-javascript-mvc-2/">
+    <meta property="og:image" content="../content/images/2017/09/1-11.jpg">
+    <meta property="article:published_time" content="2010-03-30T04:16:00.000Z">
+    <meta property="article:modified_time" content="2017-09-19T04:18:40.000Z">
+    <meta property="article:tag" content="JavaScript">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/tysoncadenhead">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Getting Started with JavaScript MVC">
+    <meta name="twitter:description" content="Nearly a year ago I was working for a company in the financial services industry that had need for a scalable, secure, AJAX application.  It was extremely large in scale and scope and it quickly became clear that I was going to have to have some sort of organizational structure">
+    <meta name="twitter:url" content="http://tysoncadenhead.com/getting-started-with-javascript-mvc-2/">
+    <meta name="twitter:image" content="http://tysoncadenhead.com/content/images/2017/09/1-11.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Tyson Cadenhead">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="JavaScript">
+    <meta name="twitter:site" content="@tysoncadenhead">
+    <meta property="og:image:width" content="1391">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tyson Cadenhead",
+        "logo": "http://tysoncadenhead.com/content/images/2017/09/1-2.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyson Cadenhead",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "http://tysoncadenhead.com/author/tysoncadenhead/",
+        "sameAs": []
+    },
+    "headline": "Getting Started with JavaScript MVC",
+    "url": "http://tysoncadenhead.com/getting-started-with-javascript-mvc-2/",
+    "datePublished": "2010-03-30T04:16:00.000Z",
+    "dateModified": "2017-09-19T04:18:40.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://tysoncadenhead.com/content/images/2017/09/1-11.jpg",
+        "width": 1391,
+        "height": 800
+    },
+    "keywords": "JavaScript",
+    "description": "Nearly a year ago I was working for a company in the financial services industry that had need for a scalable, secure, AJAX application.  It was extremely large in scale and scope and it quickly became clear that I was going to have to have some sort of organizational structure",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://tysoncadenhead.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "f70092546f32"
+});
+</script>
+    <meta name="generator" content="Ghost 1.8">
+    <link rel="alternate" type="application/rss+xml" title="Tyson Cadenhead" href="http://tysoncadenhead.com/rss/">
+
+</head>
+<body class="post-template tag-javascript">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="../"><img src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead"></a>
+            <ul class="nav">
+    <li class="nav-blog" role="presentation"><a href="../">Blog</a></li>
+    <li class="nav-about-me" role="presentation"><a href="../about/">About Me</a></li>
+</ul>
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+                <a class="social-link social-link-fb" href="https://www.facebook.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+                <a class="social-link social-link-tw" href="https://twitter.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+        </div>
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <figure class="post-full-image" style="background-image: url(../content/images/2017/09/1-11.jpg)">
+    </figure>
+    <div class="inner">
+
+        <article class="post-full post tag-javascript ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2010-03-30">30 March 2010</time>
+                        <span class="date-divider">/</span> <a href="../tag/javascript/">JavaScript</a>
+                </section>
+                <h1 class="post-full-title">Getting Started with JavaScript MVC</h1>
+            </header>
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><p>Nearly a year ago I was working for a company in the financial services industry that had need for a scalable, secure, AJAX application.  It was extremely large in scale and scope and it quickly became clear that I was going to have to have some sort of organizational structure to build the application upon.  My server-side experience at this point was primarily in writing C#, and I had fallen in love with the organization of the .NET MVC design pattern.  From there, I had been doing some contract work using CakePHP, which is also an MVC framework.  While I had written JavaScript for my websites, an entire application is completely different.  I looked around at frameworks and eventually settled on <a href="http://javascriptmvc.com">JavaScript MVC</a> for its basis in the MVC framework as well as its rich feature set.  So what does JavascriptMVC come with &quot;out of the box?&quot;</p>
+<h3 id="agreatarchitectureusingmodelviewcontroller">A great architecture using Model-View-Controller</h3>
+<p>The model handles all of the AJAX calls and post requests, the controller handles all of the events and the view handles the display and DOM manipulation.  The view uses EJS templates, which look very much like XHTML, but you can actually pass JavaScript variables into them and use variables, conditionals and loops not unlike a server-side language.</p>
+<h3 id="scaffolding">Scaffolding</h3>
+<p>You can essentially create a client-side mockup of you database interactions and work independently of the server when needed.  This is especially handy if the server-side guys are working out a bug and you need to keep pushing forward.</p>
+<h3 id="developmenttestingandproductionmodes">Development, Testing and Production modes</h3>
+<p>Development is great for quick and easy modification, but when you actually launch a project, you can minimize and combine all of your files into one HTTP request just by typing a line into the command line via Rhino.  You can easily switch between modes just by changing one line of code.  There is functional and unit testing offered through <a href="http://seleniumhq.org/">Selenium</a> and <a href="http://www.mozilla.org/rhino/">Rhino</a>.</p>
+<h3 id="easydocumentation">Easy Documentation</h3>
+<p>Writing documentation is a breeze because it is generated based on the comments in your code!</p>
+<h3 id="errorhandling">Error handling.</h3>
+<p>It plugs into <a href="https://damnit.jupiterit.com/">DamnIt</a> to provide error handling and reporting.</p>
+<p>I could go on and on about JavascriptMVC, and I just may end up doing that in the future.  It is incredible, after all.  It's built around jQuery, so most of the conventions should be familiar to the vast majority of JavaScript people.</p>
+<p>I would encourage you to download it and give it a try.  There is a bit of a learning curve, but there is documentation as well as an introductory video on the <a href="http://javascriptmvc.com">JavaScriptMVC</a> website to get you going.</p>
+</div>
+            </section>
+
+            <section class="subscribe-form">
+                <h3 class="subscribe-form-title">Subscribe to Tyson Cadenhead</h3>
+                <p>Get the latest posts delivered right to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+            </section>
+
+            <footer class="post-full-footer">
+
+                <section class="author-card">
+                        <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></h4>
+                            <p>Read <a href="../author/tysoncadenhead/">more posts</a> by this author.</p>
+                    </section>
+                </section>
+                <div class="post-full-footer-right">
+                    <a class="author-card-button" href="../author/tysoncadenhead/">Read More</a>
+                </div>
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+                <article class="read-next-card" style="background-image: url(../content/images/2017/09/header-2.jpg)">
+                    <header class="read-next-card-header">
+                        <small class="read-next-card-header-sitetitle">&mdash; Tyson Cadenhead &mdash;</small>
+                        <h3 class="read-next-card-header-title"><a href="../tag/javascript/">JavaScript</a></h3>
+                    </header>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                    <div class="read-next-card-content">
+                        <ul>
+                            <li><a href="../javascript-basics-classes/">JavaScript Basics - Classes</a></li>
+                            <li><a href="../converting-a-javascript/">JavaScript Basics - Objects</a></li>
+                            <li><a href="../javascript-basics-functions-2/">JavaScript Basics - Functions</a></li>
+                        </ul>
+                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="../tag/javascript/">See all 10 posts →</a>
+                    </footer>
+                </article>
+
+                <article class="post-card post tag-seo">
+        <a class="post-card-image-link" href="../seo-safe-links-with-an-ajax-callback/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/1-12.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../seo-safe-links-with-an-ajax-callback/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">SEO</span>
+                <h2 class="post-card-title">SEO-Safe Links with an Ajax Callback</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Ajax is awesome for things like rich internet applications that don't require SEO because of their internal nature, or for on-page events like form validation and submitting, but from an SEO standpoint, adding</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post tag-javascript">
+        <a class="post-card-image-link" href="../javascript-architecture-2/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/1-10.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../javascript-architecture-2/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">JavaScript</span>
+                <h2 class="post-card-title">Javascript Architecture</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>As the web has grown, the Javascript programming language has grown with it to become rich and robust.  Whereas websites used to have only a couple of lines of Javascript code used in</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="../">
+            <span>Tyson Cadenhead</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Getting Started with JavaScript MVC</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Getting%20Started%20with%20JavaScript%20MVC&url=http://tysoncadenhead.com/getting-started-with-javascript-mvc-2/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://tysoncadenhead.com/getting-started-with-javascript-mvc-2/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../">Tyson Cadenhead</a> &copy; 2017</section>
+                <nav class="site-footer-nav">
+                    <a href="../">Latest Posts</a>
+                    <a href="https://www.facebook.com/tysoncadenhead" target="_blank">Facebook</a>
+                    <a href="https://twitter.com/tysoncadenhead" target="_blank">Twitter</a>
+                    <a href="https://ghost.org" target="_blank">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+        <div class="subscribe-overlay-content">
+                <img class="subscribe-overlay-logo" src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead">
+            <h1 class="subscribe-overlay-title">Subscribe to Tyson Cadenhead</h1>
+            <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+            <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js"></script>
+
+
+    
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19696495-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+</body>
+</html>

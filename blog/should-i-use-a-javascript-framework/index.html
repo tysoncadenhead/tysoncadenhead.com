@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Should I Use a JavaScript Framework?</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css">
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://tysoncadenhead.com/should-i-use-a-javascript-framework/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://tysoncadenhead.com/should-i-use-a-javascript-framework/amp/">
+    
+    <meta property="og:site_name" content="Tyson Cadenhead">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Should I Use a JavaScript Framework?">
+    <meta property="og:description" content="There are literally tons of JavaScript frameworks out there to ease the pain of website and application development.  Obviously, the most popular one out there right now is jQuery, but that is not to say that there are not other libraries out there.  So the question becomes, should developers use">
+    <meta property="og:url" content="http://tysoncadenhead.com/should-i-use-a-javascript-framework/">
+    <meta property="og:image" content="../content/images/2017/09/1-13.jpg">
+    <meta property="article:published_time" content="2010-06-12T04:25:00.000Z">
+    <meta property="article:modified_time" content="2017-09-19T04:29:07.000Z">
+    <meta property="article:tag" content="JavaScript">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/tysoncadenhead">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Should I Use a JavaScript Framework?">
+    <meta name="twitter:description" content="There are literally tons of JavaScript frameworks out there to ease the pain of website and application development.  Obviously, the most popular one out there right now is jQuery, but that is not to say that there are not other libraries out there.  So the question becomes, should developers use">
+    <meta name="twitter:url" content="http://tysoncadenhead.com/should-i-use-a-javascript-framework/">
+    <meta name="twitter:image" content="http://tysoncadenhead.com/content/images/2017/09/1-13.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Tyson Cadenhead">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="JavaScript">
+    <meta name="twitter:site" content="@tysoncadenhead">
+    <meta property="og:image:width" content="1391">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tyson Cadenhead",
+        "logo": "http://tysoncadenhead.com/content/images/2017/09/1-2.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyson Cadenhead",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "http://tysoncadenhead.com/author/tysoncadenhead/",
+        "sameAs": []
+    },
+    "headline": "Should I Use a JavaScript Framework?",
+    "url": "http://tysoncadenhead.com/should-i-use-a-javascript-framework/",
+    "datePublished": "2010-06-12T04:25:00.000Z",
+    "dateModified": "2017-09-19T04:29:07.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://tysoncadenhead.com/content/images/2017/09/1-13.jpg",
+        "width": 1391,
+        "height": 800
+    },
+    "keywords": "JavaScript",
+    "description": "There are literally tons of JavaScript frameworks out there to ease the pain of website and application development.  Obviously, the most popular one out there right now is jQuery, but that is not to say that there are not other libraries out there.  So the question becomes, should developers use",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://tysoncadenhead.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "f70092546f32"
+});
+</script>
+    <meta name="generator" content="Ghost 1.8">
+    <link rel="alternate" type="application/rss+xml" title="Tyson Cadenhead" href="http://tysoncadenhead.com/rss/">
+
+</head>
+<body class="post-template tag-javascript">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="../"><img src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead"></a>
+            <ul class="nav">
+    <li class="nav-blog" role="presentation"><a href="../">Blog</a></li>
+    <li class="nav-about-me" role="presentation"><a href="../about/">About Me</a></li>
+</ul>
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+                <a class="social-link social-link-fb" href="https://www.facebook.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+                <a class="social-link social-link-tw" href="https://twitter.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+        </div>
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <figure class="post-full-image" style="background-image: url(../content/images/2017/09/1-13.jpg)">
+    </figure>
+    <div class="inner">
+
+        <article class="post-full post tag-javascript ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2010-06-12">12 June 2010</time>
+                        <span class="date-divider">/</span> <a href="../tag/javascript/">JavaScript</a>
+                </section>
+                <h1 class="post-full-title">Should I Use a JavaScript Framework?</h1>
+            </header>
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><p>There are literally tons of JavaScript frameworks out there to ease the pain of website and application development.  Obviously, the most popular one out there right now is <a href="http://jquery.com">jQuery</a>, but that is not to say that there are not other libraries out there.  So the question becomes, should developers use libraries or is it just a crutch that keeps them from learning real JavaScript?  Here are some thoughts on the subject.</p>
+<ul>
+<li>
+<p>I think that everyone should start out learning the basics of JavaScript before learning a library.  When you see some of the things that you can do with <a href="http://jquery.com">jQuert</a> or <a href="http://developer.yahoo.com/yui/">YUI</a> or <a href="http://www.prototypejs.org/">Prototype</a>, you'll probably want to jump right into the framework, but here are some benefits of learning JavaScript proper to begin with:</p>
+<ul>
+<li>When you know the basics of JavaScript such as how to loop over an array, how to write a conditional statement and how to manipulate the DOM, you'll have a better understanding of what the library your using is doing.  Contrary to popular opinion, jQuery is not magic, and it does not do anything that you couldn't do with plain JavaScript, it just makes it easier to do things that would previously have taken more code by running the variables you give it through functions.</li>
+<li>When you know the basics, you will be able to tell when something is easier to do without the library and when the library is helpful.  You won't have to trust that it's necessarily better just because it's a library method.  It may not be.</li>
+<li>Libraries have limitations.  There are things that you can do with plain JavaScript that you can't do with a library.  No JavaScript library was built to be a replacement for JavaScript, they were all written to be an addition to it.</li>
+</ul>
+</li>
+<li>
+<p>Once you know the basics of JavaScript, using a framework or library will help you to write less code and do more with it.  Specifically with jQuery, manipulating the DOM, applying listeners and events and performing Ajax requests requires significantly less code.</p>
+<ul>
+<li>Frameworks and libraries extend functions that somebody else wrote, so you don't have to.  Let's just face it, <a href="http://ejohn.org/">John Resig</a> and the jQuery team could probably write loops around you with their code.  They are good at what they do.  The best part is that they already did it, so you don't have to.  You can focus on other things!</li>
+<li>Don't get too attached.  If you can, try to abstract the way you interact with your framework in case you ever need to switch frameworks or the framework you use stops being supported.  These things happen.  I've been trying to find an article abstracting JavaScript frameworks to point you to, but I haven't found one yet.  Perhaps I will have to write one.</li>
+</ul>
+</li>
+</ul>
+<p>These are my thoughts on the subject.  Can you think of any arguments for or against using JavaScript frameworks?</p>
+</div>
+            </section>
+
+            <section class="subscribe-form">
+                <h3 class="subscribe-form-title">Subscribe to Tyson Cadenhead</h3>
+                <p>Get the latest posts delivered right to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+            </section>
+
+            <footer class="post-full-footer">
+
+                <section class="author-card">
+                        <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></h4>
+                            <p>Read <a href="../author/tysoncadenhead/">more posts</a> by this author.</p>
+                    </section>
+                </section>
+                <div class="post-full-footer-right">
+                    <a class="author-card-button" href="../author/tysoncadenhead/">Read More</a>
+                </div>
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+                <article class="read-next-card" style="background-image: url(../content/images/2017/09/header-2.jpg)">
+                    <header class="read-next-card-header">
+                        <small class="read-next-card-header-sitetitle">&mdash; Tyson Cadenhead &mdash;</small>
+                        <h3 class="read-next-card-header-title"><a href="../tag/javascript/">JavaScript</a></h3>
+                    </header>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                    <div class="read-next-card-content">
+                        <ul>
+                            <li><a href="../javascript-basics-classes/">JavaScript Basics - Classes</a></li>
+                            <li><a href="../converting-a-javascript/">JavaScript Basics - Objects</a></li>
+                            <li><a href="../javascript-basics-functions-2/">JavaScript Basics - Functions</a></li>
+                        </ul>
+                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="../tag/javascript/">See all 10 posts →</a>
+                    </footer>
+                </article>
+
+                <article class="post-card post tag-javascript">
+        <a class="post-card-image-link" href="../untitled/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/1-14.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../untitled/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">JavaScript</span>
+                <h2 class="post-card-title">Sencha Application Event Listening</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>If you're like me, you are constantly looking for better ways to architect your JavaScript applications to be scalable and modular.  One of the keys to writing an application that fits the bill</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post tag-seo">
+        <a class="post-card-image-link" href="../seo-safe-links-with-an-ajax-callback/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/1-12.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../seo-safe-links-with-an-ajax-callback/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">SEO</span>
+                <h2 class="post-card-title">SEO-Safe Links with an Ajax Callback</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Ajax is awesome for things like rich internet applications that don't require SEO because of their internal nature, or for on-page events like form validation and submitting, but from an SEO standpoint, adding</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="../">
+            <span>Tyson Cadenhead</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Should I Use a JavaScript Framework?</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Should%20I%20Use%20a%20JavaScript%20Framework%3F&url=http://tysoncadenhead.com/should-i-use-a-javascript-framework/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://tysoncadenhead.com/should-i-use-a-javascript-framework/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../">Tyson Cadenhead</a> &copy; 2017</section>
+                <nav class="site-footer-nav">
+                    <a href="../">Latest Posts</a>
+                    <a href="https://www.facebook.com/tysoncadenhead" target="_blank">Facebook</a>
+                    <a href="https://twitter.com/tysoncadenhead" target="_blank">Twitter</a>
+                    <a href="https://ghost.org" target="_blank">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+        <div class="subscribe-overlay-content">
+                <img class="subscribe-overlay-logo" src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead">
+            <h1 class="subscribe-overlay-title">Subscribe to Tyson Cadenhead</h1>
+            <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+            <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js"></script>
+
+
+    
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19696495-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+</body>
+</html>

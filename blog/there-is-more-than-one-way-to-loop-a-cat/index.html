@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>There Is More Than One Way To Loop Over A Cat</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css">
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://tysoncadenhead.com/there-is-more-than-one-way-to-loop-a-cat/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://tysoncadenhead.com/there-is-more-than-one-way-to-loop-a-cat/amp/">
+    
+    <meta property="og:site_name" content="Tyson Cadenhead">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="There Is More Than One Way To Loop Over A Cat">
+    <meta property="og:description" content="When I first started writing JavaScript, most of the libraries that are around today weren&#x27;t available, which meant that there were basically a few low-level ways to loop over an array of content. Now that there are many more options, I wanted to take a moment to examine what they">
+    <meta property="og:url" content="http://tysoncadenhead.com/there-is-more-than-one-way-to-loop-a-cat/">
+    <meta property="og:image" content="../content/images/2017/09/5-2.png">
+    <meta property="article:published_time" content="2014-02-22T09:01:00.000Z">
+    <meta property="article:modified_time" content="2017-09-26T02:06:10.000Z">
+    <meta property="article:publisher" content="https://www.facebook.com/tysoncadenhead">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="There Is More Than One Way To Loop Over A Cat">
+    <meta name="twitter:description" content="When I first started writing JavaScript, most of the libraries that are around today weren&#x27;t available, which meant that there were basically a few low-level ways to loop over an array of content. Now that there are many more options, I wanted to take a moment to examine what they">
+    <meta name="twitter:url" content="http://tysoncadenhead.com/there-is-more-than-one-way-to-loop-a-cat/">
+    <meta name="twitter:image" content="http://tysoncadenhead.com/content/images/2017/09/5-2.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Tyson Cadenhead">
+    <meta name="twitter:site" content="@tysoncadenhead">
+    <meta property="og:image:width" content="1391">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tyson Cadenhead",
+        "logo": "http://tysoncadenhead.com/content/images/2017/09/1-2.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyson Cadenhead",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "http://tysoncadenhead.com/author/tysoncadenhead/",
+        "sameAs": []
+    },
+    "headline": "There Is More Than One Way To Loop Over A Cat",
+    "url": "http://tysoncadenhead.com/there-is-more-than-one-way-to-loop-a-cat/",
+    "datePublished": "2014-02-22T09:01:00.000Z",
+    "dateModified": "2017-09-26T02:06:10.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://tysoncadenhead.com/content/images/2017/09/5-2.png",
+        "width": 1391,
+        "height": 800
+    },
+    "description": "When I first started writing JavaScript, most of the libraries that are around today weren&#x27;t available, which meant that there were basically a few low-level ways to loop over an array of content. Now that there are many more options, I wanted to take a moment to examine what they",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://tysoncadenhead.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "f70092546f32"
+});
+</script>
+    <meta name="generator" content="Ghost 1.8">
+    <link rel="alternate" type="application/rss+xml" title="Tyson Cadenhead" href="http://tysoncadenhead.com/rss/">
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="../"><img src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead"></a>
+            <ul class="nav">
+    <li class="nav-blog" role="presentation"><a href="../">Blog</a></li>
+    <li class="nav-about-me" role="presentation"><a href="../about/">About Me</a></li>
+</ul>
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+                <a class="social-link social-link-fb" href="https://www.facebook.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+                <a class="social-link social-link-tw" href="https://twitter.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+        </div>
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <figure class="post-full-image" style="background-image: url(../content/images/2017/09/5-2.png)">
+    </figure>
+    <div class="inner">
+
+        <article class="post-full post ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2014-02-22">22 February 2014</time>
+                </section>
+                <h1 class="post-full-title">There Is More Than One Way To Loop Over A Cat</h1>
+            </header>
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><p>When I first started writing JavaScript, most of the libraries that are around today weren't available, which meant that there were basically a few low-level ways to loop over an array of content. Now that there are many more options, I wanted to take a moment to examine what they are and how each option might affect readability of code as well as performance.</p>
+<!-- more -->
+<p>We will start with the native looping that JavaScript gives you without any additional libraries or frameworks. For the rest of this discussion, we will assume that we are looping over an array that looks like this:</p>
+<pre><code class="language-js">var cats = [
+    'Shy One',
+    'Horatio',
+    'Nestor le Freep',
+    'Muon',
+    'Barry Mundee',
+    'Orange Juice',
+    'Cali',
+    'Baby Boo',
+    'G Whillikers',
+    'Uma',
+    'Scud',
+    'Mitaine',
+    'Suki',
+    'Mallorey',
+    'Princess Sarah',
+    'Pogo',
+    'Baby Kitten',
+    'Sweety'
+];
+</code></pre>
+<p>These cat names all came out of a <a href="http://www.alistair.com/catname/">random cat name generator</a> so don't judge. I'm sure they would be better names if they were for dogs.</p>
+<p>So, one way to loop over the cats is this:</p>
+<pre><code class="language-js">for (var i = 0; i &lt; cats.length; i++) {
+    if (cats[i].indexOf('Baby')) {
+        console.log(cats[i]);
+    }
+}
+</code></pre>
+<p>This is a pretty common pattern. If you've been using JavaScript for a while, you will be familiar with it, but it might be hard for a beginner to break down that we are creating a variable called <code>i</code> that is equal to 0 and we are incrementing the number again and again until <code>i</code> is no longer less than the length of all of the cats.</p>
+<p>Another way to approach this is to use a while loop:</p>
+<pre><code class="language-js">var i = 0;
+while (cats.length &lt; i) {
+    if (cats[i].indexOf('Baby')) {
+        console.log(cats[i]);
+    }
+    i++;
+}
+</code></pre>
+<p>You could argue that the while loop is a little easier to read than the for loop because it doesn't handle all of the logic of the loop in the head. <a href="http://jsperf.com/while-vs-for-00001/13">Performance differences</a> are all over the board.</p>
+<p>The while loop tends to be faster in most current browsers, but there are plenty of instances where they are dead-even and even a couple of times when <code>for</code> measures marginally faster. However, if you're looking for a general rule, the while loop typically comes out ahead.</p>
+<p>To round out our discussion of native looping options, there is the <code>for-in</code> loop:</p>
+<pre><code class="language-js">cats.forEach(function (cat) {
+    if (cat.indexOf('Baby')) {
+        console.log(cat);
+    }
+});
+</code></pre>
+<p>Obviously, this is the most clean and readable native way to loop over an array. The <code>forEach</code> method is a prototype of the Array, which makes it very simple to use. The main issue with forEach is browser support. Any versions of Internet Explorer before IE9 do not support it. If you are supporting IE8 and below, you can easily polyfill forEach, but that is another discussion for another time.</p>
+<p>Depending on what perfs you look at, <code>forEach</code> typically comes out behind the <code>for</code> loop. I have seen instances where this is the opposite as well, so take that with a grain of salt.</p>
+<p>Now, to throw in the library looping methods. JQuery has a <code>$.each</code> method that looks like this:</p>
+<pre><code class="language-js">$.each(cats, function (cat) {
+    if (cat.indexOf('Baby')) {
+        console.log(cat);
+    } 
+});
+</code></pre>
+<p>The underscore and lodash version looks pretty similar:</p>
+<pre><code class="language-js">_.each(cats, function (cat) {
+    if (cat).indexOf('Baby') {
+        console.log(cat);
+    } 
+});
+</code></pre>
+<p><a href="http://jsperf.com/jquery-each-vs-for-loop/7">According to the perfs</a>, the underscore version is two or three times faster than the jQuery version. The lodash version, which looks exactly the same as the underscore version is about 4 times as fast as jQuery in most browsers.</p>
+<p>My personal preference is not to use jQuery for utility methods. JQuery does a great job with traversing the DOM and normalizing browser interaction, but I personally prefer to leave lower-level utilities to something else, such as lodash that only focuses on providing utility fast methods. End of rant.</p>
+<p>In the end, I would say that the native <code>forEach</code> and the lodash <code>_.each</code> method are the most readable. ForEach is problematic in the browser because of backwards compatibility. <code>_.each</code> is not quite as fast because it is not native and every level of abstraction inevitably gives you a performance hit.</p>
+<p>In most smaller apps, <code>_.each</code> should be sufficient. If you are working on something with a ton of looping where performance is vital, the while loop is a pretty solid choice, although you may take a small maintainability hit with it. When I'm working on a server-side service, I usually go with <code>forEach</code> because it works everywhere and it is readable and pretty fast.</p>
+<p>In the end, the main thing is consistency. All of these options have their pros and cons, but the last thing you want is to randomly select different choices throughout a project. When you use one of these methods, make sure you know why one is better than the others.</p>
+<p>What do you think? How do you weigh the options when it comes to deciding between maintainability, performance and browser support?</p>
+</div>
+            </section>
+
+            <section class="subscribe-form">
+                <h3 class="subscribe-form-title">Subscribe to Tyson Cadenhead</h3>
+                <p>Get the latest posts delivered right to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+            </section>
+
+            <footer class="post-full-footer">
+
+                <section class="author-card">
+                        <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></h4>
+                            <p>Read <a href="../author/tysoncadenhead/">more posts</a> by this author.</p>
+                    </section>
+                </section>
+                <div class="post-full-footer-right">
+                    <a class="author-card-button" href="../author/tysoncadenhead/">Read More</a>
+                </div>
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post">
+        <a class="post-card-image-link" href="../how-to-organize-a-meteor-app/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/4-3.png)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../how-to-organize-a-meteor-app/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">How To Organize A Meteor App</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Meteor is a really nice framework for building real-time applications. The example application shows off how easy it is to share code between the server and client by putting the code inside a</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post">
+        <a class="post-card-image-link" href="../dependency-injection-with-squire-and-sinon/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/6-3.png)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../dependency-injection-with-squire-and-sinon/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">Dependency Injection With Squire and Sinon</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Unit testing in JavaScript can be difficult sometimes. Typically, you only want to test the behavior of a single module, but if you are using an AMD loader like RequireJS, you may be</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="../">
+            <span>Tyson Cadenhead</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">There Is More Than One Way To Loop Over A Cat</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=There%20Is%20More%20Than%20One%20Way%20To%20Loop%20Over%20A%20Cat&url=http://tysoncadenhead.com/there-is-more-than-one-way-to-loop-a-cat/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://tysoncadenhead.com/there-is-more-than-one-way-to-loop-a-cat/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../">Tyson Cadenhead</a> &copy; 2017</section>
+                <nav class="site-footer-nav">
+                    <a href="../">Latest Posts</a>
+                    <a href="https://www.facebook.com/tysoncadenhead" target="_blank">Facebook</a>
+                    <a href="https://twitter.com/tysoncadenhead" target="_blank">Twitter</a>
+                    <a href="https://ghost.org" target="_blank">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+        <div class="subscribe-overlay-content">
+                <img class="subscribe-overlay-logo" src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead">
+            <h1 class="subscribe-overlay-title">Subscribe to Tyson Cadenhead</h1>
+            <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+            <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js"></script>
+
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19696495-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+</body>
+</html>

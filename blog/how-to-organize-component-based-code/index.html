@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>How To Organize a Component-Based Application</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css">
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://tysoncadenhead.com/how-to-organize-component-based-code/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://tysoncadenhead.com/how-to-organize-component-based-code/amp/">
+    
+    <meta property="og:site_name" content="Tyson Cadenhead">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How To Organize a Component-Based Application">
+    <meta property="og:description" content="Like nothing else out there, React has gotten me thinking of my code as a series of modules that are glued together to make a larger application. This has always been an ideal to reach for, but their focus on unidirectional data-flow has forced me to rethink the way I">
+    <meta property="og:url" content="http://tysoncadenhead.com/how-to-organize-component-based-code/">
+    <meta property="og:image" content="../content/images/2017/09/1-27.jpg">
+    <meta property="article:published_time" content="2015-11-01T09:01:00.000Z">
+    <meta property="article:modified_time" content="2017-09-20T03:47:12.000Z">
+    <meta property="article:publisher" content="https://www.facebook.com/tysoncadenhead">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How To Organize a Component-Based Application">
+    <meta name="twitter:description" content="Like nothing else out there, React has gotten me thinking of my code as a series of modules that are glued together to make a larger application. This has always been an ideal to reach for, but their focus on unidirectional data-flow has forced me to rethink the way I">
+    <meta name="twitter:url" content="http://tysoncadenhead.com/how-to-organize-component-based-code/">
+    <meta name="twitter:image" content="http://tysoncadenhead.com/content/images/2017/09/1-27.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Tyson Cadenhead">
+    <meta name="twitter:site" content="@tysoncadenhead">
+    <meta property="og:image:width" content="1391">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tyson Cadenhead",
+        "logo": "http://tysoncadenhead.com/content/images/2017/09/1-2.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyson Cadenhead",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "http://tysoncadenhead.com/author/tysoncadenhead/",
+        "sameAs": []
+    },
+    "headline": "How To Organize a Component-Based Application",
+    "url": "http://tysoncadenhead.com/how-to-organize-component-based-code/",
+    "datePublished": "2015-11-01T09:01:00.000Z",
+    "dateModified": "2017-09-20T03:47:12.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://tysoncadenhead.com/content/images/2017/09/1-27.jpg",
+        "width": 1391,
+        "height": 800
+    },
+    "description": "Like nothing else out there, React has gotten me thinking of my code as a series of modules that are glued together to make a larger application. This has always been an ideal to reach for, but their focus on unidirectional data-flow has forced me to rethink the way I",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://tysoncadenhead.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "f70092546f32"
+});
+</script>
+    <meta name="generator" content="Ghost 1.8">
+    <link rel="alternate" type="application/rss+xml" title="Tyson Cadenhead" href="http://tysoncadenhead.com/rss/">
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="../"><img src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead"></a>
+            <ul class="nav">
+    <li class="nav-blog" role="presentation"><a href="../">Blog</a></li>
+    <li class="nav-about-me" role="presentation"><a href="../about/">About Me</a></li>
+</ul>
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+                <a class="social-link social-link-fb" href="https://www.facebook.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+                <a class="social-link social-link-tw" href="https://twitter.com/tysoncadenhead" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+        </div>
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <figure class="post-full-image" style="background-image: url(../content/images/2017/09/1-27.jpg)">
+    </figure>
+    <div class="inner">
+
+        <article class="post-full post ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2015-11-01">1 November 2015</time>
+                </section>
+                <h1 class="post-full-title">How To Organize a Component-Based Application</h1>
+            </header>
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><p>Like nothing else out there, React has gotten me thinking of my code as a series of modules that are glued together to make a larger application. This has always been an ideal to reach for, but their focus on unidirectional data-flow has forced me to rethink the way I structure my code in a really positive way. It's no wonder that even Angular 2.0 is using a similar component-based architecture for rendering UI. It just makes sense! Today, I'm going to walk through how I have been organizing my components. This approach makes each module easy to find when I need it.</p>
+<!-- more -->
+<h2 id="werejusttalkingaboutcomponents">We're Just Talking About Components</h2>
+<p>I want to make it clear from the beginning that this is not a post on how I organize my data models. I feel that this is way outside of the scope of this article.</p>
+<h2 id="aplaceforeverythingandeverythinginitsplace">A Place For Everything and Everything In Its Place</h2>
+<p>Keeping an organized code base is not unlike organizing a room in real-life. The secret is to have a place where every type of thing goes. If I know that my keys go in a bowl on my dresser and my clothes go in the closet, I don't have to deal with the cognitive overhead of figuring out where to put them each time I need to set down my keys or put away my clothes.</p>
+<p>In the same way, if I know that components of one type go in a certain folder and components of a different type go in a different folder, I don't have to guess where they go every time I write a new component. For a large application, we should also avoid the temptation to just make a big catch-all folder called something like “components“ where we throw everything. That would be like saying that I organize my room by throwing all of my stuff in a pile. There are different types of components with different jobs and if we can distinguish between them, life will be much better.</p>
+<h2 id="sowhatfoldersdoiactuallyhave">So, What Folders Do I Actually Have?</h2>
+<p>In addition to directories for data modeling, routing and utilities, I have split my code into 5 distinct component directories. Inside each of these directories, each of my components is a folder that looks something like this:</p>
+<pre><code>/Person
+   _Person.scss
+   index.js
+   Person.jsx
+</code></pre>
+<p>All of our component folders contain an <code>index.js</code> file that does nothing but require the related <code>.jsx</code> file. This makes it look nicer when we require a file from a different component. We can require something like <code>components/Person</code> instead of <code>components/Person/Person.jsx</code>, but we still have the benefit of having the fully-named <code>.jsx</code> for quick reference in our text editors.</p>
+<p>We use WebPack, so we are able to require CSS files inside our modules. This makes it easier to bundle stylesheets and components together since they are related to each other.</p>
+<p>Some components will need other components nested inside them. If the nested component is only used by the parent component, we make it a sub-directory of the parent. We only let the children go one level deep, which means that if a child component contains a component, it will be a sibling in the folder structure. If a component is a child of two separate components, it is always moved up to the top level so that we never require a <code>.jsx</code> file that is outside the component folder.</p>
+<p>Here are the basic directories that have worked for our particular project:</p>
+<h3 id="ui">/ui</h3>
+<p>We actually keep UI in a completely separate repository so that these components can be shared across projects. These are the lowest-level components possible. They are typically stateless, or dumb components that render based on the props that are passed down into them. They can also trigger callbacks from the props the receive if needed. These components should contain no business logic to the point where we could actually open-source each component if needed.</p>
+<h3 id="components">/components</h3>
+<p>These typically sit on top of the UI components and pass data into them and respond to callbacks from them. They typically do contain state. As often as possible, they should not need to render anything except the UI components underneath them. This level of separation keeps the business logic out of the UI components and the rendering logic out of the components on top of them.</p>
+<h3 id="pages">/pages</h3>
+<p>Pages are actual routes that can be navigated to. These are typically composed of multiple components from the <code>/components</code> directory. They may pass some state down to the components. They are typically just concerned with laying out the components in a certain order and instantiating them with props.</p>
+<h3 id="layouts">/layouts</h3>
+<p>These are classes that are meant to be extended by the pages, they wrap the pages and rely on the page to render the majority of the display. For example, a listing layout might expect the page to pass in the data and layout information for a list of things and then render a table with the list in hand. The layouts should never be aware of what data or types of data are being passed in, you can think of them as the base class for the pages.</p>
+<h3 id="modals">/modals</h3>
+<p>Modals turned out to be different enough from other types of components to warrant their own directory. They are not unlike pages in that they typically arrange components and pass props down into them, but there are not routes to modal windows, so they are not technically pages, so it seemed natural to give them their own directory.</p>
+<p>Our current architecture could definitely be tweaked, but it is certainly a marked improvement from the strict MVC approach I have taken in the past with client-side application development. How are you organizing your modules? Is there anything that you would do differently?</p>
+</div>
+            </section>
+
+            <section class="subscribe-form">
+                <h3 class="subscribe-form-title">Subscribe to Tyson Cadenhead</h3>
+                <p>Get the latest posts delivered right to your inbox</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+            </section>
+
+            <footer class="post-full-footer">
+
+                <section class="author-card">
+                        <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></h4>
+                            <p>Read <a href="../author/tysoncadenhead/">more posts</a> by this author.</p>
+                    </section>
+                </section>
+                <div class="post-full-footer-right">
+                    <a class="author-card-button" href="../author/tysoncadenhead/">Read More</a>
+                </div>
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post">
+        <a class="post-card-image-link" href="../where-should-i-put-javascript-unit-tests/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/1-26.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../where-should-i-put-javascript-unit-tests/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">Where Should I Put JavaScript Unit Tests?</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Over the years, I have experimented with putting my JavaScript unit tests in several different locations in my applications. A few years ago, I was very into trying to make an MVC paradigm</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post">
+        <a class="post-card-image-link" href="../what-is-es6-destructuring/">
+            <div class="post-card-image" style="background-image: url(../content/images/2017/09/1-28.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../what-is-es6-destructuring/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">What Is ES6 Destructuring?</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>One interesting new feature that ES6 brings us is something called “destructuring.“ Destructuring can be used to pull certain parts of an object out of an object and assign those parts to a</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="//www.gravatar.com/avatar/283773207d6e2c2b9f2a86f7088a7328?s=250&d=mm&r=x" alt="Tyson Cadenhead">
+            <span class="post-card-author"><a href="../author/tysoncadenhead/">Tyson Cadenhead</a></span>
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="../">
+            <span>Tyson Cadenhead</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">How To Organize a Component-Based Application</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=How%20To%20Organize%20a%20Component-Based%20Application&url=http://tysoncadenhead.com/how-to-organize-component-based-code/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://tysoncadenhead.com/how-to-organize-component-based-code/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../">Tyson Cadenhead</a> &copy; 2017</section>
+                <nav class="site-footer-nav">
+                    <a href="../">Latest Posts</a>
+                    <a href="https://www.facebook.com/tysoncadenhead" target="_blank">Facebook</a>
+                    <a href="https://twitter.com/tysoncadenhead" target="_blank">Twitter</a>
+                    <a href="https://ghost.org" target="_blank">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+        <div class="subscribe-overlay-content">
+                <img class="subscribe-overlay-logo" src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead">
+            <h1 class="subscribe-overlay-title">Subscribe to Tyson Cadenhead</h1>
+            <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+            <form method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
+    </div>
+    <button class="" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js"></script>
+
+
+    
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19696495-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+</body>
+</html>
