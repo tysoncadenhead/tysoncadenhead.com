@@ -40,7 +40,27 @@ into the {body} of the default.hbs template --}}
             <section class="subscribe-form">
                 <h3 class="subscribe-form-title">Subscribe to {{@blog.title}}</h3>
                 <p>Get the latest posts delivered right to your inbox</p>
-                {{subscribe_form placeholder="youremail@example.com"}}
+                <!-- Begin MailChimp Signup Form -->
+                <div id="mc_embed_signup">
+                <form action="//tysoncadenhead.us9.list-manage.com/subscribe/post?u=97e25799111f2cec4dc714a43&amp;id=501ae643d4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    
+                    <div class="form-group">
+                        <input type="email" value="" name="EMAIL" class="subscribe-email" id="mce-EMAIL" placeholder="youremail@example.com">
+                    </div>
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_97e25799111f2cec4dc714a43_501ae643d4" tabindex="-1" value=""></div>
+                        <div class="clear">
+                            <button type="submit" name="subscribe" id="mc-embedded-subscribe">
+                                <span>Subscribe</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!--End mc_embed_signup-->
             </section>
             {{/if}}
 
