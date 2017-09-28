@@ -6,6 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>LocalStorage with Amplify.js</title>
+    <meta name="google-site-verification" content="AeV4w7EOhEv3lU1OT8KOM7jRS0C6jDAsZyMaG38t1g4">
+    
+    <meta property="og:image" content="">
+    <meta property="og:title" content="LocalStorage with Amplify.js">
+    <meta property="og:url" content="http://tysoncadenhead.com">
+    <meta property="og:site_name" content="Tyson Cadenhead">
+    <meta property="og:description" content="LocalStorage with Amplify.js">
+
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -170,17 +178,27 @@ console.log(myName); // undefined
             <section class="subscribe-form">
                 <h3 class="subscribe-form-title">Subscribe to Tyson Cadenhead</h3>
                 <p>Get the latest posts delivered right to your inbox</p>
-                <form method="post" action="/subscribe/" class="">
-    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+                <!-- Begin MailChimp Signup Form -->
+                <div id="mc_embed_signup">
+                <form action="//tysoncadenhead.us9.list-manage.com/subscribe/post?u=97e25799111f2cec4dc714a43&amp;id=501ae643d4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    
+                    <div class="form-group">
+                        <input type="email" value="" name="EMAIL" class="subscribe-email" id="mce-EMAIL" placeholder="youremail@example.com">
+                    </div>
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_97e25799111f2cec4dc714a43_501ae643d4" tabindex="-1" value=""></div>
+                        <div class="clear">
+                            <button type="submit" name="subscribe" id="mc-embedded-subscribe">
+                                <span>Subscribe</span>
+                            </button>
+                        </div>
+                    </form></div>
+                
 
-    <div class="form-group">
-        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
-    </div>
-    <button class="" type="submit"><span>Subscribe</span></button>
-    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
-</form>
-
-
+                <!--End mc_embed_signup-->
             </section>
 
             <footer class="post-full-footer">
@@ -302,15 +320,27 @@ console.log(myName); // undefined
                 <img class="subscribe-overlay-logo" src="../content/images/2017/09/1-2.png" alt="Tyson Cadenhead">
             <h1 class="subscribe-overlay-title">Subscribe to Tyson Cadenhead</h1>
             <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
-            <form method="post" action="/subscribe/" class="">
-    <input class="confirm" type="hidden" name="confirm"><input class="location" type="hidden" name="location"><input class="referrer" type="hidden" name="referrer">
+            
+            <!-- Begin MailChimp Signup Form -->
+            <div id="mc_embed_signup">
+            <form action="//tysoncadenhead.us9.list-manage.com/subscribe/post?u=97e25799111f2cec4dc714a43&amp;id=501ae643d4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                <div id="mc_embed_signup_scroll">
+                
+            <div class="mc-field-group">
+                <label for="mce-EMAIL">Email Address </label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+            </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_97e25799111f2cec4dc714a43_501ae643d4" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+            </div>
 
-    <div class="form-group">
-        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com">
-    </div>
-    <button class="" type="submit"><span>Subscribe</span></button>
-    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
-</form>
+            <!--End mc_embed_signup-->
 
 
         </div>
@@ -335,6 +365,13 @@ console.log(myName); // undefined
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
+</script>
+
+<script type="text/javascript">
+    $('.subscribe-button').click((e) => {
+        e.preventDefault();
+        document.location.href = 'http://eepurl.com/c49YyL';
+    });
 </script>
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
