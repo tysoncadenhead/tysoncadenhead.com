@@ -1961,3 +1961,7 @@ Usage (In Ghost editor):
     float: left;
     clear: both;
 }
+
+#disqus_thread {
+    margin-bottom: 100px;
+}
