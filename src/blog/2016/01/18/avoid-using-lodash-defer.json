@@ -1,0 +1,6 @@
+{
+    "title": "Avoid Using _.defer()",
+    "tags": ["javascript"],
+    "category": "code",
+    "preview": "We've all be there. You're trying to get a certain block of code to execute after everything else is done. If it executes too soon, you won't get it to do the thing you want it to. Lodash.defer() to the rescue! Just wrap the code that you want to execute last in an `_.defer()` method and it will wait until everything on the current call stack has completed and then execute your desired code. Problem solved. Or was it?"
+}
