@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "TysonCadenhead.com",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "node ./scripts/build",
+    "server": "npm run build; node ./scripts/watch & node ./scripts/server"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tysoncadenhead/tysoncadenhead.com.git"
@@ -15,8 +18,10 @@
   },
   "homepage": "https://github.com/tysoncadenhead/tysoncadenhead.com#readme",
   "devDependencies": {
+    "browser-sync": "^2.24.4",
     "handlebars": "^4.0.11",
     "marked": "^0.3.19",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "node-watch": "^0.5.8"
   }
 }
