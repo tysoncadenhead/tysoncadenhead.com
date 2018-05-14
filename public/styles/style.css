@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #000;
+    display: block;
+    position: fixed;
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header navigation {
+    margin-right: 52px;
+}
+
+header navigation ul {
+    display: flex;
+}
+
+header navigation li {
+    padding-right: 12px;
+}
+
+header navigation a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+header .logo {
+    height: 30px;
+    margin-left: 32px;
+}
+
+main {
+    padding: 50px;
+    padding-top: 50px;
+}
+
+main h1 {
+    font-size: 2em;
+}
+
+main h2 {
+    font-size: 1.6em;
+}
+
+main h3 {
+    font-size: 1.4em;
+}
+
+main h4 {
+    font-size: 1.2em;
+}
+
+main h5 {
+    font-size: 1.1em;
+}
+
+main a {
+    color: #444444;
+}
+
+main img {
+    max-width: 100%;
+}
+
+p {
+    margin-bottom: 24px;
+    margin-top: 24px;
+    line-height: 1.6em;
+}
+
+.blogpost-header {
+    display: flex;
+    flex-direction: row;
+    padding-top: 42px;
+    padding-bottom: 18px;
+    align-items: center;
+}
+
+.blogpost-header .thumbnail {
+    width: 100px;
+    height: 100px;
+    border: solid 2px #333;
+    border-radius: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
+.blogpost-header div.title {
+    font-size: 1.4em;
+}
+
+.blogpost-header .title {
+    padding-left: 18px;
+}
+
+.blogpost-header .title a {
+    text-decoration: none;
+}
+
+.blogpost-header .date {
+    padding-left: 18px;
+    padding-top: 12px;
+}
+
+.blogposts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.blogposts .blogpost-header {
+    width: 32%;
+    padding-right: 1.33%;
+}
+
+@media (max-width: 1024px) {
+    .blogposts .blogpost-header {
+        width: 48%;
+        padding-right: 2%;
+    }
+}
+
+@media (max-width: 754px) {
+    .blogposts .blogpost-header {
+        width: 100%;
+    }
+}
+
+.series-placement {
+    padding: 18px;
+    background-color: #CCC;
+    border: dashed 1px #AAA;
+}
+
+.series-placement h4 {
+    font-size: 11px;
+    margin-top: 18px;
+}
+
+.subscribe-form {
+    margin-top: 48px;
+    border-top: solid 1px #CCC;
+    padding-top: 48px;
+    border-bottom: solid 1px #CCC;
+    padding-bottom: 48px;
+}
+
+.subscribe-form form {
+    display: flex;
+}
+
+.subscribe-form input {
+    font-size: 1.2em;
+    padding: 12px;
+    border: solid 1px #CCC;
+}
+
+.subscribe-form button {
+    font-size: 1.2em;
+    background-color: green;
+    border: 0px;
+    color: #FFF;
+    padding: 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+#disqus_thread {
+    margin-top: 48px;
+}
+
+/* Code */
+code {
+    font-family: monospace; 
+    color: #666;
+}
+
+pre {
+    background-color: #EEE;
+    padding: 18px;
+    overflow: auto;
+    border: solid 1px #CCC;
+    font-size: 16px;
+    margin-bottom: 32px;
+}

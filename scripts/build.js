@@ -1,5 +1,5 @@
-const compileBlogPosts = require('./compileBlogPosts');
+const compile = require('./compile');
 const copyAssets = require('./copyAssets');
 
-compileBlogPosts();
+compile();
 copyAssets();

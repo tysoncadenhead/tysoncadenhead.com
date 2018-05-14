@@ -4,7 +4,7 @@ One thing I've been doing over the past few months that has both made my object 
 
 In the olden days, I would typically use a `for in` loop like this:
 
-```
+```javascript
 const obj = {
     name: 'Gandalf',
     job: 'Wizard',
@@ -25,7 +25,7 @@ Not the best, but not the worst. The silly part was that I had to wrap each iter
 
 Luckily, with a combination of `forEach()` and `Object.keys()`, looping over keys in an object can be much nicer:
 
-```
+```javascript
 Object.keys(obj).forEach((key) => {
     console.log(obj[key]);
 });
@@ -35,7 +35,7 @@ You see, `Object.keys()` creates an array of the object keys, and then we can lo
 
 For example, we could use this methodology to filter out on the keys on the object that contain a string type and map the results into an array:
 
-```
+```javascript
 const strings = Object.keys(obj).filter((key) => {
     return typeof obj[key] === 'string';
 }).map((key) => {
@@ -47,7 +47,7 @@ console.log(strings); // ['Gandalf', 'Wizard'];
 
 That is much more readable than using a for in loop:
 
-```
+```javascript
 let strings = [];
 for (let key in obj) {
     if (obj.hasOwnProperty(key)) {

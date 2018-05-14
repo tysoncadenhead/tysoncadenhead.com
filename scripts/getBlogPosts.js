@@ -33,7 +33,9 @@ const getBlogPosts = () => {
                             month: month,
                             day: day,
                             path: `/blog/${year}/${month}/${day}`,
-                            post: post
+                            date: `${month}/${day}/${year}`,
+                            post: post,
+                            thumbnail: config.thumbnail || `/images/blog/${fileName}.jpg`
                         }));
                 }   );
 

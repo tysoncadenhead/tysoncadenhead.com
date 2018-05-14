@@ -1,0 +1,6 @@
+{
+    "/": "index",
+    "/about": "about",
+    "/blog": "blog",
+    "/blog/:page": "blog"
+}

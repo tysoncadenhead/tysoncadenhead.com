@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./scripts/build",
-    "server": "npm run build; node ./scripts/watch & node ./scripts/server"
+    "server": "npm run build; node ./scripts/watch & node ./scripts/server",
+    "deploy": "./node_modules/.bin/push-dir --dir=dist --branch=gh-pages",
+    "publish": "npm run build; npm run deploy"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "handlebars": "^4.0.11",
     "marked": "^0.3.19",
     "mkdirp": "^0.5.1",
-    "node-watch": "^0.5.8"
+    "node-watch": "^0.5.8",
+    "push-dir": "^0.4.1"
   }
 }
