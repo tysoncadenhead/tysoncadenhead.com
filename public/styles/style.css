@@ -2,21 +2,45 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: #444;
+}
+
+.header-image {
+    height: 700px;
+    width: 100%;
+    background-color: #fcd779;
+    background-image: url(/images/header2.png);
+    background-attachment: fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
 }
 
 header {
-    background-color: #000;
+    background-color: #444;
     display: block;
-    position: fixed;
     width: 100%;
-    padding: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 52px;
+    z-index: 3;
+}
+
+.header-container {
+    height: 52px;
+}
+
+.header-container.stick header {
+    position: fixed;
+    top: 0;
 }
 
 header navigation {
-    margin-right: 52px;
+    margin-right: 32px;
+    padding: 12px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 }
 
 header navigation ul {
@@ -87,14 +111,23 @@ p {
 .blogpost-header .thumbnail {
     width: 100px;
     height: 100px;
-    border: solid 2px #333;
-    border-radius: 50px;
+    border: solid 4px #333;
+    border-radius: 54px;
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+
+.blogpost-header .thumbnail {
+    border-color: #81acaa;
 }
 
 .blogpost-header div.title {
     font-size: 1.4em;
+}
+
+.title a {
+    color: #6D303C;
 }
 
 .blogpost-header .title {
@@ -126,11 +159,24 @@ p {
         width: 48%;
         padding-right: 2%;
     }
+
+    .header-image  {
+        height: 400px;
+    }
+
+    header navigation {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
 }
 
-@media (max-width: 754px) {
+@media (max-width: 900px) {
     .blogposts .blogpost-header {
         width: 100%;
+    }
+
+    .header-image {
+        height: 200px;
     }
 }
 
@@ -165,7 +211,7 @@ p {
 
 .subscribe-form button {
     font-size: 1.2em;
-    background-color: green;
+    background-color: #81acaa;
     border: 0px;
     color: #FFF;
     padding: 12px;

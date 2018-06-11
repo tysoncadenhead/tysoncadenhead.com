@@ -1,11 +1,13 @@
 {{> _header}}
     <section class="blogpost-header">
-        <a href="{{path}}" title="{{{title}}}">
-            <div class="thumbnail" style="background-image: url({{{thumbnail}}})"></div>
-        </a>
+        <div>
+            <div class="thumbnail" style="background-image: url({{{thumbnail}}})">
+                <div class="thumbnail-overlay"></div>
+            </div>
+        </div>
         <div class="blogpost-text">
             <h1 class="title">
-                <a href="{{path}}" title="{{{title}}}">{{{title}}}</a>
+                {{{title}}}
             </h1>
             <div class="date">{{{date}}}</div>
         </div>

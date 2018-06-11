@@ -8,6 +8,7 @@ const copyAssets = () => {
         mkdir -p ${BUILD_DIR}; 
         cp -a public/images ${BUILD_DIR};
         cp -a public/styles ${BUILD_DIR};
+        cp -a public/js ${BUILD_DIR};
         cp public/favicon.ico ${BUILD_DIR}/favicon.ico;
         cp public/feed.xml ${BUILD_DIR}/feed.xml;
         cp public/robots.txt ${BUILD_DIR}/robots.txt;
