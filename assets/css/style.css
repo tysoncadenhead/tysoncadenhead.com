@@ -1,0 +1,85 @@
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex: 1;
+  font-family: "Lato", sans-serif;
+}
+
+a {
+  color: #333;
+}
+
+a:hover {
+  color: #000;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.tyson-photo {
+  background-image: url("/assets/images/tyson.jpg");
+  background-size: cover;
+  background-position: center 0px;
+  flex: 1;
+}
+
+.content {
+  width: 350px;
+  display: flex;
+  align-items: center;
+}
+
+.about {
+  padding: 32px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.social {
+  padding-top: 7px;
+}
+
+.social a {
+  margin-right: 7px;
+}
+
+.social img {
+  width: 32px;
+  opacity: 0.75;
+}
+
+.social img:hover {
+  opacity: 1;
+}
+
+.blog-button {
+  background: #38d29e;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 7px;
+  display: block;
+  text-decoration: none;
+  margin-bottom: 24px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.blog-button:hover {
+  color: #d0f0e6;
+}
+
+@media (max-width: 750px) {
+  .main {
+    flex-direction: column;
+  }
+}
